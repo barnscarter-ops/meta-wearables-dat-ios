@@ -1,8 +1,7 @@
 ---
-description: StreamSession, video frames, photo capture, resolution/frame rate configuration
+description: Stream, video frames, photo capture, resolution/frame rate configuration
 globs: **/*Stream*, **/*Camera*, **/*Video*
 ---
-
 
 # Camera Streaming (iOS)
 
@@ -10,12 +9,12 @@ Guide for implementing camera streaming and photo capture with the DAT SDK.
 
 ## Key concepts
 
-- **StreamSession**: Main interface for camera streaming
+- **Stream**: Main interface for camera streaming
 - **VideoFrame**: Individual video frames — call `.makeUIImage()` to render
-- **StreamSessionConfig**: Configure resolution, frame rate, and codec
+- **StreamConfiguration**: Configure resolution, frame rate, and codec
 - **PhotoData**: Still image captured from glasses
 
-## Creating a StreamSession
+## Creating a DeviceSession
 
 ```swift
 import MWDATCamera
@@ -23,17 +22,31 @@ import MWDATCore
 
 let wearables = Wearables.shared
 let deviceSelector = AutoDeviceSelector(wearables: wearables)
+// Or for a specific device: SpecificDeviceSelector(device: deviceId)
+let deviceSession = try wearables.createSession(deviceSelector: deviceSelector)
+try deviceSession.start()
 
-let config = StreamSessionConfig(
+// Wait for the device session to reach the started state
+for await state in deviceSession.stateStream() {
+    if state == .started { break }
+}
+```
+
+## Adding a Stream
+
+Once the `DeviceSession` is started, add a `Stream` capability:
+
+```swift
+let config = StreamConfiguration(
     videoCodec: .raw,
     resolution: .medium,  // 504x896
     frameRate: 24
 )
 
-let session = StreamSession(
-    streamSessionConfig: config,
-    deviceSelector: deviceSelector
-)
+guard let stream = try deviceSession.addStream(config: config) else {
+    // DeviceSession must be in the started state before adding a stream
+    return
+}
 ```
 
 ### Resolution options
@@ -52,10 +65,10 @@ Lower resolution and frame rate yield higher visual quality due to less Bluetoot
 
 ## Observing stream state
 
-`StreamSessionState` transitions: `stopping` → `stopped` → `waitingForDevice` → `starting` → `streaming` → `paused`
+`StreamState` transitions: `stopping` → `stopped` → `waitingForDevice` → `starting` → `streaming` → `paused`
 
 ```swift
-let stateToken = session.statePublisher.listen { state in
+let stateToken = stream.statePublisher.listen { state in
     Task { @MainActor in
         switch state {
         case .streaming:
@@ -76,7 +89,7 @@ let stateToken = session.statePublisher.listen { state in
 ## Receiving video frames
 
 ```swift
-let frameToken = session.videoFramePublisher.listen { frame in
+let frameToken = stream.videoFramePublisher.listen { frame in
     guard let image = frame.makeUIImage() else { return }
     Task { @MainActor in
         self.previewImage = image
@@ -87,11 +100,14 @@ let frameToken = session.videoFramePublisher.listen { frame in
 ## Starting and stopping
 
 ```swift
-// Start streaming
-Task { await session.start() }
+// Start the stream capability
+Task { await stream.start() }
 
 // Stop streaming
-Task { await session.stop() }
+Task { await stream.stop() }
+
+// Stop the parent device session when you're done with all capabilities
+deviceSession.stop()
 ```
 
 ## Photo capture
@@ -100,13 +116,13 @@ Capture a still photo while streaming:
 
 ```swift
 // Listen for photo data
-let photoToken = session.photoDataPublisher.listen { photoData in
+let photoToken = stream.photoDataPublisher.listen { photoData in
     let imageData = photoData.data
     // Convert to UIImage or save
 }
 
 // Trigger capture
-session.capturePhoto(format: .jpeg)
+stream.capturePhoto(format: .jpeg)
 ```
 
 ## Bandwidth and quality
@@ -117,20 +133,8 @@ Resolution and frame rate are constrained by Bluetooth Classic bandwidth. The SD
 
 Request lower settings for higher visual quality per frame.
 
-## Device selection
-
-Use `AutoDeviceSelector` to let the SDK pick the best device, or `SpecificDeviceSelector` for a known device:
-
-```swift
-// Auto-select
-let auto = AutoDeviceSelector(wearables: wearables)
-
-// Specific device
-let specific = SpecificDeviceSelector(deviceIdentifier: deviceId)
-```
-
 ## Links
 
-- [StreamSession API reference](https://wearables.developer.meta.com/docs/reference/ios_swift/dat/0.6/mwdatcamera_streamsession)
-- [StreamSessionConfig API reference](https://wearables.developer.meta.com/docs/reference/ios_swift/dat/0.6/mwdatcamera_streamsessionconfig)
+- [Stream API reference](https://wearables.developer.meta.com/docs/reference/ios_swift/dat/0.7/mwdatcamera_stream)
+- [StreamConfiguration API reference](https://wearables.developer.meta.com/docs/reference/ios_swift/dat/0.7/mwdatcamera_streamconfiguration)
 - [Integration guide](https://wearables.developer.meta.com/docs/build-integration-ios)

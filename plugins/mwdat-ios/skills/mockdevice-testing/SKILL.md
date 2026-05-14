@@ -1,12 +1,11 @@
 ---
+name: mockdevice-testing
 description: MockDeviceKit for testing without physical glasses hardware
 ---
 
 # MockDevice Testing (iOS)
 
-Guide for testing DAT SDK integrations without physical Meta glasses.
-
-## Overview
+Use MockDeviceKit to test DAT SDK integrations without physical Meta glasses.
 
 MockDeviceKit simulates Meta glasses behavior for development and testing. It provides:
 - `MockDeviceKit` — Entry point for creating simulated devices
@@ -36,14 +35,30 @@ let mockDevice = mockDeviceKit.pairRaybanMeta()
 
 ```swift
 // Simulate glasses lifecycle
-await mockDevice.powerOn()
-await mockDevice.unfold()
-await mockDevice.don()    // Simulate wearing the glasses
+mockDevice.powerOn()
+mockDevice.unfold()
+mockDevice.don()    // Simulate wearing the glasses
 
 // Later...
-await mockDevice.doff()   // Simulate removing
-await mockDevice.fold()
-await mockDevice.powerOff()
+mockDevice.doff()   // Simulate removing
+mockDevice.fold()
+mockDevice.powerOff()
+```
+
+## Configuring permissions
+
+MockDeviceKit provides `permissions` to control permission behavior without the Meta AI app.
+
+By default, `requestPermission()` returns `.granted`. Use `set(_:_:)` to control `checkPermissionStatus()` and `setRequestResult(_:result:)` to control `requestPermission()` outcomes.
+
+```swift
+let mockDeviceKit = MockDeviceKit.shared
+
+// Simulate denied camera permission status
+mockDeviceKit.permissions.set(.camera, .denied)
+
+// Simulate denied request result (user tapping "deny")
+mockDeviceKit.permissions.setRequestResult(.camera, result: .denied)
 ```
 
 ## Setting up mock camera feeds

@@ -15,20 +15,24 @@
 //
 
 import MWDATCore
+import Observation
 import SwiftUI
 
+@Observable
 @MainActor
-class WearablesViewModel: ObservableObject {
-  @Published var devices: [DeviceIdentifier]
-  @Published var registrationState: RegistrationState
-  @Published var showGettingStartedSheet: Bool = false
-  @Published var showError: Bool = false
-  @Published var errorMessage: String = ""
+class WearablesViewModel {
+  var devices: [DeviceIdentifier]
+  var registrationState: RegistrationState
+  var showGettingStartedSheet: Bool = false
+  var showError: Bool = false
+  var errorMessage: String = ""
+  var requiresFirmwareUpdate: Bool = false
 
-  private var registrationTask: Task<Void, Never>?
-  private var deviceStreamTask: Task<Void, Never>?
-  private var setupDeviceStreamTask: Task<Void, Never>?
+  @ObservationIgnored private var registrationTask: Task<Void, Never>?
+  @ObservationIgnored private var deviceStreamTask: Task<Void, Never>?
+  @ObservationIgnored private var setupDeviceStreamTask: Task<Void, Never>?
   private let wearables: WearablesInterface
+  private var deviceCompatibility: [DeviceIdentifier: Compatibility] = [:]
   private var compatibilityListenerTokens: [DeviceIdentifier: AnyListenerToken] = [:]
 
   init(wearables: WearablesInterface) {
@@ -52,7 +56,7 @@ class WearablesViewModel: ObservableObject {
     }
   }
 
-  deinit {
+  isolated deinit {
     registrationTask?.cancel()
     deviceStreamTask?.cancel()
     setupDeviceStreamTask?.cancel()
@@ -76,20 +80,25 @@ class WearablesViewModel: ObservableObject {
     // Remove listeners for devices that are no longer present
     let deviceSet = Set(devices)
     compatibilityListenerTokens = compatibilityListenerTokens.filter { deviceSet.contains($0.key) }
+    deviceCompatibility = deviceCompatibility.filter { deviceSet.contains($0.key) }
+    updateFirmwareUpdateRequired()
 
     // Add listeners for new devices
     for deviceId in devices {
       guard compatibilityListenerTokens[deviceId] == nil else { continue }
       guard let device = wearables.deviceForIdentifier(deviceId) else { continue }
+      deviceCompatibility[deviceId] = device.compatibility()
+      updateFirmwareUpdateRequired()
 
       // Capture device name before the closure to avoid Sendable issues
       let deviceName = device.nameOrId()
       let token = device.addCompatibilityListener { [weak self] compatibility in
-        guard let self else { return }
-        if compatibility == .deviceUpdateRequired {
-          Task { @MainActor in
-            self.showError("Device '\(deviceName)' requires an update to work with this app")
-          }
+        Task { [weak self] in
+          await self?.handleCompatibilityChange(
+            compatibility,
+            deviceId: deviceId,
+            deviceName: deviceName
+          )
         }
       }
       compatibilityListenerTokens[deviceId] = token
@@ -121,6 +130,22 @@ class WearablesViewModel: ObservableObject {
     }
   }
 
+  func openFirmwareUpdate() async {
+    do {
+      try await wearables.openFirmwareUpdate()
+    } catch {
+      showError(error.description)
+    }
+  }
+
+  func openDATGlassesAppUpdate() async {
+    do {
+      try await wearables.openDATGlassesAppUpdate()
+    } catch {
+      showError(error.description)
+    }
+  }
+
   func showError(_ error: String) {
     errorMessage = error
     showError = true
@@ -128,5 +153,21 @@ class WearablesViewModel: ObservableObject {
 
   func dismissError() {
     showError = false
+  }
+
+  private func updateFirmwareUpdateRequired() {
+    requiresFirmwareUpdate = deviceCompatibility.values.contains(.deviceUpdateRequired)
+  }
+
+  private func handleCompatibilityChange(
+    _ compatibility: Compatibility,
+    deviceId: DeviceIdentifier,
+    deviceName: String
+  ) {
+    deviceCompatibility[deviceId] = compatibility
+    updateFirmwareUpdateRequired()
+    if compatibility == .deviceUpdateRequired {
+      showError("Device '\(deviceName)' requires an update to work with this app")
+    }
   }
 }

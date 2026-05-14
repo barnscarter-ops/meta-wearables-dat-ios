@@ -1,7 +1,7 @@
 # Meta Wearables Device Access Toolkit for iOS
 
-[![Swift Package](https://img.shields.io/badge/Swift_Package-0.6.0-brightgreen?logo=swift&logoColor=white)](https://github.com/facebook/meta-wearables-dat-ios/tags)
-[![Docs](https://img.shields.io/badge/API_Reference-0.6-blue?logo=meta)](https://wearables.developer.meta.com/docs/reference/ios_swift/dat/0.6)
+[![Swift Package](https://img.shields.io/badge/Swift_Package-0.7.0-brightgreen?logo=swift&logoColor=white)](https://github.com/facebook/meta-wearables-dat-ios/tags)
+[![Docs](https://img.shields.io/badge/API_Reference-0.7-blue?logo=meta)](https://wearables.developer.meta.com/docs/reference/ios_swift/dat/0.7)
 
 The Meta Wearables Device Access Toolkit enables developers to utilize Meta's AI glasses to build hands-free wearable experiences into their mobile applications.
 By integrating this SDK, developers can reliably connect to Meta's AI glasses and leverage capabilities like video streaming and photo capture.
@@ -78,45 +78,74 @@ Add or modify the following in your `Info.plist` file.
 
 ## AI-Assisted Development
 
-This repository includes config for three AI coding assistants, all generated from the same canonical SDK knowledge:
+This repository ships one public DAT knowledge base in two first-class formats:
 
-| Tool | Config | How it loads |
-|------|--------|-------------|
-| [Claude Code](https://docs.anthropic.com/en/docs/claude-code) | `.claude/skills/*.md` | Auto-discovered when you open the project |
+| Tool | Public artifact | Recommended setup |
+|------|-----------------|-------------------|
+| [Claude Code](https://docs.anthropic.com/en/docs/claude-code) | `.claude-plugin/marketplace.json` + `plugins/mwdat-ios/.claude-plugin/plugin.json` | Add this GitHub repo as a marketplace, then install `mwdat-ios` |
+| Codex | `plugins/mwdat-ios/.codex-plugin/plugin.json` | Install the plugin from a cloned checkout of this repo |
 | [GitHub Copilot](https://github.com/features/copilot) | `.github/copilot-instructions.md` | Auto-loaded by Copilot in VS Code |
 | [Cursor](https://cursor.sh/) | `.cursor/rules/*.mdc` | Auto-loaded with glob-based triggers |
+| AGENTS.md-compatible tools | `AGENTS.md` | Portable fallback for agents that read `AGENTS.md` |
+| MCP-compatible editors | `https://mcp.facebook.com/wearables_dat` | Connect as a remote HTTP MCP server |
 
-### Quick setup
+Claude and Codex install from the plugin payload under `plugins/`. Copilot, Cursor, and `AGENTS.md` readers use the native file-based artifacts at repo root.
 
-Install config for your preferred tool:
+### Claude Code
 
 ```bash
-# Install a specific tool's config
-./install-skills.sh claude    # Claude Code only
-./install-skills.sh copilot   # GitHub Copilot only
-./install-skills.sh cursor    # Cursor only
-./install-skills.sh all       # All tools
+claude plugin marketplace add facebook/meta-wearables-dat-ios
+claude plugin install mwdat-ios@mwdat-ios-marketplace
 ```
 
-Or install everything remotely with a single command:
+Or use the helper script:
+
+```bash
+./install-skills.sh claude
+```
+
+### Codex
+
+```bash
+git clone https://github.com/facebook/meta-wearables-dat-ios.git
+cd meta-wearables-dat-ios
+codex plugin install ./plugins/mwdat-ios
+```
+
+Or use the helper script:
+
+```bash
+./install-skills.sh codex
+```
+
+### Other tool installs
+
+Use the installer when you want the repo-native file surfaces for other tools:
+
+```bash
+./install-skills.sh copilot   # .github/copilot-instructions.md
+./install-skills.sh cursor    # .cursor/rules/*.mdc
+./install-skills.sh agents    # AGENTS.md
+./install-skills.sh all       # Claude/Codex when available, plus Copilot/Cursor/AGENTS.md
+```
+
+Or run the helper remotely:
 
 ```bash
 curl -sL https://raw.githubusercontent.com/facebook/meta-wearables-dat-ios/main/install-skills.sh | bash
 ```
 
-If you cloned this repository, the config is already included — no setup needed.
-
 ### What's included
 
 - **Getting started** — SDK setup, SPM integration, Info.plist configuration
-- **Camera streaming** — StreamSession, video frames, resolution/frame rate, photo capture
+- **Camera streaming** — Stream, video frames, resolution/frame rate, photo capture
 - **MockDevice testing** — Test without physical glasses using MockDeviceKit
 - **Session lifecycle** — Device session states, pause/resume, availability
 - **Permissions & registration** — App registration, camera permission flows
 - **Debugging** — Common issues, Developer Mode, version compatibility
 - **Sample app guide** — Building a complete DAT app
 
-For API reference, point your AI tool at the [llms.txt endpoint](https://wearables.developer.meta.com/llms.txt?full=true).
+For static reference context, point your AI tool at the [llms.txt endpoint](https://wearables.developer.meta.com/llms.txt?full=true). For live documentation search in MCP-compatible editors, connect `https://mcp.facebook.com/wearables_dat` and use `search_dat_docs`.
 
 ## License
 

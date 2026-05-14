@@ -10,7 +10,7 @@
 // PhotoPreviewView.swift
 //
 // UI for previewing and sharing photos captured from Meta wearable devices via the DAT SDK.
-// This view displays photos captured using StreamSession.capturePhoto() and provides sharing
+// This view displays photos captured using Stream.capturePhoto() and provides sharing
 // functionality.
 //
 

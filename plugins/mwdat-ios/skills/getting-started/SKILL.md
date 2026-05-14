@@ -1,10 +1,11 @@
 ---
+name: getting-started
 description: SDK setup, Swift Package Manager integration, Info.plist configuration, and first connection to Meta glasses
 ---
 
 # Getting Started with DAT SDK (iOS)
 
-Guide for setting up the Meta Wearables Device Access Toolkit in an iOS app.
+Set up the Meta Wearables Device Access Toolkit in an iOS app.
 
 ## Prerequisites
 
@@ -40,11 +41,8 @@ Add these required entries to your `Info.plist`:
   </dict>
 </array>
 
-<!-- Allow Meta AI to callback -->
-<key>LSApplicationQueriesSchemes</key>
-<array>
-  <string>fb-viewapp</string>
-</array>
+<!-- Allow the Meta AI companion app to callback -->
+<!-- Add fb-viewapp to your app's Info.plist query-schemes allowlist. -->
 
 <!-- External accessory protocol -->
 <key>UISupportedExternalAccessoryProtocols</key>
@@ -71,7 +69,7 @@ Add these required entries to your `Info.plist`:
 </dict>
 ```
 
-Replace `myexampleapp` with your app's URL scheme. Use `0` for `MetaAppID` during development with Developer Mode.
+Replace `myexampleapp` with your app's URL scheme. Use `0` for `MetaAppID` during development with Developer Mode, and add `fb-viewapp` to your app's Info.plist query-schemes allowlist.
 
 ## Step 3: Initialize the SDK
 
@@ -113,8 +111,8 @@ Your app must handle the URL callback from Meta AI after registration:
 ## Step 5: Register with Meta AI
 
 ```swift
-func startRegistration() throws {
-    try Wearables.shared.startRegistration()
+func startRegistration() async throws {
+    try await Wearables.shared.startRegistration()
 }
 ```
 
@@ -131,26 +129,39 @@ Task {
 ## Step 6: Start streaming
 
 ```swift
+import MWDATCore
 import MWDATCamera
 
-let deviceSelector = AutoDeviceSelector(wearables: Wearables.shared)
-let config = StreamSessionConfig(
+// Create a DeviceSession — device selection is configured here
+let wearables = Wearables.shared
+let deviceSelector = AutoDeviceSelector(wearables: wearables)
+let deviceSession = try wearables.createSession(deviceSelector: deviceSelector)
+try deviceSession.start()
+
+// Wait for the device session to reach the started state
+for await state in deviceSession.stateStream() {
+    if state == .started { break }
+}
+
+let config = StreamConfiguration(
     videoCodec: .raw,
     resolution: .low,
     frameRate: 24
 )
-let session = StreamSession(streamSessionConfig: config, deviceSelector: deviceSelector)
+guard let stream = try deviceSession.addStream(config: config) else {
+    return
+}
 
 // Observe frames
-let frameToken = session.videoFramePublisher.listen { frame in
+let frameToken = stream.videoFramePublisher.listen { frame in
     guard let image = frame.makeUIImage() else { return }
     Task { @MainActor in
         self.currentFrame = image
     }
 }
 
-// Start
-Task { await session.start() }
+// Start the stream capability
+Task { await stream.start() }
 ```
 
 ## Next steps

@@ -19,7 +19,7 @@
 import SwiftUI
 
 struct DebugMenuView: View {
-  @ObservedObject var debugMenuViewModel: DebugMenuViewModel
+  var debugMenuViewModel: DebugMenuViewModel
 
   var body: some View {
     HStack {
@@ -30,7 +30,7 @@ struct DebugMenuView: View {
           debugMenuViewModel.showDebugMenu = true
         }) {
           Image(systemName: "ladybug.fill")
-            .foregroundColor(.white)
+            .foregroundStyle(.white)
             .padding()
             .background(.secondary)
             .clipShape(Circle())

@@ -18,7 +18,7 @@ import MWDATCore
 import SwiftUI
 
 struct RegistrationView: View {
-  @ObservedObject var viewModel: WearablesViewModel
+  var viewModel: WearablesViewModel
 
   var body: some View {
     EmptyView()

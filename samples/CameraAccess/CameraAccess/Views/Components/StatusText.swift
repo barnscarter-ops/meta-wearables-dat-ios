@@ -37,7 +37,7 @@ struct StatusText: View {
 
   var body: some View {
     Text(isActive ? activeText : inactiveText)
-      .foregroundColor(isActive ? activeColor : inactiveColor)
+      .foregroundStyle(isActive ? activeColor : inactiveColor)
       .frame(maxWidth: .infinity, alignment: .leading)
   }
 }

@@ -6,18 +6,20 @@
  * LICENSE file in the root directory of this source tree.
  */
 
+@testable import CameraAccess
 import Foundation
 import MWDATCore
 import MWDATMockDevice
+import Observation
 import SwiftUI
 import XCTest
 
-@testable import CameraAccess
-
-class ViewModelIntegrationTests: XCTestCase {
+@MainActor
+final class ViewModelIntegrationTests: XCTestCase {
 
   private var mockDevice: MockRaybanMeta?
   private var cameraKit: MockCameraKit?
+  private var viewModel: StreamSessionViewModel?
 
   override func setUp() async throws {
     try await super.setUp()
@@ -39,6 +41,8 @@ class ViewModelIntegrationTests: XCTestCase {
   }
 
   override func tearDown() async throws {
+    viewModel?.endSession()
+    viewModel = nil
     MockDeviceKit.shared.disable()
     mockDevice = nil
     cameraKit = nil
@@ -63,6 +67,10 @@ class ViewModelIntegrationTests: XCTestCase {
     camera.setCameraFeed(fileURL: videoURL)
 
     let viewModel = StreamSessionViewModel(wearables: Wearables.shared)
+    self.viewModel = viewModel
+
+    // Wait for the mock device to be detected
+    await observeUntil(timeout: 5) { viewModel.hasActiveDevice }
 
     // Initially not streaming
     XCTAssertEqual(viewModel.streamingStatus, .stopped)
@@ -74,7 +82,9 @@ class ViewModelIntegrationTests: XCTestCase {
     await viewModel.handleStartStreaming()
 
     // Wait for streaming to establish
-    try await Task.sleep(nanoseconds: 10_000_000_000)
+    await observeUntil(timeout: 10) {
+      viewModel.isStreaming && viewModel.hasReceivedFirstFrame && viewModel.currentVideoFrame != nil
+    }
 
     // Verify streaming is active and receiving frames
     XCTAssertTrue(viewModel.isStreaming)
@@ -86,7 +96,7 @@ class ViewModelIntegrationTests: XCTestCase {
     await viewModel.stopSession()
 
     // Wait for session to stop
-    try await Task.sleep(nanoseconds: 1_000_000_000)
+    await observeUntil(timeout: 5) { !viewModel.isStreaming }
 
     // Verify streaming stopped (allow for final states to be stopped or waiting)
     XCTAssertFalse(viewModel.isStreaming)
@@ -113,6 +123,10 @@ class ViewModelIntegrationTests: XCTestCase {
     camera.setCapturedImage(fileURL: imageURL)
 
     let viewModel = StreamSessionViewModel(wearables: Wearables.shared)
+    self.viewModel = viewModel
+
+    // Wait for the mock device to be detected
+    await observeUntil(timeout: 5) { viewModel.hasActiveDevice }
 
     // Initially not streaming
     XCTAssertEqual(viewModel.streamingStatus, .stopped)
@@ -124,7 +138,9 @@ class ViewModelIntegrationTests: XCTestCase {
     await viewModel.handleStartStreaming()
 
     // Wait for streaming to establish
-    try await Task.sleep(nanoseconds: 10_000_000_000)
+    await observeUntil(timeout: 10) {
+      viewModel.isStreaming && viewModel.hasReceivedFirstFrame && viewModel.currentVideoFrame != nil
+    }
 
     // Verify streaming is active and receiving frames
     XCTAssertTrue(viewModel.isStreaming)
@@ -134,7 +150,7 @@ class ViewModelIntegrationTests: XCTestCase {
 
     // Capture photo while streaming
     viewModel.capturePhoto()
-    try await Task.sleep(nanoseconds: 10_000_000_000)
+    await observeUntil(timeout: 10) { viewModel.capturedPhoto != nil }
 
     // Verify photo captured while maintaining stream (allow for some timing flexibility)
     XCTAssertTrue(viewModel.capturedPhoto != nil)
@@ -147,9 +163,62 @@ class ViewModelIntegrationTests: XCTestCase {
     XCTAssertNil(viewModel.capturedPhoto)
 
     await viewModel.stopSession()
-    try await Task.sleep(nanoseconds: 1_000_000_000)
+    await observeUntil(timeout: 5) { !viewModel.isStreaming }
 
     XCTAssertFalse(viewModel.isStreaming)
     XCTAssertTrue([.stopped, .waiting].contains(viewModel.streamingStatus))
+  }
+}
+
+// MARK: - Test Helpers
+
+/// Thread-safe one-shot flag for protecting continuation resumption.
+private final class ResumeOnce: @unchecked Sendable {
+  private let lock = NSLock()
+  private var resumed = false
+  func tryResume() -> Bool {
+    lock.lock()
+    defer { lock.unlock() }
+    guard !resumed else { return false }
+    resumed = true
+    return true
+  }
+}
+
+/// Reactively waits for a condition on @Observable objects to become true.
+/// Uses `withObservationTracking` to wake up immediately on property changes
+/// instead of polling on a fixed interval.
+@MainActor
+private func observeUntil(
+  timeout: TimeInterval,
+  file: StaticString = #filePath,
+  line: UInt = #line,
+  condition: @escaping () -> Bool
+) async {
+  guard !condition() else { return }
+
+  let deadline = ContinuousClock.now + .seconds(timeout)
+
+  while !condition() {
+    guard ContinuousClock.now < deadline else {
+      XCTFail("Condition not met within \(timeout) seconds", file: file, line: line)
+      return
+    }
+
+    await withUnsafeContinuation { cont in
+      let once = ResumeOnce()
+
+      withObservationTracking {
+        _ = condition()
+      } onChange: {
+        if once.tryResume() { cont.resume() }
+      }
+
+      // Periodic fallback so we can re-evaluate the deadline
+      Task {
+        try? await Task.sleep(for: .milliseconds(100))
+        if once.tryResume() { cont.resume() }
+      }
+    }
   }
 }

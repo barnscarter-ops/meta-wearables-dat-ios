@@ -3,12 +3,9 @@ description: App registration with Meta AI, camera permission flows
 globs: **/*Permission*, **/*Registration*
 ---
 
-
 # Permissions & Registration (iOS)
 
-Guide for app registration and camera permission flows in the DAT SDK.
-
-## Overview
+Register your app with Meta AI, then request the device permissions it needs.
 
 The DAT SDK separates two concepts:
 1. **Registration** — Your app registers with Meta AI to become a permitted integration
@@ -21,8 +18,8 @@ All permission grants occur through the Meta AI companion app.
 ### Start registration
 
 ```swift
-func startRegistration() throws {
-    try Wearables.shared.startRegistration()
+func startRegistration() async throws {
+    try await Wearables.shared.startRegistration()
 }
 ```
 
@@ -46,8 +43,10 @@ Task {
         switch state {
         case .registered:
             // App is registered, can request permissions
-        case .unregistered:
-            // App is not registered
+        case .unavailable:
+            // Registration is unavailable
+        case .available:
+            // Ready to register
         case .registering:
             // Registration in progress
         }
@@ -58,8 +57,8 @@ Task {
 ### Unregister
 
 ```swift
-func startUnregistration() throws {
-    try Wearables.shared.startUnregistration()
+func startUnregistration() async throws {
+    try await Wearables.shared.startUnregistration()
 }
 ```
 

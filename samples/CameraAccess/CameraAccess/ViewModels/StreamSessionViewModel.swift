@@ -6,9 +6,9 @@
  * LICENSE file in the root directory of this source tree.
  */
 
-import Combine
 import MWDATCamera
 import MWDATCore
+import Observation
 import SwiftUI
 
 enum StreamingStatus {
@@ -18,23 +18,25 @@ enum StreamingStatus {
 }
 
 /// ViewModel for video streaming UI. Delegates device management to DeviceSessionManager.
+@Observable
 @MainActor
-final class StreamSessionViewModel: ObservableObject {
-  // MARK: - Published State
+final class StreamSessionViewModel {
+  // MARK: - State
 
-  @Published var currentVideoFrame: UIImage?
-  @Published var hasReceivedFirstFrame: Bool = false
-  @Published var streamingStatus: StreamingStatus = .stopped
-  @Published var showError: Bool = false
-  @Published var errorMessage: String = ""
+  var currentVideoFrame: UIImage?
+  var hasReceivedFirstFrame: Bool = false
+  var streamingStatus: StreamingStatus = .stopped
+  var showError: Bool = false
+  var errorMessage: String = ""
+  var requiresDATAppUpdate: Bool = false
 
-  @Published var capturedPhoto: UIImage?
-  @Published var showPhotoPreview: Bool = false
-  @Published var showPhotoCaptureError: Bool = false
-  @Published var isCapturingPhoto: Bool = false
+  var capturedPhoto: UIImage?
+  var showPhotoPreview: Bool = false
+  var showPhotoCaptureError: Bool = false
+  var isCapturingPhoto: Bool = false
 
-  @Published var hasActiveDevice: Bool = false
-  @Published var isDeviceSessionReady: Bool = false
+  var hasActiveDevice: Bool { sessionManager.hasActiveDevice }
+  var isDeviceSessionReady: Bool { sessionManager.isReady }
 
   var isStreaming: Bool { streamingStatus != .stopped }
 
@@ -42,8 +44,7 @@ final class StreamSessionViewModel: ObservableObject {
 
   private let sessionManager: DeviceSessionManager
   private let wearables: WearablesInterface
-  private var streamSession: StreamSession?
-  private var cancellables = Set<AnyCancellable>()
+  private var stream: MWDATCamera.Stream?
 
   private var stateListenerToken: AnyListenerToken?
   private var videoFrameListenerToken: AnyListenerToken?
@@ -55,14 +56,6 @@ final class StreamSessionViewModel: ObservableObject {
   init(wearables: WearablesInterface) {
     self.wearables = wearables
     self.sessionManager = DeviceSessionManager(wearables: wearables)
-
-    // Forward session manager state to this ViewModel for SwiftUI binding
-    sessionManager.$hasActiveDevice
-      .receive(on: DispatchQueue.main)
-      .assign(to: &$hasActiveDevice)
-    sessionManager.$isReady
-      .receive(on: DispatchQueue.main)
-      .assign(to: &$isDeviceSessionReady)
   }
 
   // MARK: - Public API
@@ -85,13 +78,23 @@ final class StreamSessionViewModel: ObservableObject {
   }
 
   func stopSession() async {
-    guard let stream = streamSession else { return }
-    streamSession = nil
+    guard let activeStream = stream else { return }
+    stream = nil
     clearListeners()
     streamingStatus = .stopped
     currentVideoFrame = nil
     hasReceivedFirstFrame = false
-    await stream.stop()
+    await activeStream.stop()
+  }
+
+  /// Stops both the stream and the underlying device session. Call in test tearDown.
+  func endSession() {
+    stream = nil
+    clearListeners()
+    streamingStatus = .stopped
+    currentVideoFrame = nil
+    hasReceivedFirstFrame = false
+    sessionManager.cleanup()
   }
 
   func capturePhoto() {
@@ -100,7 +103,7 @@ final class StreamSessionViewModel: ObservableObject {
       return
     }
     isCapturingPhoto = true
-    let success = streamSession?.capturePhoto(format: .jpeg) ?? false
+    let success = stream?.capturePhoto(format: .jpeg) ?? false
     if !success {
       isCapturingPhoto = false
       showPhotoCaptureError = true
@@ -124,23 +127,38 @@ final class StreamSessionViewModel: ObservableObject {
   // MARK: - Private
 
   private func startSession() async {
-    guard let deviceSession = await sessionManager.getSession() else { return }
-    guard deviceSession.state == .started else { return }
+    let deviceSession: DeviceSession
+    do {
+      deviceSession = try await sessionManager.getSession()
+      requiresDATAppUpdate = false
+    } catch DeviceSessionError.datAppOnTheGlassesUpdateRequired {
+      requiresDATAppUpdate = true
+      showError(DeviceSessionError.datAppOnTheGlassesUpdateRequired.localizedDescription)
+      return
+    } catch {
+      showError("Failed to start session: \(error.localizedDescription)")
+      return
+    }
 
-    let config = StreamSessionConfig(
+    guard deviceSession.state == .started else {
+      showError("Device session is not ready. Please try again.")
+      return
+    }
+
+    let config = StreamConfiguration(
       videoCodec: VideoCodec.raw,
       resolution: StreamingResolution.low,
       frameRate: 24
     )
 
-    guard let stream = try? deviceSession.addStream(config: config) else { return }
-    streamSession = stream
+    guard let newStream = try? deviceSession.addStream(config: config) else { return }
+    stream = newStream
     streamingStatus = .waiting
-    setupListeners(for: stream)
-    await stream.start()
+    setupListeners(for: newStream)
+    await newStream.start()
   }
 
-  private func setupListeners(for stream: StreamSession) {
+  private func setupListeners(for stream: MWDATCamera.Stream) {
     stateListenerToken = stream.statePublisher.listen { [weak self] state in
       Task { @MainActor in self?.handleStateChange(state) }
     }
@@ -165,7 +183,7 @@ final class StreamSessionViewModel: ObservableObject {
     photoDataListenerToken = nil
   }
 
-  private func handleStateChange(_ state: StreamSessionState) {
+  private func handleStateChange(_ state: StreamState) {
     switch state {
     case .stopped:
       currentVideoFrame = nil
@@ -186,8 +204,8 @@ final class StreamSessionViewModel: ObservableObject {
     }
   }
 
-  private func handleError(_ error: StreamSessionError) {
-    let message = formatError(error)
+  private func handleError(_ error: StreamError) {
+    let message = error.localizedDescription
     if message != errorMessage {
       showError(message)
     }
@@ -206,26 +224,4 @@ final class StreamSessionViewModel: ObservableObject {
     showError = true
   }
 
-  private func formatError(_ error: StreamSessionError) -> String {
-    switch error {
-    case .internalError:
-      return "An internal error occurred. Please try again."
-    case .deviceNotFound:
-      return "Device not found. Please ensure your device is connected."
-    case .deviceNotConnected:
-      return "Device not connected. Please check your connection and try again."
-    case .timeout:
-      return "The operation timed out. Please try again."
-    case .videoStreamingError:
-      return "Video streaming failed. Please try again."
-    case .permissionDenied:
-      return "Camera permission denied. Please grant permission in Settings."
-    case .hingesClosed:
-      return "The hinges on the glasses were closed. Please open the hinges and try again."
-    case .thermalCritical:
-      return "Device is overheating. Streaming has been paused to protect the device."
-    @unknown default:
-      return "An unknown streaming error occurred."
-    }
-  }
 }

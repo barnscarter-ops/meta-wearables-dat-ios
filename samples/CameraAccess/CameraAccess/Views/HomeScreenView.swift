@@ -17,7 +17,7 @@ import MWDATCore
 import SwiftUI
 
 struct HomeScreenView: View {
-  @ObservedObject var viewModel: WearablesViewModel
+  var viewModel: WearablesViewModel
 
   var body: some View {
     ZStack {
@@ -54,7 +54,7 @@ struct HomeScreenView: View {
         VStack(spacing: 20) {
           Text("You'll be redirected to the Meta AI app to confirm your connection.")
             .font(.system(size: 14))
-            .foregroundColor(.gray)
+            .foregroundStyle(.gray)
             .multilineTextAlignment(.center)
             .fixedSize(horizontal: false, vertical: true)
             .padding(.horizontal, 12)
@@ -84,7 +84,7 @@ struct HomeTipItemView: View {
       Image(resource)
         .resizable()
         .renderingMode(.template)
-        .foregroundColor(.black)
+        .foregroundStyle(.black)
         .aspectRatio(contentMode: .fit)
         .frame(width: 24)
         .padding(.leading, 4)
@@ -93,11 +93,11 @@ struct HomeTipItemView: View {
       VStack(alignment: .leading, spacing: 6) {
         Text(title)
           .font(.system(size: 18, weight: .semibold))
-          .foregroundColor(.black)
+          .foregroundStyle(.black)
 
         Text(text)
           .font(.system(size: 15))
-          .foregroundColor(.gray)
+          .foregroundStyle(.gray)
       }
       Spacer()
     }

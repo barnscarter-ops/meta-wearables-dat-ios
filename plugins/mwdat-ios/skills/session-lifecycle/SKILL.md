@@ -1,4 +1,5 @@
 ---
+name: session-lifecycle
 description: Device session states, pause/resume, availability monitoring
 ---
 
@@ -18,37 +19,47 @@ Your app observes session state changes — the device decides when to transitio
 
 | State | Meaning | App action |
 |-------|---------|------------|
-| `STOPPED` | Session inactive, not reconnecting | Free resources, wait for user action |
-| `RUNNING` | Session active, streaming data | Perform live work |
-| `PAUSED` | Temporarily suspended | Hold work, may resume |
+| `idle` | Session created but not started | Call `start()` when ready |
+| `starting` | Session is connecting to the device | Show connecting state |
+| `started` | Session active and ready for capabilities | Add or resume work |
+| `paused` | Temporarily suspended by the device | Hold work, may resume |
+| `stopping` | Session is cleaning up | Wait for terminal state |
+| `stopped` | Session inactive and terminal | Free resources, create a new session to restart |
 
 ## Observing session state
 
 ```swift
+let session = try Wearables.shared.createSession(deviceSelector: AutoDeviceSelector(wearables: Wearables.shared))
+try session.start()
+
 Task {
-    for await state in Wearables.shared.deviceSessionStateStream(for: deviceId) {
+    for await state in session.stateStream() {
         switch state {
-        case .running:
+        case .started:
             // Confirm UI shows session is live
         case .paused:
-            // Keep connection, wait for running or stopped
+            // Keep connection, wait for started or stopped
         case .stopped:
             // Release resources, allow user to restart
+        default:
+            break
         }
     }
 }
 ```
 
-## StreamSession state transitions
+## Stream state transitions
 
-StreamSession has its own state flow:
+A `Stream` is a capability attached to a started `DeviceSession`:
 
 ```text
 stopped → waitingForDevice → starting → streaming → paused → stopped
 ```
 
 ```swift
-let token = session.statePublisher.listen { state in
+guard let stream = try session.addStream(config: StreamConfiguration()) else { return }
+
+let token = stream.statePublisher.listen { state in
     Task { @MainActor in
         // React to state changes
     }
@@ -69,9 +80,9 @@ The device changes session state when:
 When a session is paused:
 - The device keeps the connection alive
 - Streams stop delivering data
-- The device may resume by returning to `RUNNING`
+- The device may resume by returning to `started`
 
-Your app should **not** attempt to restart while paused — wait for `RUNNING` or `STOPPED`.
+Your app should **not** attempt to restart while paused — wait for `started` or `stopped`.
 
 ## Device availability
 
@@ -86,17 +97,17 @@ Task {
 ```
 
 Key behaviors:
-- Closing hinges disconnects Bluetooth → forces `STOPPED`
+- Closing hinges disconnects Bluetooth → forces `stopped`
 - Opening hinges restores Bluetooth but does **not** restart sessions
 - Start a new session after the device becomes available again
 
 ## Implementation checklist
 
-- [ ] Handle all session states (`RUNNING`, `PAUSED`, `STOPPED`)
+- [ ] Handle all relevant session states (`started`, `paused`, `stopped`)
 - [ ] Monitor device availability before starting work
-- [ ] Release resources only after `STOPPED`
+- [ ] Release resources only after `stopped`
 - [ ] Don't infer transition causes — rely only on observable state
-- [ ] Don't restart during `PAUSED` — wait for system to resume or stop
+- [ ] Don't restart during `paused` — wait for system to resume or stop
 
 ## Links
 

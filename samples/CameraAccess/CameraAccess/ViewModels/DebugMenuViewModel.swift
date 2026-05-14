@@ -18,12 +18,14 @@
 #if DEBUG
 
 import MWDATMockDevice
+import Observation
 import SwiftUI
 
+@Observable
 @MainActor
-class DebugMenuViewModel: ObservableObject {
-  @Published public var showDebugMenu: Bool
-  @Published public var mockDeviceKitViewModel: MockDeviceKitView.ViewModel
+class DebugMenuViewModel {
+  public var showDebugMenu: Bool
+  public var mockDeviceKitViewModel: MockDeviceKitView.ViewModel
 
   init(mockDeviceKit: MockDeviceKitInterface) {
     self.mockDeviceKitViewModel = MockDeviceKitView.ViewModel(mockDeviceKit: mockDeviceKit)

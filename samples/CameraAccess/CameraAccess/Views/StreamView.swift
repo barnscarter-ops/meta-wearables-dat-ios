@@ -18,8 +18,8 @@ import MWDATCore
 import SwiftUI
 
 struct StreamView: View {
-  @ObservedObject var viewModel: StreamSessionViewModel
-  @ObservedObject var wearablesVM: WearablesViewModel
+  @Bindable var viewModel: StreamSessionViewModel
+  var wearablesVM: WearablesViewModel
 
   var body: some View {
     ZStack {
@@ -40,7 +40,7 @@ struct StreamView: View {
       } else {
         ProgressView()
           .scaleEffect(1.5)
-          .foregroundColor(.white)
+          .foregroundStyle(.white)
       }
 
       // Bottom controls layer
@@ -74,7 +74,8 @@ struct StreamView: View {
 
 // Extracted controls for clarity
 struct ControlsView: View {
-  @ObservedObject var viewModel: StreamSessionViewModel
+  var viewModel: StreamSessionViewModel
+
   var body: some View {
     // Controls row
     HStack(spacing: 8) {

@@ -21,8 +21,9 @@ import MWDATMockDevice
 import SwiftUI
 
 struct MockDeviceCardView: View {
-  @ObservedObject var viewModel: ViewModel
+  @Bindable var viewModel: ViewModel
   let onUnpairDevice: () -> Void
+
   @State private var showingVideoPicker = false
   @State private var showingImagePicker = false
   @State private var expanded = true
@@ -40,12 +41,12 @@ struct MockDeviceCardView: View {
             Text(viewModel.deviceName)
               .font(.headline)
               .fontWeight(.semibold)
-              .foregroundColor(.primary)
+              .foregroundStyle(.primary)
               .lineLimit(1)
               .truncationMode(.tail)
             Text(viewModel.id)
               .font(.caption)
-              .foregroundColor(.secondary)
+              .foregroundStyle(.secondary)
               .lineLimit(1)
               .truncationMode(.middle)
           }
@@ -105,6 +106,22 @@ struct MockDeviceCardView: View {
               .frame(height: 36)
             }
 
+            // Captouch gesture buttons
+            Text("Capacitive Touch Events")
+              .font(.subheadline)
+              .fontWeight(.medium)
+              .foregroundStyle(.secondary)
+              .frame(maxWidth: .infinity, alignment: .leading)
+
+            HStack(spacing: 8) {
+              MockDeviceKitButton("Tap") {
+                viewModel.captouchTap()
+              }
+              MockDeviceKitButton("Tap & Hold") {
+                viewModel.captouchTapAndHold()
+              }
+            }
+
             // Camera source picker
             CameraSourcePicker(
               cameraSource: viewModel.cameraSource,
@@ -124,7 +141,7 @@ struct MockDeviceCardView: View {
               if viewModel.hasCapturedImage {
                 Text("Has captured image")
                   .font(.caption)
-                  .foregroundColor(.green)
+                  .foregroundStyle(.green)
                   .frame(maxWidth: .infinity, alignment: .leading)
               }
 
@@ -141,6 +158,14 @@ struct MockDeviceCardView: View {
         }
       }
       .padding()
+    }
+    .alert("Camera Access Required", isPresented: $viewModel.showCameraPermissionAlert) {
+      Button("Open Settings") {
+        viewModel.openSettings()
+      }
+      Button("Cancel", role: .cancel) {}
+    } message: {
+      Text("Camera access was denied. Please enable it in Settings to use the camera source.")
     }
   }
 }
@@ -170,11 +195,11 @@ private struct CameraSourcePicker: View {
       HStack {
         Text("Camera Source: \(currentSourceLabel)")
           .font(.body)
-          .foregroundColor(.primary)
+          .foregroundStyle(.primary)
         Spacer()
         Image(systemName: "chevron.down")
           .font(.caption)
-          .foregroundColor(.secondary)
+          .foregroundStyle(.secondary)
       }
       .frame(maxWidth: .infinity, minHeight: 44)
       .padding(.horizontal, 12)

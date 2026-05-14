@@ -19,17 +19,21 @@
 import AVFoundation
 import Foundation
 import MWDATMockDevice
+import Observation
+import UIKit
 
 extension MockDeviceCardView {
+  @Observable
   @MainActor
-  final class ViewModel: ObservableObject {
+  final class ViewModel {
     let device: MockDevice
-    @Published var hasCameraFeed: Bool = false
-    @Published var hasCapturedImage: Bool = false
-    @Published var cameraSource: CameraFacing?
-    @Published var isPoweredOn: Bool = false
-    @Published var isDonned: Bool = false
-    @Published var isUnfolded: Bool = false
+    var hasCameraFeed: Bool = false
+    var hasCapturedImage: Bool = false
+    var cameraSource: CameraFacing?
+    var isPoweredOn: Bool = false
+    var isDonned: Bool = false
+    var isUnfolded: Bool = false
+    var showCameraPermissionAlert: Bool = false
 
     init(device: MockDevice, hasCameraFeed: Bool = false, hasCapturedImage: Bool = false) {
       self.device = device
@@ -61,7 +65,6 @@ extension MockDeviceCardView {
 
     func don() {
       device.don()
-      isPoweredOn = true
       isDonned = true
       isUnfolded = true
     }
@@ -86,15 +89,37 @@ extension MockDeviceCardView {
       }
     }
 
+    func captouchTap() {
+      (device as? MockDisplaylessGlasses)?.services.captouch.tap()
+    }
+
+    func captouchTapAndHold() {
+      (device as? MockDisplaylessGlasses)?.services.captouch.tapAndHold()
+    }
+
     func setCameraFeed(_ facing: CameraFacing) {
       if let cameraKit = (device as? MockDisplaylessGlasses)?.services.camera {
         Task {
+          let status = AVCaptureDevice.authorizationStatus(for: .video)
+          if status == .denied || status == .restricted {
+            self.showCameraPermissionAlert = true
+            return
+          }
           let granted = await AVCaptureDevice.requestAccess(for: .video)
-          guard granted else { return }
+          guard granted else {
+            self.showCameraPermissionAlert = true
+            return
+          }
           await cameraKit.setCameraFeed(cameraFacing: facing)
           self.cameraSource = facing
           self.hasCameraFeed = false
         }
+      }
+    }
+
+    func openSettings() {
+      if let url = URL(string: UIApplication.openSettingsURLString) {
+        UIApplication.shared.open(url)
       }
     }
 

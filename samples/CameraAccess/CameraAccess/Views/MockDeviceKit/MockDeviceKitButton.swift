@@ -25,7 +25,7 @@ struct MockDeviceKitButtonStyle: ButtonStyle {
 
   func makeBody(configuration: Configuration) -> some View {
     configuration.label
-      .foregroundColor(foregroundColor.opacity(isEnabled ? 1.0 : 0.6))
+      .foregroundStyle(foregroundColor.opacity(isEnabled ? 1.0 : 0.6))
       .padding(.horizontal)
       .frame(maxWidth: isFullWidth ? .infinity : nil, minHeight: 44)
       .background(backgroundColor.opacity(isEnabled ? 1.0 : 0.4))

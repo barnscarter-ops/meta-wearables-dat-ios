@@ -1,14 +1,13 @@
 ---
+name: sample-app-guide
 description: Building a complete DAT app with camera streaming and photo capture
 ---
 
 # Sample App Guide (iOS)
 
-Guide for building a complete DAT SDK app with camera streaming and photo capture.
+Build an iOS DAT app with camera streaming and photo capture.
 
-## Overview
-
-This guide walks through building an iOS app that connects to Meta glasses, streams video, and captures photos. Use it as a reference alongside the [CameraAccess sample](https://github.com/facebook/meta-wearables-dat-ios/tree/main/samples).
+This walkthrough covers app setup, registration, streaming, and capture. Pair it with the [CameraAccess sample](https://github.com/facebook/meta-wearables-dat-ios/tree/main/samples).
 
 ## Project setup
 
@@ -26,7 +25,7 @@ MyDATApp/
 ├── MyDATApp.swift              # App entry point, SDK init
 ├── ViewModels/
 │   ├── WearablesViewModel.swift    # Registration, device management
-│   └── StreamSessionViewModel.swift # Streaming, photo capture
+│   └── StreamViewModel.swift # Streaming, photo capture
 └── Views/
     ├── MainAppView.swift           # Navigation
     ├── RegistrationView.swift      # Registration UI
@@ -86,12 +85,12 @@ class WearablesViewModel: ObservableObject {
         }
     }
 
-    func register() {
-        try? wearables.startRegistration()
+    func register() async {
+        try? await wearables.startRegistration()
     }
 
-    func unregister() {
-        try? wearables.startUnregistration()
+    func unregister() async {
+        try? await wearables.startUnregistration()
     }
 }
 ```
@@ -103,53 +102,70 @@ import MWDATCamera
 import MWDATCore
 
 @MainActor
-class StreamSessionViewModel: ObservableObject {
+class StreamViewModel: ObservableObject {
     @Published var currentFrame: UIImage?
     @Published var streamState: String = "Stopped"
     @Published var capturedPhoto: Data?
 
-    private var session: StreamSession?
+    private let wearables = Wearables.shared
+    private var deviceSession: DeviceSession?
+    private var stream: Stream?
 
-    func startStream() {
-        let wearables = Wearables.shared
-        let config = StreamSessionConfig(
+    func startStream() async {
+        let config = StreamConfiguration(
             videoCodec: .raw,
             resolution: .medium,
             frameRate: 24
         )
         let selector = AutoDeviceSelector(wearables: wearables)
-        let session = StreamSession(streamSessionConfig: config, deviceSelector: selector)
-        self.session = session
 
-        _ = session.statePublisher.listen { [weak self] state in
+        do {
+            let deviceSession = try wearables.createSession(deviceSelector: selector)
+            try deviceSession.start()
+            // Wait for the device session to reach the started state
+            for await state in deviceSession.stateStream() {
+                if state == .started { break }
+            }
+            guard let stream = try deviceSession.addStream(config: config) else { return }
+            self.deviceSession = deviceSession
+            self.stream = stream
+        } catch {
+            return
+        }
+
+        guard let stream else { return }
+
+        _ = stream.statePublisher.listen { [weak self] state in
             Task { @MainActor in
                 self?.streamState = "\(state)"
             }
         }
 
-        _ = session.videoFramePublisher.listen { [weak self] frame in
+        _ = stream.videoFramePublisher.listen { [weak self] frame in
             guard let image = frame.makeUIImage() else { return }
             Task { @MainActor in
                 self?.currentFrame = image
             }
         }
 
-        _ = session.photoDataPublisher.listen { [weak self] photoData in
+        _ = stream.photoDataPublisher.listen { [weak self] photoData in
             Task { @MainActor in
                 self?.capturedPhoto = photoData.data
             }
         }
 
-        Task { await session.start() }
+        await stream.start()
     }
 
     func stopStream() {
-        Task { await session?.stop() }
-        session = nil
+        Task { await stream?.stop() }
+        deviceSession?.stop()
+        stream = nil
+        deviceSession = nil
     }
 
     func capturePhoto() {
-        session?.capturePhoto(format: .jpeg)
+        stream?.capturePhoto(format: .jpeg)
     }
 }
 ```

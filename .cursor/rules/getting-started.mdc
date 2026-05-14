@@ -3,10 +3,9 @@ description: SDK setup, Swift Package Manager integration, Info.plist configurat
 globs: **/*App*.swift, **/Info.plist
 ---
 
-
 # Getting Started with DAT SDK (iOS)
 
-Guide for setting up the Meta Wearables Device Access Toolkit in an iOS app.
+Set up the Meta Wearables Device Access Toolkit in an iOS app.
 
 ## Prerequisites
 
@@ -115,8 +114,8 @@ Your app must handle the URL callback from Meta AI after registration:
 ## Step 5: Register with Meta AI
 
 ```swift
-func startRegistration() throws {
-    try Wearables.shared.startRegistration()
+func startRegistration() async throws {
+    try await Wearables.shared.startRegistration()
 }
 ```
 
@@ -133,26 +132,39 @@ Task {
 ## Step 6: Start streaming
 
 ```swift
+import MWDATCore
 import MWDATCamera
 
-let deviceSelector = AutoDeviceSelector(wearables: Wearables.shared)
-let config = StreamSessionConfig(
+// Create a DeviceSession — device selection is configured here
+let wearables = Wearables.shared
+let deviceSelector = AutoDeviceSelector(wearables: wearables)
+let deviceSession = try wearables.createSession(deviceSelector: deviceSelector)
+try deviceSession.start()
+
+// Wait for the device session to reach the started state
+for await state in deviceSession.stateStream() {
+    if state == .started { break }
+}
+
+let config = StreamConfiguration(
     videoCodec: .raw,
     resolution: .low,
     frameRate: 24
 )
-let session = StreamSession(streamSessionConfig: config, deviceSelector: deviceSelector)
+guard let stream = try deviceSession.addStream(config: config) else {
+    return
+}
 
 // Observe frames
-let frameToken = session.videoFramePublisher.listen { frame in
+let frameToken = stream.videoFramePublisher.listen { frame in
     guard let image = frame.makeUIImage() else { return }
     Task { @MainActor in
         self.currentFrame = image
     }
 }
 
-// Start
-Task { await session.start() }
+// Start the stream capability
+Task { await stream.start() }
 ```
 
 ## Next steps

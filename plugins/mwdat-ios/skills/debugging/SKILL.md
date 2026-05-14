@@ -1,10 +1,11 @@
 ---
+name: debugging
 description: Common issues, Developer Mode, version compatibility, state machine diagnosis
 ---
 
 # Debugging (iOS)
 
-Guide for diagnosing common issues with DAT SDK integrations.
+Diagnose common setup, registration, and streaming issues in DAT SDK integrations.
 
 ## Quick diagnosis
 
@@ -37,16 +38,16 @@ Developer Mode must be enabled for 3P apps to access device features.
 ### Symptoms of Developer Mode disabled
 
 - Registration completes but device never connects
-- StreamSession stuck in `waitingForDevice`
+- Stream stuck in `waitingForDevice`
 - Permission requests fail or never appear
 
-### Common gotchas
+### Watch for
 
 - Developer Mode toggles **off** after firmware updates — re-enable it
 - Developer Mode is per-device — enable for each glasses pair
 - Some features need additional permissions beyond Developer Mode
 
-## StreamSession state issues
+## Stream state issues
 
 ### Expected flow
 
@@ -68,13 +69,7 @@ stopped → waitingForDevice → starting → streaming → stopped
 
 ## Version compatibility
 
-Ensure compatible versions of SDK, Meta AI app, and glasses firmware:
-
-| SDK | Meta AI App | Ray-Ban Meta | Meta Ray-Ban Display |
-|-----|-------------|--------------|----------------------|
-| 0.6.0 | Check [version dependencies](https://wearables.developer.meta.com/docs/version-dependencies) | Check docs | Check docs |
-| 0.4.0 | V254 | V20 | V21 |
-| 0.3.0 | V249 | V20 | — |
+Ensure compatible versions of SDK, Meta AI app, and glasses firmware. See [version dependencies](https://wearables.developer.meta.com/docs/version-dependencies) for the current compatibility matrix.
 
 ## Known issues
 
@@ -82,7 +77,6 @@ Ensure compatible versions of SDK, Meta AI app, and glasses firmware:
 |-------|-----------|
 | No internet → registration fails | Internet required for registration |
 | Streams started with glasses doffed pause when donned | Unpause by tapping side of glasses |
-| `DeviceStateSession` unreliable with camera stream | Avoid using `DeviceStateSession` |
 | [iOS] Meta Ray-Ban Display: no audio feedback on pause/resume | Will be fixed in future release |
 
 ## Adding debug logging

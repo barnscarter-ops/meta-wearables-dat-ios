@@ -20,7 +20,7 @@ import Foundation
 import SwiftUI
 
 struct MockDeviceKitView: View {
-  @ObservedObject var viewModel: ViewModel
+  var viewModel: ViewModel
 
   var body: some View {
     NavigationView {
@@ -32,19 +32,19 @@ struct MockDeviceKitView: View {
                 Text("Mock Device Kit")
                   .font(.headline)
                   .fontWeight(.bold)
-                  .foregroundColor(.primary)
+                  .foregroundStyle(.primary)
                 Spacer()
 
                 if viewModel.isEnabled {
                   Text("\(viewModel.cardViewModels.count) device(s) paired")
                     .font(.subheadline)
-                    .foregroundColor(.green)
+                    .foregroundStyle(.green)
                 }
               }
 
               Text("This screen handles simulating devices, mocking capabilities, and states")
                 .font(.caption)
-                .foregroundColor(.secondary)
+                .foregroundStyle(.secondary)
                 .frame(maxWidth: .infinity, alignment: .leading)
 
               Divider()

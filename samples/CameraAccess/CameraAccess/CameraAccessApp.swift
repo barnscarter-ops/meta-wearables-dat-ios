@@ -27,10 +27,10 @@ import MWDATMockDevice
 struct CameraAccessApp: App {
   #if DEBUG
   // Debug menu for simulating device connections during development
-  @StateObject private var debugMenuViewModel = DebugMenuViewModel(mockDeviceKit: MockDeviceKit.shared)
+  @State private var debugMenuViewModel = DebugMenuViewModel(mockDeviceKit: MockDeviceKit.shared)
   #endif
   private let wearables: WearablesInterface
-  @StateObject private var wearablesViewModel: WearablesViewModel
+  @State private var wearablesViewModel: WearablesViewModel
 
   init() {
     do {
@@ -42,29 +42,21 @@ struct CameraAccessApp: App {
     }
 
     #if DEBUG
-    // Auto-configure MockDeviceKit when launched by XCUITests
+    // Start the test server when launched by XCUITests so tests can control
+    // mock device setup via HTTP commands from the test process.
     if ProcessInfo.processInfo.arguments.contains("--ui-testing") {
-      MockDeviceKit.shared.enable()
-      let device = MockDeviceKit.shared.pairRaybanMeta()
+      MockDeviceKit.shared.enable(config: MockDeviceKitConfig(initiallyRegistered: false))
 
-      let cameraKit = device.services.camera
-      guard let videoURL = Bundle.main.url(forResource: "plant", withExtension: "mp4"),
-        let imageURL = Bundle.main.url(forResource: "plant", withExtension: "png")
-      else {
-        fatalError("Test resources not found - are you running a Release build?")
+      let portFilePath = ProcessInfo.processInfo.environment["MWDAT_TEST_SERVER_PORT_FILE"]
+      Task {
+        try await MockDeviceKit.shared.startTestServer(portFilePath: portFilePath)
       }
-      cameraKit.setCameraFeed(fileURL: videoURL)
-      cameraKit.setCapturedImage(fileURL: imageURL)
-
-      device.powerOn()
-      device.don()
-
     }
     #endif
 
     let wearables = Wearables.shared
     self.wearables = wearables
-    self._wearablesViewModel = StateObject(wrappedValue: WearablesViewModel(wearables: wearables))
+    self._wearablesViewModel = State(wrappedValue: WearablesViewModel(wearables: wearables))
   }
 
   var body: some Scene {

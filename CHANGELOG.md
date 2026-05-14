@@ -5,6 +5,56 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [0.7.0] - 2026-05-14
+
+### Added
+
+- [Feature] Display capability — `MWDATDisplay` brings visual experiences to Meta Ray-Ban Display glasses, with content rendering (FlexBox, Text, Button, Image, Icon) and MP4 video playback.
+  - Added `Display` class (conforming to `Capability`), attached via `DeviceSession.addDisplay(...)`. `display.send(_:)` submits a single root view (`FlexBox` for UI, `VideoPlayer` for video); each call replaces the previous content.
+  - Added view types: `FlexBox`, `Text`, `Button`, `Image`, `Icon`, `VideoPlayer` (conforming to `DisplayableView`), plus typed `DisplayState`, `DisplayError`, `VideoError` / `VideoErrorType`, `VideoCodec`, `VideoPlaybackEvent` / `VideoPlaybackEventType` for observation.
+  - Added styling primitives: `Direction`, `Alignment`, `ButtonStyle`, `CornerRadius`, `IconName`, `IconStyle`, `ImageSize`, `TextColor`, `TextStyle`, `Background`, `Edge`, `EdgeInsets`.
+  - Added `ComponentBuilder` result builder enabling SwiftUI-style `display.send { ... }` content blocks composed of `ViewComponent` views.
+  - Added Objective-C bridge for the full Display surface (`MWDATDisplay`, `MWDATFlexBox`, `MWDATText`, `MWDATButton`, `MWDATImage`, `MWDATIcon`, plus the corresponding `MWDAT*` styling enums) and a `displayStateChanged` Obj-C notification name.
+  - Note: if a file imports both `MWDATDisplay` and `SwiftUI`, names like `Text`, `Button`, and `Image` can be ambiguous; qualify as `MWDATDisplay.Text` etc., or keep Display builders in files that don't import SwiftUI.
+- [Feature] Device Access Toolkit App Model (DAM) — a new architecture model for the SDK. Apps opt in via the corresponding Info.plist key. DAM is required for the new Display capability; both the App Model flow and the older flow continue to be supported for camera functionality on Meta AI glasses.
+  - Added `Wearables.openDATGlassesAppUpdate()` (and Obj-C `MWDATWearables.openDATGlassesAppUpdate`) to open the Meta AI DAT app update destination for the configured app.
+- [Feature] Captouch simulation — `MockDeviceKit` now allows simulating `tap` and `tapAndHold` captouch gestures via the new `MockCaptouchKit` protocol (with `MockCaptouchKit` Obj-C bridge), accessed via `MockDisplaylessGlasses.services.captouch`.
+- [Feature] `MockDeviceTestClient` module enables controlling mock devices from the UI test process.
+- [API] Added `Wearables.openFirmwareUpdate()` (and Obj-C `MWDATWearables.openFirmwareUpdate`) to open the Meta AI firmware update screen for the connected device.
+- [API] Added `Wearables.deviceStateStream(for:)` exposing live per-device state via `AsyncStream<DeviceState>`, including current `ThermalLevel`.
+- [API] Added `DeviceState` struct with a `thermalLevel` property.
+- [API] Added `ThermalLevel` enum exposing per-device thermal state.
+- [API] Added `NavigationError` enum: typed error for the new `openFirmwareUpdate` / `openDATGlassesAppUpdate` APIs.
+- [API] Added new `DeviceSessionError` cases for thermal, battery, and peak-power conditions: `.thermalCritical`, `.thermalEmergency`, `.peakPowerShutdown`, `.batteryCritical`, plus `.datAppOnTheGlassesUpdateRequired` for surfacing required app updates.
+- [API] Added new `StreamError` cases for thermal, battery, and peak-power conditions: `.thermalEmergency`, `.peakPowerShutdown`, `.batteryCritical`. (Pre-existing cases `.timeout`, `.permissionDenied`, `.hingesClosed`, `.thermalCritical` carry over from `StreamSessionError` under the new type name — see *Changed*.)
+- [API] Added `DeviceFilter` typealias and an optional `filter:` parameter on `AutoDeviceSelector(wearables:filter:)` (default `nil`) to constrain auto-selection — e.g., `filter: { $0.supportsDisplay() }`.
+- [API] Added `Device.supportsDisplay()` and `DeviceType.supportsDisplay` for capability-aware device filtering.
+- [API] Added Objective-C bridge expansion: `MWDATDeviceSession` now exposes `state` + `addStateListener`. New `MWDATDeviceSessionState`, `MWDATLinkState`, `MWDATCompatibility` Obj-C enums. `MWDATDevice` adds `linkState`, `compatibility`, `addLinkStateListener`, and `addCompatibilityListener` — gives Obj-C consumers parity with the Swift accessors previously shipped.
+- [API] Added `MockDeviceKitInterface.startTestServer(portFilePath:)` and `stopTestServer()` for managing the in-process MockDevice test server.
+
+### Changed
+
+- [API] Renamed camera capability types for cross-platform naming parity:
+  - `StreamSession` is now `Stream` (returned from `DeviceSession.addStream(config:)`).
+  - `StreamSessionConfig` is now `StreamConfiguration`.
+  - `StreamSessionState` is now `StreamState`.
+  - `StreamSessionError` is now `StreamError` (with additional cases — see *Added*).
+  - `MWDATStreamSession` / `MWDATStreamSessionConfig` Obj-C types replaced by `MWDATStream` / `MWDATStreamConfiguration`.
+  - Notification names: `streamSessionStateChanged` → `streamStateChanged`, `streamSessionFrameReceived` → `streamFrameReceived`, `streamSessionPhotoCaptured` → `streamPhotoCaptured`, `streamSessionErrorOccurred` → `streamErrorOccurred`. `MWDATStreamConfiguration`-based `addStream(config:error:)` Obj-C selector added alongside the existing zero-arg `addStream(error:)`.
+- [API] Consolidated `RegistrationManager` and `PermissionsManager` URL handlers. `handleFinishRegistrationUrl(_:)` / `handleDeleteRegistrationUrl(_:)` are replaced by `handleFinishRegistration(params:)` / `handleDeleteRegistration()`; `handlePermissionUrl(_:)` is replaced by `handlePermission(params:)`. URL parsing now goes through `Wearables.handleUrl(_:)` upstream.
+- [API] `FakeRegistrationHandling.handleUnregisterUrl(_:)` is replaced by `handleUnregister()`.
+
+### Removed
+
+- [API] `WearablesInterface.addDeviceSessionStateListener(forDeviceId:listener:)` and `MWDATWearables.addDeviceSessionStateListener` in favor of observing the `DeviceSession` directly via `stateStream()`.
+- [API] `DeviceStateSession` class; observe device state via `Wearables.deviceStateStream(for:)` instead.
+
+### Fixed
+
+- `MockDeviceKit`: streaming now correctly resumes when the device transitions to donned-disabled and back via fold/unfold cycle.
+- `MWDATCore`: fixed a latent typed-throws crash in `FWALinkedAppManagerRegistrationProvider`.
+- `DeviceSession`: stop transition is now correctly propagated on the session channel; display and device-health surfaces moved onto that channel.
+
 ## [0.6.0] - 2026-04-15
 
 ### Added

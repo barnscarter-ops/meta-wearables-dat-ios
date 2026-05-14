@@ -18,13 +18,15 @@
 
 import Foundation
 import MWDATMockDevice
+import Observation
 
 extension MockDeviceKitView {
+  @Observable
   @MainActor
-  class ViewModel: ObservableObject {
+  class ViewModel {
     private let mockDeviceKit: MockDeviceKitInterface
-    @Published var cardViewModels: [MockDeviceCardView.ViewModel] = []
-    @Published var isEnabled: Bool
+    var cardViewModels: [MockDeviceCardView.ViewModel] = []
+    var isEnabled: Bool
 
     init(mockDeviceKit: MockDeviceKitInterface) {
       self.mockDeviceKit = mockDeviceKit

@@ -16,13 +16,13 @@ import SwiftUI
 
 struct StreamSessionView: View {
   let wearables: WearablesInterface
-  @ObservedObject private var wearablesViewModel: WearablesViewModel
-  @StateObject private var viewModel: StreamSessionViewModel
+  var wearablesViewModel: WearablesViewModel
+  @State private var viewModel: StreamSessionViewModel
 
   init(wearables: WearablesInterface, wearablesVM: WearablesViewModel) {
     self.wearables = wearables
     self.wearablesViewModel = wearablesVM
-    self._viewModel = StateObject(wrappedValue: StreamSessionViewModel(wearables: wearables))
+    self._viewModel = State(wrappedValue: StreamSessionViewModel(wearables: wearables))
   }
 
   var body: some View {
@@ -34,6 +34,9 @@ struct StreamSessionView: View {
         // Pre-streaming setup view with permissions and start button
         NonStreamView(viewModel: viewModel, wearablesVM: wearablesViewModel)
       }
+    }
+    .onDisappear {
+      viewModel.endSession()
     }
     .alert("Error", isPresented: $viewModel.showError) {
       Button("OK") {

@@ -7,20 +7,22 @@
  */
 
 import MWDATCore
+import Observation
 import SwiftUI
 
 /// Manages DeviceSession lifecycle with 1:1 device-to-session mapping.
-/// Handles device availability monitoring, session creation, and the glasses-side bug workaround.
+/// Monitors device availability and creates sessions on demand via `getSession()`.
+@Observable
 @MainActor
-final class DeviceSessionManager: ObservableObject {
-  @Published private(set) var isReady: Bool = false
-  @Published private(set) var hasActiveDevice: Bool = false
+final class DeviceSessionManager {
+  private(set) var isReady: Bool = false
+  private(set) var hasActiveDevice: Bool = false
 
   private let wearables: WearablesInterface
   private let deviceSelector: AutoDeviceSelector
   private var deviceSession: DeviceSession?
-  private var deviceMonitorTask: Task<Void, Never>?
-  private var stateObserverTask: Task<Void, Never>?
+  @ObservationIgnored private var deviceMonitorTask: Task<Void, Never>?
+  @ObservationIgnored private var stateObserverTask: Task<Void, Never>?
 
   init(wearables: WearablesInterface) {
     self.wearables = wearables
@@ -28,68 +30,132 @@ final class DeviceSessionManager: ObservableObject {
     startDeviceMonitoring()
   }
 
-  deinit {
+  isolated deinit {
     deviceMonitorTask?.cancel()
     stateObserverTask?.cancel()
+    deviceSession?.stop()
+  }
+
+  /// Stops the device session and cancels monitoring. Call before releasing.
+  /// The stateObserverTask handles cleanup when .stopped arrives.
+  func cleanup() {
+    deviceMonitorTask?.cancel()
+    deviceMonitorTask = nil
+    deviceSession?.stop()
   }
 
   /// Returns a ready DeviceSession, creating one if needed.
   /// Waits for the session to reach .started state before returning.
-  func getSession() async -> DeviceSession? {
+  func getSession() async throws(DeviceSessionError) -> DeviceSession {
     if let session = deviceSession, session.state == .started {
-      // Ensure isReady reflects the actual state
       isReady = true
       return session
     }
 
-    // Session needs to be created or is stopped
     if deviceSession?.state == .stopped {
       deviceSession = nil
     }
 
-    guard deviceSession == nil else {
-      // Session exists but not in .started state - wait or return nil
-      return nil
+    // Wait for an in-progress session to finish starting
+    if let session = deviceSession {
+      // The session may have already transitioned to .started before the
+      // for-await loop begins iterating (stateStream doesn't buffer past events).
+      if session.state == .started {
+        isReady = true
+        startStateObserver(for: session)
+        return session
+      }
+
+      try await waitForSessionStart(
+        stateStream: session.stateStream(),
+        errorStream: session.errorStream()
+      )
+      isReady = true
+      startStateObserver(for: session)
+      return session
     }
 
+    // Create a new session
     do {
       let session = try wearables.createSession(deviceSelector: deviceSelector)
       deviceSession = session
 
       let stateStream = session.stateStream()
+      let errorStream = session.errorStream()
       try session.start()
 
-      // Wait for .started state
-      for await state in stateStream {
-        if state == .started {
-          isReady = true
-          startStateObserver(for: session)
-          return session
-        } else if state == .stopped {
-          isReady = false
-          deviceSession = nil
-          return nil
-        }
+      // The session may have already transitioned to .started before the
+      // for-await loop begins iterating (the state change is delivered on
+      // another thread and the stream does not buffer past events).
+      if session.state == .started {
+        isReady = true
+        startStateObserver(for: session)
+        return session
       }
+
+      try await waitForSessionStart(stateStream: stateStream, errorStream: errorStream)
+      isReady = true
+      startStateObserver(for: session)
+      return session
     } catch {
       isReady = false
       deviceSession = nil
+      throw error
     }
-    return nil
   }
 
   // MARK: - Private
 
+  private func waitForSessionStart(
+    stateStream: AsyncStream<DeviceSessionState>,
+    errorStream: AsyncStream<DeviceSessionError>
+  ) async throws(DeviceSessionError) {
+    do {
+      try await withThrowingTaskGroup(of: Void.self) { group in
+        group.addTask {
+          for await state in stateStream {
+            if state == .started {
+              return
+            }
+            if state == .stopped {
+              throw DeviceSessionError.unexpectedError(description: "The session failed to start")
+            }
+          }
+          guard !Task.isCancelled else {
+            return
+          }
+          throw DeviceSessionError.unexpectedError(description: "The session failed to start")
+        }
+
+        group.addTask {
+          for await error in errorStream {
+            throw error
+          }
+          guard !Task.isCancelled else {
+            return
+          }
+          throw DeviceSessionError.unexpectedError(description: "The session failed to start")
+        }
+
+        guard try await group.next() != nil else {
+          throw DeviceSessionError.unexpectedError(description: "The session failed to start")
+        }
+        group.cancelAll()
+      }
+    } catch let error as DeviceSessionError {
+      throw error
+    } catch {
+      throw .unexpectedError(description: error.localizedDescription)
+    }
+  }
+
+  /// Monitors device availability only — does NOT create sessions.
+  /// Session creation is deferred to `getSession()` to avoid races.
   private func startDeviceMonitoring() {
     deviceMonitorTask = Task { [weak self] in
       guard let self else { return }
       for await device in deviceSelector.activeDeviceStream() {
         hasActiveDevice = device != nil
-        if device != nil {
-          _ = await getSession()
-        } else {
-          handleDeviceLost()
-        }
       }
     }
   }
@@ -102,20 +168,12 @@ final class DeviceSessionManager: ObservableObject {
         if state == .started {
           isReady = true
         } else if state == .stopped {
-          // DeviceSession.stopped is terminal - clean up
           isReady = false
           deviceSession = nil
+          stateObserverTask = nil
           return
         }
       }
     }
-  }
-
-  private func handleDeviceLost() {
-    stateObserverTask?.cancel()
-    stateObserverTask = nil
-    deviceSession?.stop()
-    deviceSession = nil
-    isReady = false
   }
 }
