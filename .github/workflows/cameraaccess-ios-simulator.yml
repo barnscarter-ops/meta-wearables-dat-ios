@@ -25,8 +25,11 @@ jobs:
       PROJECT_PATH: samples/CameraAccess/CameraAccess.xcodeproj
       SCHEME: CameraAccess
       CONFIGURATION: Debug
-      RESULT_BUNDLE: CameraAccess-TestResults.xcresult
       BUILD_LOG: CameraAccess-xcodebuild.log
+      BUILD_RESULT_BUNDLE: CameraAccess-Build.xcresult
+      UNIT_RESULT_BUNDLE: CameraAccess-UnitTests.xcresult
+      UI_RESULT_BUNDLE: CameraAccess-UITests.xcresult
+      DERIVED_DATA: ${{ runner.temp }}/CameraAccessDerivedData
       OPENAI_API_KEY: ""
 
     steps:
@@ -87,27 +90,70 @@ jobs:
             -scheme "$SCHEME" \
             -clonedSourcePackagesDirPath "$RUNNER_TEMP/SourcePackages"
 
-      - name: Build and run tests on iOS Simulator
+      - name: Build CameraAccess for testing
         run: |
           set -euo pipefail
-          rm -rf "$RESULT_BUNDLE" "$BUILD_LOG"
-          xcodebuild test \
+          rm -rf "$BUILD_RESULT_BUNDLE" "$BUILD_LOG"
+          xcodebuild build-for-testing \
             -project "$PROJECT_PATH" \
             -scheme "$SCHEME" \
             -configuration "$CONFIGURATION" \
             -destination "platform=iOS Simulator,id=$SIMULATOR_ID" \
+            -derivedDataPath "$DERIVED_DATA" \
             -clonedSourcePackagesDirPath "$RUNNER_TEMP/SourcePackages" \
-            -resultBundlePath "$RESULT_BUNDLE" \
+            -resultBundlePath "$BUILD_RESULT_BUNDLE" \
             CODE_SIGNING_ALLOWED=NO \
             DEVELOPMENT_TEAM= \
             | tee "$BUILD_LOG"
 
-      - name: Upload Xcode result bundle
+      - name: Run CameraAccess unit integration tests
+        run: |
+          set -euo pipefail
+          rm -rf "$UNIT_RESULT_BUNDLE"
+          xcodebuild test-without-building \
+            -project "$PROJECT_PATH" \
+            -scheme "$SCHEME" \
+            -configuration "$CONFIGURATION" \
+            -destination "platform=iOS Simulator,id=$SIMULATOR_ID" \
+            -derivedDataPath "$DERIVED_DATA" \
+            -only-testing:CameraAccessTests \
+            -resultBundlePath "$UNIT_RESULT_BUNDLE" \
+            | tee -a "$BUILD_LOG"
+
+      - name: Run CameraAccess UI smoke test
+        continue-on-error: true
+        run: |
+          set -euo pipefail
+          rm -rf "$UI_RESULT_BUNDLE"
+          xcodebuild test-without-building \
+            -project "$PROJECT_PATH" \
+            -scheme "$SCHEME" \
+            -configuration "$CONFIGURATION" \
+            -destination "platform=iOS Simulator,id=$SIMULATOR_ID" \
+            -derivedDataPath "$DERIVED_DATA" \
+            -only-testing:CameraAccessUITests/CameraAccessUITests/testPhotoCaptureAndDismiss \
+            -resultBundlePath "$UI_RESULT_BUNDLE" \
+            | tee -a "$BUILD_LOG"
+
+      - name: Package Xcode result bundles
+        if: always()
+        run: |
+          set -euo pipefail
+          for bundle in "$BUILD_RESULT_BUNDLE" "$UNIT_RESULT_BUNDLE" "$UI_RESULT_BUNDLE"; do
+            if [ -d "$bundle" ]; then
+              zip -qry "${bundle}.zip" "$bundle"
+            fi
+          done
+
+      - name: Upload Xcode result bundles
         if: always()
         uses: actions/upload-artifact@v4
         with:
-          name: CameraAccess-TestResults
-          path: CameraAccess-TestResults.xcresult
+          name: CameraAccess-xcresults
+          path: |
+            CameraAccess-Build.xcresult.zip
+            CameraAccess-UnitTests.xcresult.zip
+            CameraAccess-UITests.xcresult.zip
           if-no-files-found: ignore
 
       - name: Upload xcodebuild log

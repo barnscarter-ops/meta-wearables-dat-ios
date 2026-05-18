@@ -139,6 +139,7 @@ curl -sL https://raw.githubusercontent.com/facebook/meta-wearables-dat-ios/main/
 
 - **Getting started** — SDK setup, SPM integration, Info.plist configuration
 - **Camera streaming** — Stream, video frames, resolution/frame rate, photo capture
+- **ChatGPT photo analysis sample** — CameraAccess can send captured glasses photos to the OpenAI Responses API for analysis
 - **MockDevice testing** — Test without physical glasses using MockDeviceKit
 - **Session lifecycle** — Device session states, pause/resume, availability
 - **Permissions & registration** — App registration, camera permission flows

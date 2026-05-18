@@ -49,7 +49,11 @@ struct CameraAccessApp: App {
 
       let portFilePath = ProcessInfo.processInfo.environment["MWDAT_TEST_SERVER_PORT_FILE"]
       Task {
-        try await MockDeviceKit.shared.startTestServer(portFilePath: portFilePath)
+        do {
+          try await MockDeviceKit.shared.startTestServer(portFilePath: portFilePath)
+        } catch {
+          NSLog("[CameraAccess] Failed to start MockDeviceKit test server: \(error)")
+        }
       }
     }
     #endif

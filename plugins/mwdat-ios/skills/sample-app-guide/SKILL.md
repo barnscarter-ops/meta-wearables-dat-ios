@@ -1,20 +1,20 @@
 ---
 name: sample-app-guide
-description: Building a complete DAT app with camera streaming and photo capture
+description: Building a complete DAT app with camera streaming, photo capture, MockDevice testing, and optional ChatGPT/OpenAI photo analysis
 ---
 
 # Sample App Guide (iOS)
 
 Build an iOS DAT app with camera streaming and photo capture.
 
-This walkthrough covers app setup, registration, streaming, and capture. Pair it with the [CameraAccess sample](https://github.com/facebook/meta-wearables-dat-ios/tree/main/samples).
+This walkthrough covers app setup, registration, streaming, capture, and optional ChatGPT analysis of captured photos. Pair it with the [CameraAccess sample](https://github.com/facebook/meta-wearables-dat-ios/tree/main/samples).
 
 ## Project setup
 
 1. Create a new Xcode project (SwiftUI App)
 2. Add the SDK via SPM: `https://github.com/facebook/meta-wearables-dat-ios`
 3. Add `MWDATCore`, `MWDATCamera`, and `MWDATMockDevice` to your target
-4. Configure `Info.plist` (see [Getting Started](getting-started.md))
+4. Configure `Info.plist` (see the `getting-started` skill)
 
 ## App architecture
 
@@ -194,6 +194,15 @@ func tearDownMockDevice() {
     MockDeviceKit.shared.disable()
 }
 ```
+
+## Optional ChatGPT photo analysis
+
+For apps that send captured glasses photos to ChatGPT:
+
+1. Keep the DAT stream/photo lifecycle independent from the OpenAI request lifecycle.
+2. Convert captured `PhotoData.data` or a `UIImage` JPEG representation to base64.
+3. Send the image as a `data:image/jpeg;base64,...` `input_image` content item with an `input_text` prompt through the OpenAI Responses API.
+4. Keep OpenAI API keys out of source control. For production apps, proxy through a backend or use an ephemeral-token flow; use simulator launch environment or a runtime-only field only for local development.
 
 ## Allowed dependencies
 

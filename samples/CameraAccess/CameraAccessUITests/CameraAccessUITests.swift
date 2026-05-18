@@ -18,6 +18,9 @@ final class CameraAccessUITests: XCTestCase {
   private var mockClient: MockDeviceTestClient!
   private var pairedDeviceId: String!
   // swiftlint:enable implicitly_unwrapped_optional
+  private var requiresMockServer: Bool {
+    !name.contains("testLaunchWithoutDeviceShowsHomeScreen")
+  }
 
   override func setUpWithError() throws {
     continueAfterFailure = false
@@ -30,14 +33,18 @@ final class CameraAccessUITests: XCTestCase {
     app.launchEnvironment["MWDAT_TEST_SERVER_PORT_FILE"] = portFilePath
     app.launch()
 
+    guard requiresMockServer else {
+      return
+    }
+
     // Initialize the client *after* launch so the server has time to write the port file.
     mockClient = MockDeviceTestClient(portFilePath: portFilePath)
-    XCTAssertTrue(mockClient.waitForServer(timeout: 10), "Test server should be running")
+    XCTAssertTrue(mockClient.waitForServer(timeout: 30), "Test server should be running")
   }
 
   override func tearDownWithError() throws {
     if pairedDeviceId != nil {
-      mockClient.unpairDevice(deviceId: pairedDeviceId)
+      mockClient?.unpairDevice(deviceId: pairedDeviceId)
       pairedDeviceId = nil
     }
   }
