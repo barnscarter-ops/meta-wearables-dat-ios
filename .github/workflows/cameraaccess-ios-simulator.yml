@@ -118,6 +118,7 @@ jobs:
             -configuration "$CONFIGURATION" \
             -destination "platform=iOS Simulator,id=$SIMULATOR_ID" \
             -derivedDataPath "$RUNNER_TEMP/$DERIVED_DATA_DIR" \
+            -parallel-testing-enabled NO \
             -only-testing:CameraAccessTests \
             -resultBundlePath "$UNIT_RESULT_BUNDLE" \
             | tee -a "$BUILD_LOG"
