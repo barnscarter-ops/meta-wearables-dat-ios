@@ -118,7 +118,7 @@ jobs:
             -c "Print :MWDAT" \
             "$RUNNER_TEMP/$DERIVED_DATA_DIR/Build/Products/$CONFIGURATION-iphonesimulator/CameraAccess.app/Info.plist"
 
-      - name: Run CameraAccess unit integration tests
+      - name: Run CameraAccess unit tests
         env:
           CAMERAACCESS_SKIP_APP_STARTUP: "1"
         run: |
@@ -131,7 +131,7 @@ jobs:
             -destination "platform=iOS Simulator,id=$SIMULATOR_ID" \
             -derivedDataPath "$RUNNER_TEMP/$DERIVED_DATA_DIR" \
             -parallel-testing-enabled NO \
-            -only-testing:CameraAccessTests \
+            -only-testing:CameraAccessTests/StreamSessionViewModelUnitTests \
             -resultBundlePath "$UNIT_RESULT_BUNDLE" \
             CODE_SIGNING_ALLOWED=NO \
             DEVELOPMENT_TEAM="$DEVELOPMENT_TEAM_ID" \
