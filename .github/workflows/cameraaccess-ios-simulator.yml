@@ -32,7 +32,7 @@ jobs:
       DERIVED_DATA_DIR: CameraAccessDerivedData
       OPENAI_API_KEY: ""
       META_APP_ID: "0"
-      CLIENT_TOKEN: ""
+      CLIENT_TOKEN: ci-client-token
       DEVELOPMENT_TEAM_ID: V9WTTPBFK9
 
     steps:
@@ -110,6 +110,13 @@ jobs:
             META_APP_ID="$META_APP_ID" \
             CLIENT_TOKEN="$CLIENT_TOKEN" \
             | tee "$BUILD_LOG"
+
+      - name: Show processed DAT configuration
+        run: |
+          set -euo pipefail
+          /usr/libexec/PlistBuddy \
+            -c "Print :MWDAT" \
+            "$RUNNER_TEMP/$DERIVED_DATA_DIR/Build/Products/$CONFIGURATION-iphonesimulator/CameraAccess.app/Info.plist"
 
       - name: Run CameraAccess unit integration tests
         env:
