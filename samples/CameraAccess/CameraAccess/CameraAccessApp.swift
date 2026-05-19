@@ -36,7 +36,9 @@ struct CameraAccessApp: App {
   init() {
     let processInfo = ProcessInfo.processInfo
     let isUITesting = processInfo.arguments.contains("--ui-testing")
-    let isRunningUnitTests = processInfo.environment["XCTestConfigurationFilePath"] != nil && !isUITesting
+    let shouldSkipAppStartup = processInfo.environment["CAMERAACCESS_SKIP_APP_STARTUP"] == "1"
+    let isRunningUnitTests =
+      (shouldSkipAppStartup || processInfo.environment["XCTestConfigurationFilePath"] != nil) && !isUITesting
     self.isRunningUnitTests = isRunningUnitTests
 
     if !isRunningUnitTests {

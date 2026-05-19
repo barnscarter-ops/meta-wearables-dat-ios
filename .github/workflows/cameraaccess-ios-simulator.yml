@@ -107,6 +107,8 @@ jobs:
             | tee "$BUILD_LOG"
 
       - name: Run CameraAccess unit integration tests
+        env:
+          CAMERAACCESS_SKIP_APP_STARTUP: "1"
         run: |
           set -euo pipefail
           rm -rf "$UNIT_RESULT_BUNDLE"
