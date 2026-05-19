@@ -29,9 +29,9 @@ struct CameraAccessApp: App {
   // Debug menu for simulating device connections during development
   @State private var debugMenuViewModel: DebugMenuViewModel?
   #endif
-  private let wearables: WearablesInterface
+  private let wearables: WearablesInterface?
   private let isRunningUnitTests: Bool
-  @State private var wearablesViewModel: WearablesViewModel
+  @State private var wearablesViewModel: WearablesViewModel?
 
   init() {
     let processInfo = ProcessInfo.processInfo
@@ -72,21 +72,32 @@ struct CameraAccessApp: App {
     }
     #endif
 
-    let wearables = Wearables.shared
-    self.wearables = wearables
-    self._wearablesViewModel = State(wrappedValue: WearablesViewModel(wearables: wearables))
+    if isRunningUnitTests {
+      self.wearables = nil
+      self._wearablesViewModel = State(wrappedValue: nil)
+    } else {
+      let wearables = Wearables.shared
+      self.wearables = wearables
+      self._wearablesViewModel = State(wrappedValue: WearablesViewModel(wearables: wearables))
+    }
   }
 
   var body: some Scene {
     WindowGroup {
       if isRunningUnitTests {
         EmptyView()
-      } else {
+      } else if let wearables, let wearablesViewModel {
         // Main app view with access to the shared Wearables SDK instance
         // The Wearables.shared singleton provides the core DAT API
-        MainAppView(wearables: Wearables.shared, viewModel: wearablesViewModel)
+        MainAppView(wearables: wearables, viewModel: wearablesViewModel)
           // Show error alerts for view model failures
-          .alert("Error", isPresented: $wearablesViewModel.showError) {
+          .alert(
+            "Error",
+            isPresented: Binding(
+              get: { self.wearablesViewModel?.showError ?? false },
+              set: { self.wearablesViewModel?.showError = $0 }
+            )
+          ) {
             Button("OK") {
               wearablesViewModel.dismissError()
             }
