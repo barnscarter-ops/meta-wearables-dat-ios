@@ -29,7 +29,7 @@ jobs:
       BUILD_RESULT_BUNDLE: CameraAccess-Build.xcresult
       UNIT_RESULT_BUNDLE: CameraAccess-UnitTests.xcresult
       UI_RESULT_BUNDLE: CameraAccess-UITests.xcresult
-      DERIVED_DATA: ${{ runner.temp }}/CameraAccessDerivedData
+      DERIVED_DATA_DIR: CameraAccessDerivedData
       OPENAI_API_KEY: ""
 
     steps:
@@ -99,7 +99,7 @@ jobs:
             -scheme "$SCHEME" \
             -configuration "$CONFIGURATION" \
             -destination "platform=iOS Simulator,id=$SIMULATOR_ID" \
-            -derivedDataPath "$DERIVED_DATA" \
+            -derivedDataPath "$RUNNER_TEMP/$DERIVED_DATA_DIR" \
             -clonedSourcePackagesDirPath "$RUNNER_TEMP/SourcePackages" \
             -resultBundlePath "$BUILD_RESULT_BUNDLE" \
             CODE_SIGNING_ALLOWED=NO \
@@ -115,7 +115,7 @@ jobs:
             -scheme "$SCHEME" \
             -configuration "$CONFIGURATION" \
             -destination "platform=iOS Simulator,id=$SIMULATOR_ID" \
-            -derivedDataPath "$DERIVED_DATA" \
+            -derivedDataPath "$RUNNER_TEMP/$DERIVED_DATA_DIR" \
             -only-testing:CameraAccessTests \
             -resultBundlePath "$UNIT_RESULT_BUNDLE" \
             | tee -a "$BUILD_LOG"
@@ -130,7 +130,7 @@ jobs:
             -scheme "$SCHEME" \
             -configuration "$CONFIGURATION" \
             -destination "platform=iOS Simulator,id=$SIMULATOR_ID" \
-            -derivedDataPath "$DERIVED_DATA" \
+            -derivedDataPath "$RUNNER_TEMP/$DERIVED_DATA_DIR" \
             -only-testing:CameraAccessUITests/CameraAccessUITests/testPhotoCaptureAndDismiss \
             -resultBundlePath "$UI_RESULT_BUNDLE" \
             | tee -a "$BUILD_LOG"
