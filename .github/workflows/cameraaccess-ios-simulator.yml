@@ -31,6 +31,9 @@ jobs:
       UI_RESULT_BUNDLE: CameraAccess-UITests.xcresult
       DERIVED_DATA_DIR: CameraAccessDerivedData
       OPENAI_API_KEY: ""
+      META_APP_ID: "0"
+      CLIENT_TOKEN: ""
+      DEVELOPMENT_TEAM_ID: V9WTTPBFK9
 
     steps:
       - name: Check out repository
@@ -103,7 +106,9 @@ jobs:
             -clonedSourcePackagesDirPath "$RUNNER_TEMP/SourcePackages" \
             -resultBundlePath "$BUILD_RESULT_BUNDLE" \
             CODE_SIGNING_ALLOWED=NO \
-            DEVELOPMENT_TEAM= \
+            DEVELOPMENT_TEAM="$DEVELOPMENT_TEAM_ID" \
+            META_APP_ID="$META_APP_ID" \
+            CLIENT_TOKEN="$CLIENT_TOKEN" \
             | tee "$BUILD_LOG"
 
       - name: Run CameraAccess unit integration tests
@@ -121,6 +126,10 @@ jobs:
             -parallel-testing-enabled NO \
             -only-testing:CameraAccessTests \
             -resultBundlePath "$UNIT_RESULT_BUNDLE" \
+            CODE_SIGNING_ALLOWED=NO \
+            DEVELOPMENT_TEAM="$DEVELOPMENT_TEAM_ID" \
+            META_APP_ID="$META_APP_ID" \
+            CLIENT_TOKEN="$CLIENT_TOKEN" \
             | tee -a "$BUILD_LOG"
 
       - name: Run CameraAccess UI smoke test
@@ -136,6 +145,10 @@ jobs:
             -derivedDataPath "$RUNNER_TEMP/$DERIVED_DATA_DIR" \
             -only-testing:CameraAccessUITests/CameraAccessUITests/testPhotoCaptureAndDismiss \
             -resultBundlePath "$UI_RESULT_BUNDLE" \
+            CODE_SIGNING_ALLOWED=NO \
+            DEVELOPMENT_TEAM="$DEVELOPMENT_TEAM_ID" \
+            META_APP_ID="$META_APP_ID" \
+            CLIENT_TOKEN="$CLIENT_TOKEN" \
             | tee -a "$BUILD_LOG"
 
       - name: Package Xcode result bundles
