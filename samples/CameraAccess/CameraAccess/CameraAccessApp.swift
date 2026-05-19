@@ -41,12 +41,6 @@ struct CameraAccessApp: App {
       (shouldSkipAppStartup || processInfo.environment["XCTestConfigurationFilePath"] != nil) && !isUITesting
     self.isRunningUnitTests = isRunningUnitTests
 
-    #if DEBUG
-    if isRunningUnitTests || isUITesting {
-      MockDeviceKit.shared.enable(config: MockDeviceKitConfig(initiallyRegistered: false))
-    }
-    #endif
-
     do {
       try Wearables.configure()
     } catch {
@@ -63,6 +57,8 @@ struct CameraAccessApp: App {
     // Start the test server when launched by XCUITests so tests can control
     // mock device setup via HTTP commands from the test process.
     if isUITesting {
+      MockDeviceKit.shared.enable(config: MockDeviceKitConfig(initiallyRegistered: false))
+
       let portFilePath = processInfo.environment["MWDAT_TEST_SERVER_PORT_FILE"]
       Task {
         do {

@@ -24,8 +24,8 @@ final class ViewModelIntegrationTests: XCTestCase {
   override func setUp() async throws {
     try await super.setUp()
 
-    MockDeviceKit.shared.enable()
     try? Wearables.configure()
+    MockDeviceKit.shared.enable()
 
     // Pair mock device and set up camera kit
     let pairedMockDevice = MockDeviceKit.shared.pairRaybanMeta()
