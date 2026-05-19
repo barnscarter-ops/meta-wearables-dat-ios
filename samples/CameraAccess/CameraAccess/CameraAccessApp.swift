@@ -41,14 +41,12 @@ struct CameraAccessApp: App {
       (shouldSkipAppStartup || processInfo.environment["XCTestConfigurationFilePath"] != nil) && !isUITesting
     self.isRunningUnitTests = isRunningUnitTests
 
-    if !isRunningUnitTests {
-      do {
-        try Wearables.configure()
-      } catch {
-        #if DEBUG
-        NSLog("[CameraAccess] Failed to configure Wearables SDK: \(error)")
-        #endif
-      }
+    do {
+      try Wearables.configure()
+    } catch {
+      #if DEBUG
+      NSLog("[CameraAccess] Failed to configure Wearables SDK: \(error)")
+      #endif
     }
 
     #if DEBUG
