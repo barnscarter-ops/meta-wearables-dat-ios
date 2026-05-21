@@ -22,12 +22,19 @@ struct PhotoPreviewView: View {
   let onDismiss: () -> Void
 
   @State private var showShareSheet = false
-  @State private var prompt = "Describe what you see and call out anything that may need my attention."
-  @State private var apiKey = ProcessInfo.processInfo.environment["OPENAI_API_KEY"] ?? ""
-  @State private var analysisText = ""
-  @State private var analysisError = ""
-  @State private var isAnalyzing = false
+  @State private var analysisViewModel: PhotoAnalysisViewModel
   @State private var dragOffset = CGSize.zero
+
+  @MainActor
+  init(
+    photo: UIImage,
+    analysisViewModel: PhotoAnalysisViewModel = PhotoAnalysisViewModel(),
+    onDismiss: @escaping () -> Void
+  ) {
+    self.photo = photo
+    self._analysisViewModel = State(wrappedValue: analysisViewModel)
+    self.onDismiss = onDismiss
+  }
 
   var body: some View {
     ZStack {
@@ -48,8 +55,8 @@ struct PhotoPreviewView: View {
             analyzePhoto()
           }
           .accessibilityIdentifier("ask_chatgpt_button")
-          .disabled(isAnalyzing)
-          .opacity(isAnalyzing ? 0.6 : 1.0)
+          .disabled(analysisViewModel.isAnalyzing)
+          .opacity(analysisViewModel.isAnalyzing ? 0.6 : 1.0)
 
           CircleButton(icon: "square.and.arrow.up", text: nil) {
             showShareSheet = true
@@ -80,21 +87,25 @@ struct PhotoPreviewView: View {
   }
 
   private var actionPanel: some View {
+    @Bindable var analysisViewModel = analysisViewModel
+
     VStack(alignment: .leading, spacing: 12) {
-      Text("Ask ChatGPT")
+      Text(analysisViewModel.serviceName)
         .font(.headline)
         .foregroundStyle(.white)
 
-      SecureField("OpenAI API key", text: $apiKey)
-        .textInputAutocapitalization(.never)
-        .autocorrectionDisabled()
-        .font(.system(size: 14))
-        .padding(12)
-        .background(.white.opacity(0.14))
-        .foregroundStyle(.white)
-        .clipShape(RoundedRectangle(cornerRadius: 8))
+      if analysisViewModel.supportsAPIKey {
+        SecureField("OpenAI API key (optional for demo)", text: $analysisViewModel.apiKey)
+          .textInputAutocapitalization(.never)
+          .autocorrectionDisabled()
+          .font(.system(size: 14))
+          .padding(12)
+          .background(.white.opacity(0.14))
+          .foregroundStyle(.white)
+          .clipShape(RoundedRectangle(cornerRadius: 8))
+      }
 
-      TextField("Prompt", text: $prompt, axis: .vertical)
+      TextField("Prompt", text: $analysisViewModel.prompt, axis: .vertical)
         .lineLimit(2...4)
         .font(.system(size: 14))
         .padding(12)
@@ -102,15 +113,15 @@ struct PhotoPreviewView: View {
         .foregroundStyle(.white)
         .clipShape(RoundedRectangle(cornerRadius: 8))
 
-      if isAnalyzing {
+      if analysisViewModel.isAnalyzing {
         ProgressView("Analyzing photo...")
           .tint(.white)
           .foregroundStyle(.white)
       }
 
-      if !analysisText.isEmpty {
+      if !analysisViewModel.analysisText.isEmpty {
         ScrollView {
-          Text(analysisText)
+          Text(analysisViewModel.analysisText)
             .font(.system(size: 14))
             .foregroundStyle(.white)
             .frame(maxWidth: .infinity, alignment: .leading)
@@ -118,8 +129,8 @@ struct PhotoPreviewView: View {
         .frame(maxHeight: 140)
       }
 
-      if !analysisError.isEmpty {
-        Text(analysisError)
+      if !analysisViewModel.analysisError.isEmpty {
+        Text(analysisViewModel.analysisError)
           .font(.system(size: 14, weight: .medium))
           .foregroundStyle(.red.opacity(0.9))
       }
@@ -167,33 +178,8 @@ struct PhotoPreviewView: View {
   }
 
   private func analyzePhoto() {
-    let trimmedApiKey = apiKey.trimmingCharacters(in: .whitespacesAndNewlines)
-    guard !trimmedApiKey.isEmpty else {
-      analysisError = "Add an OpenAI API key to analyze this glasses photo."
-      return
-    }
-
-    isAnalyzing = true
-    analysisError = ""
-    analysisText = ""
-
     Task {
-      do {
-        let result = try await OpenAIImageAnalysisService().analyze(
-          photo: photo,
-          prompt: prompt,
-          apiKey: trimmedApiKey
-        )
-        await MainActor.run {
-          analysisText = result
-          isAnalyzing = false
-        }
-      } catch {
-        await MainActor.run {
-          analysisError = error.localizedDescription
-          isAnalyzing = false
-        }
-      }
+      await analysisViewModel.analyze(photo: photo)
     }
   }
 }
@@ -221,129 +207,10 @@ struct ShareSheet: UIViewControllerRepresentable {
   }
 }
 
-private struct OpenAIImageAnalysisService {
-  private let endpoint = URL(string: "https://api.openai.com/v1/responses")!
-  private let model = "gpt-4.1-mini"
-
-  func analyze(photo: UIImage, prompt: String, apiKey: String) async throws -> String {
-    guard let jpegData = photo.jpegData(compressionQuality: 0.82) else {
-      throw OpenAIImageAnalysisError.imageEncodingFailed
-    }
-
-    var request = URLRequest(url: endpoint)
-    request.httpMethod = "POST"
-    request.setValue("Bearer \(apiKey)", forHTTPHeaderField: "Authorization")
-    request.setValue("application/json", forHTTPHeaderField: "Content-Type")
-    request.httpBody = try JSONEncoder().encode(
-      ResponsesRequest(
-        model: model,
-        input: [
-          .init(
-            role: "user",
-            content: [
-              .init(type: "input_text", text: prompt, imageURL: nil),
-              .init(
-                type: "input_image",
-                text: nil,
-                imageURL: "data:image/jpeg;base64,\(jpegData.base64EncodedString())"
-              ),
-            ]
-          ),
-        ],
-        maxOutputTokens: 350
-      )
-    )
-
-    let (data, response) = try await URLSession.shared.data(for: request)
-    guard let httpResponse = response as? HTTPURLResponse else {
-      throw OpenAIImageAnalysisError.invalidResponse
-    }
-
-    let decoded = try JSONDecoder().decode(ResponsesResponse.self, from: data)
-    if let message = decoded.error?.message {
-      throw OpenAIImageAnalysisError.api(message)
-    }
-
-    guard (200..<300).contains(httpResponse.statusCode) else {
-      throw OpenAIImageAnalysisError.api("OpenAI returned HTTP \(httpResponse.statusCode).")
-    }
-
-    let text = (decoded.output ?? [])
-      .flatMap { $0.content ?? [] }
-      .compactMap(\.text)
-      .joined(separator: "\n\n")
-      .trimmingCharacters(in: .whitespacesAndNewlines)
-
-    guard !text.isEmpty else {
-      throw OpenAIImageAnalysisError.emptyOutput
-    }
-
-    return text
-  }
-}
-
-private struct ResponsesRequest: Encodable {
-  let model: String
-  let input: [InputMessage]
-  let maxOutputTokens: Int
-
-  enum CodingKeys: String, CodingKey {
-    case model
-    case input
-    case maxOutputTokens = "max_output_tokens"
-  }
-
-  struct InputMessage: Encodable {
-    let role: String
-    let content: [InputContent]
-  }
-
-  struct InputContent: Encodable {
-    let type: String
-    let text: String?
-    let imageURL: String?
-
-    enum CodingKeys: String, CodingKey {
-      case type
-      case text
-      case imageURL = "image_url"
-    }
-  }
-}
-
-private struct ResponsesResponse: Decodable {
-  let output: [OutputItem]?
-  let error: APIError?
-
-  struct OutputItem: Decodable {
-    let content: [OutputContent]?
-  }
-
-  struct OutputContent: Decodable {
-    let text: String?
-  }
-
-  struct APIError: Decodable {
-    let message: String
-  }
-}
-
-private enum OpenAIImageAnalysisError: LocalizedError {
-  case imageEncodingFailed
-  case invalidResponse
-  case emptyOutput
-  case api(String)
-
-  var errorDescription: String? {
-    switch self {
-    case .imageEncodingFailed:
-      return "Unable to encode the captured photo as JPEG."
-    case .invalidResponse:
-      return "OpenAI returned an invalid response."
-    case .emptyOutput:
-      return "ChatGPT did not return any text for this photo."
-    case .api(let message):
-      return message
-    }
-  }
+#Preview {
+  PhotoPreviewView(
+    photo: UIImage(systemName: "camera.fill") ?? UIImage(),
+    analysisViewModel: PhotoAnalysisViewModel(service: PhotoAnalysisServiceFactory.makeSample()),
+    onDismiss: {}
+  )
 }
