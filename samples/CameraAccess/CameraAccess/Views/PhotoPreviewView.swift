@@ -28,11 +28,11 @@ struct PhotoPreviewView: View {
   @MainActor
   init(
     photo: UIImage,
-    analysisViewModel: PhotoAnalysisViewModel = PhotoAnalysisViewModel(),
+    analysisViewModel: PhotoAnalysisViewModel? = nil,
     onDismiss: @escaping () -> Void
   ) {
     self.photo = photo
-    self._analysisViewModel = State(wrappedValue: analysisViewModel)
+    self._analysisViewModel = State(wrappedValue: analysisViewModel ?? PhotoAnalysisViewModel())
     self.onDismiss = onDismiss
   }
 
