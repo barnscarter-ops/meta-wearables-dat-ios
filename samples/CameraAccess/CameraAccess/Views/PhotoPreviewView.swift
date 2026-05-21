@@ -89,7 +89,7 @@ struct PhotoPreviewView: View {
   private var actionPanel: some View {
     @Bindable var analysisViewModel = analysisViewModel
 
-    VStack(alignment: .leading, spacing: 12) {
+    return VStack(alignment: .leading, spacing: 12) {
       Text(analysisViewModel.serviceName)
         .font(.headline)
         .foregroundStyle(.white)
