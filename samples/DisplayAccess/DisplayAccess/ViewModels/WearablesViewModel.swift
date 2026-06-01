@@ -93,7 +93,7 @@ class WearablesViewModel {
     }
   }
 
-  isolated deinit {
+  deinit {
     registrationTask?.cancel()
     deviceStreamTask?.cancel()
     for token in compatibilityListenerTokens.values {
