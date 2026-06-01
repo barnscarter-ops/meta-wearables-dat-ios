@@ -46,7 +46,7 @@ class DisplayViewModel {
     observeRegistration()
   }
 
-  deinit {
+  isolated deinit {
     stateListenerToken = nil
     coreStateTask?.cancel()
     sessionErrorTask?.cancel()

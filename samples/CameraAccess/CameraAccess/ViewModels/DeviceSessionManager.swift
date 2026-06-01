@@ -30,7 +30,7 @@ final class DeviceSessionManager {
     startDeviceMonitoring()
   }
 
-  deinit {
+  isolated deinit {
     deviceMonitorTask?.cancel()
     stateObserverTask?.cancel()
     deviceSession?.stop()

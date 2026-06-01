@@ -56,7 +56,7 @@ class WearablesViewModel {
     }
   }
 
-  deinit {
+  isolated deinit {
     registrationTask?.cancel()
     deviceStreamTask?.cancel()
     setupDeviceStreamTask?.cancel()
