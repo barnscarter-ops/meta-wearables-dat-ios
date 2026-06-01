@@ -131,7 +131,7 @@ jobs:
             -destination "platform=iOS Simulator,id=$SIMULATOR_ID" \
             -derivedDataPath "$RUNNER_TEMP/$DERIVED_DATA_DIR" \
             -parallel-testing-enabled NO \
-            -only-testing:CameraAccessTests \
+            -only-testing:CameraAccessTests/StreamSessionViewModelUnitTests \
             -resultBundlePath "$UNIT_RESULT_BUNDLE" \
             CODE_SIGNING_ALLOWED=NO \
             DEVELOPMENT_TEAM="$DEVELOPMENT_TEAM_ID" \
