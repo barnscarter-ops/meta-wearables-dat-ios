@@ -46,6 +46,17 @@ struct StreamView: View {
       // Bottom controls layer
 
       VStack {
+        if !viewModel.aiResponse.isEmpty {
+          Text(viewModel.aiResponse)
+            .padding()
+            .background(.ultraThinMaterial)
+            .cornerRadius(12)
+            .foregroundColor(.white)
+            .multilineTextAlignment(.center)
+            .padding(.horizontal)
+            .transition(.opacity)
+        }
+
         Spacer()
         ControlsView(viewModel: viewModel)
       }
@@ -87,6 +98,24 @@ struct ControlsView: View {
         Task {
           await viewModel.stopSession()
         }
+      }
+
+      CustomButton(
+        title: viewModel.isAnalyzing ? "Thinking..." : "Ask AI",
+        style: .primary,
+        isDisabled: viewModel.isAnalyzing
+      ) {
+        Task {
+          await viewModel.askAI()
+        }
+      }
+
+      CustomButton(
+        title: viewModel.isLiveModeEnabled ? "Live: ON" : "Live: OFF",
+        style: viewModel.isLiveModeEnabled ? .primary : .secondary,
+        isDisabled: false
+      ) {
+        viewModel.toggleLiveMode()
       }
 
       // Photo button

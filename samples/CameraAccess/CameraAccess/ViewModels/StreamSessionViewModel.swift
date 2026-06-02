@@ -24,6 +24,9 @@ final class StreamSessionViewModel {
   // MARK: - State
 
   var currentVideoFrame: UIImage?
+  var aiResponse: String = ""
+  var isAnalyzing: Bool = false
+  var isLiveModeEnabled: Bool = false
   var hasReceivedFirstFrame: Bool = false
   var streamingStatus: StreamingStatus = .stopped
   var showError: Bool = false
@@ -56,6 +59,11 @@ final class StreamSessionViewModel {
   init(wearables: WearablesInterface) {
     self.wearables = wearables
     self.sessionManager = DeviceSessionManager(wearables: wearables)
+
+    // Setup Watch Connectivity
+    WatchConnectivityManager.shared.onLiveModeToggled = { [weak self] in
+      self?.toggleLiveMode()
+    }
   }
 
   // MARK: - Public API
@@ -119,10 +127,42 @@ final class StreamSessionViewModel {
     showPhotoCaptureError = false
   }
 
-  func dismissPhotoPreview() {
-    showPhotoPreview = false
-    capturedPhoto = nil
+  func askAI() async {
+    guard !isAnalyzing, let frame = currentVideoFrame else { return }
+
+    isAnalyzing = true
+    aiResponse = "Thinking..."
+
+    do {
+      let response = try await ChatGPTStreamingService.shared.analyzeFrame(
+        image: frame,
+        prompt: "You are a helpful, real-time AI assistant seeing a live stream from Meta Ray-Ban glasses. Your goal is to be the user's 'eyes' and 'brain'. Describe the scene concisely, identify key objects, and answer questions naturally. If you see something interesting or dangerous, point it out immediately. Keep responses brief and conversational."
+      )
+      aiResponse = response
+    } catch {
+      aiResponse = "Error: \(error.localizedDescription)"
+    }
+
+    isAnalyzing = false
   }
+
+  func toggleLiveMode() {
+    isLiveModeEnabled.toggle()
+    if isLiveModeEnabled {
+      startLiveAnalysisLoop()
+    }
+  }
+
+  private func startLiveAnalysisLoop() {
+    Task {
+      while isLiveModeEnabled {
+        await askAI()
+        // Wait 8 seconds between analyses to avoid API rate limits and cost
+        try? await Task.sleep(nanoseconds: 8 * 1_000_000_000)
+      }
+    }
+  }
+
 
   // MARK: - Private
 
