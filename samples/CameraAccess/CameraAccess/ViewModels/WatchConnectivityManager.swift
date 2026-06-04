@@ -39,7 +39,6 @@ final class WatchConnectivityManager: NSObject, WCSessionDelegate {
 
     #if os(iOS)
     func sessionDidBecomeInactive(_ session: WCSession) {}
-    func sessionDidBecomeInactive(_ session: WCSession) {}
     func sessionDidDeactivate(_ session: WCSession) {}
     #endif
 }

@@ -1,0 +1,170 @@
+Xcode version: 26.2 (17C52)
+21:47:26.939 xcodebuild[12776:40986] Beginning test session CameraAccessTests-190D2A3C-14ED-4B63-A334-313FF4C3E1EB at 2026-05-18 21:47:26.937 on target <DVTiPhoneSimulator: 0x774129180> {
+		SimDevice: Clone 1 of iPhone 17 Pro (CF282BA1-AE2D-4DEB-A5CE-2D8B03238C55, iOS 26.4, Shutdown)
+} (26.4.1 (23E254a))
+21:47:26.939 xcodebuild[12776:40986] 	/Applications/Xcode_26.2.app/Contents/Developer/usr/bin/xcodebuild
+test
+-project
+samples/CameraAccess/CameraAccess.xcodeproj
+-scheme
+CameraAccess
+-configuration
+Debug
+-destination
+platform=iOS Simulator,id=A6D3EC07-8356-4742-A382-A63AC9D3D7AC
+-clonedSourcePackagesDirPath
+/Users/runner/work/_temp/SourcePackages
+-resultBundlePath
+CameraAccess-TestResults.xcresult
+CODE_SIGNING_ALLOWED=NO
+DEVELOPMENT_TEAM=
+21:47:26.942 xcodebuild[12776:40986] Test standard output and standard error is at /Users/runner/work/meta-wearables-dat-ios/meta-wearables-dat-ios/CameraAccess-TestResults.xcresult/Staging/1_Test/Diagnostics/CameraAccessTests-2AAB0BD3-2D5A-4444-B8C7-2C01F8DE5042-Configuration-Test Scheme Action-Iteration-1/CameraAccessTests-F83E1163-0621-49F6-BCE2-E83737E1DFBC/StandardOutputAndStandardError.txt
+21:47:29.801 xcodebuild[12776:52878] 📱<DVTiPhoneSimulator (0x774129180), Clone 1 of iPhone 17 Pro, unknown class, 26.4.1 (23E254a), CF282BA1-AE2D-4DEB-A5CE-2D8B03238C55> claim LaunchSessionClaim_0x7725f4180 on simulator was issued, 2 claims exist.
+21:48:30.370 xcodebuild[12776:40986] CF282BA1-AE2D-4DEB-A5CE-2D8B03238C55: Received sim device notification: {
+    notification = "availableDevices_changed";
+}
+21:48:30.370 xcodebuild[12776:40986] CF282BA1-AE2D-4DEB-A5CE-2D8B03238C55: Received sim device notification: {
+    device = "Clone 1 of iPhone 17 Pro (CF282BA1-AE2D-4DEB-A5CE-2D8B03238C55, iOS 26.4, Booted)";
+    "last_booted_at" = "2026-05-18 21:47:28 +0000";
+    "new_state" = 2;
+    notification = "device_state";
+    "prev_state" = 1;
+}
+21:48:30.371 xcodebuild[12776:40986] /Users/runner/Library/Developer/XCTestDevices: Received sim device set notification: {
+    device = "Clone 1 of iPhone 17 Pro (CF282BA1-AE2D-4DEB-A5CE-2D8B03238C55, iOS 26.4, Booted)";
+    "last_booted_at" = "2026-05-18 21:47:28 +0000";
+    "new_state" = 2;
+    notification = "device_state";
+    "prev_state" = 1;
+}
+21:48:30.371 xcodebuild[12776:40986] /Users/runner/Library/Developer/XCTestDevices: Received sim device set notification: {
+    device = "Clone 1 of iPhone 17 Pro (CF282BA1-AE2D-4DEB-A5CE-2D8B03238C55, iOS 26.4, Booted)";
+    "last_booted_at" = "2026-05-18 21:47:28 +0000";
+    "new_state" = 2;
+    notification = "device_state";
+    "prev_state" = 1;
+}
+21:48:30.371 xcodebuild[12776:40986] CF282BA1-AE2D-4DEB-A5CE-2D8B03238C55: Received sim device notification: {
+    notification = "availableDevices_changed";
+}
+21:48:30.372 xcodebuild[12776:40986] CF282BA1-AE2D-4DEB-A5CE-2D8B03238C55: Received sim device notification: {
+    device = "Clone 1 of iPhone 17 Pro (CF282BA1-AE2D-4DEB-A5CE-2D8B03238C55, iOS 26.4, Booted)";
+    "new_state" = 3;
+    notification = "device_state";
+    "prev_state" = 2;
+}
+21:48:30.373 xcodebuild[12776:40986] /Users/runner/Library/Developer/XCTestDevices: Received sim device set notification: {
+    device = "Clone 1 of iPhone 17 Pro (CF282BA1-AE2D-4DEB-A5CE-2D8B03238C55, iOS 26.4, Booted)";
+    "new_state" = 3;
+    notification = "device_state";
+    "prev_state" = 2;
+}
+21:48:30.373 xcodebuild[12776:40986] /Users/runner/Library/Developer/XCTestDevices: Received sim device set notification: {
+    device = "Clone 1 of iPhone 17 Pro (CF282BA1-AE2D-4DEB-A5CE-2D8B03238C55, iOS 26.4, Booted)";
+    "new_state" = 3;
+    notification = "device_state";
+    "prev_state" = 2;
+}
+21:48:30.373 xcodebuild[12776:40986] Setting up test runner session
+21:48:30.374 xcodebuild[12776:40986] Registering/updating daemon-based crash report observer for process names (
+    xctest,
+    debugserver,
+    FrontBoard,
+    assertiond,
+    runningboardd,
+    SpringBoard,
+    testmanagerd,
+    backboardd,
+    DTServiceHub,
+    CameraAccess,
+    CameraAccessTests
+)
+21:48:30.572 xcodebuild[12776:59059] Sim Clone 1 of iPhone 17 Pro: Unregistering for sim device notification with token 5
+21:48:30.572 xcodebuild[12776:59059] Calling -[SimDevice getenv:error:] for TESTMANAGERD_SIM_SOCK
+21:48:30.621 xcodebuild[12776:59059] Sim Clone 1 of iPhone 17 Pro has testmanagerd socket at /private/var/tmp/com.apple.launchd.zrYddfFgNi/com.apple.testmanagerd.unix-domain.socket
+21:48:30.621 xcodebuild[12776:59059] Validating test connection socket path (/private/var/tmp/com.apple.launchd.zrYddfFgNi/com.apple.testmanagerd.unix-domain.socket)
+21:48:30.621 xcodebuild[12776:59059] Constructing transport for test connection socket
+21:48:30.624 xcodebuild[12776:59059] Connected socket 41 to testmanagerd for Sim Clone 1 of iPhone 17 Pro
+21:48:30.625 xcodebuild[12776:59059] Received connection for test runner session
+21:48:30.625 xcodebuild[12776:59059] Listening for proxy connection request from the test bundle
+21:48:30.781 xcodebuild[12776:59059] Initiating session with identifier: 190D2A3C-14ED-4B63-A334-313FF4C3E1EB
+21:48:31.534 xcodebuild[12776:59065] Got reply to session initiation request with identifier 190D2A3C-14ED-4B63-A334-313FF4C3E1EB (error: (null))
+21:48:31.546 xcodebuild[12776:40986] Finished requesting crash reports. Continuing with testing.
+21:48:31.548 xcodebuild[12776:40986] Test runner session acquired connection.
+21:48:32.061 xcodebuild[12776:40986] Launch session started.
+21:48:34.786 xcodebuild[12776:59062] 📱<DVTiPhoneSimulator (0x774129180), Clone 1 of iPhone 17 Pro, unknown class, 26.4.1 (23E254a), CF282BA1-AE2D-4DEB-A5CE-2D8B03238C55> claim LaunchSessionClaim_0x7725f4180 on simulator was issued, 2 claims exist.
+21:48:35.080 xcodebuild[12776:55398] 📱<DVTiPhoneSimulator (0x774129180), Clone 1 of iPhone 17 Pro, unknown class, 26.4.1 (23E254a), CF282BA1-AE2D-4DEB-A5CE-2D8B03238C55> claim LaunchSessionClaim_0x7725f4180 on simulator was issued, 2 claims exist.
+21:48:35.095 xcodebuild[12776:55398] CF282BA1-AE2D-4DEB-A5CE-2D8B03238C55: Registered for sim device notification, got token 8
+21:48:35.095 xcodebuild[12776:59065] CF282BA1-AE2D-4DEB-A5CE-2D8B03238C55: Unregistering for sim device notification with token 8
+21:48:35.123 xcodebuild[12776:59065] CF282BA1-AE2D-4DEB-A5CE-2D8B03238C55: Installing app at path: /Users/runner/Library/Developer/Xcode/DerivedData/CameraAccess-ebxvgoacpetbnlejuzuknjjmlvdq/Build/Products/Debug-iphonesimulator/CameraAccess.app and options: {
+    SkipWatchAppInstall = 1;
+}
+21:49:01.016 xcodebuild[12776:59065] CF282BA1-AE2D-4DEB-A5CE-2D8B03238C55: Installed app at path: /Users/runner/Library/Developer/Xcode/DerivedData/CameraAccess-ebxvgoacpetbnlejuzuknjjmlvdq/Build/Products/Debug-iphonesimulator/CameraAccess.app and options: {
+    SkipWatchAppInstall = 1;
+}
+21:49:05.066 xcodebuild[12776:59065] CF282BA1-AE2D-4DEB-A5CE-2D8B03238C55: Launching app with identifier: com.meta.wearables.external.CameraAccess and options: {
+    "activate_suspended" = 0;
+    arguments =     (
+    );
+    environment =     {
+        "APP_DISTRIBUTOR_ID_OVERRIDE" = "com.apple.AppStore";
+        "CA_ASSERT_MAIN_THREAD_TRANSACTIONS" = 0;
+        "CA_DEBUG_TRANSACTIONS" = 0;
+        "DYLD_FRAMEWORK_PATH" = "/Users/runner/Library/Developer/Xcode/DerivedData/CameraAccess-ebxvgoacpetbnlejuzuknjjmlvdq/Build/Products/Debug-iphonesimulator:/Users/runner/Library/Developer/Xcode/DerivedData/CameraAccess-ebxvgoacpetbnlejuzuknjjmlvdq/Build/Products/Debug-iphonesimulator/PackageFrameworks:/Applications/Xcode_26.2.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/Library/Frameworks";
+        "DYLD_INSERT_LIBRARIES" = "/usr/lib/libRPAC.dylib:/Users/runner/Library/Developer/Xcode/DerivedData/CameraAccess-ebxvgoacpetbnlejuzuknjjmlvdq/Build/Products/Debug-iphonesimulator/CameraAccess.app/Frameworks/libXCTestBundleInject.dylib:/Library/Developer/CoreSimulator/Volumes/iOS_23E254a/Library/Developer/CoreSimulator/Profiles/Runtimes/iOS 26.4.simruntime/Contents/Resources/RuntimeRoot/usr/lib/libMainThreadChecker.dylib:/usr/lib/libRPAC.dylib";
+        "DYLD_LIBRARY_PATH" = "/Users/runner/Library/Developer/Xcode/DerivedData/CameraAccess-ebxvgoacpetbnlejuzuknjjmlvdq/Build/Products/Debug-iphonesimulator:/Applications/Xcode_26.2.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/usr/lib";
+        "LLVM_PROFILE_FILE" = "/var/folders/dy/3g4vbvsx7lx51x77m3_b20cc0000gn/T/com.meta.wearables.external.CameraAccess/8BD349C9-F97F-47F0-9465-9B25954AD92B-12776-0000000548DF4B20/40472270-0C9D-4CF9-8F4C-FF4296E6F1DC-%p%c.profraw";
+        NSApplicationQuitWithoutSuddenTermination = YES;
+        NSUnbufferedIO = YES;
+        "OS_ACTIVITY_DT_MODE" = YES;
+        "PERFC_ENABLE_EXTENDED_DIAGNOSTIC_FORMAT" = 1;
+        "PERFC_ENABLE_PROFILE_MODE" = 1;
+        "PERFC_RESET_INSERT_LIBRARIES" = 1;
+        "PERFC_SUPPRESS_SYSTEM_REPORTS" = 1;
+        "RUN_DESTINATION_DEVICE_NAME" = "Clone 1 of iPhone 17 Pro";
+        "RUN_DESTINATION_DEVICE_PLATFORM_IDENTIFIER" = "com.apple.platform.iphonesimulator";
+        "RUN_DESTINATION_DEVICE_UDID" = "CF282BA1-AE2D-4DEB-A5CE-2D8B03238C55";
+        "SQLITE_ENABLE_THREAD_ASSERTIONS" = 1;
+        TERM = dumb;
+        XCInjectBundleInto = unused;
+        "XCODE_SCHEME_NAME" = CameraAccess;
+        "XCODE_TEST_PLAN_NAME" = CameraAccess;
+        XCTestBundleInjectPath = "/usr/lib/libRPAC.dylib:/Users/runner/Library/Developer/Xcode/DerivedData/CameraAccess-ebxvgoacpetbnlejuzuknjjmlvdq/Build/Products/Debug-iphonesimulator/CameraAccess.app/Frameworks/libXCTestBundleInject.dylib:/Library/Developer/CoreSimulator/Volumes/iOS_23E254a/Library/Developer/CoreSimulator/Profiles/Runtimes/iOS 26.4.simruntime/Contents/Resources/RuntimeRoot/usr/lib/libMainThreadChecker.dylib:/usr/lib/libRPAC.dylib";
+        XCTestBundlePath = "PlugIns/CameraAccessTests.xctest";
+        XCTestConfigurationFilePath = "";
+        XCTestSessionIdentifier = "190D2A3C-14ED-4B63-A334-313FF4C3E1EB";
+        "__XCODE_BUILT_PRODUCTS_DIR_PATHS" = "/Users/runner/Library/Developer/Xcode/DerivedData/CameraAccess-ebxvgoacpetbnlejuzuknjjmlvdq/Build/Products/Debug-iphonesimulator";
+        "__XPC_DYLD_FRAMEWORK_PATH" = "/Users/runner/Library/Developer/Xcode/DerivedData/CameraAccess-ebxvgoacpetbnlejuzuknjjmlvdq/Build/Products/Debug-iphonesimulator";
+        "__XPC_DYLD_LIBRARY_PATH" = "/Users/runner/Library/Developer/Xcode/DerivedData/CameraAccess-ebxvgoacpetbnlejuzuknjjmlvdq/Build/Products/Debug-iphonesimulator";
+        "__XPC_LLVM_PROFILE_FILE" = "/var/folders/dy/3g4vbvsx7lx51x77m3_b20cc0000gn/T/com.meta.wearables.external.CameraAccess/8BD349C9-F97F-47F0-9465-9B25954AD92B-12776-0000000548DF4B20/40472270-0C9D-4CF9-8F4C-FF4296E6F1DC-%p%c.profraw";
+    };
+    stderr = "/dev/ttys000";
+    stdout = "/dev/ttys000";
+    "terminate_running_process" = 1;
+    "wait_for_debugger" = 1;
+}
+21:51:25.627 xcodebuild[12776:67186] CF282BA1-AE2D-4DEB-A5CE-2D8B03238C55: Launched app with identifier: com.meta.wearables.external.CameraAccess (pid = 22497)
+21:51:26.739 xcodebuild[12776:67186] 📱<DVTiPhoneSimulator (0x774129180), Clone 1 of iPhone 17 Pro, unknown class, 26.4.1 (23E254a), CF282BA1-AE2D-4DEB-A5CE-2D8B03238C55> tracking pid 22497
+21:51:26.751 xcodebuild[12776:67186] 📱<DVTiPhoneSimulator (0x774129180), Clone 1 of iPhone 17 Pro, unknown class, 26.4.1 (23E254a), CF282BA1-AE2D-4DEB-A5CE-2D8B03238C55> checking to see if pid 22497 is valid: kill(pid, 0) = 0 (YES, it's still running)
+21:51:26.863 xcodebuild[12776:67186] CF282BA1-AE2D-4DEB-A5CE-2D8B03238C55: Registered for sim device notification, got token 10
+21:51:26.866 xcodebuild[12776:59062] CF282BA1-AE2D-4DEB-A5CE-2D8B03238C55: Unregistering for sim device notification with token 10
+21:51:50.338 xcodebuild[12776:40986] Test process runnable PID is 22497.
+21:51:50.390 xcodebuild[12776:59062] XCTHTestOperationStateMachine: Transitioning from state Initial to AcquiredPID
+2026-05-18 21:51:52.026179+0000 CameraAccess[22497:70021] [CameraAccess] Failed to configure Wearables SDK: WearablesError(rawValue: 0)
+21:51:53.109 xcodebuild[12776:40986] 📱<DVTiPhoneSimulator (0x774129180), Clone 1 of iPhone 17 Pro, unknown class, 26.4.1 (23E254a), CF282BA1-AE2D-4DEB-A5CE-2D8B03238C55> got death notice for pid 22497 (exit code: (null), signal: 5), removing from SimulatorSessionMap
+21:51:53.169 xcodebuild[12776:40986] 📱<DVTiPhoneSimulator (0x774129180), Clone 1 of iPhone 17 Pro, unknown class, 26.4.1 (23E254a), CF282BA1-AE2D-4DEB-A5CE-2D8B03238C55> claim LaunchSessionClaim_0x7725f4180 on simulator was relinquished, 1 claims remain.
+21:51:53.170 xcodebuild[12776:40986] 📱<DVTiPhoneSimulator (0x774129180), Clone 1 of iPhone 17 Pro, unknown class, 26.4.1 (23E254a), CF282BA1-AE2D-4DEB-A5CE-2D8B03238C55> claim LaunchSessionClaim_0x7725f4180 on simulator was relinquished, 1 claims remain.
+21:51:53.170 xcodebuild[12776:40986] 📱<DVTiPhoneSimulator (0x774129180), Clone 1 of iPhone 17 Pro, unknown class, 26.4.1 (23E254a), CF282BA1-AE2D-4DEB-A5CE-2D8B03238C55> claim LaunchSessionClaim_0x7725f4180 on simulator was relinquished, 1 claims remain.
+21:51:53.172 xcodebuild[12776:40986] Launch session expired.
+21:51:53.172 xcodebuild[12776:59065] XCTHTestOperationStateMachine: Transitioning from state AcquiredPID to PendingFinalization
+MWDATCore/Wearables.swift:242: Fatal error: Call `configure()` before attempting to access Wearables!
+2026-05-18 21:51:52.027243+0000 CameraAccess[22497:70021] MWDATCore/Wearables.swift:242: Fatal error: Call `configure()` before attempting to access Wearables!
+21:51:53.565 xcodebuild[12776:40986] <XCTHTestOperationCoordinator: 0x7725f4780> finished receiving data from testing launch session
+21:51:53.565 xcodebuild[12776:40986] <XCTHTestOperationCoordinator: 0x7725f4780>: _considerFlushingDelegateBlockQueue - nothing to flush
+21:51:53.566 xcodebuild[12776:40986] Nothing to delete
+21:52:15.187 xcodebuild[12776:59065] XCTHTestOperationStateMachine: Finalization timer fired
+21:52:15.210 xcodebuild[12776:59065] XCTHTestOperationStateMachine: Transitioning from state PendingFinalization to Finalized
+21:52:15.270 xcodebuild[12776:40986] Test operation failure: Error Domain=XCTHTestOperationCoordinatorErrorDomain Code=5 "Test crashed with signal trap before establishing connection." UserInfo={NSLocalizedDescription=Test crashed with signal trap before establishing connection.}
+21:52:15.271 xcodebuild[12776:40986] _finishWithError:Error Domain=XCTHTestOperationCoordinatorErrorDomain Code=5 "Test crashed with signal trap before establishing connection." UserInfo={NSLocalizedDescription=Test crashed with signal trap before establishing connection.}
+21:52:15.271 xcodebuild[12776:40986] Current state: testRunnerLaunchSessionHasFinishedReceivingData: YES, delegateBlockQueue.count: 0
+21:52:15.271 xcodebuild[12776:40986] <XCTHTestOperationCoordinator: 0x7725f4780>: _considerFlushingDelegateBlockQueue - nothing to flush

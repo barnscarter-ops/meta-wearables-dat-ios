@@ -1,0 +1,61 @@
+21:47:28.505 xcodebuild[12776:52874] Got a sim device notification for Clone 1 of iPhone 17 Pro: {
+    notification = "availableDevices_changed";
+}
+21:47:28.506 xcodebuild[12776:52874] Got a sim device notification for Clone 1 of iPhone 17 Pro: {
+    device = "Clone 1 of iPhone 17 Pro (CF282BA1-AE2D-4DEB-A5CE-2D8B03238C55, iOS 26.4, Booting)";
+    "last_booted_at" = "2026-05-18 21:47:28 +0000";
+    "new_state" = 2;
+    notification = "device_state";
+    "prev_state" = 1;
+}
+21:47:28.507 xcodebuild[12776:52874] Sim Clone 1 of iPhone 17 Pro state changed to 2
+21:47:28.561 xcodebuild[12776:52874] Got a sim device notification for Clone 1 of iPhone 17 Pro: {
+    "SimDeviceNotification_NewBootStatus" = "SimDeviceBootInfo { status = 0 (Booting), elapsed = 0.000000, isTerminal = 0, info = (null) }";
+    device = "Clone 1 of iPhone 17 Pro (CF282BA1-AE2D-4DEB-A5CE-2D8B03238C55, iOS 26.4, Booting)";
+    notification = "SimDeviceNotificationType_BootStatus";
+}
+21:47:29.761 xcodebuild[12776:52874] Got a sim device notification for Clone 1 of iPhone 17 Pro: {
+    notification = "availableDevices_changed";
+}
+21:47:29.761 xcodebuild[12776:52874] Got a sim device notification for Clone 1 of iPhone 17 Pro: {
+    device = "Clone 1 of iPhone 17 Pro (CF282BA1-AE2D-4DEB-A5CE-2D8B03238C55, iOS 26.4, Booted)";
+    "new_state" = 3;
+    notification = "device_state";
+    "prev_state" = 2;
+}
+21:47:29.761 xcodebuild[12776:52874] Sim Clone 1 of iPhone 17 Pro state changed to 3
+21:47:29.761 xcodebuild[12776:52874] Sim Clone 1 of iPhone 17 Pro: Unregistering for sim device notification with token 3
+21:47:29.761 xcodebuild[12776:52874] Calling -[SimDevice getenv:error:] for TESTMANAGERD_SIM_SOCK
+21:47:29.771 xcodebuild[12776:52874] Sim Clone 1 of iPhone 17 Pro is booted but getenv returned nil for test connection socket path; getenv error: Error Domain=NSPOSIXErrorDomain Code=2 "No such file or directory".
+ Will retry in 1s (1 attempts so far).
+21:47:30.847 xcodebuild[12776:54755] Calling -[SimDevice getenv:error:] for TESTMANAGERD_SIM_SOCK
+21:47:31.013 xcodebuild[12776:54755] Sim Clone 1 of iPhone 17 Pro has testmanagerd socket at /private/var/tmp/com.apple.launchd.zrYddfFgNi/com.apple.testmanagerd.unix-domain.socket
+21:47:31.013 xcodebuild[12776:54755] Validating test connection socket path (/private/var/tmp/com.apple.launchd.zrYddfFgNi/com.apple.testmanagerd.unix-domain.socket)
+21:47:31.013 xcodebuild[12776:54755] Constructing transport for test connection socket
+21:47:31.013 xcodebuild[12776:54755] Connected socket 36 to testmanagerd for Sim Clone 1 of iPhone 17 Pro
+21:47:31.187 xcodebuild[12776:54755] Initiating control session with IDE capabilities: <XCTCapabilities: 0x7722e2b10>: {
+}
+21:47:50.997 xcodebuild[12776:57033] Got reply to control session initiation request (result:error): <XCTCapabilities: 0x7722e2b70>: {
+    "authorize test session capability" = 1;
+    "automation mode" = 1;
+    "daemon container sandbox extension" = 1;
+    "initiate daemon control session capability" = 4;
+    "initiate test runner session capability" = 2;
+    "record UI interaction capability" = 2;
+    "recording events as source code" = 1;
+    "report crashes capability" = 1;
+    "request log archive capability" = 1;
+    "supports delayed attachment transfers" = 1;
+}: (null)
+21:48:30.437 xcodebuild[12776:59062] Requesting crash report collection for process names: assertiond, DTServiceHub, xctest, runningboardd, FrontBoard, debugserver, backboardd, CameraAccess, CameraAccessTests, SpringBoard, testmanagerd
+21:48:30.575 xcodebuild[12776:59062] Got reply to crash report collection request (error: (null))
+Got crash report <XCTHarness.XCTHDiagnosticReportBackedByJSONCrashLog: 0x104dce640> from file CameraAccess-2026-05-18-215423.ips with shouldProcess=true
+Got crash report <XCTHarness.XCTHDiagnosticReportBackedByJSONCrashLog: 0x775ba0000> from file CameraAccess-2026-05-18-215610.ips with shouldProcess=true
+Got crash report <XCTHarness.XCTHDiagnosticReportBackedByJSONCrashLog: 0x775ba0000> from file CameraAccess-2026-05-18-215824.ips with shouldProcess=true
+Got crash report <XCTHarness.XCTHDiagnosticReportBackedByJSONCrashLog: 0x775ba0600> from file CameraAccess-2026-05-18-220007.ips with shouldProcess=true
+Got crash report <XCTHarness.XCTHDiagnosticReportBackedByJSONCrashLog: 0x775ba0600> from file CameraAccess-2026-05-18-220147.ips with shouldProcess=true
+Got crash report <XCTHarness.XCTHDiagnosticReportBackedByJSONCrashLog: 0x775ba0000> from file CameraAccess-2026-05-18-220345.ips with shouldProcess=true
+Got crash report <XCTHarness.XCTHDiagnosticReportBackedByJSONCrashLog: 0x775ba0000> from file CameraAccess-2026-05-18-220524.ips with shouldProcess=true
+Got crash report <XCTHarness.XCTHDiagnosticReportBackedByJSONCrashLog: 0x775ba0600> from file CameraAccess-2026-05-18-220714.ips with shouldProcess=true
+Got crash report <XCTHarness.XCTHDiagnosticReportBackedByJSONCrashLog: 0x775ba0000> from file CameraAccess-2026-05-18-220738.ips with shouldProcess=true
+22:09:25.161 xcodebuild[12776:149057] <XCTDaemonControlSession: 0x770b33b60> lost connection to daemon

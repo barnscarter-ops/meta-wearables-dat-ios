@@ -1,0 +1,14 @@
+2026-05-18 21:48:29 +0000: Received worker from worker provider: <XCTHTestRunner: 0x773e12940, PID: 0, device: Clone 2 of iPhone 17 Pro (4DFCD12B-B772-4BE7-8F73-61661B57A866)>
+2026-05-18 21:54:04 +0000: Worker <XCTHTestRunner: 0x773e12940, PID: 25957, device: Clone 2 of iPhone 17 Pro (4DFCD12B-B772-4BE7-8F73-61661B57A866)> finished bootstrapping
+2026-05-18 21:54:04 +0000: Parallelization enabled; test execution driven by the IDE
+2026-05-18 21:54:04 +0000: Requesting test classes from worker <XCTHTestRunner: 0x773e12940, PID: 25957, device: Clone 2 of iPhone 17 Pro (4DFCD12B-B772-4BE7-8F73-61661B57A866)>
+2026-05-18 21:54:24 +0000: Received parallelizable test identifiers from worker <XCTHTestRunner: 0x773e12940, PID: 25957, device: Clone 2 of iPhone 17 Pro (4DFCD12B-B772-4BE7-8F73-61661B57A866)>: <XCTTestIdentifier container ["__SwiftTestingParallelizationPlaceholderIdentifier"]>, <XCTTestIdentifier container, class ["CameraAccessUITests"]>
+2026-05-18 21:54:24 +0000: Executing tests <XCTTestIdentifier container ["__SwiftTestingParallelizationPlaceholderIdentifier"]>, <XCTTestIdentifier container, class ["CameraAccessUITests"]>; skipping tests 
+2026-05-18 21:54:24 +0000: Dispatching tests <XCTTestIdentifier container ["__SwiftTestingParallelizationPlaceholderIdentifier"]> to worker: <XCTHTestRunner: 0x773e12940, PID: 25957, device: Clone 2 of iPhone 17 Pro (4DFCD12B-B772-4BE7-8F73-61661B57A866)>
+2026-05-18 21:54:24 +0000: Worker <XCTHTestRunner: 0x773e12940, PID: 25957, device: Clone 2 of iPhone 17 Pro (4DFCD12B-B772-4BE7-8F73-61661B57A866)> finished successfully.
+2026-05-18 21:54:24 +0000: Dispatching tests <XCTTestIdentifier container, class ["CameraAccessUITests"]> to worker: <XCTHTestRunner: 0x773e12940, PID: 25957, device: Clone 2 of iPhone 17 Pro (4DFCD12B-B772-4BE7-8F73-61661B57A866)>
+2026-05-18 21:54:27 +0000: Scheduler finished dispatching test classes
+2026-05-18 22:09:09 +0000: Worker <XCTHTestRunner: 0x773e12940, PID: 25957, device: Clone 2 of iPhone 17 Pro (4DFCD12B-B772-4BE7-8F73-61661B57A866)> finished successfully.
+2026-05-18 22:09:09 +0000: Telling worker <XCTHTestRunner: 0x773e12940, PID: 25957, device: Clone 2 of iPhone 17 Pro (4DFCD12B-B772-4BE7-8F73-61661B57A866)> to shutdown
+2026-05-18 22:09:10 +0000: Worker <XCTHTestRunner: 0x773e12940, PID: 25957, device: Clone 2 of iPhone 17 Pro (4DFCD12B-B772-4BE7-8F73-61661B57A866)> finished successfully
+2026-05-18 22:09:10 +0000: Finished executing tests (cancelled: No)

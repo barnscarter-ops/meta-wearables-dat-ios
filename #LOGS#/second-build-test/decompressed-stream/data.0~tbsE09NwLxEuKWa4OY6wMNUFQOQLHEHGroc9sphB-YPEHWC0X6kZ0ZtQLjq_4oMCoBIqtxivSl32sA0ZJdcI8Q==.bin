@@ -1,0 +1,24 @@
+Standard output and standard error from com.meta.wearables.external.CameraAccess with process ID 29514 beginning at 2026-05-18 21:55:14 +0000
+
+Standard output and standard error from com.meta.wearables.external.CameraAccess with process ID 33453 beginning at 2026-05-18 21:57:37 +0000
+
+Standard output and standard error from com.meta.wearables.external.CameraAccess with process ID 35921 beginning at 2026-05-18 21:59:32 +0000
+
+Standard output and standard error from com.meta.wearables.external.CameraAccess with process ID 40322 beginning at 2026-05-18 22:01:20 +0000
+
+2026-05-18 22:01:23.570287+0000 CameraAccess[40322:117042] [CameraAccess] Failed to configure Wearables SDK: WearablesError(rawValue: 0)
+MWDATCore/Wearables.swift:242: Fatal error: Call `configure()` before attempting to access Wearables!
+2026-05-18 22:01:23.574699+0000 CameraAccess[40322:117042] MWDATCore/Wearables.swift:242: Fatal error: Call `configure()` before attempting to access Wearables!
+Standard output and standard error from com.meta.wearables.external.CameraAccess with process ID 45617 beginning at 2026-05-18 22:03:11 +0000
+
+Standard output and standard error from com.meta.wearables.external.CameraAccess with process ID 49184 beginning at 2026-05-18 22:04:59 +0000
+
+Standard output and standard error from com.meta.wearables.external.CameraAccess with process ID 52546 beginning at 2026-05-18 22:06:50 +0000
+
+2026-05-18 22:06:52.476801+0000 CameraAccess[52546:147383] [CameraAccess] Failed to configure Wearables SDK: WearablesError(rawValue: 0)
+MWDATCore/Wearables.swift:242: Fatal error: Call `configure()` before attempting to access Wearables!
+Standard output and standard error from com.meta.wearables.external.CameraAccess with process ID 54043 beginning at 2026-05-18 22:07:26 +0000
+
+2026-05-18 22:07:27.967360+0000 CameraAccess[54043:151302] [CameraAccess] Failed to configure Wearables SDK: WearablesError(rawValue: 0)
+MWDATCore/Wearables.swift:242: Fatal error: Call `configure()` before attempting to access Wearables!
+2026-05-18 22:07:27.969926+0000 CameraAccess[54043:151302] MWDATCore/Wearables.swift:242: Fatal error: Call `configure()` before attempting to access Wearables!

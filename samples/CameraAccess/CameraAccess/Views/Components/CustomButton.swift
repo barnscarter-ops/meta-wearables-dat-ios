@@ -20,27 +20,31 @@ struct CustomButton: View {
   let isDisabled: Bool
   let action: () -> Void
 
-  enum ButtonStyle {
-    case primary, destructive
+    enum ButtonStyle {
+      case primary, secondary, destructive
 
-    var backgroundColor: Color {
-      switch self {
-      case .primary:
-        return .appPrimary
-      case .destructive:
-        return .destructiveBackground
+      var backgroundColor: Color {
+        switch self {
+        case .primary:
+          return .appPrimary
+        case .secondary:
+          return .gray
+        case .destructive:
+          return .destructiveBackground
+        }
+      }
+
+      var foregroundColor: Color {
+        switch self {
+        case .primary:
+          return .white
+        case .secondary:
+          return .white
+        case .destructive:
+          return .destructiveForeground
+        }
       }
     }
-
-    var foregroundColor: Color {
-      switch self {
-      case .primary:
-        return .white
-      case .destructive:
-        return .destructiveForeground
-      }
-    }
-  }
 
   var body: some View {
     Button(action: action) {

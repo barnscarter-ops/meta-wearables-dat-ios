@@ -1,0 +1,13 @@
+[simInternalMinDevelopment.arm64] WARNING: Dylib located at '/usr/lib/libLeaksAtExit.dylib' not placed in shared cache because: Missing split seg info
+[simInternalMinDevelopment.arm64] WARNING: Dylib located at '/usr/lib/libMainThreadChecker.dylib' not placed in shared cache because: Missing split seg info
+[simInternalMinDevelopment.arm64] WARNING: Dylib located at '/usr/lib/libLogRedirect.dylib' not placed in shared cache because: Missing split seg info
+[simInternalMinDevelopment.arm64] WARNING: Dylib located at '/usr/lib/system/host/liblaunch_sim.dylib' not placed in shared cache because: install name not an absolute path
+[simInternalMinDevelopment.arm64] WARNING: Dylib located at '/usr/lib/libgmalloc.dylib' not placed in shared cache because: Missing split seg info
+[simInternalMinDevelopment.arm64] WARNING: Dylib located at '/usr/lib/dyld_sim' not placed in shared cache because: install path does not match install name
+[simInternalMinDevelopment.arm64] WARNING: Dylib located at '/usr/lib/libRPAC.dylib' not placed in shared cache because: Missing split seg info
+[simInternalMinDevelopment.arm64] WARNING: Dylib located at '/usr/lib/libSystem.B_asan.dylib' not placed in shared cache because: install path does not match install name
+[simInternalMinDevelopment.arm64] WARNING: Dylib located at '/usr/lib/libBacktraceRecording.dylib' not placed in shared cache because: Missing split seg info
+[simInternalMinDevelopment.arm64] WARNING: Dylib located at '/System/Library/PrivateFrameworks/VisualTestKit.framework/VisualTestKit' not placed in shared cache because: Depends on dylibs ineligible for dyld cache '@rpath/XCTest.framework/XCTest'.  (cache dylibs must start /usr/lib or /System/Library or similar)
+[simInternalMinDevelopment.arm64] WARNING: Dylib located at '/System/Library/PrivateFrameworks/DVTInstrumentsFoundation.framework/libRemoteInjectionPayload.dylib' not placed in shared cache because: Missing split seg info
+[simInternalMinDevelopment.arm64] WARNING: Dylib located at '/System/Library/PrivateFrameworks/DVTInstrumentsFoundation.framework/liboainject.dylib' not placed in shared cache because: Missing split seg info
+[simInternalMinDevelopment.arm64] WARNING: Dylib located at '/System/Library/PrivateFrameworks/PlugInKitDaemon.framework/PlugInKitDaemon' not placed in shared cache because: Missing split seg info

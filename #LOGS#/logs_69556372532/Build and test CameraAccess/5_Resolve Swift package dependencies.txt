@@ -1,0 +1,44 @@
+﻿2026-05-18T22:48:53.3231010Z ##[debug]Evaluating condition for step: 'Resolve Swift package dependencies'
+2026-05-18T22:48:53.3253300Z ##[debug]Evaluating: success()
+2026-05-18T22:48:53.3253770Z ##[debug]Evaluating success:
+2026-05-18T22:48:53.3254710Z ##[debug]=> true
+2026-05-18T22:48:53.3255090Z ##[debug]Result: true
+2026-05-18T22:48:53.3256990Z ##[debug]Starting: Resolve Swift package dependencies
+2026-05-18T22:48:53.4518080Z ##[debug]Loading inputs
+2026-05-18T22:48:53.4520000Z ##[debug]Loading env
+2026-05-18T22:48:53.4694840Z ##[group]Run set -euo pipefail
+2026-05-18T22:48:53.4695110Z [36;1mset -euo pipefail[0m
+2026-05-18T22:48:53.4695280Z [36;1mxcodebuild \[0m
+2026-05-18T22:48:53.4695460Z [36;1m  -resolvePackageDependencies \[0m
+2026-05-18T22:48:53.4695690Z [36;1m  -project "$PROJECT_PATH" \[0m
+2026-05-18T22:48:53.4695870Z [36;1m  -scheme "$SCHEME" \[0m
+2026-05-18T22:48:53.4696140Z [36;1m  -clonedSourcePackagesDirPath "$RUNNER_TEMP/SourcePackages"[0m
+2026-05-18T22:49:03.3048560Z shell: /bin/bash --noprofile --norc -e -o pipefail {0}
+2026-05-18T22:49:03.3049890Z env:
+2026-05-18T22:49:03.3050280Z   PROJECT_PATH: samples/CameraAccess/CameraAccess.xcodeproj
+2026-05-18T22:49:03.3050710Z   SCHEME: CameraAccess
+2026-05-18T22:49:03.3050970Z   CONFIGURATION: Debug
+2026-05-18T22:49:03.3051280Z   RESULT_BUNDLE: CameraAccess-TestResults.xcresult
+2026-05-18T22:49:03.3051670Z   BUILD_LOG: CameraAccess-xcodebuild.log
+2026-05-18T22:49:03.3052050Z   OPENAI_API_KEY: 
+2026-05-18T22:49:03.3052320Z   SIMULATOR_ID: A6D3EC07-8356-4742-A382-A63AC9D3D7AC
+2026-05-18T22:49:03.3052610Z ##[endgroup]
+2026-05-18T22:49:03.3056600Z ##[debug]Overwrite 'shell' base on job defaults.
+2026-05-18T22:49:03.5664350Z ##[debug]/bin/bash --noprofile --norc -e -o pipefail /Users/runner/work/_temp/7f4c04c9-d893-444f-8a9b-3544d18f4bfd.sh
+2026-05-18T22:49:17.3321060Z Command line invocation:
+2026-05-18T22:49:17.3324290Z     /Applications/Xcode_26.2.app/Contents/Developer/usr/bin/xcodebuild -resolvePackageDependencies -project samples/CameraAccess/CameraAccess.xcodeproj -scheme CameraAccess -clonedSourcePackagesDirPath /Users/runner/work/_temp/SourcePackages
+2026-05-18T22:49:17.3326380Z 
+2026-05-18T22:49:19.8654990Z Resolve Package Graph
+2026-05-18T22:49:19.9633820Z 
+2026-05-18T22:49:19.9736290Z Fetching from https://github.com/facebook/meta-wearables-dat-ios
+2026-05-18T22:49:25.3031700Z 
+2026-05-18T22:49:34.9750970Z Creating working copy of package ‘meta-wearables-dat-ios’
+2026-05-18T22:49:35.0081660Z 
+2026-05-18T22:49:35.0089740Z Checking out 0.7.0 of package ‘meta-wearables-dat-ios’
+2026-05-18T22:49:35.5384490Z 
+2026-05-18T22:49:36.5660160Z 
+2026-05-18T22:49:36.5667190Z Resolved source packages:
+2026-05-18T22:49:36.5668150Z   MetaWearablesDAT: https://github.com/facebook/meta-wearables-dat-ios @ 0.7.0
+2026-05-18T22:49:36.5669210Z 
+2026-05-18T22:49:36.5690700Z resolved source packages: MetaWearablesDAT
+2026-05-18T22:49:36.8931120Z ##[debug]Finishing: Resolve Swift package dependencies

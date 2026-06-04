@@ -1,0 +1,124 @@
+DriverKit25.2.sdk - DriverKit 25.2 (driverkit25.2)
+SDKVersion: 25.2
+Path: /Applications/Xcode_26.2.app/Contents/Developer/Platforms/DriverKit.platform/Developer/SDKs/DriverKit25.2.sdk
+PlatformVersion: 25.2
+PlatformPath: /Applications/Xcode_26.2.app/Contents/Developer/Platforms/DriverKit.platform
+
+iPhoneOS26.2.sdk - iOS 26.2 (iphoneos26.2)
+SDKVersion: 26.2
+Path: /Applications/Xcode_26.2.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS26.2.sdk
+PlatformVersion: 26.2
+PlatformPath: /Applications/Xcode_26.2.app/Contents/Developer/Platforms/iPhoneOS.platform
+BuildID: E5C518F0-D024-11F0-BC19-BE5F4D597895
+ProductBuildVersion: 23C53
+ProductCopyright: 1983-2025 Apple Inc.
+ProductName: iPhone OS
+ProductVersion: 26.2
+
+iPhoneSimulator26.2.sdk - Simulator - iOS 26.2 (iphonesimulator26.2)
+SDKVersion: 26.2
+Path: /Applications/Xcode_26.2.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator26.2.sdk
+PlatformVersion: 26.2
+PlatformPath: /Applications/Xcode_26.2.app/Contents/Developer/Platforms/iPhoneSimulator.platform
+BuildID: E5C518F0-D024-11F0-BC19-BE5F4D597895
+ProductBuildVersion: 23C53
+ProductCopyright: 1983-2025 Apple Inc.
+ProductName: iPhone OS
+ProductVersion: 26.2
+
+MacOSX26.2.sdk - macOS 26.2 (macosx26.2)
+SDKVersion: 26.2
+Path: /Applications/Xcode_26.2.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX26.2.sdk
+PlatformVersion: 26.2
+PlatformPath: /Applications/Xcode_26.2.app/Contents/Developer/Platforms/MacOSX.platform
+BuildID: 05A94E40-D000-11F0-8431-777054EDFE1B
+ProductBuildVersion: 25C57
+ProductCopyright: 1983-2025 Apple Inc.
+ProductName: macOS
+ProductUserVisibleVersion: 26.2
+ProductVersion: 26.2
+iOSSupportVersion: 26.2
+
+MacOSX26.sdk - macOS 26.2 (macosx26.2)
+SDKVersion: 26.2
+Path: /Applications/Xcode_26.2.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX26.sdk
+PlatformVersion: 26.2
+PlatformPath: /Applications/Xcode_26.2.app/Contents/Developer/Platforms/MacOSX.platform
+BuildID: 05A94E40-D000-11F0-8431-777054EDFE1B
+ProductBuildVersion: 25C57
+ProductCopyright: 1983-2025 Apple Inc.
+ProductName: macOS
+ProductUserVisibleVersion: 26.2
+ProductVersion: 26.2
+iOSSupportVersion: 26.2
+
+AppleTVOS26.2.sdk - tvOS 26.2 (appletvos26.2)
+SDKVersion: 26.2
+Path: /Applications/Xcode_26.2.app/Contents/Developer/Platforms/AppleTVOS.platform/Developer/SDKs/AppleTVOS26.2.sdk
+PlatformVersion: 26.2
+PlatformPath: /Applications/Xcode_26.2.app/Contents/Developer/Platforms/AppleTVOS.platform
+BuildID: 71E99CC2-C50B-11F0-9A64-FE1D75D47FF7
+ProductBuildVersion: 23K50
+ProductCopyright: 1983-2025 Apple Inc.
+ProductName: Apple TVOS
+ProductVersion: 26.2
+
+AppleTVSimulator26.2.sdk - Simulator - tvOS 26.2 (appletvsimulator26.2)
+SDKVersion: 26.2
+Path: /Applications/Xcode_26.2.app/Contents/Developer/Platforms/AppleTVSimulator.platform/Developer/SDKs/AppleTVSimulator26.2.sdk
+PlatformVersion: 26.2
+PlatformPath: /Applications/Xcode_26.2.app/Contents/Developer/Platforms/AppleTVSimulator.platform
+BuildID: 71E99CC2-C50B-11F0-9A64-FE1D75D47FF7
+ProductBuildVersion: 23K50
+ProductCopyright: 1983-2025 Apple Inc.
+ProductName: Apple TVOS
+ProductVersion: 26.2
+
+XROS26.2.sdk - visionOS 26.2 (xros26.2)
+SDKVersion: 26.2
+Path: /Applications/Xcode_26.2.app/Contents/Developer/Platforms/XROS.platform/Developer/SDKs/XROS26.2.sdk
+PlatformVersion: 26.2
+PlatformPath: /Applications/Xcode_26.2.app/Contents/Developer/Platforms/XROS.platform
+BuildID: FA3A73BE-C5C7-11F0-B653-5110195309DE
+ProductBuildVersion: 23N301
+ProductCopyright: 1983-2025 Apple Inc.
+ProductName: xrOS
+ProductVersion: 26.2
+iOSSupportVersion: 26.2
+
+XRSimulator26.2.sdk - Simulator - visionOS 26.2 (xrsimulator26.2)
+SDKVersion: 26.2
+Path: /Applications/Xcode_26.2.app/Contents/Developer/Platforms/XRSimulator.platform/Developer/SDKs/XRSimulator26.2.sdk
+PlatformVersion: 26.2
+PlatformPath: /Applications/Xcode_26.2.app/Contents/Developer/Platforms/XRSimulator.platform
+BuildID: FA3A73BE-C5C7-11F0-B653-5110195309DE
+ProductBuildVersion: 23N301
+ProductCopyright: 1983-2025 Apple Inc.
+ProductName: xrOS
+ProductVersion: 26.2
+iOSSupportVersion: 26.2
+
+WatchOS26.2.sdk - watchOS 26.2 (watchos26.2)
+SDKVersion: 26.2
+Path: /Applications/Xcode_26.2.app/Contents/Developer/Platforms/WatchOS.platform/Developer/SDKs/WatchOS26.2.sdk
+PlatformVersion: 26.2
+PlatformPath: /Applications/Xcode_26.2.app/Contents/Developer/Platforms/WatchOS.platform
+BuildID: B4E987F8-C5D3-11F0-AA29-C316B87DC51C
+ProductBuildVersion: 23S303
+ProductCopyright: 1983-2025 Apple Inc.
+ProductName: Watch OS
+ProductVersion: 26.2
+
+WatchSimulator26.2.sdk - Simulator - watchOS 26.2 (watchsimulator26.2)
+SDKVersion: 26.2
+Path: /Applications/Xcode_26.2.app/Contents/Developer/Platforms/WatchSimulator.platform/Developer/SDKs/WatchSimulator26.2.sdk
+PlatformVersion: 26.2
+PlatformPath: /Applications/Xcode_26.2.app/Contents/Developer/Platforms/WatchSimulator.platform
+BuildID: B4E987F8-C5D3-11F0-AA29-C316B87DC51C
+ProductBuildVersion: 23S303
+ProductCopyright: 1983-2025 Apple Inc.
+ProductName: Watch OS
+ProductVersion: 26.2
+
+Xcode 26.2
+Build version 17C52

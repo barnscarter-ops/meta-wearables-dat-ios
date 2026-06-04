@@ -1,0 +1,712 @@
+Command line invocation:
+    /Applications/Xcode_26.2.app/Contents/Developer/usr/bin/xcodebuild build-for-testing -project samples/CameraAccess/CameraAccess.xcodeproj -scheme CameraAccess -configuration Debug -destination "platform=iOS Simulator,id=A6D3EC07-8356-4742-A382-A63AC9D3D7AC" -derivedDataPath /Users/runner/work/_temp/CameraAccessDerivedData -clonedSourcePackagesDirPath /Users/runner/work/_temp/SourcePackages -resultBundlePath CameraAccess-Build.xcresult CODE_SIGNING_ALLOWED=NO DEVELOPMENT_TEAM=V9WTTPBFK9 META_APP_ID=0 CLIENT_TOKEN=ci-client-token
+
+Build settings from command line:
+    CLIENT_TOKEN = ci-client-token
+    CODE_SIGNING_ALLOWED = NO
+    DEVELOPMENT_TEAM = V9WTTPBFK9
+    META_APP_ID = 0
+
+Resolve Package Graph
+
+
+Resolved source packages:
+  MetaWearablesDAT: https://github.com/facebook/meta-wearables-dat-ios @ 0.7.0
+
+Writing result bundle at path:
+	/Users/runner/work/meta-wearables-dat-ios/meta-wearables-dat-ios/CameraAccess-Build.xcresult
+
+ComputePackagePrebuildTargetDependencyGraph
+
+Prepare packages
+
+CreateBuildRequest
+
+SendProjectDescription
+
+CreateBuildOperation
+
+ComputeTargetDependencyGraph
+note: Building targets in dependency order
+note: Target dependency graph (7 targets)
+    Target 'CameraAccessUITests' in project 'CameraAccess'
+        ➜ Explicit dependency on target 'CameraAccess' in project 'CameraAccess'
+        ➜ Explicit dependency on target 'MWDATMockDeviceTestClient' in project 'MetaWearablesDAT'
+    Target 'MWDATMockDeviceTestClient' in project 'MetaWearablesDAT' (no dependencies)
+    Target 'CameraAccessTests' in project 'CameraAccess'
+        ➜ Explicit dependency on target 'CameraAccess' in project 'CameraAccess'
+    Target 'CameraAccess' in project 'CameraAccess'
+        ➜ Explicit dependency on target 'MWDATCore' in project 'MetaWearablesDAT'
+        ➜ Explicit dependency on target 'MWDATCamera' in project 'MetaWearablesDAT'
+        ➜ Explicit dependency on target 'MWDATMockDevice' in project 'MetaWearablesDAT'
+    Target 'MWDATMockDevice' in project 'MetaWearablesDAT' (no dependencies)
+    Target 'MWDATCamera' in project 'MetaWearablesDAT' (no dependencies)
+    Target 'MWDATCore' in project 'MetaWearablesDAT' (no dependencies)
+
+GatherProvisioningInputs
+
+CreateBuildDescription
+
+ExecuteExternalTool /Applications/Xcode_26.2.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/clang -v -E -dM -isysroot /Applications/Xcode_26.2.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator26.2.sdk -x c -c /dev/null
+
+ExecuteExternalTool /Applications/Xcode_26.2.app/Contents/Developer/usr/bin/actool --print-asset-tag-combinations --output-format xml1 /Users/runner/work/meta-wearables-dat-ios/meta-wearables-dat-ios/samples/CameraAccess/CameraAccess/Assets.xcassets
+
+ExecuteExternalTool /Applications/Xcode_26.2.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/swiftc --version
+
+ExecuteExternalTool /Applications/Xcode_26.2.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/ld -version_details
+
+ExecuteExternalTool /Applications/Xcode_26.2.app/Contents/Developer/usr/bin/actool --version --output-format xml1
+
+Build description signature: a003acfd20c37ed696c8ef82bcefb2c3
+Build description path: /Users/runner/work/_temp/CameraAccessDerivedData/Build/Intermediates.noindex/XCBuildData/a003acfd20c37ed696c8ef82bcefb2c3.xcbuilddata
+ClangStatCache /Applications/Xcode_26.2.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/clang-stat-cache /Applications/Xcode_26.2.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator26.2.sdk /Users/runner/work/_temp/CameraAccessDerivedData/SDKStatCaches.noindex/iphonesimulator26.2-23C53-dc75598d0054f22ec865fa860f139d72f226656cc7df320ded6b3fc53332c9cf.sdkstatcache
+    cd /Users/runner/work/meta-wearables-dat-ios/meta-wearables-dat-ios/samples/CameraAccess/CameraAccess.xcodeproj
+    /Applications/Xcode_26.2.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/clang-stat-cache /Applications/Xcode_26.2.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator26.2.sdk -o /Users/runner/work/_temp/CameraAccessDerivedData/SDKStatCaches.noindex/iphonesimulator26.2-23C53-dc75598d0054f22ec865fa860f139d72f226656cc7df320ded6b3fc53332c9cf.sdkstatcache
+
+CreateBuildDirectory /Users/runner/work/_temp/CameraAccessDerivedData/Build/Products
+    cd /Users/runner/work/meta-wearables-dat-ios/meta-wearables-dat-ios/samples/CameraAccess/CameraAccess.xcodeproj
+    builtin-create-build-directory /Users/runner/work/_temp/CameraAccessDerivedData/Build/Products
+
+CreateBuildDirectory /Users/runner/work/_temp/CameraAccessDerivedData/Build/Intermediates.noindex
+    cd /Users/runner/work/meta-wearables-dat-ios/meta-wearables-dat-ios/samples/CameraAccess/CameraAccess.xcodeproj
+    builtin-create-build-directory /Users/runner/work/_temp/CameraAccessDerivedData/Build/Intermediates.noindex
+
+WriteAuxiliaryFile /Users/runner/work/_temp/CameraAccessDerivedData/Build/Intermediates.noindex/CameraAccess.build/Debug-iphonesimulator/CameraAccess-11d5501a713476d0456152e9cfef2bfd-VFS-iphonesimulator/all-product-headers.yaml
+    cd /Users/runner/work/meta-wearables-dat-ios/meta-wearables-dat-ios/samples/CameraAccess/CameraAccess.xcodeproj
+    write-file /Users/runner/work/_temp/CameraAccessDerivedData/Build/Intermediates.noindex/CameraAccess.build/Debug-iphonesimulator/CameraAccess-11d5501a713476d0456152e9cfef2bfd-VFS-iphonesimulator/all-product-headers.yaml
+
+CreateBuildDirectory /Users/runner/work/_temp/CameraAccessDerivedData/Build/Products/Debug-iphonesimulator
+    cd /Users/runner/work/meta-wearables-dat-ios/meta-wearables-dat-ios/samples/CameraAccess/CameraAccess.xcodeproj
+    builtin-create-build-directory /Users/runner/work/_temp/CameraAccessDerivedData/Build/Products/Debug-iphonesimulator
+
+CreateBuildDirectory /Users/runner/work/_temp/CameraAccessDerivedData/Build/Intermediates.noindex/SwiftExplicitPrecompiledModules
+    cd /Users/runner/work/meta-wearables-dat-ios/meta-wearables-dat-ios/samples/CameraAccess/CameraAccess.xcodeproj
+    builtin-create-build-directory /Users/runner/work/_temp/CameraAccessDerivedData/Build/Intermediates.noindex/SwiftExplicitPrecompiledModules
+
+CreateBuildDirectory /Users/runner/work/_temp/CameraAccessDerivedData/Build/Intermediates.noindex/ExplicitPrecompiledModules
+    cd /Users/runner/work/meta-wearables-dat-ios/meta-wearables-dat-ios/samples/CameraAccess/CameraAccess.xcodeproj
+    builtin-create-build-directory /Users/runner/work/_temp/CameraAccessDerivedData/Build/Intermediates.noindex/ExplicitPrecompiledModules
+
+CreateBuildDirectory /Users/runner/work/_temp/CameraAccessDerivedData/Build/Intermediates.noindex/EagerLinkingTBDs/Debug-iphonesimulator
+    cd /Users/runner/work/meta-wearables-dat-ios/meta-wearables-dat-ios/samples/CameraAccess/CameraAccess.xcodeproj
+    builtin-create-build-directory /Users/runner/work/_temp/CameraAccessDerivedData/Build/Intermediates.noindex/EagerLinkingTBDs/Debug-iphonesimulator
+
+CreateBuildDirectory /Users/runner/work/_temp/CameraAccessDerivedData/Build/Products/Debug-iphonesimulator/PackageFrameworks
+    cd /Users/runner/work/meta-wearables-dat-ios/meta-wearables-dat-ios/samples/CameraAccess/CameraAccess.xcodeproj
+    builtin-create-build-directory /Users/runner/work/_temp/CameraAccessDerivedData/Build/Products/Debug-iphonesimulator/PackageFrameworks
+
+WriteAuxiliaryFile /Users/runner/work/_temp/CameraAccessDerivedData/Build/Intermediates.noindex/CameraAccess.build/Debug-iphonesimulator/CameraAccessTests.build/empty-CameraAccessTests.plist (in target 'CameraAccessTests' from project 'CameraAccess')
+    cd /Users/runner/work/meta-wearables-dat-ios/meta-wearables-dat-ios/samples/CameraAccess
+    write-file /Users/runner/work/_temp/CameraAccessDerivedData/Build/Intermediates.noindex/CameraAccess.build/Debug-iphonesimulator/CameraAccessTests.build/empty-CameraAccessTests.plist
+
+WriteAuxiliaryFile /Users/runner/work/_temp/CameraAccessDerivedData/Build/Intermediates.noindex/CameraAccess.build/Debug-iphonesimulator/CameraAccessTests.build/Objects-normal/arm64/CameraAccessTests_const_extract_protocols.json (in target 'CameraAccessTests' from project 'CameraAccess')
+    cd /Users/runner/work/meta-wearables-dat-ios/meta-wearables-dat-ios/samples/CameraAccess
+    write-file /Users/runner/work/_temp/CameraAccessDerivedData/Build/Intermediates.noindex/CameraAccess.build/Debug-iphonesimulator/CameraAccessTests.build/Objects-normal/arm64/CameraAccessTests_const_extract_protocols.json
+
+WriteAuxiliaryFile /Users/runner/work/_temp/CameraAccessDerivedData/Build/Intermediates.noindex/CameraAccess.build/Debug-iphonesimulator/CameraAccessTests.build/Objects-normal/arm64/CameraAccessTests.SwiftFileList (in target 'CameraAccessTests' from project 'CameraAccess')
+    cd /Users/runner/work/meta-wearables-dat-ios/meta-wearables-dat-ios/samples/CameraAccess
+    write-file /Users/runner/work/_temp/CameraAccessDerivedData/Build/Intermediates.noindex/CameraAccess.build/Debug-iphonesimulator/CameraAccessTests.build/Objects-normal/arm64/CameraAccessTests.SwiftFileList
+
+WriteAuxiliaryFile /Users/runner/work/_temp/CameraAccessDerivedData/Build/Intermediates.noindex/CameraAccess.build/Debug-iphonesimulator/CameraAccessTests.build/Objects-normal/arm64/CameraAccessTests.SwiftConstValuesFileList (in target 'CameraAccessTests' from project 'CameraAccess')
+    cd /Users/runner/work/meta-wearables-dat-ios/meta-wearables-dat-ios/samples/CameraAccess
+    write-file /Users/runner/work/_temp/CameraAccessDerivedData/Build/Intermediates.noindex/CameraAccess.build/Debug-iphonesimulator/CameraAccessTests.build/Objects-normal/arm64/CameraAccessTests.SwiftConstValuesFileList
+
+WriteAuxiliaryFile /Users/runner/work/_temp/CameraAccessDerivedData/Build/Intermediates.noindex/CameraAccess.build/Debug-iphonesimulator/CameraAccessTests.build/Objects-normal/arm64/CameraAccessTests.LinkFileList (in target 'CameraAccessTests' from project 'CameraAccess')
+    cd /Users/runner/work/meta-wearables-dat-ios/meta-wearables-dat-ios/samples/CameraAccess
+    write-file /Users/runner/work/_temp/CameraAccessDerivedData/Build/Intermediates.noindex/CameraAccess.build/Debug-iphonesimulator/CameraAccessTests.build/Objects-normal/arm64/CameraAccessTests.LinkFileList
+
+WriteAuxiliaryFile /Users/runner/work/_temp/CameraAccessDerivedData/Build/Intermediates.noindex/CameraAccess.build/Debug-iphonesimulator/CameraAccessTests.build/Objects-normal/arm64/CameraAccessTests-OutputFileMap.json (in target 'CameraAccessTests' from project 'CameraAccess')
+    cd /Users/runner/work/meta-wearables-dat-ios/meta-wearables-dat-ios/samples/CameraAccess
+    write-file /Users/runner/work/_temp/CameraAccessDerivedData/Build/Intermediates.noindex/CameraAccess.build/Debug-iphonesimulator/CameraAccessTests.build/Objects-normal/arm64/CameraAccessTests-OutputFileMap.json
+
+WriteAuxiliaryFile /Users/runner/work/_temp/CameraAccessDerivedData/Build/Intermediates.noindex/CameraAccess.build/Debug-iphonesimulator/CameraAccessTests.build/CameraAccessTests.hmap (in target 'CameraAccessTests' from project 'CameraAccess')
+    cd /Users/runner/work/meta-wearables-dat-ios/meta-wearables-dat-ios/samples/CameraAccess
+    write-file /Users/runner/work/_temp/CameraAccessDerivedData/Build/Intermediates.noindex/CameraAccess.build/Debug-iphonesimulator/CameraAccessTests.build/CameraAccessTests.hmap
+
+WriteAuxiliaryFile /Users/runner/work/_temp/CameraAccessDerivedData/Build/Intermediates.noindex/CameraAccess.build/Debug-iphonesimulator/CameraAccessTests.build/CameraAccessTests.DependencyStaticMetadataFileList (in target 'CameraAccessTests' from project 'CameraAccess')
+    cd /Users/runner/work/meta-wearables-dat-ios/meta-wearables-dat-ios/samples/CameraAccess
+    write-file /Users/runner/work/_temp/CameraAccessDerivedData/Build/Intermediates.noindex/CameraAccess.build/Debug-iphonesimulator/CameraAccessTests.build/CameraAccessTests.DependencyStaticMetadataFileList
+
+WriteAuxiliaryFile /Users/runner/work/_temp/CameraAccessDerivedData/Build/Intermediates.noindex/CameraAccess.build/Debug-iphonesimulator/CameraAccessTests.build/CameraAccessTests.DependencyMetadataFileList (in target 'CameraAccessTests' from project 'CameraAccess')
+    cd /Users/runner/work/meta-wearables-dat-ios/meta-wearables-dat-ios/samples/CameraAccess
+    write-file /Users/runner/work/_temp/CameraAccessDerivedData/Build/Intermediates.noindex/CameraAccess.build/Debug-iphonesimulator/CameraAccessTests.build/CameraAccessTests.DependencyMetadataFileList
+
+WriteAuxiliaryFile /Users/runner/work/_temp/CameraAccessDerivedData/Build/Intermediates.noindex/CameraAccess.build/Debug-iphonesimulator/CameraAccessTests.build/CameraAccessTests-project-headers.hmap (in target 'CameraAccessTests' from project 'CameraAccess')
+    cd /Users/runner/work/meta-wearables-dat-ios/meta-wearables-dat-ios/samples/CameraAccess
+    write-file /Users/runner/work/_temp/CameraAccessDerivedData/Build/Intermediates.noindex/CameraAccess.build/Debug-iphonesimulator/CameraAccessTests.build/CameraAccessTests-project-headers.hmap
+
+WriteAuxiliaryFile /Users/runner/work/_temp/CameraAccessDerivedData/Build/Intermediates.noindex/CameraAccess.build/Debug-iphonesimulator/CameraAccessTests.build/CameraAccessTests-own-target-headers.hmap (in target 'CameraAccessTests' from project 'CameraAccess')
+    cd /Users/runner/work/meta-wearables-dat-ios/meta-wearables-dat-ios/samples/CameraAccess
+    write-file /Users/runner/work/_temp/CameraAccessDerivedData/Build/Intermediates.noindex/CameraAccess.build/Debug-iphonesimulator/CameraAccessTests.build/CameraAccessTests-own-target-headers.hmap
+
+WriteAuxiliaryFile /Users/runner/work/_temp/CameraAccessDerivedData/Build/Intermediates.noindex/CameraAccess.build/Debug-iphonesimulator/CameraAccessTests.build/CameraAccessTests-generated-files.hmap (in target 'CameraAccessTests' from project 'CameraAccess')
+    cd /Users/runner/work/meta-wearables-dat-ios/meta-wearables-dat-ios/samples/CameraAccess
+    write-file /Users/runner/work/_temp/CameraAccessDerivedData/Build/Intermediates.noindex/CameraAccess.build/Debug-iphonesimulator/CameraAccessTests.build/CameraAccessTests-generated-files.hmap
+
+WriteAuxiliaryFile /Users/runner/work/_temp/CameraAccessDerivedData/Build/Intermediates.noindex/CameraAccess.build/Debug-iphonesimulator/CameraAccessTests.build/CameraAccessTests-all-target-headers.hmap (in target 'CameraAccessTests' from project 'CameraAccess')
+    cd /Users/runner/work/meta-wearables-dat-ios/meta-wearables-dat-ios/samples/CameraAccess
+    write-file /Users/runner/work/_temp/CameraAccessDerivedData/Build/Intermediates.noindex/CameraAccess.build/Debug-iphonesimulator/CameraAccessTests.build/CameraAccessTests-all-target-headers.hmap
+
+WriteAuxiliaryFile /Users/runner/work/_temp/CameraAccessDerivedData/Build/Intermediates.noindex/CameraAccess.build/Debug-iphonesimulator/CameraAccessTests.build/CameraAccessTests-all-non-framework-target-headers.hmap (in target 'CameraAccessTests' from project 'CameraAccess')
+    cd /Users/runner/work/meta-wearables-dat-ios/meta-wearables-dat-ios/samples/CameraAccess
+    write-file /Users/runner/work/_temp/CameraAccessDerivedData/Build/Intermediates.noindex/CameraAccess.build/Debug-iphonesimulator/CameraAccessTests.build/CameraAccessTests-all-non-framework-target-headers.hmap
+
+MkDir /Users/runner/work/_temp/CameraAccessDerivedData/Build/Products/Debug-iphonesimulator/CameraAccess.app/PlugIns/CameraAccessTests.xctest (in target 'CameraAccessTests' from project 'CameraAccess')
+    cd /Users/runner/work/meta-wearables-dat-ios/meta-wearables-dat-ios/samples/CameraAccess
+    /bin/mkdir -p /Users/runner/work/_temp/CameraAccessDerivedData/Build/Products/Debug-iphonesimulator/CameraAccess.app/PlugIns/CameraAccessTests.xctest
+
+ProcessXCFramework /Users/runner/work/_temp/SourcePackages/checkouts/meta-wearables-dat-ios/MWDATMockDeviceTestClient.xcframework /Users/runner/work/_temp/CameraAccessDerivedData/Build/Products/Debug-iphonesimulator/MWDATMockDeviceTestClient.framework ios simulator
+    cd /Users/runner/work/meta-wearables-dat-ios/meta-wearables-dat-ios/samples/CameraAccess/CameraAccess.xcodeproj
+    builtin-process-xcframework --xcframework /Users/runner/work/_temp/SourcePackages/checkouts/meta-wearables-dat-ios/MWDATMockDeviceTestClient.xcframework --platform ios --environment simulator --target-path /Users/runner/work/_temp/CameraAccessDerivedData/Build/Products/Debug-iphonesimulator
+
+ProcessXCFramework /Users/runner/work/_temp/SourcePackages/checkouts/meta-wearables-dat-ios/MWDATMockDevice.xcframework /Users/runner/work/_temp/CameraAccessDerivedData/Build/Products/Debug-iphonesimulator/MWDATMockDevice.framework ios simulator
+    cd /Users/runner/work/meta-wearables-dat-ios/meta-wearables-dat-ios/samples/CameraAccess/CameraAccess.xcodeproj
+    builtin-process-xcframework --xcframework /Users/runner/work/_temp/SourcePackages/checkouts/meta-wearables-dat-ios/MWDATMockDevice.xcframework --platform ios --environment simulator --target-path /Users/runner/work/_temp/CameraAccessDerivedData/Build/Products/Debug-iphonesimulator
+
+ProcessXCFramework /Users/runner/work/_temp/SourcePackages/checkouts/meta-wearables-dat-ios/MWDATCore.xcframework /Users/runner/work/_temp/CameraAccessDerivedData/Build/Products/Debug-iphonesimulator/MWDATCore.framework ios simulator
+    cd /Users/runner/work/meta-wearables-dat-ios/meta-wearables-dat-ios/samples/CameraAccess/CameraAccess.xcodeproj
+    builtin-process-xcframework --xcframework /Users/runner/work/_temp/SourcePackages/checkouts/meta-wearables-dat-ios/MWDATCore.xcframework --platform ios --environment simulator --target-path /Users/runner/work/_temp/CameraAccessDerivedData/Build/Products/Debug-iphonesimulator
+
+ProcessXCFramework /Users/runner/work/_temp/SourcePackages/checkouts/meta-wearables-dat-ios/MWDATCamera.xcframework /Users/runner/work/_temp/CameraAccessDerivedData/Build/Products/Debug-iphonesimulator/MWDATCamera.framework ios simulator
+    cd /Users/runner/work/meta-wearables-dat-ios/meta-wearables-dat-ios/samples/CameraAccess/CameraAccess.xcodeproj
+    builtin-process-xcframework --xcframework /Users/runner/work/_temp/SourcePackages/checkouts/meta-wearables-dat-ios/MWDATCamera.xcframework --platform ios --environment simulator --target-path /Users/runner/work/_temp/CameraAccessDerivedData/Build/Products/Debug-iphonesimulator
+
+WriteAuxiliaryFile /Users/runner/work/_temp/CameraAccessDerivedData/Build/Intermediates.noindex/CameraAccess.build/Debug-iphonesimulator/CameraAccessUITests.build/empty-CameraAccessUITests.plist (in target 'CameraAccessUITests' from project 'CameraAccess')
+    cd /Users/runner/work/meta-wearables-dat-ios/meta-wearables-dat-ios/samples/CameraAccess
+    write-file /Users/runner/work/_temp/CameraAccessDerivedData/Build/Intermediates.noindex/CameraAccess.build/Debug-iphonesimulator/CameraAccessUITests.build/empty-CameraAccessUITests.plist
+
+WriteAuxiliaryFile /Users/runner/work/_temp/CameraAccessDerivedData/Build/Intermediates.noindex/CameraAccess.build/Debug-iphonesimulator/CameraAccessUITests.build/ProductTypeInfoPlistAdditions.plist (in target 'CameraAccessUITests' from project 'CameraAccess')
+    cd /Users/runner/work/meta-wearables-dat-ios/meta-wearables-dat-ios/samples/CameraAccess
+    write-file /Users/runner/work/_temp/CameraAccessDerivedData/Build/Intermediates.noindex/CameraAccess.build/Debug-iphonesimulator/CameraAccessUITests.build/ProductTypeInfoPlistAdditions.plist
+
+WriteAuxiliaryFile /Users/runner/work/_temp/CameraAccessDerivedData/Build/Intermediates.noindex/CameraAccess.build/Debug-iphonesimulator/CameraAccessUITests.build/Objects-normal/arm64/CameraAccessUITests_const_extract_protocols.json (in target 'CameraAccessUITests' from project 'CameraAccess')
+    cd /Users/runner/work/meta-wearables-dat-ios/meta-wearables-dat-ios/samples/CameraAccess
+    write-file /Users/runner/work/_temp/CameraAccessDerivedData/Build/Intermediates.noindex/CameraAccess.build/Debug-iphonesimulator/CameraAccessUITests.build/Objects-normal/arm64/CameraAccessUITests_const_extract_protocols.json
+
+WriteAuxiliaryFile /Users/runner/work/_temp/CameraAccessDerivedData/Build/Intermediates.noindex/CameraAccess.build/Debug-iphonesimulator/CameraAccessUITests.build/Objects-normal/arm64/CameraAccessUITests.SwiftFileList (in target 'CameraAccessUITests' from project 'CameraAccess')
+    cd /Users/runner/work/meta-wearables-dat-ios/meta-wearables-dat-ios/samples/CameraAccess
+    write-file /Users/runner/work/_temp/CameraAccessDerivedData/Build/Intermediates.noindex/CameraAccess.build/Debug-iphonesimulator/CameraAccessUITests.build/Objects-normal/arm64/CameraAccessUITests.SwiftFileList
+
+WriteAuxiliaryFile /Users/runner/work/_temp/CameraAccessDerivedData/Build/Intermediates.noindex/CameraAccess.build/Debug-iphonesimulator/CameraAccessUITests.build/Objects-normal/arm64/CameraAccessUITests.SwiftConstValuesFileList (in target 'CameraAccessUITests' from project 'CameraAccess')
+    cd /Users/runner/work/meta-wearables-dat-ios/meta-wearables-dat-ios/samples/CameraAccess
+    write-file /Users/runner/work/_temp/CameraAccessDerivedData/Build/Intermediates.noindex/CameraAccess.build/Debug-iphonesimulator/CameraAccessUITests.build/Objects-normal/arm64/CameraAccessUITests.SwiftConstValuesFileList
+
+WriteAuxiliaryFile /Users/runner/work/_temp/CameraAccessDerivedData/Build/Intermediates.noindex/CameraAccess.build/Debug-iphonesimulator/CameraAccessUITests.build/Objects-normal/arm64/CameraAccessUITests.LinkFileList (in target 'CameraAccessUITests' from project 'CameraAccess')
+    cd /Users/runner/work/meta-wearables-dat-ios/meta-wearables-dat-ios/samples/CameraAccess
+    write-file /Users/runner/work/_temp/CameraAccessDerivedData/Build/Intermediates.noindex/CameraAccess.build/Debug-iphonesimulator/CameraAccessUITests.build/Objects-normal/arm64/CameraAccessUITests.LinkFileList
+
+WriteAuxiliaryFile /Users/runner/work/_temp/CameraAccessDerivedData/Build/Intermediates.noindex/CameraAccess.build/Debug-iphonesimulator/CameraAccessUITests.build/Objects-normal/arm64/CameraAccessUITests-OutputFileMap.json (in target 'CameraAccessUITests' from project 'CameraAccess')
+    cd /Users/runner/work/meta-wearables-dat-ios/meta-wearables-dat-ios/samples/CameraAccess
+    write-file /Users/runner/work/_temp/CameraAccessDerivedData/Build/Intermediates.noindex/CameraAccess.build/Debug-iphonesimulator/CameraAccessUITests.build/Objects-normal/arm64/CameraAccessUITests-OutputFileMap.json
+
+WriteAuxiliaryFile /Users/runner/work/_temp/CameraAccessDerivedData/Build/Intermediates.noindex/CameraAccess.build/Debug-iphonesimulator/CameraAccessUITests.build/CameraAccessUITests.hmap (in target 'CameraAccessUITests' from project 'CameraAccess')
+    cd /Users/runner/work/meta-wearables-dat-ios/meta-wearables-dat-ios/samples/CameraAccess
+    write-file /Users/runner/work/_temp/CameraAccessDerivedData/Build/Intermediates.noindex/CameraAccess.build/Debug-iphonesimulator/CameraAccessUITests.build/CameraAccessUITests.hmap
+
+WriteAuxiliaryFile /Users/runner/work/_temp/CameraAccessDerivedData/Build/Intermediates.noindex/CameraAccess.build/Debug-iphonesimulator/CameraAccessUITests.build/CameraAccessUITests.DependencyStaticMetadataFileList (in target 'CameraAccessUITests' from project 'CameraAccess')
+    cd /Users/runner/work/meta-wearables-dat-ios/meta-wearables-dat-ios/samples/CameraAccess
+    write-file /Users/runner/work/_temp/CameraAccessDerivedData/Build/Intermediates.noindex/CameraAccess.build/Debug-iphonesimulator/CameraAccessUITests.build/CameraAccessUITests.DependencyStaticMetadataFileList
+
+WriteAuxiliaryFile /Users/runner/work/_temp/CameraAccessDerivedData/Build/Intermediates.noindex/CameraAccess.build/Debug-iphonesimulator/CameraAccessUITests.build/CameraAccessUITests.DependencyMetadataFileList (in target 'CameraAccessUITests' from project 'CameraAccess')
+    cd /Users/runner/work/meta-wearables-dat-ios/meta-wearables-dat-ios/samples/CameraAccess
+    write-file /Users/runner/work/_temp/CameraAccessDerivedData/Build/Intermediates.noindex/CameraAccess.build/Debug-iphonesimulator/CameraAccessUITests.build/CameraAccessUITests.DependencyMetadataFileList
+
+WriteAuxiliaryFile /Users/runner/work/_temp/CameraAccessDerivedData/Build/Intermediates.noindex/CameraAccess.build/Debug-iphonesimulator/CameraAccessUITests.build/CameraAccessUITests-project-headers.hmap (in target 'CameraAccessUITests' from project 'CameraAccess')
+    cd /Users/runner/work/meta-wearables-dat-ios/meta-wearables-dat-ios/samples/CameraAccess
+    write-file /Users/runner/work/_temp/CameraAccessDerivedData/Build/Intermediates.noindex/CameraAccess.build/Debug-iphonesimulator/CameraAccessUITests.build/CameraAccessUITests-project-headers.hmap
+
+WriteAuxiliaryFile /Users/runner/work/_temp/CameraAccessDerivedData/Build/Intermediates.noindex/CameraAccess.build/Debug-iphonesimulator/CameraAccessUITests.build/CameraAccessUITests-own-target-headers.hmap (in target 'CameraAccessUITests' from project 'CameraAccess')
+    cd /Users/runner/work/meta-wearables-dat-ios/meta-wearables-dat-ios/samples/CameraAccess
+    write-file /Users/runner/work/_temp/CameraAccessDerivedData/Build/Intermediates.noindex/CameraAccess.build/Debug-iphonesimulator/CameraAccessUITests.build/CameraAccessUITests-own-target-headers.hmap
+
+WriteAuxiliaryFile /Users/runner/work/_temp/CameraAccessDerivedData/Build/Intermediates.noindex/CameraAccess.build/Debug-iphonesimulator/CameraAccessUITests.build/CameraAccessUITests-generated-files.hmap (in target 'CameraAccessUITests' from project 'CameraAccess')
+    cd /Users/runner/work/meta-wearables-dat-ios/meta-wearables-dat-ios/samples/CameraAccess
+    write-file /Users/runner/work/_temp/CameraAccessDerivedData/Build/Intermediates.noindex/CameraAccess.build/Debug-iphonesimulator/CameraAccessUITests.build/CameraAccessUITests-generated-files.hmap
+
+WriteAuxiliaryFile /Users/runner/work/_temp/CameraAccessDerivedData/Build/Intermediates.noindex/CameraAccess.build/Debug-iphonesimulator/CameraAccessUITests.build/CameraAccessUITests-all-target-headers.hmap (in target 'CameraAccessUITests' from project 'CameraAccess')
+    cd /Users/runner/work/meta-wearables-dat-ios/meta-wearables-dat-ios/samples/CameraAccess
+    write-file /Users/runner/work/_temp/CameraAccessDerivedData/Build/Intermediates.noindex/CameraAccess.build/Debug-iphonesimulator/CameraAccessUITests.build/CameraAccessUITests-all-target-headers.hmap
+
+WriteAuxiliaryFile /Users/runner/work/_temp/CameraAccessDerivedData/Build/Intermediates.noindex/CameraAccess.build/Debug-iphonesimulator/CameraAccessUITests.build/CameraAccessUITests-all-non-framework-target-headers.hmap (in target 'CameraAccessUITests' from project 'CameraAccess')
+    cd /Users/runner/work/meta-wearables-dat-ios/meta-wearables-dat-ios/samples/CameraAccess
+    write-file /Users/runner/work/_temp/CameraAccessDerivedData/Build/Intermediates.noindex/CameraAccess.build/Debug-iphonesimulator/CameraAccessUITests.build/CameraAccessUITests-all-non-framework-target-headers.hmap
+
+MkDir /Users/runner/work/_temp/CameraAccessDerivedData/Build/Products/Debug-iphonesimulator/CameraAccessUITests-Runner.app/PlugIns/CameraAccessUITests.xctest (in target 'CameraAccessUITests' from project 'CameraAccess')
+    cd /Users/runner/work/meta-wearables-dat-ios/meta-wearables-dat-ios/samples/CameraAccess
+    /bin/mkdir -p /Users/runner/work/_temp/CameraAccessDerivedData/Build/Products/Debug-iphonesimulator/CameraAccessUITests-Runner.app/PlugIns/CameraAccessUITests.xctest
+
+MkDir /Users/runner/work/_temp/CameraAccessDerivedData/Build/Products/Debug-iphonesimulator/CameraAccessUITests-Runner.app/PlugIns/CameraAccessUITests.xctest/Frameworks (in target 'CameraAccessUITests' from project 'CameraAccess')
+    cd /Users/runner/work/meta-wearables-dat-ios/meta-wearables-dat-ios/samples/CameraAccess
+    /bin/mkdir -p /Users/runner/work/_temp/CameraAccessDerivedData/Build/Products/Debug-iphonesimulator/CameraAccessUITests-Runner.app/PlugIns/CameraAccessUITests.xctest/Frameworks
+
+WriteAuxiliaryFile /Users/runner/work/_temp/CameraAccessDerivedData/Build/Intermediates.noindex/CameraAccess.build/Debug-iphonesimulator/CameraAccess.build/Objects-normal/arm64/CameraAccess_const_extract_protocols.json (in target 'CameraAccess' from project 'CameraAccess')
+    cd /Users/runner/work/meta-wearables-dat-ios/meta-wearables-dat-ios/samples/CameraAccess
+    write-file /Users/runner/work/_temp/CameraAccessDerivedData/Build/Intermediates.noindex/CameraAccess.build/Debug-iphonesimulator/CameraAccess.build/Objects-normal/arm64/CameraAccess_const_extract_protocols.json
+
+WriteAuxiliaryFile /Users/runner/work/_temp/CameraAccessDerivedData/Build/Intermediates.noindex/CameraAccess.build/Debug-iphonesimulator/CameraAccess.build/Objects-normal/arm64/CameraAccess.SwiftFileList (in target 'CameraAccess' from project 'CameraAccess')
+    cd /Users/runner/work/meta-wearables-dat-ios/meta-wearables-dat-ios/samples/CameraAccess
+    write-file /Users/runner/work/_temp/CameraAccessDerivedData/Build/Intermediates.noindex/CameraAccess.build/Debug-iphonesimulator/CameraAccess.build/Objects-normal/arm64/CameraAccess.SwiftFileList
+
+WriteAuxiliaryFile /Users/runner/work/_temp/CameraAccessDerivedData/Build/Intermediates.noindex/CameraAccess.build/Debug-iphonesimulator/CameraAccess.build/Objects-normal/arm64/CameraAccess.SwiftConstValuesFileList (in target 'CameraAccess' from project 'CameraAccess')
+    cd /Users/runner/work/meta-wearables-dat-ios/meta-wearables-dat-ios/samples/CameraAccess
+    write-file /Users/runner/work/_temp/CameraAccessDerivedData/Build/Intermediates.noindex/CameraAccess.build/Debug-iphonesimulator/CameraAccess.build/Objects-normal/arm64/CameraAccess.SwiftConstValuesFileList
+
+WriteAuxiliaryFile /Users/runner/work/_temp/CameraAccessDerivedData/Build/Intermediates.noindex/CameraAccess.build/Debug-iphonesimulator/CameraAccess.build/Objects-normal/arm64/CameraAccess.LinkFileList (in target 'CameraAccess' from project 'CameraAccess')
+    cd /Users/runner/work/meta-wearables-dat-ios/meta-wearables-dat-ios/samples/CameraAccess
+    write-file /Users/runner/work/_temp/CameraAccessDerivedData/Build/Intermediates.noindex/CameraAccess.build/Debug-iphonesimulator/CameraAccess.build/Objects-normal/arm64/CameraAccess.LinkFileList
+
+WriteAuxiliaryFile /Users/runner/work/_temp/CameraAccessDerivedData/Build/Intermediates.noindex/CameraAccess.build/Debug-iphonesimulator/CameraAccess.build/Objects-normal/arm64/CameraAccess-OutputFileMap.json (in target 'CameraAccess' from project 'CameraAccess')
+    cd /Users/runner/work/meta-wearables-dat-ios/meta-wearables-dat-ios/samples/CameraAccess
+    write-file /Users/runner/work/_temp/CameraAccessDerivedData/Build/Intermediates.noindex/CameraAccess.build/Debug-iphonesimulator/CameraAccess.build/Objects-normal/arm64/CameraAccess-OutputFileMap.json
+
+WriteAuxiliaryFile /Users/runner/work/_temp/CameraAccessDerivedData/Build/Intermediates.noindex/CameraAccess.build/Debug-iphonesimulator/CameraAccess.build/CameraAccess.hmap (in target 'CameraAccess' from project 'CameraAccess')
+    cd /Users/runner/work/meta-wearables-dat-ios/meta-wearables-dat-ios/samples/CameraAccess
+    write-file /Users/runner/work/_temp/CameraAccessDerivedData/Build/Intermediates.noindex/CameraAccess.build/Debug-iphonesimulator/CameraAccess.build/CameraAccess.hmap
+
+WriteAuxiliaryFile /Users/runner/work/_temp/CameraAccessDerivedData/Build/Intermediates.noindex/CameraAccess.build/Debug-iphonesimulator/CameraAccess.build/CameraAccess.DependencyStaticMetadataFileList (in target 'CameraAccess' from project 'CameraAccess')
+    cd /Users/runner/work/meta-wearables-dat-ios/meta-wearables-dat-ios/samples/CameraAccess
+    write-file /Users/runner/work/_temp/CameraAccessDerivedData/Build/Intermediates.noindex/CameraAccess.build/Debug-iphonesimulator/CameraAccess.build/CameraAccess.DependencyStaticMetadataFileList
+
+WriteAuxiliaryFile /Users/runner/work/_temp/CameraAccessDerivedData/Build/Intermediates.noindex/CameraAccess.build/Debug-iphonesimulator/CameraAccess.build/CameraAccess.DependencyMetadataFileList (in target 'CameraAccess' from project 'CameraAccess')
+    cd /Users/runner/work/meta-wearables-dat-ios/meta-wearables-dat-ios/samples/CameraAccess
+    write-file /Users/runner/work/_temp/CameraAccessDerivedData/Build/Intermediates.noindex/CameraAccess.build/Debug-iphonesimulator/CameraAccess.build/CameraAccess.DependencyMetadataFileList
+
+WriteAuxiliaryFile /Users/runner/work/_temp/CameraAccessDerivedData/Build/Intermediates.noindex/CameraAccess.build/Debug-iphonesimulator/CameraAccess.build/CameraAccess-project-headers.hmap (in target 'CameraAccess' from project 'CameraAccess')
+    cd /Users/runner/work/meta-wearables-dat-ios/meta-wearables-dat-ios/samples/CameraAccess
+    write-file /Users/runner/work/_temp/CameraAccessDerivedData/Build/Intermediates.noindex/CameraAccess.build/Debug-iphonesimulator/CameraAccess.build/CameraAccess-project-headers.hmap
+
+WriteAuxiliaryFile /Users/runner/work/_temp/CameraAccessDerivedData/Build/Intermediates.noindex/CameraAccess.build/Debug-iphonesimulator/CameraAccess.build/CameraAccess-own-target-headers.hmap (in target 'CameraAccess' from project 'CameraAccess')
+    cd /Users/runner/work/meta-wearables-dat-ios/meta-wearables-dat-ios/samples/CameraAccess
+    write-file /Users/runner/work/_temp/CameraAccessDerivedData/Build/Intermediates.noindex/CameraAccess.build/Debug-iphonesimulator/CameraAccess.build/CameraAccess-own-target-headers.hmap
+
+WriteAuxiliaryFile /Users/runner/work/_temp/CameraAccessDerivedData/Build/Intermediates.noindex/CameraAccess.build/Debug-iphonesimulator/CameraAccess.build/CameraAccess-generated-files.hmap (in target 'CameraAccess' from project 'CameraAccess')
+    cd /Users/runner/work/meta-wearables-dat-ios/meta-wearables-dat-ios/samples/CameraAccess
+    write-file /Users/runner/work/_temp/CameraAccessDerivedData/Build/Intermediates.noindex/CameraAccess.build/Debug-iphonesimulator/CameraAccess.build/CameraAccess-generated-files.hmap
+
+WriteAuxiliaryFile /Users/runner/work/_temp/CameraAccessDerivedData/Build/Intermediates.noindex/CameraAccess.build/Debug-iphonesimulator/CameraAccess.build/CameraAccess-all-target-headers.hmap (in target 'CameraAccess' from project 'CameraAccess')
+    cd /Users/runner/work/meta-wearables-dat-ios/meta-wearables-dat-ios/samples/CameraAccess
+    write-file /Users/runner/work/_temp/CameraAccessDerivedData/Build/Intermediates.noindex/CameraAccess.build/Debug-iphonesimulator/CameraAccess.build/CameraAccess-all-target-headers.hmap
+
+WriteAuxiliaryFile /Users/runner/work/_temp/CameraAccessDerivedData/Build/Intermediates.noindex/CameraAccess.build/Debug-iphonesimulator/CameraAccess.build/CameraAccess-all-non-framework-target-headers.hmap (in target 'CameraAccess' from project 'CameraAccess')
+    cd /Users/runner/work/meta-wearables-dat-ios/meta-wearables-dat-ios/samples/CameraAccess
+    write-file /Users/runner/work/_temp/CameraAccessDerivedData/Build/Intermediates.noindex/CameraAccess.build/Debug-iphonesimulator/CameraAccess.build/CameraAccess-all-non-framework-target-headers.hmap
+
+WriteAuxiliaryFile /Users/runner/work/_temp/CameraAccessDerivedData/Build/Intermediates.noindex/CameraAccess.build/Debug-iphonesimulator/CameraAccess.build/CameraAccess-DebugDylibPath-normal-arm64.txt (in target 'CameraAccess' from project 'CameraAccess')
+    cd /Users/runner/work/meta-wearables-dat-ios/meta-wearables-dat-ios/samples/CameraAccess
+    write-file /Users/runner/work/_temp/CameraAccessDerivedData/Build/Intermediates.noindex/CameraAccess.build/Debug-iphonesimulator/CameraAccess.build/CameraAccess-DebugDylibPath-normal-arm64.txt
+
+WriteAuxiliaryFile /Users/runner/work/_temp/CameraAccessDerivedData/Build/Intermediates.noindex/CameraAccess.build/Debug-iphonesimulator/CameraAccess.build/CameraAccess-DebugDylibInstallName-normal-arm64.txt (in target 'CameraAccess' from project 'CameraAccess')
+    cd /Users/runner/work/meta-wearables-dat-ios/meta-wearables-dat-ios/samples/CameraAccess
+    write-file /Users/runner/work/_temp/CameraAccessDerivedData/Build/Intermediates.noindex/CameraAccess.build/Debug-iphonesimulator/CameraAccess.build/CameraAccess-DebugDylibInstallName-normal-arm64.txt
+
+MkDir /Users/runner/work/_temp/CameraAccessDerivedData/Build/Products/Debug-iphonesimulator/CameraAccess.app/PlugIns (in target 'CameraAccess' from project 'CameraAccess')
+    cd /Users/runner/work/meta-wearables-dat-ios/meta-wearables-dat-ios/samples/CameraAccess
+    /bin/mkdir -p /Users/runner/work/_temp/CameraAccessDerivedData/Build/Products/Debug-iphonesimulator/CameraAccess.app/PlugIns
+
+MkDir /Users/runner/work/_temp/CameraAccessDerivedData/Build/Products/Debug-iphonesimulator/CameraAccess.app/Frameworks (in target 'CameraAccess' from project 'CameraAccess')
+    cd /Users/runner/work/meta-wearables-dat-ios/meta-wearables-dat-ios/samples/CameraAccess
+    /bin/mkdir -p /Users/runner/work/_temp/CameraAccessDerivedData/Build/Products/Debug-iphonesimulator/CameraAccess.app/Frameworks
+
+MkDir /Users/runner/work/_temp/CameraAccessDerivedData/Build/Products/Debug-iphonesimulator/CameraAccess.app (in target 'CameraAccess' from project 'CameraAccess')
+    cd /Users/runner/work/meta-wearables-dat-ios/meta-wearables-dat-ios/samples/CameraAccess
+    /bin/mkdir -p /Users/runner/work/_temp/CameraAccessDerivedData/Build/Products/Debug-iphonesimulator/CameraAccess.app
+
+Ld /Users/runner/work/_temp/CameraAccessDerivedData/Build/Products/Debug-iphonesimulator/CameraAccess.app/__preview.dylib normal (in target 'CameraAccess' from project 'CameraAccess')
+    cd /Users/runner/work/meta-wearables-dat-ios/meta-wearables-dat-ios/samples/CameraAccess
+    /Applications/Xcode_26.2.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/clang -Xlinker -reproducible -target arm64-apple-ios17.0-simulator -dynamiclib -isysroot /Applications/Xcode_26.2.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator26.2.sdk -O0 -L/Users/runner/work/_temp/CameraAccessDerivedData/Build/Products/Debug-iphonesimulator -F/Users/runner/work/_temp/CameraAccessDerivedData/Build/Products/Debug-iphonesimulator -install_name @rpath/CameraAccess.debug.dylib -dead_strip -rdynamic -Xlinker -no_deduplicate -Xlinker -objc_abi_version -Xlinker 2 -Xlinker -debug_variant -Xlinker -dependency_info -Xlinker /Users/runner/work/_temp/CameraAccessDerivedData/Build/Intermediates.noindex/CameraAccess.build/Debug-iphonesimulator/CameraAccess.build/Objects-normal/arm64/CameraAccess_dependency_info.dat -o /Users/runner/work/_temp/CameraAccessDerivedData/Build/Products/Debug-iphonesimulator/CameraAccess.app/__preview.dylib
+
+MkDir /Users/runner/work/_temp/CameraAccessDerivedData/Build/Intermediates.noindex/CameraAccess.build/Debug-iphonesimulator/CameraAccess.build/assetcatalog_output/unthinned (in target 'CameraAccess' from project 'CameraAccess')
+    cd /Users/runner/work/meta-wearables-dat-ios/meta-wearables-dat-ios/samples/CameraAccess
+    /bin/mkdir -p /Users/runner/work/_temp/CameraAccessDerivedData/Build/Intermediates.noindex/CameraAccess.build/Debug-iphonesimulator/CameraAccess.build/assetcatalog_output/unthinned
+
+MkDir /Users/runner/work/_temp/CameraAccessDerivedData/Build/Intermediates.noindex/CameraAccess.build/Debug-iphonesimulator/CameraAccess.build/assetcatalog_output/thinned (in target 'CameraAccess' from project 'CameraAccess')
+    cd /Users/runner/work/meta-wearables-dat-ios/meta-wearables-dat-ios/samples/CameraAccess
+    /bin/mkdir -p /Users/runner/work/_temp/CameraAccessDerivedData/Build/Intermediates.noindex/CameraAccess.build/Debug-iphonesimulator/CameraAccess.build/assetcatalog_output/thinned
+
+GenerateAssetSymbols /Users/runner/work/meta-wearables-dat-ios/meta-wearables-dat-ios/samples/CameraAccess/CameraAccess/Assets.xcassets (in target 'CameraAccess' from project 'CameraAccess')
+    cd /Users/runner/work/meta-wearables-dat-ios/meta-wearables-dat-ios/samples/CameraAccess
+    /Applications/Xcode_26.2.app/Contents/Developer/usr/bin/actool /Users/runner/work/meta-wearables-dat-ios/meta-wearables-dat-ios/samples/CameraAccess/CameraAccess/Assets.xcassets --compile /Users/runner/work/_temp/CameraAccessDerivedData/Build/Products/Debug-iphonesimulator/CameraAccess.app --output-format human-readable-text --notices --warnings --export-dependency-info /Users/runner/work/_temp/CameraAccessDerivedData/Build/Intermediates.noindex/CameraAccess.build/Debug-iphonesimulator/CameraAccess.build/assetcatalog_dependencies --output-partial-info-plist /Users/runner/work/_temp/CameraAccessDerivedData/Build/Intermediates.noindex/CameraAccess.build/Debug-iphonesimulator/CameraAccess.build/assetcatalog_generated_info.plist --app-icon AppIcon --accent-color AccentColor --compress-pngs --enable-on-demand-resources YES --development-region en --target-device iphone --target-device ipad --minimum-deployment-target 17.0 --platform iphonesimulator --bundle-identifier com.meta.wearables.external.CameraAccess --generate-swift-asset-symbols /Users/runner/work/_temp/CameraAccessDerivedData/Build/Intermediates.noindex/CameraAccess.build/Debug-iphonesimulator/CameraAccess.build/DerivedSources/GeneratedAssetSymbols.swift --generate-objc-asset-symbols /Users/runner/work/_temp/CameraAccessDerivedData/Build/Intermediates.noindex/CameraAccess.build/Debug-iphonesimulator/CameraAccess.build/DerivedSources/GeneratedAssetSymbols.h --generate-asset-symbol-index /Users/runner/work/_temp/CameraAccessDerivedData/Build/Intermediates.noindex/CameraAccess.build/Debug-iphonesimulator/CameraAccess.build/DerivedSources/GeneratedAssetSymbols-Index.plist
+/* com.apple.actool.compilation-results */
+/Users/runner/work/_temp/CameraAccessDerivedData/Build/Intermediates.noindex/CameraAccess.build/Debug-iphonesimulator/CameraAccess.build/DerivedSources/GeneratedAssetSymbols-Index.plist
+/Users/runner/work/_temp/CameraAccessDerivedData/Build/Intermediates.noindex/CameraAccess.build/Debug-iphonesimulator/CameraAccess.build/DerivedSources/GeneratedAssetSymbols.h
+/Users/runner/work/_temp/CameraAccessDerivedData/Build/Intermediates.noindex/CameraAccess.build/Debug-iphonesimulator/CameraAccess.build/DerivedSources/GeneratedAssetSymbols.swift
+
+
+CpResource /Users/runner/work/_temp/CameraAccessDerivedData/Build/Products/Debug-iphonesimulator/CameraAccess.app/plant.mp4 /Users/runner/work/meta-wearables-dat-ios/meta-wearables-dat-ios/samples/CameraAccess/CameraAccess/TestResources/plant.mp4 (in target 'CameraAccess' from project 'CameraAccess')
+    cd /Users/runner/work/meta-wearables-dat-ios/meta-wearables-dat-ios/samples/CameraAccess
+    builtin-copy -exclude .DS_Store -exclude CVS -exclude .svn -exclude .git -exclude .hg -resolve-src-symlinks /Users/runner/work/meta-wearables-dat-ios/meta-wearables-dat-ios/samples/CameraAccess/CameraAccess/TestResources/plant.mp4 /Users/runner/work/_temp/CameraAccessDerivedData/Build/Products/Debug-iphonesimulator/CameraAccess.app
+
+CopyPNGFile /Users/runner/work/_temp/CameraAccessDerivedData/Build/Products/Debug-iphonesimulator/CameraAccess.app/plant.png /Users/runner/work/meta-wearables-dat-ios/meta-wearables-dat-ios/samples/CameraAccess/CameraAccess/TestResources/plant.png (in target 'CameraAccess' from project 'CameraAccess')
+    cd /Users/runner/work/meta-wearables-dat-ios/meta-wearables-dat-ios/samples/CameraAccess
+    /Applications/Xcode_26.2.app/Contents/Developer/usr/bin/copypng -compress -strip-PNG-text /Users/runner/work/meta-wearables-dat-ios/meta-wearables-dat-ios/samples/CameraAccess/CameraAccess/TestResources/plant.png /Users/runner/work/_temp/CameraAccessDerivedData/Build/Products/Debug-iphonesimulator/CameraAccess.app/plant.png
+
+Copy /Users/runner/work/_temp/CameraAccessDerivedData/Build/Products/Debug-iphonesimulator/CameraAccess.app/Frameworks/libXCTestSwiftSupport.dylib /Applications/Xcode_26.2.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/usr/lib/libXCTestSwiftSupport.dylib (in target 'CameraAccess' from project 'CameraAccess')
+    cd /Users/runner/work/meta-wearables-dat-ios/meta-wearables-dat-ios/samples/CameraAccess
+    builtin-copy -exclude .DS_Store -exclude CVS -exclude .svn -exclude .git -exclude .hg -exclude Headers -exclude PrivateHeaders -exclude Modules -exclude \*.tbd -resolve-src-symlinks /Applications/Xcode_26.2.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/usr/lib/libXCTestSwiftSupport.dylib /Users/runner/work/_temp/CameraAccessDerivedData/Build/Products/Debug-iphonesimulator/CameraAccess.app/Frameworks
+
+Copy /Users/runner/work/_temp/CameraAccessDerivedData/Build/Products/Debug-iphonesimulator/CameraAccess.app/Frameworks/libXCTestBundleInject.dylib /Applications/Xcode_26.2.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/usr/lib/libXCTestBundleInject.dylib (in target 'CameraAccess' from project 'CameraAccess')
+    cd /Users/runner/work/meta-wearables-dat-ios/meta-wearables-dat-ios/samples/CameraAccess
+    builtin-copy -exclude .DS_Store -exclude CVS -exclude .svn -exclude .git -exclude .hg -exclude Headers -exclude PrivateHeaders -exclude Modules -exclude \*.tbd -resolve-src-symlinks /Applications/Xcode_26.2.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/usr/lib/libXCTestBundleInject.dylib /Users/runner/work/_temp/CameraAccessDerivedData/Build/Products/Debug-iphonesimulator/CameraAccess.app/Frameworks
+
+Copy /Users/runner/work/_temp/CameraAccessDerivedData/Build/Products/Debug-iphonesimulator/CameraAccess.app/Frameworks/XCUnit.framework /Applications/Xcode_26.2.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/Library/PrivateFrameworks/XCUnit.framework (in target 'CameraAccess' from project 'CameraAccess')
+    cd /Users/runner/work/meta-wearables-dat-ios/meta-wearables-dat-ios/samples/CameraAccess
+    builtin-copy -exclude .DS_Store -exclude CVS -exclude .svn -exclude .git -exclude .hg -exclude Headers -exclude PrivateHeaders -exclude Modules -exclude \*.tbd -resolve-src-symlinks /Applications/Xcode_26.2.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/Library/PrivateFrameworks/XCUnit.framework /Users/runner/work/_temp/CameraAccessDerivedData/Build/Products/Debug-iphonesimulator/CameraAccess.app/Frameworks
+
+Copy /Users/runner/work/_temp/CameraAccessDerivedData/Build/Products/Debug-iphonesimulator/CameraAccess.app/Frameworks/XCUIAutomation.framework /Applications/Xcode_26.2.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/Library/Frameworks/XCUIAutomation.framework (in target 'CameraAccess' from project 'CameraAccess')
+    cd /Users/runner/work/meta-wearables-dat-ios/meta-wearables-dat-ios/samples/CameraAccess
+    builtin-copy -exclude .DS_Store -exclude CVS -exclude .svn -exclude .git -exclude .hg -exclude Headers -exclude PrivateHeaders -exclude Modules -exclude \*.tbd -resolve-src-symlinks /Applications/Xcode_26.2.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/Library/Frameworks/XCUIAutomation.framework /Users/runner/work/_temp/CameraAccessDerivedData/Build/Products/Debug-iphonesimulator/CameraAccess.app/Frameworks
+
+Copy /Users/runner/work/_temp/CameraAccessDerivedData/Build/Products/Debug-iphonesimulator/CameraAccess.app/Frameworks/XCTestSupport.framework /Applications/Xcode_26.2.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/Library/PrivateFrameworks/XCTestSupport.framework (in target 'CameraAccess' from project 'CameraAccess')
+    cd /Users/runner/work/meta-wearables-dat-ios/meta-wearables-dat-ios/samples/CameraAccess
+    builtin-copy -exclude .DS_Store -exclude CVS -exclude .svn -exclude .git -exclude .hg -exclude Headers -exclude PrivateHeaders -exclude Modules -exclude \*.tbd -resolve-src-symlinks /Applications/Xcode_26.2.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/Library/PrivateFrameworks/XCTestSupport.framework /Users/runner/work/_temp/CameraAccessDerivedData/Build/Products/Debug-iphonesimulator/CameraAccess.app/Frameworks
+
+Copy /Users/runner/work/_temp/CameraAccessDerivedData/Build/Products/Debug-iphonesimulator/CameraAccess.app/Frameworks/XCTestCore.framework /Applications/Xcode_26.2.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/Library/PrivateFrameworks/XCTestCore.framework (in target 'CameraAccess' from project 'CameraAccess')
+    cd /Users/runner/work/meta-wearables-dat-ios/meta-wearables-dat-ios/samples/CameraAccess
+    builtin-copy -exclude .DS_Store -exclude CVS -exclude .svn -exclude .git -exclude .hg -exclude Headers -exclude PrivateHeaders -exclude Modules -exclude \*.tbd -resolve-src-symlinks /Applications/Xcode_26.2.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/Library/PrivateFrameworks/XCTestCore.framework /Users/runner/work/_temp/CameraAccessDerivedData/Build/Products/Debug-iphonesimulator/CameraAccess.app/Frameworks
+
+Copy /Users/runner/work/_temp/CameraAccessDerivedData/Build/Products/Debug-iphonesimulator/CameraAccess.app/Frameworks/XCTest.framework /Applications/Xcode_26.2.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/Library/Frameworks/XCTest.framework (in target 'CameraAccess' from project 'CameraAccess')
+    cd /Users/runner/work/meta-wearables-dat-ios/meta-wearables-dat-ios/samples/CameraAccess
+    builtin-copy -exclude .DS_Store -exclude CVS -exclude .svn -exclude .git -exclude .hg -exclude Headers -exclude PrivateHeaders -exclude Modules -exclude \*.tbd -resolve-src-symlinks /Applications/Xcode_26.2.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/Library/Frameworks/XCTest.framework /Users/runner/work/_temp/CameraAccessDerivedData/Build/Products/Debug-iphonesimulator/CameraAccess.app/Frameworks
+
+Copy /Users/runner/work/_temp/CameraAccessDerivedData/Build/Products/Debug-iphonesimulator/CameraAccess.app/Frameworks/XCTAutomationSupport.framework /Applications/Xcode_26.2.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/Library/PrivateFrameworks/XCTAutomationSupport.framework (in target 'CameraAccess' from project 'CameraAccess')
+    cd /Users/runner/work/meta-wearables-dat-ios/meta-wearables-dat-ios/samples/CameraAccess
+    builtin-copy -exclude .DS_Store -exclude CVS -exclude .svn -exclude .git -exclude .hg -exclude Headers -exclude PrivateHeaders -exclude Modules -exclude \*.tbd -resolve-src-symlinks /Applications/Xcode_26.2.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/Library/PrivateFrameworks/XCTAutomationSupport.framework /Users/runner/work/_temp/CameraAccessDerivedData/Build/Products/Debug-iphonesimulator/CameraAccess.app/Frameworks
+
+Copy /Users/runner/work/_temp/CameraAccessDerivedData/Build/Products/Debug-iphonesimulator/CameraAccess.app/Frameworks/Testing.framework /Applications/Xcode_26.2.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/Library/Frameworks/Testing.framework (in target 'CameraAccess' from project 'CameraAccess')
+    cd /Users/runner/work/meta-wearables-dat-ios/meta-wearables-dat-ios/samples/CameraAccess
+    builtin-copy -exclude .DS_Store -exclude CVS -exclude .svn -exclude .git -exclude .hg -exclude Headers -exclude PrivateHeaders -exclude Modules -exclude \*.tbd -resolve-src-symlinks /Applications/Xcode_26.2.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/Library/Frameworks/Testing.framework /Users/runner/work/_temp/CameraAccessDerivedData/Build/Products/Debug-iphonesimulator/CameraAccess.app/Frameworks
+
+Copy /Users/runner/work/_temp/CameraAccessDerivedData/Build/Products/Debug-iphonesimulator/CameraAccess.app/Frameworks/MWDATMockDevice.framework /Users/runner/work/_temp/SourcePackages/checkouts/meta-wearables-dat-ios/MWDATMockDevice.xcframework/ios-arm64_x86_64-simulator/MWDATMockDevice.framework (in target 'CameraAccess' from project 'CameraAccess')
+    cd /Users/runner/work/meta-wearables-dat-ios/meta-wearables-dat-ios/samples/CameraAccess
+    builtin-copy -exclude .DS_Store -exclude CVS -exclude .svn -exclude .git -exclude .hg -exclude Headers -exclude PrivateHeaders -exclude Modules -exclude \*.tbd -resolve-src-symlinks -remove-static-executable /Users/runner/work/_temp/SourcePackages/checkouts/meta-wearables-dat-ios/MWDATMockDevice.xcframework/ios-arm64_x86_64-simulator/MWDATMockDevice.framework /Users/runner/work/_temp/CameraAccessDerivedData/Build/Products/Debug-iphonesimulator/CameraAccess.app/Frameworks
+
+Copy /Users/runner/work/_temp/CameraAccessDerivedData/Build/Products/Debug-iphonesimulator/CameraAccess.app/Frameworks/MWDATCore.framework /Users/runner/work/_temp/SourcePackages/checkouts/meta-wearables-dat-ios/MWDATCore.xcframework/ios-arm64_x86_64-simulator/MWDATCore.framework (in target 'CameraAccess' from project 'CameraAccess')
+    cd /Users/runner/work/meta-wearables-dat-ios/meta-wearables-dat-ios/samples/CameraAccess
+    builtin-copy -exclude .DS_Store -exclude CVS -exclude .svn -exclude .git -exclude .hg -exclude Headers -exclude PrivateHeaders -exclude Modules -exclude \*.tbd -resolve-src-symlinks -remove-static-executable /Users/runner/work/_temp/SourcePackages/checkouts/meta-wearables-dat-ios/MWDATCore.xcframework/ios-arm64_x86_64-simulator/MWDATCore.framework /Users/runner/work/_temp/CameraAccessDerivedData/Build/Products/Debug-iphonesimulator/CameraAccess.app/Frameworks
+
+Copy /Users/runner/work/_temp/CameraAccessDerivedData/Build/Products/Debug-iphonesimulator/CameraAccess.app/Frameworks/MWDATCamera.framework /Users/runner/work/_temp/SourcePackages/checkouts/meta-wearables-dat-ios/MWDATCamera.xcframework/ios-arm64_x86_64-simulator/MWDATCamera.framework (in target 'CameraAccess' from project 'CameraAccess')
+    cd /Users/runner/work/meta-wearables-dat-ios/meta-wearables-dat-ios/samples/CameraAccess
+    builtin-copy -exclude .DS_Store -exclude CVS -exclude .svn -exclude .git -exclude .hg -exclude Headers -exclude PrivateHeaders -exclude Modules -exclude \*.tbd -resolve-src-symlinks -remove-static-executable /Users/runner/work/_temp/SourcePackages/checkouts/meta-wearables-dat-ios/MWDATCamera.xcframework/ios-arm64_x86_64-simulator/MWDATCamera.framework /Users/runner/work/_temp/CameraAccessDerivedData/Build/Products/Debug-iphonesimulator/CameraAccess.app/Frameworks
+
+CompileAssetCatalogVariant thinned /Users/runner/work/_temp/CameraAccessDerivedData/Build/Products/Debug-iphonesimulator/CameraAccess.app /Users/runner/work/meta-wearables-dat-ios/meta-wearables-dat-ios/samples/CameraAccess/CameraAccess/Assets.xcassets (in target 'CameraAccess' from project 'CameraAccess')
+    cd /Users/runner/work/meta-wearables-dat-ios/meta-wearables-dat-ios/samples/CameraAccess
+    /Applications/Xcode_26.2.app/Contents/Developer/usr/bin/actool /Users/runner/work/meta-wearables-dat-ios/meta-wearables-dat-ios/samples/CameraAccess/CameraAccess/Assets.xcassets --compile /Users/runner/work/_temp/CameraAccessDerivedData/Build/Intermediates.noindex/CameraAccess.build/Debug-iphonesimulator/CameraAccess.build/assetcatalog_output/thinned --output-format human-readable-text --notices --warnings --export-dependency-info /Users/runner/work/_temp/CameraAccessDerivedData/Build/Intermediates.noindex/CameraAccess.build/Debug-iphonesimulator/CameraAccess.build/assetcatalog_dependencies_thinned --output-partial-info-plist /Users/runner/work/_temp/CameraAccessDerivedData/Build/Intermediates.noindex/CameraAccess.build/Debug-iphonesimulator/CameraAccess.build/assetcatalog_generated_info.plist_thinned --app-icon AppIcon --accent-color AccentColor --compress-pngs --enable-on-demand-resources YES --filter-for-thinning-device-configuration iPhone18,1 --filter-for-device-os-version 26.4.1 --development-region en --target-device iphone --target-device ipad --minimum-deployment-target 17.0 --platform iphonesimulator
+IOServiceMatchingfailed for: AppleM2ScalerParavirtDriver
+
+SwiftDriver CameraAccess normal arm64 com.apple.xcode.tools.swift.compiler (in target 'CameraAccess' from project 'CameraAccess')
+    cd /Users/runner/work/meta-wearables-dat-ios/meta-wearables-dat-ios/samples/CameraAccess
+    builtin-SwiftDriver -- /Applications/Xcode_26.2.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/swiftc -module-name CameraAccess -Onone -enforce-exclusivity\=checked @/Users/runner/work/_temp/CameraAccessDerivedData/Build/Intermediates.noindex/CameraAccess.build/Debug-iphonesimulator/CameraAccess.build/Objects-normal/arm64/CameraAccess.SwiftFileList -DDEBUG -enable-bare-slash-regex -enable-experimental-feature DebugDescriptionMacro -sdk /Applications/Xcode_26.2.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator26.2.sdk -target arm64-apple-ios17.0-simulator -g -module-cache-path /Users/runner/work/_temp/CameraAccessDerivedData/ModuleCache.noindex -Xfrontend -serialize-debugging-options -profile-coverage-mapping -profile-generate -enable-testing -index-store-path /Users/runner/work/_temp/CameraAccessDerivedData/Index.noindex/DataStore -Xcc -D_LIBCPP_HARDENING_MODE\=_LIBCPP_HARDENING_MODE_DEBUG -swift-version 5 -I /Users/runner/work/_temp/CameraAccessDerivedData/Build/Products/Debug-iphonesimulator -F /Users/runner/work/_temp/CameraAccessDerivedData/Build/Products/Debug-iphonesimulator -c -j3 -enable-batch-mode -incremental -Xcc -ivfsstatcache -Xcc /Users/runner/work/_temp/CameraAccessDerivedData/SDKStatCaches.noindex/iphonesimulator26.2-23C53-dc75598d0054f22ec865fa860f139d72f226656cc7df320ded6b3fc53332c9cf.sdkstatcache -output-file-map /Users/runner/work/_temp/CameraAccessDerivedData/Build/Intermediates.noindex/CameraAccess.build/Debug-iphonesimulator/CameraAccess.build/Objects-normal/arm64/CameraAccess-OutputFileMap.json -use-frontend-parseable-output -save-temps -no-color-diagnostics -explicit-module-build -module-cache-path /Users/runner/work/_temp/CameraAccessDerivedData/Build/Intermediates.noindex/SwiftExplicitPrecompiledModules -clang-scanner-module-cache-path /Users/runner/work/_temp/CameraAccessDerivedData/ModuleCache.noindex -sdk-module-cache-path /Users/runner/work/_temp/CameraAccessDerivedData/ModuleCache.noindex -serialize-diagnostics -emit-dependencies -emit-module -emit-module-path /Users/runner/work/_temp/CameraAccessDerivedData/Build/Intermediates.noindex/CameraAccess.build/Debug-iphonesimulator/CameraAccess.build/Objects-normal/arm64/CameraAccess.swiftmodule -validate-clang-modules-once -clang-build-session-file /Users/runner/work/_temp/CameraAccessDerivedData/ModuleCache.noindex/Session.modulevalidation -Xcc -I/Users/runner/work/_temp/CameraAccessDerivedData/Build/Intermediates.noindex/CameraAccess.build/Debug-iphonesimulator/CameraAccess.build/swift-overrides.hmap -emit-const-values -Xfrontend -const-gather-protocols-file -Xfrontend /Users/runner/work/_temp/CameraAccessDerivedData/Build/Intermediates.noindex/CameraAccess.build/Debug-iphonesimulator/CameraAccess.build/Objects-normal/arm64/CameraAccess_const_extract_protocols.json -Xcc -iquote -Xcc /Users/runner/work/_temp/CameraAccessDerivedData/Build/Intermediates.noindex/CameraAccess.build/Debug-iphonesimulator/CameraAccess.build/CameraAccess-generated-files.hmap -Xcc -I/Users/runner/work/_temp/CameraAccessDerivedData/Build/Intermediates.noindex/CameraAccess.build/Debug-iphonesimulator/CameraAccess.build/CameraAccess-own-target-headers.hmap -Xcc -I/Users/runner/work/_temp/CameraAccessDerivedData/Build/Intermediates.noindex/CameraAccess.build/Debug-iphonesimulator/CameraAccess.build/CameraAccess-all-target-headers.hmap -Xcc -iquote -Xcc /Users/runner/work/_temp/CameraAccessDerivedData/Build/Intermediates.noindex/CameraAccess.build/Debug-iphonesimulator/CameraAccess.build/CameraAccess-project-headers.hmap -Xcc -I/Users/runner/work/_temp/CameraAccessDerivedData/Build/Products/Debug-iphonesimulator/include -Xcc -I/Users/runner/work/_temp/CameraAccessDerivedData/Build/Intermediates.noindex/CameraAccess.build/Debug-iphonesimulator/CameraAccess.build/DerivedSources-normal/arm64 -Xcc -I/Users/runner/work/_temp/CameraAccessDerivedData/Build/Intermediates.noindex/CameraAccess.build/Debug-iphonesimulator/CameraAccess.build/DerivedSources/arm64 -Xcc -I/Users/runner/work/_temp/CameraAccessDerivedData/Build/Intermediates.noindex/CameraAccess.build/Debug-iphonesimulator/CameraAccess.build/DerivedSources -Xcc -DDEBUG\=1 -emit-objc-header -emit-objc-header-path /Users/runner/work/_temp/CameraAccessDerivedData/Build/Intermediates.noindex/CameraAccess.build/Debug-iphonesimulator/CameraAccess.build/Objects-normal/arm64/CameraAccess-Swift.h -working-directory /Users/runner/work/meta-wearables-dat-ios/meta-wearables-dat-ios/samples/CameraAccess -experimental-emit-module-separately -disable-cmo
+
+SwiftExplicitDependencyGeneratePcm arm64 /Users/runner/work/_temp/CameraAccessDerivedData/ModuleCache.noindex/_Builtin_stdbool-929T5XNWBMC61M1CV0L82X61C.pcm
+
+SwiftExplicitDependencyGeneratePcm arm64 /Users/runner/work/_temp/CameraAccessDerivedData/ModuleCache.noindex/_Builtin_stddef-3Z76L1YN0MKSX76UR817UHM2S.pcm
+
+SwiftExplicitDependencyGeneratePcm arm64 /Users/runner/work/_temp/CameraAccessDerivedData/ModuleCache.noindex/ptrauth-3FI6BAPNY8E3TWZW72G09LFHY.pcm
+
+SwiftExplicitDependencyGeneratePcm arm64 /Users/runner/work/_temp/CameraAccessDerivedData/ModuleCache.noindex/DeveloperToolsSupport-KFCMXLABNMTO2UEVDOS6W3CT.pcm
+
+SwiftExplicitDependencyGeneratePcm arm64 /Users/runner/work/_temp/CameraAccessDerivedData/ModuleCache.noindex/SwiftShims-C4ALSHOLGQC319C7PGH8AAVPB.pcm
+
+SwiftExplicitDependencyGeneratePcm arm64 /Users/runner/work/_temp/CameraAccessDerivedData/ModuleCache.noindex/_AvailabilityInternal-O8OTCSXEYM01E5N0XY7JZ876.pcm
+
+SwiftExplicitDependencyGeneratePcm arm64 /Users/runner/work/_temp/CameraAccessDerivedData/ModuleCache.noindex/_Builtin_stdarg-O6IGP0YU32Q0AU0OP61HWWV3.pcm
+
+SwiftExplicitDependencyGeneratePcm arm64 /Users/runner/work/_temp/CameraAccessDerivedData/ModuleCache.noindex/ptrcheck-32E2MUZZW1SE8AU65RQ0L3IR8.pcm
+
+SwiftExplicitDependencyGeneratePcm arm64 /Users/runner/work/_temp/CameraAccessDerivedData/ModuleCache.noindex/_Builtin_float-6Z57N5OWLCPSIS14B0D6RXNQQ.pcm
+
+SwiftExplicitDependencyGeneratePcm arm64 /Users/runner/work/_temp/CameraAccessDerivedData/ModuleCache.noindex/_SwiftConcurrencyShims-DL4P9BTQ2TQHXMLOPHIMHUZ.pcm
+
+SwiftExplicitDependencyGeneratePcm arm64 /Users/runner/work/_temp/CameraAccessDerivedData/ModuleCache.noindex/_DarwinFoundation1-8EWY6TOBL6IMC7QOKUQOHBEM0.pcm
+
+SwiftExplicitDependencyGeneratePcm arm64 /Users/runner/work/_temp/CameraAccessDerivedData/ModuleCache.noindex/_DarwinFoundation2-4DW4HO3P3BE5H3RJCAXLVCJ0O.pcm
+
+SwiftExplicitDependencyGeneratePcm arm64 /Users/runner/work/_temp/CameraAccessDerivedData/ModuleCache.noindex/_Builtin_limits-BVQKCZJZC2UOEZVZEQYCOE25I.pcm
+
+SwiftExplicitDependencyGeneratePcm arm64 /Users/runner/work/_temp/CameraAccessDerivedData/ModuleCache.noindex/_Builtin_tgmath-AGAKBT3VO2BHGC91SIYVM9JAA.pcm
+
+SwiftExplicitDependencyGeneratePcm arm64 /Users/runner/work/_temp/CameraAccessDerivedData/ModuleCache.noindex/sys_types-ANFQK0NCPORXSFXUT5XDAYAYY.pcm
+
+SwiftExplicitDependencyGeneratePcm arm64 /Users/runner/work/_temp/CameraAccessDerivedData/ModuleCache.noindex/_Builtin_stdint-B28EJXA35UE5TB7Q1SZISBEYO.pcm
+
+SwiftExplicitDependencyGeneratePcm arm64 /Users/runner/work/_temp/CameraAccessDerivedData/ModuleCache.noindex/_Builtin_stdatomic-DKS4L8A2ZMOV2H8216QJPZUPN.pcm
+
+SwiftExplicitDependencyGeneratePcm arm64 /Users/runner/work/_temp/CameraAccessDerivedData/ModuleCache.noindex/_Builtin_intrinsics-608D1KQ44TJ4G2ACNY1ZX7UBS.pcm
+
+SwiftExplicitDependencyGeneratePcm arm64 /Users/runner/work/_temp/CameraAccessDerivedData/ModuleCache.noindex/_DarwinFoundation3-91NGRJV6E0EK9L1P5I56CN3VV.pcm
+
+SwiftExplicitDependencyGeneratePcm arm64 /Users/runner/work/_temp/CameraAccessDerivedData/ModuleCache.noindex/_Builtin_inttypes-4INIMF7G40GGF6EGKJZG06V69.pcm
+
+SwiftExplicitDependencyGeneratePcm arm64 /Users/runner/work/_temp/CameraAccessDerivedData/ModuleCache.noindex/Darwin-BPIA457LVFWMQS7RZ5U72Q2P7.pcm
+
+SwiftExplicitDependencyGeneratePcm arm64 /Users/runner/work/_temp/CameraAccessDerivedData/ModuleCache.noindex/simd-E387YQZOOL6HGXHLJKQCCABU0.pcm
+
+SwiftExplicitDependencyGeneratePcm arm64 /Users/runner/work/_temp/CameraAccessDerivedData/ModuleCache.noindex/ObjectiveC-8IE4RMKCCXFP7JM6JGY65BYSZ.pcm
+
+SwiftExplicitDependencyGeneratePcm arm64 /Users/runner/work/_temp/CameraAccessDerivedData/ModuleCache.noindex/MachO-DKA0LEMG58GZO43NI0Y206KD5.pcm
+
+SwiftExplicitDependencyGeneratePcm arm64 /Users/runner/work/_temp/CameraAccessDerivedData/ModuleCache.noindex/os_object-1CEDREEH1XB9UQMECMO2XKQL9.pcm
+
+SwiftExplicitDependencyGeneratePcm arm64 /Users/runner/work/_temp/CameraAccessDerivedData/ModuleCache.noindex/Spatial-5V548YO10CDO8BNLG4HA3A3UU.pcm
+
+SwiftExplicitDependencyGeneratePcm arm64 /Users/runner/work/_temp/CameraAccessDerivedData/ModuleCache.noindex/os_workgroup-2K2VCRZIQ4B5W1ERNCM0PDX7F.pcm
+
+SwiftExplicitDependencyGeneratePcm arm64 /Users/runner/work/_temp/CameraAccessDerivedData/ModuleCache.noindex/Dispatch-8HF6A5AFVDUF5V0AAW7IZU0FI.pcm
+
+SwiftExplicitDependencyGeneratePcm arm64 /Users/runner/work/_temp/CameraAccessDerivedData/ModuleCache.noindex/XPC-C1MLSIXHK7DQUYXDPHJ4I9CSD.pcm
+
+SwiftExplicitDependencyGeneratePcm arm64 /Users/runner/work/_temp/CameraAccessDerivedData/ModuleCache.noindex/dnssd-BBVSQBEW2JZU2GQHDG2H44VLN.pcm
+
+SwiftExplicitDependencyGeneratePcm arm64 /Users/runner/work/_temp/CameraAccessDerivedData/ModuleCache.noindex/CoreFoundation-8C9ZGHVY84UPI5HY4Q8THYCW5.pcm
+
+SwiftExplicitDependencyGeneratePcm arm64 /Users/runner/work/_temp/CameraAccessDerivedData/ModuleCache.noindex/os-20NJ7F4OIK19RPI753QZ16SWQ.pcm
+
+SwiftExplicitDependencyGeneratePcm arm64 /Users/runner/work/_temp/CameraAccessDerivedData/ModuleCache.noindex/CFNetwork-87VOX6NV7P8X2QCURPG9Z2D8Y.pcm
+
+SwiftExplicitDependencyGeneratePcm arm64 /Users/runner/work/_temp/CameraAccessDerivedData/ModuleCache.noindex/CoreAudioTypes-38A0MRUQ8P7IYZ1C49KAYHXPV.pcm
+
+SwiftExplicitDependencyGeneratePcm arm64 /Users/runner/work/_temp/CameraAccessDerivedData/ModuleCache.noindex/Security-5DWR3P2SA8P2VDK4GMWIVBRQ5.pcm
+
+SwiftExplicitDependencyGeneratePcm arm64 /Users/runner/work/_temp/CameraAccessDerivedData/ModuleCache.noindex/CoreAudio-3S2H2RE8HFSYU5YRVJFV4ZSJB.pcm
+
+SwiftExplicitDependencyGeneratePcm arm64 /Users/runner/work/_temp/CameraAccessDerivedData/ModuleCache.noindex/CoreGraphics-ESUWQVTBAYEBHCRSAXSO8TGJN.pcm
+
+SwiftExplicitDependencyGeneratePcm arm64 /Users/runner/work/_temp/CameraAccessDerivedData/ModuleCache.noindex/Foundation-4NNMCMQPXB776HOQIO3IPCM0G.pcm
+
+SwiftExplicitDependencyGeneratePcm arm64 /Users/runner/work/_temp/CameraAccessDerivedData/ModuleCache.noindex/ImageIO-EHRBS5AQFEEQBR4ILIHZYTQRH.pcm
+
+SwiftExplicitDependencyGeneratePcm arm64 /Users/runner/work/_temp/CameraAccessDerivedData/ModuleCache.noindex/CoreText-54XA7KMD7VVCH3PF1NSZHB0GM.pcm
+
+SwiftExplicitDependencyGeneratePcm arm64 /Users/runner/work/_temp/CameraAccessDerivedData/ModuleCache.noindex/LocalAuthentication-2CWR2H26UG16V0N67LUJO1AZ8.pcm
+
+SwiftExplicitDependencyGeneratePcm arm64 /Users/runner/work/_temp/CameraAccessDerivedData/ModuleCache.noindex/FileProvider-C2NQXZS1O5GED8AHM72UOA8ND.pcm
+
+SwiftExplicitDependencyGeneratePcm arm64 /Users/runner/work/_temp/CameraAccessDerivedData/ModuleCache.noindex/Accessibility-CZMHCJVYT4KR8GN03I5I3QL9X.pcm
+
+SwiftExplicitDependencyGeneratePcm arm64 /Users/runner/work/_temp/CameraAccessDerivedData/ModuleCache.noindex/CoreData-B1R7U3MM17RTL9QWKS4W8C4OD.pcm
+
+SwiftExplicitDependencyGeneratePcm arm64 /Users/runner/work/_temp/CameraAccessDerivedData/ModuleCache.noindex/DataDetection-9BD2E29EF03DCGSLV72KD0L07.pcm
+
+SwiftExplicitDependencyGeneratePcm arm64 /Users/runner/work/_temp/CameraAccessDerivedData/ModuleCache.noindex/UIUtilities-5JR4VOEEKBQIBQZPE4SM990W5.pcm
+
+SwiftExplicitDependencyGeneratePcm arm64 /Users/runner/work/_temp/CameraAccessDerivedData/ModuleCache.noindex/Symbols-ACGB2MA80QEFM6C602YIU3Y7Q.pcm
+
+SwiftExplicitDependencyGeneratePcm arm64 /Users/runner/work/_temp/CameraAccessDerivedData/ModuleCache.noindex/OpenGLES-CFI1J67R8WFCX7R68NAHSYDTK.pcm
+
+SwiftExplicitDependencyGeneratePcm arm64 /Users/runner/work/_temp/CameraAccessDerivedData/ModuleCache.noindex/CoreMIDI-6X7L0CZF3N3MTIOUWZM5N2SJ9.pcm
+
+SwiftExplicitDependencyGeneratePcm arm64 /Users/runner/work/_temp/CameraAccessDerivedData/ModuleCache.noindex/CoreTransferable-41SM6DNCZJ32LTOZK481O4WKU.pcm
+
+SwiftExplicitDependencyGeneratePcm arm64 /Users/runner/work/_temp/CameraAccessDerivedData/ModuleCache.noindex/UniformTypeIdentifiers-3CSOPK69YU0NOYXQ618KAIER1.pcm
+
+SwiftExplicitDependencyGeneratePcm arm64 /Users/runner/work/_temp/CameraAccessDerivedData/ModuleCache.noindex/AudioToolbox-ZROGBUUNWBTKL2IQIYUW6KEV.pcm
+
+SwiftExplicitDependencyGeneratePcm arm64 /Users/runner/work/_temp/CameraAccessDerivedData/ModuleCache.noindex/CoreBluetooth-6Y6TJ53NAZW0SZ4Y5F4HVL68S.pcm
+
+SwiftExplicitDependencyGeneratePcm arm64 /Users/runner/work/_temp/CameraAccessDerivedData/ModuleCache.noindex/Network-6B9OGHZZC69W9T7XXFU41DYXX.pcm
+
+SwiftExplicitDependencyGeneratePcm arm64 /Users/runner/work/_temp/CameraAccessDerivedData/ModuleCache.noindex/OSLog-7II4GHVZMBIZHNIP39JRIRNZK.pcm
+
+SwiftExplicitDependencyGeneratePcm arm64 /Users/runner/work/_temp/CameraAccessDerivedData/ModuleCache.noindex/UserNotifications-4WA4M58WB65A0R40HZ7DJ905J.pcm
+
+SwiftExplicitDependencyGeneratePcm arm64 /Users/runner/work/_temp/CameraAccessDerivedData/ModuleCache.noindex/IOSurface-33GGEOKQQ3AF9B61P9LH1PMRM.pcm
+
+SwiftExplicitDependencyGeneratePcm arm64 /Users/runner/work/_temp/CameraAccessDerivedData/ModuleCache.noindex/AVRouting-A9UXK74MEXTYSDND5F9E9II4A.pcm
+
+SwiftExplicitDependencyGeneratePcm arm64 /Users/runner/work/_temp/CameraAccessDerivedData/ModuleCache.noindex/Metal-BTJ55UXMYBRWNL6XEMYWFOI9C.pcm
+
+SwiftExplicitDependencyGeneratePcm arm64 /Users/runner/work/_temp/CameraAccessDerivedData/ModuleCache.noindex/CoreVideo-A44YNOEYVQR7T8UJC6ZUDTGAA.pcm
+
+SwiftExplicitDependencyGeneratePcm arm64 /Users/runner/work/_temp/CameraAccessDerivedData/ModuleCache.noindex/CoreImage-6TT0I3U9R7LG6IX6NX4D9SAX.pcm
+
+SwiftExplicitDependencyGeneratePcm arm64 /Users/runner/work/_temp/CameraAccessDerivedData/ModuleCache.noindex/QuartzCore-DHUE7L4XTFNDT1CDDXHKBTHS3.pcm
+
+SwiftExplicitDependencyGeneratePcm arm64 /Users/runner/work/_temp/CameraAccessDerivedData/ModuleCache.noindex/CoreMedia-9DT3ZFAVUXGBTUOIMH1GY27V5.pcm
+
+SwiftExplicitDependencyGeneratePcm arm64 /Users/runner/work/_temp/CameraAccessDerivedData/ModuleCache.noindex/SwiftUICore-6QUQ59ZXH9CC3Z66B4NZQTJZZ.pcm
+
+SwiftExplicitDependencyGeneratePcm arm64 /Users/runner/work/_temp/CameraAccessDerivedData/ModuleCache.noindex/UIKit-40PG4YQ1TRPKNYPZ5NJ89G1TO.pcm
+
+SwiftExplicitDependencyGeneratePcm arm64 /Users/runner/work/_temp/CameraAccessDerivedData/ModuleCache.noindex/MediaToolbox-5R4JUM3RANE3YAFH4KYF690PB.pcm
+
+SwiftExplicitDependencyGeneratePcm arm64 /Users/runner/work/_temp/CameraAccessDerivedData/ModuleCache.noindex/AVFAudio-BG5SL6ZOOWFLAHQ1HMD5PW7V3.pcm
+
+SwiftExplicitDependencyGeneratePcm arm64 /Users/runner/work/_temp/CameraAccessDerivedData/ModuleCache.noindex/AVFoundation-87NGCJNP61H76L867O5LE061I.pcm
+
+SwiftExplicitDependencyGeneratePcm arm64 /Users/runner/work/_temp/CameraAccessDerivedData/ModuleCache.noindex/SwiftUI-5EN94SZ6BIYL0FQS405AC1FYP.pcm
+
+SwiftExplicitDependencyCompileModuleFromInterface arm64 /Users/runner/work/_temp/CameraAccessDerivedData/Build/Intermediates.noindex/SwiftExplicitPrecompiledModules/MWDATCore-6S5WSZ5SBVX7.swiftmodule
+
+SwiftExplicitDependencyCompileModuleFromInterface arm64 /Users/runner/work/_temp/CameraAccessDerivedData/Build/Intermediates.noindex/SwiftExplicitPrecompiledModules/MWDATMockDevice-GLLT3KNC0IVT.swiftmodule
+
+SwiftExplicitDependencyCompileModuleFromInterface arm64 /Users/runner/work/_temp/CameraAccessDerivedData/Build/Intermediates.noindex/SwiftExplicitPrecompiledModules/MWDATCamera-P4YH4K9J6WE1.swiftmodule
+
+SwiftEmitModule normal arm64 Emitting\ module\ for\ CameraAccess (in target 'CameraAccess' from project 'CameraAccess')
+
+EmitSwiftModule normal arm64 (in target 'CameraAccess' from project 'CameraAccess')
+    cd /Users/runner/work/meta-wearables-dat-ios/meta-wearables-dat-ios/samples/CameraAccess
+    
+
+SwiftCompile normal arm64 Compiling\ CameraAccessApp.swift,\ HomeScreenView.swift,\ DebugMenuViewModel.swift,\ DeviceSessionManager.swift,\ RegistrationView.swift,\ MediaPickerView.swift,\ StatusText.swift,\ MockDeviceKitViewModel.swift,\ MockDeviceViewModel.swift /Users/runner/work/meta-wearables-dat-ios/meta-wearables-dat-ios/samples/CameraAccess/CameraAccess/CameraAccessApp.swift /Users/runner/work/meta-wearables-dat-ios/meta-wearables-dat-ios/samples/CameraAccess/CameraAccess/Views/HomeScreenView.swift /Users/runner/work/meta-wearables-dat-ios/meta-wearables-dat-ios/samples/CameraAccess/CameraAccess/ViewModels/DebugMenuViewModel.swift /Users/runner/work/meta-wearables-dat-ios/meta-wearables-dat-ios/samples/CameraAccess/CameraAccess/ViewModels/DeviceSessionManager.swift /Users/runner/work/meta-wearables-dat-ios/meta-wearables-dat-ios/samples/CameraAccess/CameraAccess/Views/RegistrationView.swift /Users/runner/work/meta-wearables-dat-ios/meta-wearables-dat-ios/samples/CameraAccess/CameraAccess/Views/Components/MediaPickerView.swift /Users/runner/work/meta-wearables-dat-ios/meta-wearables-dat-ios/samples/CameraAccess/CameraAccess/Views/Components/StatusText.swift /Users/runner/work/meta-wearables-dat-ios/meta-wearables-dat-ios/samples/CameraAccess/CameraAccess/ViewModels/MockDeviceKit/MockDeviceKitViewModel.swift /Users/runner/work/meta-wearables-dat-ios/meta-wearables-dat-ios/samples/CameraAccess/CameraAccess/ViewModels/MockDeviceKit/MockDeviceViewModel.swift (in target 'CameraAccess' from project 'CameraAccess')
+
+SwiftCompile normal arm64 /Users/runner/work/meta-wearables-dat-ios/meta-wearables-dat-ios/samples/CameraAccess/CameraAccess/CameraAccessApp.swift (in target 'CameraAccess' from project 'CameraAccess')
+    cd /Users/runner/work/meta-wearables-dat-ios/meta-wearables-dat-ios/samples/CameraAccess
+    
+/Users/runner/work/meta-wearables-dat-ios/meta-wearables-dat-ios/samples/CameraAccess/CameraAccess/CameraAccessApp.swift:65:42: warning: result of call to 'startTestServer(portFilePath:)' is unused
+          try await MockDeviceKit.shared.startTestServer(portFilePath: portFilePath)
+                                         ^              ~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+SwiftCompile normal arm64 /Users/runner/work/meta-wearables-dat-ios/meta-wearables-dat-ios/samples/CameraAccess/CameraAccess/Views/HomeScreenView.swift (in target 'CameraAccess' from project 'CameraAccess')
+    cd /Users/runner/work/meta-wearables-dat-ios/meta-wearables-dat-ios/samples/CameraAccess
+    
+
+SwiftCompile normal arm64 /Users/runner/work/meta-wearables-dat-ios/meta-wearables-dat-ios/samples/CameraAccess/CameraAccess/ViewModels/DebugMenuViewModel.swift (in target 'CameraAccess' from project 'CameraAccess')
+    cd /Users/runner/work/meta-wearables-dat-ios/meta-wearables-dat-ios/samples/CameraAccess
+    
+
+SwiftCompile normal arm64 /Users/runner/work/meta-wearables-dat-ios/meta-wearables-dat-ios/samples/CameraAccess/CameraAccess/ViewModels/DeviceSessionManager.swift (in target 'CameraAccess' from project 'CameraAccess')
+    cd /Users/runner/work/meta-wearables-dat-ios/meta-wearables-dat-ios/samples/CameraAccess
+    
+
+SwiftCompile normal arm64 /Users/runner/work/meta-wearables-dat-ios/meta-wearables-dat-ios/samples/CameraAccess/CameraAccess/Views/RegistrationView.swift (in target 'CameraAccess' from project 'CameraAccess')
+    cd /Users/runner/work/meta-wearables-dat-ios/meta-wearables-dat-ios/samples/CameraAccess
+    
+
+SwiftCompile normal arm64 /Users/runner/work/meta-wearables-dat-ios/meta-wearables-dat-ios/samples/CameraAccess/CameraAccess/Views/Components/MediaPickerView.swift (in target 'CameraAccess' from project 'CameraAccess')
+    cd /Users/runner/work/meta-wearables-dat-ios/meta-wearables-dat-ios/samples/CameraAccess
+    
+
+SwiftCompile normal arm64 /Users/runner/work/meta-wearables-dat-ios/meta-wearables-dat-ios/samples/CameraAccess/CameraAccess/Views/Components/StatusText.swift (in target 'CameraAccess' from project 'CameraAccess')
+    cd /Users/runner/work/meta-wearables-dat-ios/meta-wearables-dat-ios/samples/CameraAccess
+    
+
+SwiftCompile normal arm64 /Users/runner/work/meta-wearables-dat-ios/meta-wearables-dat-ios/samples/CameraAccess/CameraAccess/ViewModels/MockDeviceKit/MockDeviceKitViewModel.swift (in target 'CameraAccess' from project 'CameraAccess')
+    cd /Users/runner/work/meta-wearables-dat-ios/meta-wearables-dat-ios/samples/CameraAccess
+    
+
+SwiftCompile normal arm64 /Users/runner/work/meta-wearables-dat-ios/meta-wearables-dat-ios/samples/CameraAccess/CameraAccess/ViewModels/MockDeviceKit/MockDeviceViewModel.swift (in target 'CameraAccess' from project 'CameraAccess')
+    cd /Users/runner/work/meta-wearables-dat-ios/meta-wearables-dat-ios/samples/CameraAccess
+    
+
+SwiftCompile normal arm64 Compiling\ PhotoAnalysisViewModel.swift,\ MockDeviceKitButton.swift,\ WearablesViewModel.swift,\ StreamView.swift,\ CircleButton.swift,\ CustomButton.swift,\ NonStreamView.swift,\ GeneratedAssetSymbols.swift /Users/runner/work/meta-wearables-dat-ios/meta-wearables-dat-ios/samples/CameraAccess/CameraAccess/ViewModels/PhotoAnalysisViewModel.swift /Users/runner/work/meta-wearables-dat-ios/meta-wearables-dat-ios/samples/CameraAccess/CameraAccess/Views/MockDeviceKit/MockDeviceKitButton.swift /Users/runner/work/meta-wearables-dat-ios/meta-wearables-dat-ios/samples/CameraAccess/CameraAccess/ViewModels/WearablesViewModel.swift /Users/runner/work/meta-wearables-dat-ios/meta-wearables-dat-ios/samples/CameraAccess/CameraAccess/Views/StreamView.swift /Users/runner/work/meta-wearables-dat-ios/meta-wearables-dat-ios/samples/CameraAccess/CameraAccess/Views/Components/CircleButton.swift /Users/runner/work/meta-wearables-dat-ios/meta-wearables-dat-ios/samples/CameraAccess/CameraAccess/Views/Components/CustomButton.swift /Users/runner/work/meta-wearables-dat-ios/meta-wearables-dat-ios/samples/CameraAccess/CameraAccess/Views/NonStreamView.swift /Users/runner/work/_temp/CameraAccessDerivedData/Build/Intermediates.noindex/CameraAccess.build/Debug-iphonesimulator/CameraAccess.build/DerivedSources/GeneratedAssetSymbols.swift (in target 'CameraAccess' from project 'CameraAccess')
+
+SwiftCompile normal arm64 /Users/runner/work/meta-wearables-dat-ios/meta-wearables-dat-ios/samples/CameraAccess/CameraAccess/ViewModels/PhotoAnalysisViewModel.swift (in target 'CameraAccess' from project 'CameraAccess')
+    cd /Users/runner/work/meta-wearables-dat-ios/meta-wearables-dat-ios/samples/CameraAccess
+    
+
+SwiftCompile normal arm64 /Users/runner/work/meta-wearables-dat-ios/meta-wearables-dat-ios/samples/CameraAccess/CameraAccess/Views/MockDeviceKit/MockDeviceKitButton.swift (in target 'CameraAccess' from project 'CameraAccess')
+    cd /Users/runner/work/meta-wearables-dat-ios/meta-wearables-dat-ios/samples/CameraAccess
+    
+
+SwiftCompile normal arm64 /Users/runner/work/meta-wearables-dat-ios/meta-wearables-dat-ios/samples/CameraAccess/CameraAccess/ViewModels/WearablesViewModel.swift (in target 'CameraAccess' from project 'CameraAccess')
+    cd /Users/runner/work/meta-wearables-dat-ios/meta-wearables-dat-ios/samples/CameraAccess
+    
+
+SwiftCompile normal arm64 /Users/runner/work/meta-wearables-dat-ios/meta-wearables-dat-ios/samples/CameraAccess/CameraAccess/Views/StreamView.swift (in target 'CameraAccess' from project 'CameraAccess')
+    cd /Users/runner/work/meta-wearables-dat-ios/meta-wearables-dat-ios/samples/CameraAccess
+    
+
+SwiftCompile normal arm64 /Users/runner/work/meta-wearables-dat-ios/meta-wearables-dat-ios/samples/CameraAccess/CameraAccess/Views/Components/CircleButton.swift (in target 'CameraAccess' from project 'CameraAccess')
+    cd /Users/runner/work/meta-wearables-dat-ios/meta-wearables-dat-ios/samples/CameraAccess
+    
+
+SwiftCompile normal arm64 /Users/runner/work/meta-wearables-dat-ios/meta-wearables-dat-ios/samples/CameraAccess/CameraAccess/Views/Components/CustomButton.swift (in target 'CameraAccess' from project 'CameraAccess')
+    cd /Users/runner/work/meta-wearables-dat-ios/meta-wearables-dat-ios/samples/CameraAccess
+    
+
+SwiftCompile normal arm64 /Users/runner/work/meta-wearables-dat-ios/meta-wearables-dat-ios/samples/CameraAccess/CameraAccess/Views/NonStreamView.swift (in target 'CameraAccess' from project 'CameraAccess')
+    cd /Users/runner/work/meta-wearables-dat-ios/meta-wearables-dat-ios/samples/CameraAccess
+    
+
+SwiftCompile normal arm64 /Users/runner/work/_temp/CameraAccessDerivedData/Build/Intermediates.noindex/CameraAccess.build/Debug-iphonesimulator/CameraAccess.build/DerivedSources/GeneratedAssetSymbols.swift (in target 'CameraAccess' from project 'CameraAccess')
+    cd /Users/runner/work/meta-wearables-dat-ios/meta-wearables-dat-ios/samples/CameraAccess
+    
+
+SwiftDriverJobDiscovery normal arm64 Emitting module for CameraAccess (in target 'CameraAccess' from project 'CameraAccess')
+
+SwiftDriver\ Compilation\ Requirements CameraAccess normal arm64 com.apple.xcode.tools.swift.compiler (in target 'CameraAccess' from project 'CameraAccess')
+    cd /Users/runner/work/meta-wearables-dat-ios/meta-wearables-dat-ios/samples/CameraAccess
+    builtin-Swift-Compilation-Requirements -- /Applications/Xcode_26.2.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/swiftc -module-name CameraAccess -Onone -enforce-exclusivity\=checked @/Users/runner/work/_temp/CameraAccessDerivedData/Build/Intermediates.noindex/CameraAccess.build/Debug-iphonesimulator/CameraAccess.build/Objects-normal/arm64/CameraAccess.SwiftFileList -DDEBUG -enable-bare-slash-regex -enable-experimental-feature DebugDescriptionMacro -sdk /Applications/Xcode_26.2.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator26.2.sdk -target arm64-apple-ios17.0-simulator -g -module-cache-path /Users/runner/work/_temp/CameraAccessDerivedData/ModuleCache.noindex -Xfrontend -serialize-debugging-options -profile-coverage-mapping -profile-generate -enable-testing -index-store-path /Users/runner/work/_temp/CameraAccessDerivedData/Index.noindex/DataStore -Xcc -D_LIBCPP_HARDENING_MODE\=_LIBCPP_HARDENING_MODE_DEBUG -swift-version 5 -I /Users/runner/work/_temp/CameraAccessDerivedData/Build/Products/Debug-iphonesimulator -F /Users/runner/work/_temp/CameraAccessDerivedData/Build/Products/Debug-iphonesimulator -c -j3 -enable-batch-mode -incremental -Xcc -ivfsstatcache -Xcc /Users/runner/work/_temp/CameraAccessDerivedData/SDKStatCaches.noindex/iphonesimulator26.2-23C53-dc75598d0054f22ec865fa860f139d72f226656cc7df320ded6b3fc53332c9cf.sdkstatcache -output-file-map /Users/runner/work/_temp/CameraAccessDerivedData/Build/Intermediates.noindex/CameraAccess.build/Debug-iphonesimulator/CameraAccess.build/Objects-normal/arm64/CameraAccess-OutputFileMap.json -use-frontend-parseable-output -save-temps -no-color-diagnostics -explicit-module-build -module-cache-path /Users/runner/work/_temp/CameraAccessDerivedData/Build/Intermediates.noindex/SwiftExplicitPrecompiledModules -clang-scanner-module-cache-path /Users/runner/work/_temp/CameraAccessDerivedData/ModuleCache.noindex -sdk-module-cache-path /Users/runner/work/_temp/CameraAccessDerivedData/ModuleCache.noindex -serialize-diagnostics -emit-dependencies -emit-module -emit-module-path /Users/runner/work/_temp/CameraAccessDerivedData/Build/Intermediates.noindex/CameraAccess.build/Debug-iphonesimulator/CameraAccess.build/Objects-normal/arm64/CameraAccess.swiftmodule -validate-clang-modules-once -clang-build-session-file /Users/runner/work/_temp/CameraAccessDerivedData/ModuleCache.noindex/Session.modulevalidation -Xcc -I/Users/runner/work/_temp/CameraAccessDerivedData/Build/Intermediates.noindex/CameraAccess.build/Debug-iphonesimulator/CameraAccess.build/swift-overrides.hmap -emit-const-values -Xfrontend -const-gather-protocols-file -Xfrontend /Users/runner/work/_temp/CameraAccessDerivedData/Build/Intermediates.noindex/CameraAccess.build/Debug-iphonesimulator/CameraAccess.build/Objects-normal/arm64/CameraAccess_const_extract_protocols.json -Xcc -iquote -Xcc /Users/runner/work/_temp/CameraAccessDerivedData/Build/Intermediates.noindex/CameraAccess.build/Debug-iphonesimulator/CameraAccess.build/CameraAccess-generated-files.hmap -Xcc -I/Users/runner/work/_temp/CameraAccessDerivedData/Build/Intermediates.noindex/CameraAccess.build/Debug-iphonesimulator/CameraAccess.build/CameraAccess-own-target-headers.hmap -Xcc -I/Users/runner/work/_temp/CameraAccessDerivedData/Build/Intermediates.noindex/CameraAccess.build/Debug-iphonesimulator/CameraAccess.build/CameraAccess-all-target-headers.hmap -Xcc -iquote -Xcc /Users/runner/work/_temp/CameraAccessDerivedData/Build/Intermediates.noindex/CameraAccess.build/Debug-iphonesimulator/CameraAccess.build/CameraAccess-project-headers.hmap -Xcc -I/Users/runner/work/_temp/CameraAccessDerivedData/Build/Products/Debug-iphonesimulator/include -Xcc -I/Users/runner/work/_temp/CameraAccessDerivedData/Build/Intermediates.noindex/CameraAccess.build/Debug-iphonesimulator/CameraAccess.build/DerivedSources-normal/arm64 -Xcc -I/Users/runner/work/_temp/CameraAccessDerivedData/Build/Intermediates.noindex/CameraAccess.build/Debug-iphonesimulator/CameraAccess.build/DerivedSources/arm64 -Xcc -I/Users/runner/work/_temp/CameraAccessDerivedData/Build/Intermediates.noindex/CameraAccess.build/Debug-iphonesimulator/CameraAccess.build/DerivedSources -Xcc -DDEBUG\=1 -emit-objc-header -emit-objc-header-path /Users/runner/work/_temp/CameraAccessDerivedData/Build/Intermediates.noindex/CameraAccess.build/Debug-iphonesimulator/CameraAccess.build/Objects-normal/arm64/CameraAccess-Swift.h -working-directory /Users/runner/work/meta-wearables-dat-ios/meta-wearables-dat-ios/samples/CameraAccess -experimental-emit-module-separately -disable-cmo
+
+SwiftDriverJobDiscovery normal arm64 Compiling PhotoAnalysisViewModel.swift, MockDeviceKitButton.swift, WearablesViewModel.swift, StreamView.swift, CircleButton.swift, CustomButton.swift, NonStreamView.swift, GeneratedAssetSymbols.swift (in target 'CameraAccess' from project 'CameraAccess')
+
+SwiftCompile normal arm64 Compiling\ MockDeviceCardView.swift,\ CardView.swift,\ MockDeviceKitView.swift,\ StreamSessionViewModel.swift,\ StreamSessionView.swift,\ MainAppView.swift,\ DebugMenuView.swift,\ PhotoPreviewView.swift,\ PhotoAnalysisService.swift /Users/runner/work/meta-wearables-dat-ios/meta-wearables-dat-ios/samples/CameraAccess/CameraAccess/Views/MockDeviceKit/MockDeviceCardView.swift /Users/runner/work/meta-wearables-dat-ios/meta-wearables-dat-ios/samples/CameraAccess/CameraAccess/Views/Components/CardView.swift /Users/runner/work/meta-wearables-dat-ios/meta-wearables-dat-ios/samples/CameraAccess/CameraAccess/Views/MockDeviceKit/MockDeviceKitView.swift /Users/runner/work/meta-wearables-dat-ios/meta-wearables-dat-ios/samples/CameraAccess/CameraAccess/ViewModels/StreamSessionViewModel.swift /Users/runner/work/meta-wearables-dat-ios/meta-wearables-dat-ios/samples/CameraAccess/CameraAccess/Views/StreamSessionView.swift /Users/runner/work/meta-wearables-dat-ios/meta-wearables-dat-ios/samples/CameraAccess/CameraAccess/Views/MainAppView.swift /Users/runner/work/meta-wearables-dat-ios/meta-wearables-dat-ios/samples/CameraAccess/CameraAccess/Views/DebugMenuView.swift /Users/runner/work/meta-wearables-dat-ios/meta-wearables-dat-ios/samples/CameraAccess/CameraAccess/Views/PhotoPreviewView.swift /Users/runner/work/meta-wearables-dat-ios/meta-wearables-dat-ios/samples/CameraAccess/CameraAccess/ViewModels/PhotoAnalysisService.swift (in target 'CameraAccess' from project 'CameraAccess')
+Failed frontend command:
+/Applications/Xcode_26.2.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/swift-frontend -frontend -c /Users/runner/work/meta-wearables-dat-ios/meta-wearables-dat-ios/samples/CameraAccess/CameraAccess/CameraAccessApp.swift /Users/runner/work/meta-wearables-dat-ios/meta-wearables-dat-ios/samples/CameraAccess/CameraAccess/Views/HomeScreenView.swift /Users/runner/work/meta-wearables-dat-ios/meta-wearables-dat-ios/samples/CameraAccess/CameraAccess/ViewModels/DebugMenuViewModel.swift /Users/runner/work/meta-wearables-dat-ios/meta-wearables-dat-ios/samples/CameraAccess/CameraAccess/ViewModels/DeviceSessionManager.swift /Users/runner/work/meta-wearables-dat-ios/meta-wearables-dat-ios/samples/CameraAccess/CameraAccess/Views/RegistrationView.swift /Users/runner/work/meta-wearables-dat-ios/meta-wearables-dat-ios/samples/CameraAccess/CameraAccess/Views/Components/MediaPickerView.swift /Users/runner/work/meta-wearables-dat-ios/meta-wearables-dat-ios/samples/CameraAccess/CameraAccess/Views/Components/StatusText.swift /Users/runner/work/meta-wearables-dat-ios/meta-wearables-dat-ios/samples/CameraAccess/CameraAccess/ViewModels/MockDeviceKit/MockDeviceKitViewModel.swift /Users/runner/work/meta-wearables-dat-ios/meta-wearables-dat-ios/samples/CameraAccess/CameraAccess/ViewModels/MockDeviceKit/MockDeviceViewModel.swift -primary-file /Users/runner/work/meta-wearables-dat-ios/meta-wearables-dat-ios/samples/CameraAccess/CameraAccess/Views/MockDeviceKit/MockDeviceCardView.swift -primary-file /Users/runner/work/meta-wearables-dat-ios/meta-wearables-dat-ios/samples/CameraAccess/CameraAccess/Views/Components/CardView.swift -primary-file /Users/runner/work/meta-wearables-dat-ios/meta-wearables-dat-ios/samples/CameraAccess/CameraAccess/Views/MockDeviceKit/MockDeviceKitView.swift -primary-file /Users/runner/work/meta-wearables-dat-ios/meta-wearables-dat-ios/samples/CameraAccess/CameraAccess/ViewModels/StreamSessionViewModel.swift -primary-file /Users/runner/work/meta-wearables-dat-ios/meta-wearables-dat-ios/samples/CameraAccess/CameraAccess/Views/StreamSessionView.swift -primary-file /Users/runner/work/meta-wearables-dat-ios/meta-wearables-dat-ios/samples/CameraAccess/CameraAccess/Views/MainAppView.swift -primary-file /Users/runner/work/meta-wearables-dat-ios/meta-wearables-dat-ios/samples/CameraAccess/CameraAccess/Views/DebugMenuView.swift -primary-file /Users/runner/work/meta-wearables-dat-ios/meta-wearables-dat-ios/samples/CameraAccess/CameraAccess/Views/PhotoPreviewView.swift -primary-file /Users/runner/work/meta-wearables-dat-ios/meta-wearables-dat-ios/samples/CameraAccess/CameraAccess/ViewModels/PhotoAnalysisService.swift /Users/runner/work/meta-wearables-dat-ios/meta-wearables-dat-ios/samples/CameraAccess/CameraAccess/ViewModels/PhotoAnalysisViewModel.swift /Users/runner/work/meta-wearables-dat-ios/meta-wearables-dat-ios/samples/CameraAccess/CameraAccess/Views/MockDeviceKit/MockDeviceKitButton.swift /Users/runner/work/meta-wearables-dat-ios/meta-wearables-dat-ios/samples/CameraAccess/CameraAccess/ViewModels/WearablesViewModel.swift /Users/runner/work/meta-wearables-dat-ios/meta-wearables-dat-ios/samples/CameraAccess/CameraAccess/Views/StreamView.swift /Users/runner/work/meta-wearables-dat-ios/meta-wearables-dat-ios/samples/CameraAccess/CameraAccess/Views/Components/CircleButton.swift /Users/runner/work/meta-wearables-dat-ios/meta-wearables-dat-ios/samples/CameraAccess/CameraAccess/Views/Components/CustomButton.swift /Users/runner/work/meta-wearables-dat-ios/meta-wearables-dat-ios/samples/CameraAccess/CameraAccess/Views/NonStreamView.swift /Users/runner/work/_temp/CameraAccessDerivedData/Build/Intermediates.noindex/CameraAccess.build/Debug-iphonesimulator/CameraAccess.build/DerivedSources/GeneratedAssetSymbols.swift -supplementary-output-file-map /Users/runner/work/_temp/CameraAccessDerivedData/Build/Intermediates.noindex/CameraAccess.build/Debug-iphonesimulator/CameraAccess.build/Objects-normal/arm64/supplementaryOutputs-2 -target arm64-apple-ios17.0-simulator -module-can-import-version DeveloperToolsSupport 23.0.4 23.0.4 -module-can-import-version SwiftUI 7.2.5.1 7.2.5 -module-can-import-version UIKit 9126.2.4.1 9126.2.4 -load-resolved-plugin /Applications/Xcode_26.2.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/usr/lib/swift/host/plugins/libFoundationMacros.dylib\#/Applications/Xcode_26.2.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/usr/bin/swift-plugin-server\#FoundationMacros -load-resolved-plugin /Applications/Xcode_26.2.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/usr/lib/swift/host/plugins/libObservationMacros.dylib\#/Applications/Xcode_26.2.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/usr/bin/swift-plugin-server\#ObservationMacros -load-resolved-plugin /Applications/Xcode_26.2.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/usr/lib/swift/host/plugins/libPreviewsMacros.dylib\#/Applications/Xcode_26.2.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/usr/bin/swift-plugin-server\#PreviewsMacros -load-resolved-plugin /Applications/Xcode_26.2.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/usr/lib/swift/host/plugins/libSwiftMacros.dylib\#/Applications/Xcode_26.2.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/usr/bin/swift-plugin-server\#SwiftMacros -load-resolved-plugin /Applications/Xcode_26.2.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/usr/lib/swift/host/plugins/libSwiftUIMacros.dylib\#/Applications/Xcode_26.2.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/usr/bin/swift-plugin-server\#SwiftUIMacros -disable-implicit-swift-modules -Xcc -fno-implicit-modules -Xcc -fno-implicit-module-maps -explicit-swift-module-map-file /Users/runner/work/_temp/CameraAccessDerivedData/Build/Intermediates.noindex/CameraAccess.build/Debug-iphonesimulator/CameraAccess.build/Objects-normal/arm64/CameraAccess-dependencies-1.json -Xllvm -aarch64-use-tbi -enable-objc-interop -sdk /Applications/Xcode_26.2.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator26.2.sdk -I /Users/runner/work/_temp/CameraAccessDerivedData/Build/Products/Debug-iphonesimulator -F /Users/runner/work/_temp/CameraAccessDerivedData/Build/Products/Debug-iphonesimulator -no-color-diagnostics -Xcc -fno-color-diagnostics -enable-testing -g -debug-info-format\=dwarf -dwarf-version\=4 -module-cache-path /Users/runner/work/_temp/CameraAccessDerivedData/Build/Intermediates.noindex/SwiftExplicitPrecompiledModules -profile-generate -profile-coverage-mapping -swift-version 5 -enforce-exclusivity\=checked -Onone -D DEBUG -serialize-debugging-options -const-gather-protocols-file /Users/runner/work/_temp/CameraAccessDerivedData/Build/Intermediates.noindex/CameraAccess.build/Debug-iphonesimulator/CameraAccess.build/Objects-normal/arm64/CameraAccess_const_extract_protocols.json -enable-experimental-feature DebugDescriptionMacro -enable-bare-slash-regex -empty-abi-descriptor -validate-clang-modules-once -clang-build-session-file /Users/runner/work/_temp/CameraAccessDerivedData/ModuleCache.noindex/Session.modulevalidation -Xcc -working-directory -Xcc /Users/runner/work/meta-wearables-dat-ios/meta-wearables-dat-ios/samples/CameraAccess -enable-anonymous-context-mangled-names -file-compilation-dir /Users/runner/work/meta-wearables-dat-ios/meta-wearables-dat-ios/samples/CameraAccess -Xcc -D_LIBCPP_HARDENING_MODE\=_LIBCPP_HARDENING_MODE_DEBUG -Xcc -ivfsstatcache -Xcc /Users/runner/work/_temp/CameraAccessDerivedData/SDKStatCaches.noindex/iphonesimulator26.2-23C53-dc75598d0054f22ec865fa860f139d72f226656cc7df320ded6b3fc53332c9cf.sdkstatcache -Xcc -I/Users/runner/work/_temp/CameraAccessDerivedData/Build/Intermediates.noindex/CameraAccess.build/Debug-iphonesimulator/CameraAccess.build/swift-overrides.hmap -Xcc -iquote -Xcc /Users/runner/work/_temp/CameraAccessDerivedData/Build/Intermediates.noindex/CameraAccess.build/Debug-iphonesimulator/CameraAccess.build/CameraAccess-generated-files.hmap -Xcc -I/Users/runner/work/_temp/CameraAccessDerivedData/Build/Intermediates.noindex/CameraAccess.build/Debug-iphonesimulator/CameraAccess.build/CameraAccess-own-target-headers.hmap -Xcc -I/Users/runner/work/_temp/CameraAccessDerivedData/Build/Intermediates.noindex/CameraAccess.build/Debug-iphonesimulator/CameraAccess.build/CameraAccess-all-target-headers.hmap -Xcc -iquote -Xcc /Users/runner/work/_temp/CameraAccessDerivedData/Build/Intermediates.noindex/CameraAccess.build/Debug-iphonesimulator/CameraAccess.build/CameraAccess-project-headers.hmap -Xcc -I/Users/runner/work/_temp/CameraAccessDerivedData/Build/Products/Debug-iphonesimulator/include -Xcc -I/Users/runner/work/_temp/CameraAccessDerivedData/Build/Intermediates.noindex/CameraAccess.build/Debug-iphonesimulator/CameraAccess.build/DerivedSources-normal/arm64 -Xcc -I/Users/runner/work/_temp/CameraAccessDerivedData/Build/Intermediates.noindex/CameraAccess.build/Debug-iphonesimulator/CameraAccess.build/DerivedSources/arm64 -Xcc -I/Users/runner/work/_temp/CameraAccessDerivedData/Build/Intermediates.noindex/CameraAccess.build/Debug-iphonesimulator/CameraAccess.build/DerivedSources -Xcc -DDEBUG\=1 -no-auto-bridging-header-chaining -module-name CameraAccess -frontend-parseable-output -disable-clang-spi -target-sdk-version 26.2 -target-sdk-name iphonesimulator26.2 -clang-target arm64-apple-ios26.2-simulator -in-process-plugin-server-path /Applications/Xcode_26.2.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/host/libSwiftInProcPluginServer.dylib -o /Users/runner/work/_temp/CameraAccessDerivedData/Build/Intermediates.noindex/CameraAccess.build/Debug-iphonesimulator/CameraAccess.build/Objects-normal/arm64/MockDeviceCardView.o -o /Users/runner/work/_temp/CameraAccessDerivedData/Build/Intermediates.noindex/CameraAccess.build/Debug-iphonesimulator/CameraAccess.build/Objects-normal/arm64/CardView.o -o /Users/runner/work/_temp/CameraAccessDerivedData/Build/Intermediates.noindex/CameraAccess.build/Debug-iphonesimulator/CameraAccess.build/Objects-normal/arm64/MockDeviceKitView.o -o /Users/runner/work/_temp/CameraAccessDerivedData/Build/Intermediates.noindex/CameraAccess.build/Debug-iphonesimulator/CameraAccess.build/Objects-normal/arm64/StreamSessionViewModel.o -o /Users/runner/work/_temp/CameraAccessDerivedData/Build/Intermediates.noindex/CameraAccess.build/Debug-iphonesimulator/CameraAccess.build/Objects-normal/arm64/StreamSessionView.o -o /Users/runner/work/_temp/CameraAccessDerivedData/Build/Intermediates.noindex/CameraAccess.build/Debug-iphonesimulator/CameraAccess.build/Objects-normal/arm64/MainAppView.o -o /Users/runner/work/_temp/CameraAccessDerivedData/Build/Intermediates.noindex/CameraAccess.build/Debug-iphonesimulator/CameraAccess.build/Objects-normal/arm64/DebugMenuView.o -o /Users/runner/work/_temp/CameraAccessDerivedData/Build/Intermediates.noindex/CameraAccess.build/Debug-iphonesimulator/CameraAccess.build/Objects-normal/arm64/PhotoPreviewView.o -o /Users/runner/work/_temp/CameraAccessDerivedData/Build/Intermediates.noindex/CameraAccess.build/Debug-iphonesimulator/CameraAccess.build/Objects-normal/arm64/PhotoAnalysisService.o -index-unit-output-path /CameraAccess.build/Debug-iphonesimulator/CameraAccess.build/Objects-normal/arm64/MockDeviceCardView.o -index-unit-output-path /CameraAccess.build/Debug-iphonesimulator/CameraAccess.build/Objects-normal/arm64/CardView.o -index-unit-output-path /CameraAccess.build/Debug-iphonesimulator/CameraAccess.build/Objects-normal/arm64/MockDeviceKitView.o -index-unit-output-path /CameraAccess.build/Debug-iphonesimulator/CameraAccess.build/Objects-normal/arm64/StreamSessionViewModel.o -index-unit-output-path /CameraAccess.build/Debug-iphonesimulator/CameraAccess.build/Objects-normal/arm64/StreamSessionView.o -index-unit-output-path /CameraAccess.build/Debug-iphonesimulator/CameraAccess.build/Objects-normal/arm64/MainAppView.o -index-unit-output-path /CameraAccess.build/Debug-iphonesimulator/CameraAccess.build/Objects-normal/arm64/DebugMenuView.o -index-unit-output-path /CameraAccess.build/Debug-iphonesimulator/CameraAccess.build/Objects-normal/arm64/PhotoPreviewView.o -index-unit-output-path /CameraAccess.build/Debug-iphonesimulator/CameraAccess.build/Objects-normal/arm64/PhotoAnalysisService.o -index-store-path /Users/runner/work/_temp/CameraAccessDerivedData/Index.noindex/DataStore -index-system-modules
+
+SwiftCompile normal arm64 /Users/runner/work/meta-wearables-dat-ios/meta-wearables-dat-ios/samples/CameraAccess/CameraAccess/Views/MockDeviceKit/MockDeviceCardView.swift (in target 'CameraAccess' from project 'CameraAccess')
+    cd /Users/runner/work/meta-wearables-dat-ios/meta-wearables-dat-ios/samples/CameraAccess
+    
+
+SwiftCompile normal arm64 /Users/runner/work/meta-wearables-dat-ios/meta-wearables-dat-ios/samples/CameraAccess/CameraAccess/Views/Components/CardView.swift (in target 'CameraAccess' from project 'CameraAccess')
+    cd /Users/runner/work/meta-wearables-dat-ios/meta-wearables-dat-ios/samples/CameraAccess
+    
+
+SwiftCompile normal arm64 /Users/runner/work/meta-wearables-dat-ios/meta-wearables-dat-ios/samples/CameraAccess/CameraAccess/Views/MockDeviceKit/MockDeviceKitView.swift (in target 'CameraAccess' from project 'CameraAccess')
+    cd /Users/runner/work/meta-wearables-dat-ios/meta-wearables-dat-ios/samples/CameraAccess
+    
+
+SwiftCompile normal arm64 /Users/runner/work/meta-wearables-dat-ios/meta-wearables-dat-ios/samples/CameraAccess/CameraAccess/ViewModels/StreamSessionViewModel.swift (in target 'CameraAccess' from project 'CameraAccess')
+    cd /Users/runner/work/meta-wearables-dat-ios/meta-wearables-dat-ios/samples/CameraAccess
+    
+
+SwiftCompile normal arm64 /Users/runner/work/meta-wearables-dat-ios/meta-wearables-dat-ios/samples/CameraAccess/CameraAccess/Views/StreamSessionView.swift (in target 'CameraAccess' from project 'CameraAccess')
+    cd /Users/runner/work/meta-wearables-dat-ios/meta-wearables-dat-ios/samples/CameraAccess
+    
+
+SwiftCompile normal arm64 /Users/runner/work/meta-wearables-dat-ios/meta-wearables-dat-ios/samples/CameraAccess/CameraAccess/Views/MainAppView.swift (in target 'CameraAccess' from project 'CameraAccess')
+    cd /Users/runner/work/meta-wearables-dat-ios/meta-wearables-dat-ios/samples/CameraAccess
+    
+
+SwiftCompile normal arm64 /Users/runner/work/meta-wearables-dat-ios/meta-wearables-dat-ios/samples/CameraAccess/CameraAccess/Views/DebugMenuView.swift (in target 'CameraAccess' from project 'CameraAccess')
+    cd /Users/runner/work/meta-wearables-dat-ios/meta-wearables-dat-ios/samples/CameraAccess
+    
+
+SwiftCompile normal arm64 /Users/runner/work/meta-wearables-dat-ios/meta-wearables-dat-ios/samples/CameraAccess/CameraAccess/Views/PhotoPreviewView.swift (in target 'CameraAccess' from project 'CameraAccess')
+    cd /Users/runner/work/meta-wearables-dat-ios/meta-wearables-dat-ios/samples/CameraAccess
+    
+/Users/runner/work/meta-wearables-dat-ios/meta-wearables-dat-ios/samples/CameraAccess/CameraAccess/Views/PhotoPreviewView.swift:140:6: warning: result of call to 'clipShape(_:style:)' is unused
+    .clipShape(RoundedRectangle(cornerRadius: 12))
+     ^        ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+/Users/runner/work/meta-wearables-dat-ios/meta-wearables-dat-ios/samples/CameraAccess/CameraAccess/Views/PhotoPreviewView.swift:89:38: error: function declares an opaque return type, but has no return statements in its body from which to infer an underlying type
+  private var actionPanel: some View {
+                                     ^
+/Users/runner/work/meta-wearables-dat-ios/meta-wearables-dat-ios/samples/CameraAccess/CameraAccess/Views/PhotoPreviewView.swift:92:5: note: did you mean to return the last expression?
+    VStack(alignment: .leading, spacing: 12) {
+    ^
+    return 
+
+SwiftCompile normal arm64 /Users/runner/work/meta-wearables-dat-ios/meta-wearables-dat-ios/samples/CameraAccess/CameraAccess/ViewModels/PhotoAnalysisService.swift (in target 'CameraAccess' from project 'CameraAccess')
+    cd /Users/runner/work/meta-wearables-dat-ios/meta-wearables-dat-ios/samples/CameraAccess
+    
+
+SwiftMergeGeneratedHeaders /Users/runner/work/_temp/CameraAccessDerivedData/Build/Intermediates.noindex/CameraAccess.build/Debug-iphonesimulator/CameraAccess.build/DerivedSources/CameraAccess-Swift.h /Users/runner/work/_temp/CameraAccessDerivedData/Build/Intermediates.noindex/CameraAccess.build/Debug-iphonesimulator/CameraAccess.build/Objects-normal/arm64/CameraAccess-Swift.h (in target 'CameraAccess' from project 'CameraAccess')
+    cd /Users/runner/work/meta-wearables-dat-ios/meta-wearables-dat-ios/samples/CameraAccess
+    builtin-swiftHeaderTool -arch arm64 /Users/runner/work/_temp/CameraAccessDerivedData/Build/Intermediates.noindex/CameraAccess.build/Debug-iphonesimulator/CameraAccess.build/Objects-normal/arm64/CameraAccess-Swift.h -o /Users/runner/work/_temp/CameraAccessDerivedData/Build/Intermediates.noindex/CameraAccess.build/Debug-iphonesimulator/CameraAccess.build/DerivedSources/CameraAccess-Swift.h
+
+SwiftDriverJobDiscovery normal arm64 Compiling CameraAccessApp.swift, HomeScreenView.swift, DebugMenuViewModel.swift, DeviceSessionManager.swift, RegistrationView.swift, MediaPickerView.swift, StatusText.swift, MockDeviceKitViewModel.swift, MockDeviceViewModel.swift (in target 'CameraAccess' from project 'CameraAccess')
+
+Copy /Users/runner/work/_temp/CameraAccessDerivedData/Build/Products/Debug-iphonesimulator/CameraAccess.swiftmodule/arm64-apple-ios-simulator.swiftmodule /Users/runner/work/_temp/CameraAccessDerivedData/Build/Intermediates.noindex/CameraAccess.build/Debug-iphonesimulator/CameraAccess.build/Objects-normal/arm64/CameraAccess.swiftmodule (in target 'CameraAccess' from project 'CameraAccess')
+    cd /Users/runner/work/meta-wearables-dat-ios/meta-wearables-dat-ios/samples/CameraAccess
+    builtin-copy -exclude .DS_Store -exclude CVS -exclude .svn -exclude .git -exclude .hg -resolve-src-symlinks -rename /Users/runner/work/_temp/CameraAccessDerivedData/Build/Intermediates.noindex/CameraAccess.build/Debug-iphonesimulator/CameraAccess.build/Objects-normal/arm64/CameraAccess.swiftmodule /Users/runner/work/_temp/CameraAccessDerivedData/Build/Products/Debug-iphonesimulator/CameraAccess.swiftmodule/arm64-apple-ios-simulator.swiftmodule
+
+Copy /Users/runner/work/_temp/CameraAccessDerivedData/Build/Products/Debug-iphonesimulator/CameraAccess.swiftmodule/arm64-apple-ios-simulator.swiftdoc /Users/runner/work/_temp/CameraAccessDerivedData/Build/Intermediates.noindex/CameraAccess.build/Debug-iphonesimulator/CameraAccess.build/Objects-normal/arm64/CameraAccess.swiftdoc (in target 'CameraAccess' from project 'CameraAccess')
+    cd /Users/runner/work/meta-wearables-dat-ios/meta-wearables-dat-ios/samples/CameraAccess
+    builtin-copy -exclude .DS_Store -exclude CVS -exclude .svn -exclude .git -exclude .hg -resolve-src-symlinks -rename /Users/runner/work/_temp/CameraAccessDerivedData/Build/Intermediates.noindex/CameraAccess.build/Debug-iphonesimulator/CameraAccess.build/Objects-normal/arm64/CameraAccess.swiftdoc /Users/runner/work/_temp/CameraAccessDerivedData/Build/Products/Debug-iphonesimulator/CameraAccess.swiftmodule/arm64-apple-ios-simulator.swiftdoc
+
+Copy /Users/runner/work/_temp/CameraAccessDerivedData/Build/Products/Debug-iphonesimulator/CameraAccess.swiftmodule/arm64-apple-ios-simulator.abi.json /Users/runner/work/_temp/CameraAccessDerivedData/Build/Intermediates.noindex/CameraAccess.build/Debug-iphonesimulator/CameraAccess.build/Objects-normal/arm64/CameraAccess.abi.json (in target 'CameraAccess' from project 'CameraAccess')
+    cd /Users/runner/work/meta-wearables-dat-ios/meta-wearables-dat-ios/samples/CameraAccess
+    builtin-copy -exclude .DS_Store -exclude CVS -exclude .svn -exclude .git -exclude .hg -resolve-src-symlinks -rename /Users/runner/work/_temp/CameraAccessDerivedData/Build/Intermediates.noindex/CameraAccess.build/Debug-iphonesimulator/CameraAccess.build/Objects-normal/arm64/CameraAccess.abi.json /Users/runner/work/_temp/CameraAccessDerivedData/Build/Products/Debug-iphonesimulator/CameraAccess.swiftmodule/arm64-apple-ios-simulator.abi.json
+
+Copy /Users/runner/work/_temp/CameraAccessDerivedData/Build/Products/Debug-iphonesimulator/CameraAccess.swiftmodule/Project/arm64-apple-ios-simulator.swiftsourceinfo /Users/runner/work/_temp/CameraAccessDerivedData/Build/Intermediates.noindex/CameraAccess.build/Debug-iphonesimulator/CameraAccess.build/Objects-normal/arm64/CameraAccess.swiftsourceinfo (in target 'CameraAccess' from project 'CameraAccess')
+    cd /Users/runner/work/meta-wearables-dat-ios/meta-wearables-dat-ios/samples/CameraAccess
+    builtin-copy -exclude .DS_Store -exclude CVS -exclude .svn -exclude .git -exclude .hg -resolve-src-symlinks -rename /Users/runner/work/_temp/CameraAccessDerivedData/Build/Intermediates.noindex/CameraAccess.build/Debug-iphonesimulator/CameraAccess.build/Objects-normal/arm64/CameraAccess.swiftsourceinfo /Users/runner/work/_temp/CameraAccessDerivedData/Build/Products/Debug-iphonesimulator/CameraAccess.swiftmodule/Project/arm64-apple-ios-simulator.swiftsourceinfo
+
+SwiftDriver CameraAccessUITests normal arm64 com.apple.xcode.tools.swift.compiler (in target 'CameraAccessUITests' from project 'CameraAccess')
+    cd /Users/runner/work/meta-wearables-dat-ios/meta-wearables-dat-ios/samples/CameraAccess
+    builtin-SwiftDriver -- /Applications/Xcode_26.2.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/swiftc -module-name CameraAccessUITests -Onone -enforce-exclusivity\=checked @/Users/runner/work/_temp/CameraAccessDerivedData/Build/Intermediates.noindex/CameraAccess.build/Debug-iphonesimulator/CameraAccessUITests.build/Objects-normal/arm64/CameraAccessUITests.SwiftFileList -DDEBUG -DDEBUG -module-alias Testing\=_Testing_Unavailable -plugin-path /Applications/Xcode_26.2.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/host/plugins/testing -enable-bare-slash-regex -enable-upcoming-feature DisableOutwardActorInference -enable-upcoming-feature InferSendableFromCaptures -enable-upcoming-feature GlobalActorIsolatedTypesUsability -enable-upcoming-feature MemberImportVisibility -enable-upcoming-feature InferIsolatedConformances -enable-upcoming-feature NonisolatedNonsendingByDefault -enable-experimental-feature DebugDescriptionMacro -sdk /Applications/Xcode_26.2.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator26.2.sdk -target arm64-apple-ios17.0-simulator -g -module-cache-path /Users/runner/work/_temp/CameraAccessDerivedData/ModuleCache.noindex -Xfrontend -serialize-debugging-options -profile-coverage-mapping -profile-generate -enable-testing -index-store-path /Users/runner/work/_temp/CameraAccessDerivedData/Index.noindex/DataStore -Xcc -D_LIBCPP_HARDENING_MODE\=_LIBCPP_HARDENING_MODE_DEBUG -swift-version 5 -I /Users/runner/work/_temp/CameraAccessDerivedData/Build/Products/Debug-iphonesimulator -Isystem /Applications/Xcode_26.2.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/usr/lib -F /Users/runner/work/_temp/CameraAccessDerivedData/Build/Products/Debug-iphonesimulator -F /Applications/Xcode_26.2.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/Library/Frameworks -F /Applications/Xcode_26.2.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator26.2.sdk/Developer/Library/Frameworks -parse-as-library -c -j3 -enable-batch-mode -incremental -Xcc -ivfsstatcache -Xcc /Users/runner/work/_temp/CameraAccessDerivedData/SDKStatCaches.noindex/iphonesimulator26.2-23C53-dc75598d0054f22ec865fa860f139d72f226656cc7df320ded6b3fc53332c9cf.sdkstatcache -output-file-map /Users/runner/work/_temp/CameraAccessDerivedData/Build/Intermediates.noindex/CameraAccess.build/Debug-iphonesimulator/CameraAccessUITests.build/Objects-normal/arm64/CameraAccessUITests-OutputFileMap.json -use-frontend-parseable-output -save-temps -no-color-diagnostics -explicit-module-build -module-cache-path /Users/runner/work/_temp/CameraAccessDerivedData/Build/Intermediates.noindex/SwiftExplicitPrecompiledModules -clang-scanner-module-cache-path /Users/runner/work/_temp/CameraAccessDerivedData/ModuleCache.noindex -sdk-module-cache-path /Users/runner/work/_temp/CameraAccessDerivedData/ModuleCache.noindex -serialize-diagnostics -emit-dependencies -emit-module -emit-module-path /Users/runner/work/_temp/CameraAccessDerivedData/Build/Intermediates.noindex/CameraAccess.build/Debug-iphonesimulator/CameraAccessUITests.build/Objects-normal/arm64/CameraAccessUITests.swiftmodule -validate-clang-modules-once -clang-build-session-file /Users/runner/work/_temp/CameraAccessDerivedData/ModuleCache.noindex/Session.modulevalidation -Xcc -I/Users/runner/work/_temp/CameraAccessDerivedData/Build/Intermediates.noindex/CameraAccess.build/Debug-iphonesimulator/CameraAccessUITests.build/swift-overrides.hmap -emit-const-values -Xfrontend -const-gather-protocols-file -Xfrontend /Users/runner/work/_temp/CameraAccessDerivedData/Build/Intermediates.noindex/CameraAccess.build/Debug-iphonesimulator/CameraAccessUITests.build/Objects-normal/arm64/CameraAccessUITests_const_extract_protocols.json -Xcc -iquote -Xcc /Users/runner/work/_temp/CameraAccessDerivedData/Build/Intermediates.noindex/CameraAccess.build/Debug-iphonesimulator/CameraAccessUITests.build/CameraAccessUITests-generated-files.hmap -Xcc -I/Users/runner/work/_temp/CameraAccessDerivedData/Build/Intermediates.noindex/CameraAccess.build/Debug-iphonesimulator/CameraAccessUITests.build/CameraAccessUITests-own-target-headers.hmap -Xcc -I/Users/runner/work/_temp/CameraAccessDerivedData/Build/Intermediates.noindex/CameraAccess.build/Debug-iphonesimulator/CameraAccessUITests.build/CameraAccessUITests-all-target-headers.hmap -Xcc -iquote -Xcc /Users/runner/work/_temp/CameraAccessDerivedData/Build/Intermediates.noindex/CameraAccess.build/Debug-iphonesimulator/CameraAccessUITests.build/CameraAccessUITests-project-headers.hmap -Xcc -I/Users/runner/work/_temp/CameraAccessDerivedData/Build/Products/Debug-iphonesimulator/include -Xcc -I/Users/runner/work/_temp/CameraAccessDerivedData/Build/Intermediates.noindex/CameraAccess.build/Debug-iphonesimulator/CameraAccessUITests.build/DerivedSources-normal/arm64 -Xcc -I/Users/runner/work/_temp/CameraAccessDerivedData/Build/Intermediates.noindex/CameraAccess.build/Debug-iphonesimulator/CameraAccessUITests.build/DerivedSources/arm64 -Xcc -I/Users/runner/work/_temp/CameraAccessDerivedData/Build/Intermediates.noindex/CameraAccess.build/Debug-iphonesimulator/CameraAccessUITests.build/DerivedSources -Xcc -DDEBUG\=1 -emit-objc-header -emit-objc-header-path /Users/runner/work/_temp/CameraAccessDerivedData/Build/Intermediates.noindex/CameraAccess.build/Debug-iphonesimulator/CameraAccessUITests.build/Objects-normal/arm64/CameraAccessUITests-Swift.h -working-directory /Users/runner/work/meta-wearables-dat-ios/meta-wearables-dat-ios/samples/CameraAccess -experimental-emit-module-separately -disable-cmo
+
+
+Result bundle written to path:
+	/Users/runner/work/meta-wearables-dat-ios/meta-wearables-dat-ios/CameraAccess-Build.xcresult
+

@@ -1,0 +1,192 @@
+﻿2026-05-18T22:47:15.2899040Z ##[debug]Evaluating condition for step: 'Check out repository'
+2026-05-18T22:47:15.2920630Z ##[debug]Evaluating: success()
+2026-05-18T22:47:15.2924140Z ##[debug]Evaluating success:
+2026-05-18T22:47:15.2933050Z ##[debug]=> true
+2026-05-18T22:47:15.2936940Z ##[debug]Result: true
+2026-05-18T22:47:15.2953520Z ##[debug]Starting: Check out repository
+2026-05-18T22:47:15.3022510Z ##[debug]Register post job cleanup for action: actions/checkout@v4
+2026-05-18T22:47:15.3073500Z ##[debug]Loading inputs
+2026-05-18T22:47:15.3080660Z ##[debug]Evaluating: github.repository
+2026-05-18T22:47:15.3081550Z ##[debug]Evaluating Index:
+2026-05-18T22:47:15.3082860Z ##[debug]..Evaluating github:
+2026-05-18T22:47:15.3083720Z ##[debug]..=> Object
+2026-05-18T22:47:15.3086970Z ##[debug]..Evaluating String:
+2026-05-18T22:47:15.3087670Z ##[debug]..=> 'repository'
+2026-05-18T22:47:15.3090330Z ##[debug]=> 'barnscarter-ops/meta-wearables-dat-ios'
+2026-05-18T22:47:15.3091640Z ##[debug]Result: 'barnscarter-ops/meta-wearables-dat-ios'
+2026-05-18T22:47:15.3095010Z ##[debug]Evaluating: github.token
+2026-05-18T22:47:15.3095570Z ##[debug]Evaluating Index:
+2026-05-18T22:47:15.3096080Z ##[debug]..Evaluating github:
+2026-05-18T22:47:15.3096600Z ##[debug]..=> Object
+2026-05-18T22:47:15.3097150Z ##[debug]..Evaluating String:
+2026-05-18T22:47:15.3097670Z ##[debug]..=> 'token'
+2026-05-18T22:47:15.3098440Z ##[debug]=> '***'
+2026-05-18T22:47:15.3099050Z ##[debug]Result: '***'
+2026-05-18T22:47:15.3118550Z ##[debug]Loading env
+2026-05-18T22:47:15.3165550Z ##[group]Run actions/checkout@v4
+2026-05-18T22:47:15.3166210Z with:
+2026-05-18T22:47:15.3166750Z   repository: barnscarter-ops/meta-wearables-dat-ios
+2026-05-18T22:47:15.3167610Z   token: ***
+2026-05-18T22:47:15.3168040Z   ssh-strict: true
+2026-05-18T22:47:15.3168500Z   ssh-user: git
+2026-05-18T22:47:15.3168970Z   persist-credentials: true
+2026-05-18T22:47:15.3169500Z   clean: true
+2026-05-18T22:47:15.3169980Z   sparse-checkout-cone-mode: true
+2026-05-18T22:47:15.3170560Z   fetch-depth: 1
+2026-05-18T22:47:15.3171050Z   fetch-tags: false
+2026-05-18T22:47:15.3171540Z   show-progress: true
+2026-05-18T22:47:15.3172030Z   lfs: false
+2026-05-18T22:47:15.3172460Z   submodules: false
+2026-05-18T22:47:15.3172950Z   set-safe-directory: true
+2026-05-18T22:47:15.3173580Z env:
+2026-05-18T22:47:15.3174210Z   PROJECT_PATH: samples/CameraAccess/CameraAccess.xcodeproj
+2026-05-18T22:47:15.3174960Z   SCHEME: CameraAccess
+2026-05-18T22:47:15.3175700Z   CONFIGURATION: Debug
+2026-05-18T22:47:15.3176310Z   RESULT_BUNDLE: CameraAccess-TestResults.xcresult
+2026-05-18T22:47:15.3177060Z   BUILD_LOG: CameraAccess-xcodebuild.log
+2026-05-18T22:47:15.3177810Z   OPENAI_API_KEY: 
+2026-05-18T22:47:15.3178280Z ##[endgroup]
+2026-05-18T22:47:15.6093010Z ##[debug]GITHUB_WORKSPACE = '/Users/runner/work/meta-wearables-dat-ios/meta-wearables-dat-ios'
+2026-05-18T22:47:15.6095230Z ##[debug]qualified repository = 'barnscarter-ops/meta-wearables-dat-ios'
+2026-05-18T22:47:15.6096170Z ##[debug]ref = 'refs/heads/cameraaccess-ios-simulator'
+2026-05-18T22:47:15.6097100Z ##[debug]commit = '316cb665b90b6de8c948f9781f7a18fde7638434'
+2026-05-18T22:47:15.6098350Z ##[debug]clean = true
+2026-05-18T22:47:15.6099090Z ##[debug]filter = undefined
+2026-05-18T22:47:15.6099780Z ##[debug]fetch depth = 1
+2026-05-18T22:47:15.6100470Z ##[debug]fetch tags = false
+2026-05-18T22:47:15.6101580Z ##[debug]show progress = true
+2026-05-18T22:47:15.6102300Z ##[debug]lfs = false
+2026-05-18T22:47:15.6103090Z ##[debug]submodules = false
+2026-05-18T22:47:15.6104620Z ##[debug]recursive submodules = false
+2026-05-18T22:47:15.6106440Z ##[debug]GitHub Host URL = 
+2026-05-18T22:47:15.6108400Z ::add-matcher::/Users/runner/work/_actions/actions/checkout/v4/dist/problem-matcher.json
+2026-05-18T22:47:15.6164310Z ##[debug]Added matchers: 'checkout-git'. Problem matchers scan action output for known warning or error strings and report these inline.
+2026-05-18T22:47:15.6167840Z Syncing repository: barnscarter-ops/meta-wearables-dat-ios
+2026-05-18T22:47:15.6169100Z ::group::Getting Git version info
+2026-05-18T22:47:15.6170950Z ##[group]Getting Git version info
+2026-05-18T22:47:15.6171800Z Working directory is '/Users/runner/work/meta-wearables-dat-ios/meta-wearables-dat-ios'
+2026-05-18T22:47:15.6172940Z ##[debug]Getting git version
+2026-05-18T22:47:15.6173660Z [command]/opt/homebrew/bin/git version
+2026-05-18T22:47:15.6996240Z git version 2.54.0
+2026-05-18T22:47:15.7034740Z ##[debug]0
+2026-05-18T22:47:15.7036550Z ##[debug]git version 2.54.0
+2026-05-18T22:47:15.7037300Z ##[debug]
+2026-05-18T22:47:15.7038470Z ##[debug]Set git useragent to: git/2.54.0 (github-actions-checkout)
+2026-05-18T22:47:15.7039880Z ::endgroup::
+2026-05-18T22:47:15.7040530Z ##[endgroup]
+2026-05-18T22:47:15.7045050Z ::add-mask::***
+2026-05-18T22:47:15.7066050Z Copying '/Users/runner/.gitconfig' to '/Users/runner/work/_temp/c45b3d74-44d7-429d-a441-9b448e1ef778/.gitconfig'
+2026-05-18T22:47:15.7067200Z Temporarily overriding HOME='/Users/runner/work/_temp/c45b3d74-44d7-429d-a441-9b448e1ef778' before making global git config changes
+2026-05-18T22:47:15.7068240Z Adding repository directory to the temporary git global config as a safe directory
+2026-05-18T22:47:15.7069320Z [command]/opt/homebrew/bin/git config --global --add safe.directory /Users/runner/work/meta-wearables-dat-ios/meta-wearables-dat-ios
+2026-05-18T22:47:15.7153060Z ##[debug]0
+2026-05-18T22:47:15.7153940Z ##[debug]
+2026-05-18T22:47:15.7156420Z Deleting the contents of '/Users/runner/work/meta-wearables-dat-ios/meta-wearables-dat-ios'
+2026-05-18T22:47:15.7158980Z ::group::Initializing the repository
+2026-05-18T22:47:15.7159640Z ##[group]Initializing the repository
+2026-05-18T22:47:15.7163020Z [command]/opt/homebrew/bin/git init /Users/runner/work/meta-wearables-dat-ios/meta-wearables-dat-ios
+2026-05-18T22:47:15.7333210Z hint: Using 'master' as the name for the initial branch. This default branch name
+2026-05-18T22:47:15.7334380Z hint: will change to "main" in Git 3.0. To configure the initial branch name
+2026-05-18T22:47:15.7335260Z hint: to use in all of your new repositories, which will suppress this warning,
+2026-05-18T22:47:15.7335980Z hint: call:
+2026-05-18T22:47:15.7336480Z hint:
+2026-05-18T22:47:15.7337050Z hint: 	git config --global init.defaultBranch <name>
+2026-05-18T22:47:15.7337620Z hint:
+2026-05-18T22:47:15.7338160Z hint: Names commonly chosen instead of 'master' are 'main', 'trunk' and
+2026-05-18T22:47:15.7338940Z hint: 'development'. The just-created branch can be renamed via this command:
+2026-05-18T22:47:15.7339900Z hint:
+2026-05-18T22:47:15.7340350Z hint: 	git branch -m <name>
+2026-05-18T22:47:15.7340850Z hint:
+2026-05-18T22:47:15.7341450Z hint: Disable this message with "git config set advice.defaultBranchName false"
+2026-05-18T22:47:15.7342350Z Initialized empty Git repository in /Users/runner/work/meta-wearables-dat-ios/meta-wearables-dat-ios/.git/
+2026-05-18T22:47:15.7343580Z ##[debug]0
+2026-05-18T22:47:15.7344680Z ##[debug]Initialized empty Git repository in /Users/runner/work/meta-wearables-dat-ios/meta-wearables-dat-ios/.git/
+2026-05-18T22:47:15.7345480Z ##[debug]
+2026-05-18T22:47:15.7346200Z [command]/opt/homebrew/bin/git remote add origin https://github.com/barnscarter-ops/meta-wearables-dat-ios
+2026-05-18T22:47:15.7419060Z ##[debug]0
+2026-05-18T22:47:15.7419920Z ##[debug]
+2026-05-18T22:47:15.7420800Z ::endgroup::
+2026-05-18T22:47:15.7421280Z ##[endgroup]
+2026-05-18T22:47:15.7422080Z ::group::Disabling automatic garbage collection
+2026-05-18T22:47:15.7422700Z ##[group]Disabling automatic garbage collection
+2026-05-18T22:47:15.7423500Z [command]/opt/homebrew/bin/git config --local gc.auto 0
+2026-05-18T22:47:15.7489340Z ##[debug]0
+2026-05-18T22:47:15.7490430Z ##[debug]
+2026-05-18T22:47:15.7491250Z ::endgroup::
+2026-05-18T22:47:15.7491770Z ##[endgroup]
+2026-05-18T22:47:15.7492560Z ::group::Setting up auth
+2026-05-18T22:47:15.7493070Z ##[group]Setting up auth
+2026-05-18T22:47:15.7494700Z [command]/opt/homebrew/bin/git config --local --name-only --get-regexp core\.sshCommand
+2026-05-18T22:47:15.7559970Z ##[debug]1
+2026-05-18T22:47:15.7560900Z ##[debug]
+2026-05-18T22:47:15.7562590Z [command]/opt/homebrew/bin/git submodule foreach --recursive sh -c "git config --local --name-only --get-regexp 'core\.sshCommand' && git config --local --unset-all 'core.sshCommand' || :"
+2026-05-18T22:47:15.8335320Z ##[debug]0
+2026-05-18T22:47:15.8336490Z ##[debug]
+2026-05-18T22:47:15.8339040Z [command]/opt/homebrew/bin/git config --local --name-only --get-regexp http\.https\:\/\/github\.com\/\.extraheader
+2026-05-18T22:47:15.8393360Z ##[debug]1
+2026-05-18T22:47:15.8394230Z ##[debug]
+2026-05-18T22:47:15.8396050Z [command]/opt/homebrew/bin/git submodule foreach --recursive sh -c "git config --local --name-only --get-regexp 'http\.https\:\/\/github\.com\/\.extraheader' && git config --local --unset-all 'http.https://github.com/.extraheader' || :"
+2026-05-18T22:47:15.9064770Z ##[debug]0
+2026-05-18T22:47:15.9065550Z ##[debug]
+2026-05-18T22:47:15.9072950Z [command]/opt/homebrew/bin/git config --local --name-only --get-regexp ^includeIf\.gitdir:
+2026-05-18T22:47:15.9121800Z ##[debug]1
+2026-05-18T22:47:15.9122810Z ##[debug]
+2026-05-18T22:47:15.9124840Z [command]/opt/homebrew/bin/git submodule foreach --recursive git config --local --show-origin --name-only --get-regexp remote.origin.url
+2026-05-18T22:47:15.9793550Z ##[debug]0
+2026-05-18T22:47:15.9794400Z ##[debug]
+2026-05-18T22:47:15.9799910Z [command]/opt/homebrew/bin/git config --local http.https://github.com/.extraheader AUTHORIZATION: basic ***
+2026-05-18T22:47:15.9849530Z ##[debug]0
+2026-05-18T22:47:15.9850330Z ##[debug]
+2026-05-18T22:47:15.9855760Z ::endgroup::
+2026-05-18T22:47:15.9856210Z ##[endgroup]
+2026-05-18T22:47:15.9856940Z ::group::Fetching the repository
+2026-05-18T22:47:15.9857450Z ##[group]Fetching the repository
+2026-05-18T22:47:15.9860540Z [command]/opt/homebrew/bin/git -c protocol.version=2 fetch --no-tags --prune --no-recurse-submodules --depth=1 origin +316cb665b90b6de8c948f9781f7a18fde7638434:refs/remotes/origin/cameraaccess-ios-simulator
+2026-05-18T22:47:17.0033300Z From https://github.com/barnscarter-ops/meta-wearables-dat-ios
+2026-05-18T22:47:17.0034180Z  * [new ref]         316cb665b90b6de8c948f9781f7a18fde7638434 -> origin/cameraaccess-ios-simulator
+2026-05-18T22:47:17.0103880Z ##[debug]0
+2026-05-18T22:47:17.0110460Z ##[debug]
+2026-05-18T22:47:17.0110940Z ::endgroup::
+2026-05-18T22:47:17.0111120Z ##[endgroup]
+2026-05-18T22:47:17.0111540Z ::group::Determining the checkout info
+2026-05-18T22:47:17.0111770Z ##[group]Determining the checkout info
+2026-05-18T22:47:17.0112470Z ::endgroup::
+2026-05-18T22:47:17.0112620Z ##[endgroup]
+2026-05-18T22:47:17.0112950Z [command]/opt/homebrew/bin/git sparse-checkout disable
+2026-05-18T22:47:17.0179840Z ##[debug]0
+2026-05-18T22:47:17.0182030Z ##[debug]
+2026-05-18T22:47:17.0182860Z [command]/opt/homebrew/bin/git config --local --unset-all extensions.worktreeConfig
+2026-05-18T22:47:17.0237110Z ##[debug]0
+2026-05-18T22:47:17.0237580Z ##[debug]
+2026-05-18T22:47:17.0237890Z ::group::Checking out the ref
+2026-05-18T22:47:17.0238110Z ##[group]Checking out the ref
+2026-05-18T22:47:17.0240620Z [command]/opt/homebrew/bin/git checkout --progress --force -B cameraaccess-ios-simulator refs/remotes/origin/cameraaccess-ios-simulator
+2026-05-18T22:47:17.0529450Z Switched to a new branch 'cameraaccess-ios-simulator'
+2026-05-18T22:47:17.0630100Z branch 'cameraaccess-ios-simulator' set up to track 'origin/cameraaccess-ios-simulator'.
+2026-05-18T22:47:17.0733780Z ##[debug]0
+2026-05-18T22:47:17.0834990Z ##[debug]branch 'cameraaccess-ios-simulator' set up to track 'origin/cameraaccess-ios-simulator'.
+2026-05-18T22:47:17.0835650Z ##[debug]
+2026-05-18T22:47:17.0935480Z ::endgroup::
+2026-05-18T22:47:17.0935760Z ##[endgroup]
+2026-05-18T22:47:17.1037390Z ##[debug]0
+2026-05-18T22:47:17.1137740Z ##[debug]commit 316cb665b90b6de8c948f9781f7a18fde7638434
+2026-05-18T22:47:17.1138210Z ##[debug]Author: barnscarter-ops <barnscarter@gmail.com>
+2026-05-18T22:47:17.1138590Z ##[debug]Date:   Mon May 18 12:17:02 2026 -0500
+2026-05-18T22:47:17.1138850Z ##[debug]
+2026-05-18T22:47:17.1139030Z ##[debug]    Add CameraAccess iOS simulator workflow
+2026-05-18T22:47:17.1139780Z ##[debug]
+2026-05-18T22:47:17.1238830Z [command]/opt/homebrew/bin/git log -1 --format=%H
+2026-05-18T22:47:17.1293610Z 316cb665b90b6de8c948f9781f7a18fde7638434
+2026-05-18T22:47:17.1315590Z ##[debug]0
+2026-05-18T22:47:17.1328820Z ##[debug]316cb665b90b6de8c948f9781f7a18fde7638434
+2026-05-18T22:47:17.1330900Z ##[debug]
+2026-05-18T22:47:17.1335560Z ##[debug]Unsetting HOME override
+2026-05-18T22:47:17.1340900Z ::remove-matcher owner=checkout-git::
+2026-05-18T22:47:17.1348460Z ##[debug]Removed matchers: 'checkout-git'
+2026-05-18T22:47:17.1352350Z ##[debug]Node Action run completed with exit code 0
+2026-05-18T22:47:17.1373770Z ##[debug]Save intra-action state isPost = true
+2026-05-18T22:47:17.1374110Z ##[debug]Save intra-action state setSafeDirectory = true
+2026-05-18T22:47:17.1374560Z ##[debug]Save intra-action state repositoryPath = /Users/runner/work/meta-wearables-dat-ios/meta-wearables-dat-ios
+2026-05-18T22:47:17.1376650Z ##[debug]Set output commit = 316cb665b90b6de8c948f9781f7a18fde7638434
+2026-05-18T22:47:17.1377050Z ##[debug]Set output ref = refs/heads/cameraaccess-ios-simulator
+2026-05-18T22:47:17.1380160Z ##[debug]Finishing: Check out repository

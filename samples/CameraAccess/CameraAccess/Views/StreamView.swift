@@ -18,7 +18,7 @@ import MWDATCore
 import SwiftUI
 
 struct StreamView: View {
-  @Bindable var viewModel: StreamSessionViewModel
+  @State var viewModel: StreamSessionViewModel
   var wearablesVM: WearablesViewModel
 
   var body: some View {

@@ -1,0 +1,59 @@
+﻿2026-05-18T22:47:22.1599850Z ##[debug]Evaluating condition for step: 'Select an available iPhone simulator'
+2026-05-18T22:47:22.1601480Z ##[debug]Evaluating: success()
+2026-05-18T22:47:22.1601720Z ##[debug]Evaluating success:
+2026-05-18T22:47:22.1602200Z ##[debug]=> true
+2026-05-18T22:47:22.1602460Z ##[debug]Result: true
+2026-05-18T22:47:22.1603100Z ##[debug]Starting: Select an available iPhone simulator
+2026-05-18T22:47:22.1611910Z ##[debug]Loading inputs
+2026-05-18T22:47:22.1613360Z ##[debug]Loading env
+2026-05-18T22:47:22.1619320Z ##[group]Run set -euo pipefail
+2026-05-18T22:47:22.1619690Z [36;1mset -euo pipefail[0m
+2026-05-18T22:47:22.1619900Z [36;1mSIMULATOR_ID="$([0m
+2026-05-18T22:47:22.1620070Z [36;1m  python3 - <<'PY'[0m
+2026-05-18T22:47:22.1620300Z [36;1mimport json[0m
+2026-05-18T22:47:22.1620460Z [36;1mimport subprocess[0m
+2026-05-18T22:47:22.1620640Z [36;1m[0m
+2026-05-18T22:47:22.1621060Z [36;1mdata = json.loads(subprocess.check_output(["xcrun", "simctl", "list", "devices", "available", "-j"]))[0m
+2026-05-18T22:47:22.1621480Z [36;1mcandidates = [][0m
+2026-05-18T22:47:22.1621730Z [36;1mfor runtime, devices in data.get("devices", {}).items():[0m
+2026-05-18T22:47:22.1622100Z [36;1m    if not runtime.startswith("com.apple.CoreSimulator.SimRuntime.iOS"):[0m
+2026-05-18T22:47:22.1622450Z [36;1m        continue[0m
+2026-05-18T22:47:22.1622610Z [36;1m    for device in devices:[0m
+2026-05-18T22:47:22.1622960Z [36;1m        if device.get("isAvailable") and device.get("name", "").startswith("iPhone"):[0m
+2026-05-18T22:47:22.1623310Z [36;1m            candidates.append(device)[0m
+2026-05-18T22:47:22.1623510Z [36;1m[0m
+2026-05-18T22:47:22.1623780Z [36;1mpreferred_names = ("iPhone 17 Pro", "iPhone 17", "iPhone 16 Pro", "iPhone 16", "iPhone 15")[0m
+2026-05-18T22:47:22.1624140Z [36;1mfor name in preferred_names:[0m
+2026-05-18T22:47:22.1624330Z [36;1m    for device in candidates:[0m
+2026-05-18T22:47:22.1624770Z [36;1m        if device.get("name") == name:[0m
+2026-05-18T22:47:22.1625000Z [36;1m            print(device["udid"])[0m
+2026-05-18T22:47:22.1625260Z [36;1m            raise SystemExit[0m
+2026-05-18T22:47:22.1625430Z [36;1m[0m
+2026-05-18T22:47:22.1625560Z [36;1mif candidates:[0m
+2026-05-18T22:47:22.1625770Z [36;1m    print(candidates[0]["udid"])[0m
+2026-05-18T22:47:22.1626000Z [36;1m    raise SystemExit[0m
+2026-05-18T22:47:22.1626150Z [36;1m[0m
+2026-05-18T22:47:22.1626350Z [36;1mraise SystemExit("No available iPhone simulator found")[0m
+2026-05-18T22:47:22.1626580Z [36;1mPY[0m
+2026-05-18T22:47:22.1626700Z [36;1m)"[0m
+2026-05-18T22:47:22.1626880Z [36;1mecho "SIMULATOR_ID=${SIMULATOR_ID}" >> "$GITHUB_ENV"[0m
+2026-05-18T22:47:22.1627190Z [36;1mecho "id=${SIMULATOR_ID}" >> "$GITHUB_OUTPUT"[0m
+2026-05-18T22:47:22.1627500Z [36;1mxcrun simctl boot "${SIMULATOR_ID}" || true[0m
+2026-05-18T22:47:22.1627740Z [36;1mxcrun simctl bootstatus "${SIMULATOR_ID}" -b[0m
+2026-05-18T22:47:22.1657810Z shell: /bin/bash --noprofile --norc -e -o pipefail {0}
+2026-05-18T22:47:22.1658040Z env:
+2026-05-18T22:47:22.1658220Z   PROJECT_PATH: samples/CameraAccess/CameraAccess.xcodeproj
+2026-05-18T22:47:22.1658440Z   SCHEME: CameraAccess
+2026-05-18T22:47:22.1658580Z   CONFIGURATION: Debug
+2026-05-18T22:47:22.1658760Z   RESULT_BUNDLE: CameraAccess-TestResults.xcresult
+2026-05-18T22:47:22.1658970Z   BUILD_LOG: CameraAccess-xcodebuild.log
+2026-05-18T22:47:22.1659140Z   OPENAI_API_KEY: 
+2026-05-18T22:47:22.1659340Z ##[endgroup]
+2026-05-18T22:47:22.1660500Z ##[debug]Overwrite 'shell' base on job defaults.
+2026-05-18T22:47:22.1685790Z ##[debug]/bin/bash --noprofile --norc -e -o pipefail /Users/runner/work/_temp/5173ea4c-b7b8-420b-aca1-19c15a7920b9.sh
+2026-05-18T22:48:53.1944480Z Monitoring boot status for iPhone 17 Pro (A6D3EC07-8356-4742-A382-A63AC9D3D7AC).
+2026-05-18T22:48:53.1957940Z Device already booted, nothing to do.
+2026-05-18T22:48:53.2077660Z 
+2026-05-18T22:48:53.2483980Z ##[debug]SIMULATOR_ID='A6D3EC07-8356-4742-A382-A63AC9D3D7AC'
+2026-05-18T22:48:53.3135840Z ##[debug]Set output id = A6D3EC07-8356-4742-A382-A63AC9D3D7AC
+2026-05-18T22:48:53.3142220Z ##[debug]Finishing: Select an available iPhone simulator

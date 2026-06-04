@@ -1,0 +1,165 @@
+== Disk Images ==
+-- iOS --
+iOS 26.2 (23C54) - FCD632E3-3424-4F2F-884E-DFD2556C1FFD
+    State: Ready
+    Image Kind: Patchable Cryptex Disk Image
+    Signature State: Verified
+    Deletable: YES
+    Last Used At: 2026-05-18 21:46:38 +0000
+    Mounting Mode: Disk Image Mount
+    Mount Policy: Automatic
+    Mount Path: /Library/Developer/CoreSimulator/Volumes/iOS_23C54
+    Image Path: /System/Library/AssetsV2/com_apple_MobileAsset_iOSSimulatorRuntime/a257ee54b043b745017ba5ac3d89a9aa75b37a87.asset/AssetData/Restore/iOSSimulatorRuntime_Cryptex.dmg
+    Size: 9.7G
+    Bundle Path: /Library/Developer/CoreSimulator/Volumes/iOS_23C54/Library/Developer/CoreSimulator/Profiles/Runtimes/iOS 26.2.simruntime
+    Supported Architectures: x86_64, arm64
+    Parent Mount Path: /System/Library/AssetsV2/com_apple_MobileAsset_iOSSimulatorRuntime/a257ee54b043b745017ba5ac3d89a9aa75b37a87.asset/AssetData
+iOS 26.4.1 (23E254a) - 16498F06-590C-4319-B960-5836544DD500
+    State: Ready
+    Image Kind: Patchable Cryptex Disk Image
+    Signature State: Verified
+    Deletable: YES
+    Last Used At: 2026-05-18 21:48:34 +0000
+    Mounting Mode: Disk Image Mount
+    Mount Policy: Automatic
+    Mount Path: /Library/Developer/CoreSimulator/Volumes/iOS_23E254a
+    Image Path: /System/Library/AssetsV2/com_apple_MobileAsset_iOSSimulatorRuntime/92508e530a9afee2fff4e0764451170bddc486ee.asset/AssetData/Restore/iOSSimulatorRuntime_Cryptex.dmg
+    Size: 9.9G
+    Bundle Path: /Library/Developer/CoreSimulator/Volumes/iOS_23E254a/Library/Developer/CoreSimulator/Profiles/Runtimes/iOS 26.4.simruntime
+    Supported Architectures: x86_64, arm64
+    Parent Mount Path: /System/Library/AssetsV2/com_apple_MobileAsset_iOSSimulatorRuntime/92508e530a9afee2fff4e0764451170bddc486ee.asset/AssetData
+iOS 26.1 (23B86) - D63BC97A-0300-464F-9931-D55CE021C2F6
+    State: Ready
+    Image Kind: Patchable Cryptex Disk Image
+    Signature State: Verified
+    Deletable: YES
+    Mounting Mode: Disk Image Mount
+    Mount Policy: Automatic
+    Mount Path: /Library/Developer/CoreSimulator/Volumes/iOS_23B86
+    Image Path: /System/Library/AssetsV2/com_apple_MobileAsset_iOSSimulatorRuntime/cdca48478e471f93a39560756c69068833e0d38d.asset/AssetData/Restore/iOSSimulatorRuntime_Cryptex.dmg
+    Size: 9.7G
+    Bundle Path: /Library/Developer/CoreSimulator/Volumes/iOS_23B86/Library/Developer/CoreSimulator/Profiles/Runtimes/iOS 26.1.simruntime
+    Supported Architectures: x86_64, arm64
+    Parent Mount Path: /System/Library/AssetsV2/com_apple_MobileAsset_iOSSimulatorRuntime/cdca48478e471f93a39560756c69068833e0d38d.asset/AssetData
+-- tvOS --
+tvOS 26.4 (23L243a) - 7D19CA73-2CA6-4859-8512-86753B8F96FC
+    State: Ready
+    Image Kind: Patchable Cryptex Disk Image
+    Signature State: Verified
+    Deletable: YES
+    Mounting Mode: Disk Image Mount
+    Mount Policy: Automatic
+    Mount Path: /Library/Developer/CoreSimulator/Volumes/tvOS_23L243a
+    Image Path: /System/Library/AssetsV2/com_apple_MobileAsset_appleTVOSSimulatorRuntime/149c98450998425ea0c5a29962088453ff8d45d5.asset/AssetData/Restore/AppleTVOSSimulatorRuntime_Cryptex.dmg
+    Size: 4.7G
+    Bundle Path: /Library/Developer/CoreSimulator/Volumes/tvOS_23L243a/Library/Developer/CoreSimulator/Profiles/Runtimes/tvOS 26.4.simruntime
+    Supported Architectures: x86_64, arm64
+    Parent Mount Path: /System/Library/AssetsV2/com_apple_MobileAsset_appleTVOSSimulatorRuntime/149c98450998425ea0c5a29962088453ff8d45d5.asset/AssetData
+tvOS 26.2 (23K51) - EC8F1CF2-8326-4B26-9C0D-A7E8A4BBC37B
+    State: Ready
+    Image Kind: Patchable Cryptex Disk Image
+    Signature State: Verified
+    Deletable: YES
+    Mounting Mode: Disk Image Mount
+    Mount Policy: Automatic
+    Mount Path: /Library/Developer/CoreSimulator/Volumes/tvOS_23K51
+    Image Path: /System/Library/AssetsV2/com_apple_MobileAsset_appleTVOSSimulatorRuntime/a42d0e6c8e42481b01f0aad2b6846a53c3dec14f.asset/AssetData/Restore/AppleTVOSSimulatorRuntime_Cryptex.dmg
+    Size: 4.5G
+    Bundle Path: /Library/Developer/CoreSimulator/Volumes/tvOS_23K51/Library/Developer/CoreSimulator/Profiles/Runtimes/tvOS 26.2.simruntime
+    Supported Architectures: x86_64, arm64
+    Parent Mount Path: /System/Library/AssetsV2/com_apple_MobileAsset_appleTVOSSimulatorRuntime/a42d0e6c8e42481b01f0aad2b6846a53c3dec14f.asset/AssetData
+tvOS 26.1 (23J579) - EC9180DC-CFC2-40AE-A9F0-C46A45A5E370
+    State: Ready
+    Image Kind: Patchable Cryptex Disk Image
+    Signature State: Verified
+    Deletable: YES
+    Mounting Mode: Disk Image Mount
+    Mount Policy: Automatic
+    Mount Path: /Library/Developer/CoreSimulator/Volumes/tvOS_23J579
+    Image Path: /System/Library/AssetsV2/com_apple_MobileAsset_appleTVOSSimulatorRuntime/11d125efa6158c6af67cdf21b09029c558e85454.asset/AssetData/Restore/AppleTVOSSimulatorRuntime_Cryptex.dmg
+    Size: 4.5G
+    Bundle Path: /Library/Developer/CoreSimulator/Volumes/tvOS_23J579/Library/Developer/CoreSimulator/Profiles/Runtimes/tvOS 26.1.simruntime
+    Supported Architectures: x86_64, arm64
+    Parent Mount Path: /System/Library/AssetsV2/com_apple_MobileAsset_appleTVOSSimulatorRuntime/11d125efa6158c6af67cdf21b09029c558e85454.asset/AssetData
+-- watchOS --
+watchOS 26.1 (23S36) - 3E27EBFB-A969-4847-BAC3-5080A5AFC12B
+    State: Ready
+    Image Kind: Patchable Cryptex Disk Image
+    Signature State: Verified
+    Deletable: YES
+    Mounting Mode: Disk Image Mount
+    Mount Policy: Automatic
+    Mount Path: /Library/Developer/CoreSimulator/Volumes/watchOS_23S36
+    Image Path: /System/Library/AssetsV2/com_apple_MobileAsset_watchOSSimulatorRuntime/c2990fc0ca04925ce84236ff4c6ddf1fb630451d.asset/AssetData/Restore/WatchOSSimulatorRuntime_Cryptex.dmg
+    Size: 4.8G
+    Bundle Path: /Library/Developer/CoreSimulator/Volumes/watchOS_23S36/Library/Developer/CoreSimulator/Profiles/Runtimes/watchOS 26.1.simruntime
+    Supported Architectures: x86_64, arm64
+    Parent Mount Path: /System/Library/AssetsV2/com_apple_MobileAsset_watchOSSimulatorRuntime/c2990fc0ca04925ce84236ff4c6ddf1fb630451d.asset/AssetData
+watchOS 26.4 (23T240b) - A1446080-FB6D-4CA7-B96D-BF6079D10E2F
+    State: Ready
+    Image Kind: Patchable Cryptex Disk Image
+    Signature State: Verified
+    Deletable: YES
+    Mounting Mode: Disk Image Mount
+    Mount Policy: Automatic
+    Mount Path: /Library/Developer/CoreSimulator/Volumes/watchOS_23T240b
+    Image Path: /System/Library/AssetsV2/com_apple_MobileAsset_watchOSSimulatorRuntime/a3335e50cc5aa3a213ea0fb776d8c79075763fcb.asset/AssetData/Restore/WatchOSSimulatorRuntime_Cryptex.dmg
+    Size: 4.9G
+    Bundle Path: /Library/Developer/CoreSimulator/Volumes/watchOS_23T240b/Library/Developer/CoreSimulator/Profiles/Runtimes/watchOS 26.4.simruntime
+    Supported Architectures: x86_64, arm64
+    Parent Mount Path: /System/Library/AssetsV2/com_apple_MobileAsset_watchOSSimulatorRuntime/a3335e50cc5aa3a213ea0fb776d8c79075763fcb.asset/AssetData
+watchOS 26.2 (23S303) - AB4976C3-FAC9-449B-96C4-AA313A11ABF0
+    State: Ready
+    Image Kind: Patchable Cryptex Disk Image
+    Signature State: Verified
+    Deletable: YES
+    Mounting Mode: Disk Image Mount
+    Mount Policy: Automatic
+    Mount Path: /Library/Developer/CoreSimulator/Volumes/watchOS_23S303
+    Image Path: /System/Library/AssetsV2/com_apple_MobileAsset_watchOSSimulatorRuntime/ff9afe561e34bb53c49e24f4a6ae05a2e597a659.asset/AssetData/Restore/WatchOSSimulatorRuntime_Cryptex.dmg
+    Size: 4.8G
+    Bundle Path: /Library/Developer/CoreSimulator/Volumes/watchOS_23S303/Library/Developer/CoreSimulator/Profiles/Runtimes/watchOS 26.2.simruntime
+    Supported Architectures: x86_64, arm64
+    Parent Mount Path: /System/Library/AssetsV2/com_apple_MobileAsset_watchOSSimulatorRuntime/ff9afe561e34bb53c49e24f4a6ae05a2e597a659.asset/AssetData
+-- xrOS --
+xrOS 26.4.1 (23O249a) - AD9BA551-0E45-4154-B5B5-12E6819C1E41
+    State: Ready
+    Image Kind: Patchable Cryptex Disk Image
+    Signature State: Verified
+    Deletable: YES
+    Mounting Mode: Disk Image Mount
+    Mount Policy: Automatic
+    Mount Path: /Library/Developer/CoreSimulator/Volumes/xrOS_23O249a
+    Image Path: /System/Library/AssetsV2/com_apple_MobileAsset_xrOSSimulatorRuntime/b88d9bbd45e1cdc5f2e7c8bc99c8b2f5ba820f8b.asset/AssetData/Restore/XROSSimulatorRuntime_Cryptex.dmg
+    Size: 8.7G
+    Bundle Path: /Library/Developer/CoreSimulator/Volumes/xrOS_23O249a/Library/Developer/CoreSimulator/Profiles/Runtimes/xrOS 26.4.simruntime
+    Supported Architectures: x86_64, arm64
+    Parent Mount Path: /System/Library/AssetsV2/com_apple_MobileAsset_xrOSSimulatorRuntime/b88d9bbd45e1cdc5f2e7c8bc99c8b2f5ba820f8b.asset/AssetData
+xrOS 26.2 (23N301) - 42A05D58-6A22-4941-B160-D1DD6EE785DD
+    State: Ready
+    Image Kind: Patchable Cryptex Disk Image
+    Signature State: Verified
+    Deletable: YES
+    Mounting Mode: Disk Image Mount
+    Mount Policy: Automatic
+    Mount Path: /Library/Developer/CoreSimulator/Volumes/xrOS_23N301
+    Image Path: /System/Library/AssetsV2/com_apple_MobileAsset_xrOSSimulatorRuntime/398cfaf70d31ca74ee86b6daf05d99f5380ef493.asset/AssetData/Restore/XROSSimulatorRuntime_Cryptex.dmg
+    Size: 8.5G
+    Bundle Path: /Library/Developer/CoreSimulator/Volumes/xrOS_23N301/Library/Developer/CoreSimulator/Profiles/Runtimes/xrOS 26.2.simruntime
+    Supported Architectures: x86_64, arm64
+    Parent Mount Path: /System/Library/AssetsV2/com_apple_MobileAsset_xrOSSimulatorRuntime/398cfaf70d31ca74ee86b6daf05d99f5380ef493.asset/AssetData
+xrOS 26.1 (23N47) - 30B2171F-B28C-4935-ACA6-D60F1AF7485A
+    State: Ready
+    Image Kind: Patchable Cryptex Disk Image
+    Signature State: Verified
+    Deletable: YES
+    Mounting Mode: Disk Image Mount
+    Mount Policy: Automatic
+    Mount Path: /Library/Developer/CoreSimulator/Volumes/xrOS_23N47
+    Image Path: /System/Library/AssetsV2/com_apple_MobileAsset_xrOSSimulatorRuntime/b2d163db2200c6f23bb9226ac482c7fa8cf4904c.asset/AssetData/Restore/XROSSimulatorRuntime_Cryptex.dmg
+    Size: 8.5G
+    Bundle Path: /Library/Developer/CoreSimulator/Volumes/xrOS_23N47/Library/Developer/CoreSimulator/Profiles/Runtimes/xrOS 26.1.simruntime
+    Supported Architectures: x86_64, arm64
+    Parent Mount Path: /System/Library/AssetsV2/com_apple_MobileAsset_xrOSSimulatorRuntime/b2d163db2200c6f23bb9226ac482c7fa8cf4904c.asset/AssetData
+
+Total Disk Images: 12 (83.0G)

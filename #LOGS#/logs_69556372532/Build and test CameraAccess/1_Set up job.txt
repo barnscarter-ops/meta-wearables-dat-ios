@@ -1,0 +1,60 @@
+﻿2026-05-18T22:47:13.7927400Z ##[debug]Starting: Set up job
+2026-05-18T22:47:13.7928060Z Current runner version: '2.334.0'
+2026-05-18T22:47:13.7942630Z ##[group]Runner Image Provisioner
+2026-05-18T22:47:13.7943100Z Hosted Compute Agent
+2026-05-18T22:47:13.7943430Z Version: 20260422.526
+2026-05-18T22:47:13.7943800Z Commit: e1a9e573f4d0838b3a7c1b07401aeb29ed3635a9
+2026-05-18T22:47:13.7944230Z Build Date: 2026-04-22T09:31:31Z
+2026-05-18T22:47:13.7944660Z Worker ID: {ff2c2c39-2261-420c-9d9a-f9a3440de64e}
+2026-05-18T22:47:13.7945070Z Azure Region: westus
+2026-05-18T22:47:13.7945380Z ##[endgroup]
+2026-05-18T22:47:13.7946160Z ##[group]Operating System
+2026-05-18T22:47:13.7946500Z macOS
+2026-05-18T22:47:13.7946760Z 26.3
+2026-05-18T22:47:13.7947020Z 25D125
+2026-05-18T22:47:13.7947280Z ##[endgroup]
+2026-05-18T22:47:13.7947560Z ##[group]Runner Image
+2026-05-18T22:47:13.7947870Z Image: macos-26-arm64
+2026-05-18T22:47:13.7948240Z Version: 20260427.0026.1
+2026-05-18T22:47:13.7948890Z Included Software: https://github.com/actions/runner-images/blob/macos-26-arm64/20260427.0026/images/macos/macos-26-arm64-Readme.md
+2026-05-18T22:47:13.7949800Z Image Release: https://github.com/actions/runner-images/releases/tag/macos-26-arm64%2F20260427.0026
+2026-05-18T22:47:13.7950360Z ##[endgroup]
+2026-05-18T22:47:13.7951000Z ##[group]GITHUB_TOKEN Permissions
+2026-05-18T22:47:13.7951880Z Contents: read
+2026-05-18T22:47:13.7952160Z Metadata: read
+2026-05-18T22:47:13.7952450Z Packages: read
+2026-05-18T22:47:13.7952740Z ##[endgroup]
+2026-05-18T22:47:13.7953950Z Secret source: Actions
+2026-05-18T22:47:13.7954410Z ##[debug]Primary repository: barnscarter-ops/meta-wearables-dat-ios
+2026-05-18T22:47:13.7954900Z Prepare workflow directory
+2026-05-18T22:47:13.7999830Z ##[debug]Creating pipeline directory: '/Users/runner/work/meta-wearables-dat-ios'
+2026-05-18T22:47:13.8002150Z ##[debug]Creating workspace directory: '/Users/runner/work/meta-wearables-dat-ios/meta-wearables-dat-ios'
+2026-05-18T22:47:13.8003470Z ##[debug]Update context data
+2026-05-18T22:47:13.8005890Z ##[debug]Evaluating job-level environment variables
+2026-05-18T22:47:13.8175080Z ##[debug]Evaluating job container
+2026-05-18T22:47:13.8176620Z ##[debug]Evaluating job service containers
+2026-05-18T22:47:13.8177890Z ##[debug]Evaluating job defaults
+2026-05-18T22:47:13.8206030Z Prepare all required actions
+2026-05-18T22:47:13.8230390Z Getting action download info
+2026-05-18T22:47:14.2092350Z Download action repository 'actions/checkout@v4' (SHA:34e114876b0b11c390a56381ad16ebd13914f8d5)
+2026-05-18T22:47:14.2119530Z ##[debug]Copied action archive '/Users/runner/actionarchivecache/actions_checkout/34e114876b0b11c390a56381ad16ebd13914f8d5.tar.gz' to '/Users/runner/work/_actions/_temp_13e3d90f-e690-4899-acd6-0763ccc78d17/1927de20-46d1-45ad-96a4-40ba4e1d6b92.tar.gz'
+2026-05-18T22:47:14.4072060Z ##[debug]Unwrap 'actions-checkout-34e1148' to '/Users/runner/work/_actions/actions/checkout/v4'
+2026-05-18T22:47:14.4194950Z ##[debug]Archive '/Users/runner/work/_actions/_temp_13e3d90f-e690-4899-acd6-0763ccc78d17/1927de20-46d1-45ad-96a4-40ba4e1d6b92.tar.gz' has been unzipped into '/Users/runner/work/_actions/actions/checkout/v4'.
+2026-05-18T22:47:14.4282340Z Download action repository 'actions/upload-artifact@v4' (SHA:ea165f8d65b6e75b540449e92b4886f43607fa02)
+2026-05-18T22:47:14.4289770Z ##[debug]Copied action archive '/Users/runner/actionarchivecache/actions_upload-artifact/ea165f8d65b6e75b540449e92b4886f43607fa02.tar.gz' to '/Users/runner/work/_actions/_temp_2f1daa55-d738-4bca-b39c-3ded56b02d4d/184ca14b-157e-4baf-a001-615ba2e24e53.tar.gz'
+2026-05-18T22:47:15.1688120Z ##[debug]Unwrap 'actions-upload-artifact-ea165f8' to '/Users/runner/work/_actions/actions/upload-artifact/v4'
+2026-05-18T22:47:15.1931000Z ##[debug]Archive '/Users/runner/work/_actions/_temp_2f1daa55-d738-4bca-b39c-3ded56b02d4d/184ca14b-157e-4baf-a001-615ba2e24e53.tar.gz' has been unzipped into '/Users/runner/work/_actions/actions/upload-artifact/v4'.
+2026-05-18T22:47:15.1996070Z ##[debug]Action 'actions/upload-artifact@v4' already downloaded at '/Users/runner/work/_actions/actions/upload-artifact/v4'.
+2026-05-18T22:47:15.2008840Z ##[debug]action.yml for action: '/Users/runner/work/_actions/actions/checkout/v4/action.yml'.
+2026-05-18T22:47:15.2569760Z ##[debug]action.yml for action: '/Users/runner/work/_actions/actions/upload-artifact/v4/action.yml'.
+2026-05-18T22:47:15.2626280Z ##[debug]action.yml for action: '/Users/runner/work/_actions/actions/upload-artifact/v4/action.yml'.
+2026-05-18T22:47:15.2701100Z ##[debug]Set step '__actions_checkout' display name to: 'Check out repository'
+2026-05-18T22:47:15.2704490Z ##[debug]Set step '__run' display name to: 'Show Xcode and simulator environment'
+2026-05-18T22:47:15.2707310Z ##[debug]Set step 'simulator' display name to: 'Select an available iPhone simulator'
+2026-05-18T22:47:15.2710030Z ##[debug]Set step '__run_2' display name to: 'Resolve Swift package dependencies'
+2026-05-18T22:47:15.2712700Z ##[debug]Set step '__run_3' display name to: 'Build and run tests on iOS Simulator'
+2026-05-18T22:47:15.2715520Z ##[debug]Set step '__actions_upload-artifact' display name to: 'Upload Xcode result bundle'
+2026-05-18T22:47:15.2718300Z ##[debug]Set step '__actions_upload-artifact_2' display name to: 'Upload xcodebuild log'
+2026-05-18T22:47:15.2719500Z Complete job name: Build and test CameraAccess
+2026-05-18T22:47:15.2755690Z ##[debug]Collect running processes for tracking orphan processes.
+2026-05-18T22:47:15.2819250Z ##[debug]Finishing: Set up job

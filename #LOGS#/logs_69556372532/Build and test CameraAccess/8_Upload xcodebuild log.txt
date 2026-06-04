@@ -1,0 +1,89 @@
+﻿2026-05-18T23:12:39.1817870Z ##[debug]Evaluating condition for step: 'Upload xcodebuild log'
+2026-05-18T23:12:39.1823380Z ##[debug]Evaluating: always()
+2026-05-18T23:12:39.1823660Z ##[debug]Evaluating always:
+2026-05-18T23:12:39.1823950Z ##[debug]=> true
+2026-05-18T23:12:39.1824720Z ##[debug]Result: true
+2026-05-18T23:12:39.1825760Z ##[debug]Starting: Upload xcodebuild log
+2026-05-18T23:12:39.1891050Z ##[debug]Loading inputs
+2026-05-18T23:12:39.1895920Z ##[debug]Loading env
+2026-05-18T23:12:39.1899990Z ##[group]Run actions/upload-artifact@v4
+2026-05-18T23:12:39.1900180Z with:
+2026-05-18T23:12:39.1900320Z   name: CameraAccess-xcodebuild-log
+2026-05-18T23:12:39.1900520Z   path: CameraAccess-xcodebuild.log
+2026-05-18T23:12:39.1900710Z   if-no-files-found: ignore
+2026-05-18T23:12:39.1901150Z   compression-level: 6
+2026-05-18T23:12:39.1901290Z   overwrite: false
+2026-05-18T23:12:39.1901430Z   include-hidden-files: false
+2026-05-18T23:12:39.1901590Z env:
+2026-05-18T23:12:39.1901770Z   PROJECT_PATH: samples/CameraAccess/CameraAccess.xcodeproj
+2026-05-18T23:12:39.1902060Z   SCHEME: CameraAccess
+2026-05-18T23:12:39.1902200Z   CONFIGURATION: Debug
+2026-05-18T23:12:39.1902380Z   RESULT_BUNDLE: CameraAccess-TestResults.xcresult
+2026-05-18T23:12:39.1902610Z   BUILD_LOG: CameraAccess-xcodebuild.log
+2026-05-18T23:12:39.1902790Z   OPENAI_API_KEY: 
+2026-05-18T23:12:39.1902960Z   SIMULATOR_ID: A6D3EC07-8356-4742-A382-A63AC9D3D7AC
+2026-05-18T23:12:39.1903160Z ##[endgroup]
+2026-05-18T23:12:39.4706620Z ##[debug]followSymbolicLinks 'true'
+2026-05-18T23:12:39.4811840Z ##[debug]implicitDescendants 'true'
+2026-05-18T23:12:39.4839540Z ##[debug]omitBrokenSymbolicLinks 'true'
+2026-05-18T23:12:39.4840100Z ##[debug]excludeHiddenFiles 'true'
+2026-05-18T23:12:39.4840510Z ##[debug]followSymbolicLinks 'true'
+2026-05-18T23:12:39.4841080Z ##[debug]implicitDescendants 'true'
+2026-05-18T23:12:39.4841490Z ##[debug]matchDirectories 'true'
+2026-05-18T23:12:39.4841930Z ##[debug]omitBrokenSymbolicLinks 'true'
+2026-05-18T23:12:39.4842410Z ##[debug]excludeHiddenFiles 'true'
+2026-05-18T23:12:39.4843850Z ##[debug]Search path '/Users/runner/work/meta-wearables-dat-ios/meta-wearables-dat-ios/CameraAccess-xcodebuild.log'
+2026-05-18T23:12:39.4844980Z ##[debug]File:/Users/runner/work/meta-wearables-dat-ios/meta-wearables-dat-ios/CameraAccess-xcodebuild.log was found using the provided searchPath
+2026-05-18T23:12:39.4845830Z With the provided path, there will be 1 file uploaded
+2026-05-18T23:12:39.4846510Z ##[debug]Root artifact directory is /Users/runner/work/meta-wearables-dat-ios/meta-wearables-dat-ios
+2026-05-18T23:12:39.4847100Z Artifact name is valid!
+2026-05-18T23:12:39.4848180Z Root directory input is valid!
+2026-05-18T23:12:39.4848800Z ##[debug]Workflow Run Backend ID: 57e10510-4a0a-4370-9d34-4f90b6dc6d7e
+2026-05-18T23:12:39.4849460Z ##[debug]Workflow Job Run Backend ID: 8d6b2593-cdfc-5ae8-8ec1-1e80e5721687
+2026-05-18T23:12:39.4850510Z ##[debug][Request] CreateArtifact https://results-receiver.actions.githubusercontent.com/twirp/github.actions.results.api.v1.ArtifactService/CreateArtifact
+2026-05-18T23:12:39.6865900Z ##[debug][Response] - 200
+2026-05-18T23:12:39.6967650Z ##[debug]Headers: {
+2026-05-18T23:12:39.6967940Z ##[debug]  "content-length": "584",
+2026-05-18T23:12:39.6968260Z ##[debug]  "content-type": "application/json",
+2026-05-18T23:12:39.6968670Z ##[debug]  "date": "Mon, 18 May 2026 23:12:40 GMT",
+2026-05-18T23:12:39.6968950Z ##[debug]  "x-github-backend": "Kubernetes",
+2026-05-18T23:12:39.6969300Z ##[debug]  "x-github-request-id": "BE4A:39C85E:1ACDD1:1EC09C:6A0B9CE8"
+2026-05-18T23:12:39.6969620Z ##[debug]}
+2026-05-18T23:12:39.7071200Z ::add-mask::***
+2026-05-18T23:12:39.7171510Z ::add-mask::***
+2026-05-18T23:12:39.7274250Z ##[debug]Body: {
+2026-05-18T23:12:39.7274520Z ##[debug]  "ok": true,
+2026-05-18T23:12:39.7276660Z ##[debug]  "signed_upload_url": "https://productionresultssa0.blob.core.windows.net/actions-results/57e10510-4a0a-4370-9d34-4f90b6dc6d7e/workflow-job-run-8d6b2593-cdfc-5ae8-8ec1-1e80e5721687/artifacts/53bb4ab0d74bc333008cffff6040ed8744af74b69c59d42586e32c5106c7a9dd.zip?se=2026-05-19T00%3A12%3A40Z&sig=***&ske=2026-05-19T02%3A26%3A31Z&skoid=ca7593d4-ee42-46cd-af88-8b886a2f84eb&sks=b&skt=2026-05-18T22%3A26%3A31Z&sktid=398a6654-997b-47e9-b12b-9515b896b4de&skv=2025-11-05&sp=cw&spr=https&sr=b&st=2026-05-18T23%3A12%3A35Z&sv=2025-11-05"
+2026-05-18T23:12:39.7279620Z ##[debug]}
+2026-05-18T23:12:39.7284310Z ##[debug]Creating Artifact archive with compressionLevel: 6
+2026-05-18T23:12:39.7388320Z ##[debug]Zip write high watermark value 8388608
+2026-05-18T23:12:39.7491220Z ##[debug]Zip read high watermark value 8388608
+2026-05-18T23:12:39.7593080Z ##[debug]Uploading artifact zip to blob storage with maxConcurrency: 5, bufferSize: 8388608
+2026-05-18T23:12:39.7696630Z Beginning upload of artifact content to blob storage
+2026-05-18T23:12:39.7737860Z ##[debug]Zip stream for upload has ended.
+2026-05-18T23:12:39.7738620Z ##[debug]Zip stream for upload has finished.
+2026-05-18T23:12:39.8647030Z Uploaded bytes 14052
+2026-05-18T23:12:39.9104260Z Finished uploading artifact content to blob storage!
+2026-05-18T23:12:39.9130370Z SHA256 digest of uploaded artifact zip is 84183cccc5f825244c8024ce2acb38b41d6972c569d8d2b3c567d9ae3f294f47
+2026-05-18T23:12:39.9132040Z Finalizing artifact upload
+2026-05-18T23:12:39.9133030Z ##[debug][Request] FinalizeArtifact https://results-receiver.actions.githubusercontent.com/twirp/github.actions.results.api.v1.ArtifactService/FinalizeArtifact
+2026-05-18T23:12:40.0693510Z ##[debug][Response] - 200
+2026-05-18T23:12:40.0694170Z ##[debug]Headers: {
+2026-05-18T23:12:40.0694390Z ##[debug]  "content-length": "39",
+2026-05-18T23:12:40.0694730Z ##[debug]  "content-type": "application/json",
+2026-05-18T23:12:40.0695040Z ##[debug]  "date": "Mon, 18 May 2026 23:12:40 GMT",
+2026-05-18T23:12:40.0695360Z ##[debug]  "x-github-backend": "Kubernetes",
+2026-05-18T23:12:40.0695700Z ##[debug]  "x-github-request-id": "BE4A:39C85E:1ACECD:1EC1D1:6A0B9CE8"
+2026-05-18T23:12:40.0695960Z ##[debug]}
+2026-05-18T23:12:40.0696320Z ##[debug]Body: {
+2026-05-18T23:12:40.0696560Z ##[debug]  "ok": true,
+2026-05-18T23:12:40.0696790Z ##[debug]  "artifact_id": "7071188060"
+2026-05-18T23:12:40.0697080Z ##[debug]}
+2026-05-18T23:12:40.0697440Z Artifact CameraAccess-xcodebuild-log.zip successfully finalized. Artifact ID 7071188060
+2026-05-18T23:12:40.0698140Z Artifact CameraAccess-xcodebuild-log has been successfully uploaded! Final size is 14052 bytes. Artifact ID is 7071188060
+2026-05-18T23:12:40.0705490Z Artifact download URL: https://github.com/barnscarter-ops/meta-wearables-dat-ios/actions/runs/26049595155/artifacts/7071188060
+2026-05-18T23:12:40.0746820Z ##[debug]Node Action run completed with exit code 0
+2026-05-18T23:12:40.0749870Z ##[debug]Set output artifact-id = 7071188060
+2026-05-18T23:12:40.0750380Z ##[debug]Set output artifact-digest = 84183cccc5f825244c8024ce2acb38b41d6972c569d8d2b3c567d9ae3f294f47
+2026-05-18T23:12:40.0751100Z ##[debug]Set output artifact-url = https://github.com/barnscarter-ops/meta-wearables-dat-ios/actions/runs/26049595155/artifacts/7071188060
+2026-05-18T23:12:40.0751930Z ##[debug]Finishing: Upload xcodebuild log

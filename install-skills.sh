@@ -68,14 +68,31 @@ install_claude() {
 install_codex() {
   echo "Installing Codex plugin for iOS..."
   require_command codex
-  download_archive
-  if [ -d "${PLUGIN_DIR}" ]; then
-    codex plugin install "${PLUGIN_DIR}" || return 1
-    echo "Installed Codex plugin from ${PLUGIN_DIR}."
-  else
-    echo "Error: Failed to download Codex plugin payload." >&2
-    return 1
+
+  # Legacy Codex CLI surface
+  if codex plugin --help >/dev/null 2>&1; then
+    download_archive
+    if [ -d "${PLUGIN_DIR}" ]; then
+      codex plugin install "${PLUGIN_DIR}" || return 1
+      echo "Installed Codex plugin from ${PLUGIN_DIR}."
+      return 0
+    else
+      echo "Error: Failed to download Codex plugin payload." >&2
+      return 1
+    fi
   fi
+
+  # Current Codex CLI surface (codex-cli 0.121.0+)
+  if codex marketplace add --help >/dev/null 2>&1; then
+    codex marketplace add "${REPO}" || return 1
+    echo "Added ${REPO} as a Codex marketplace source."
+    echo "Note: This Codex version does not expose 'codex plugin install'."
+    return 0
+  fi
+
+  echo "Error: Unsupported Codex CLI command surface." >&2
+  echo "Expected either legacy 'codex plugin ...' or current 'codex marketplace ...'." >&2
+  return 1
 }
 
 install_copilot() {

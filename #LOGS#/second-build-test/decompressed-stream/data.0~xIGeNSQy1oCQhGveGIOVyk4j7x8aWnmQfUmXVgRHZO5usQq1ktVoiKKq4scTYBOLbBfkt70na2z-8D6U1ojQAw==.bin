@@ -1,0 +1,3 @@
+2026-05-18 21:51:52.026179+0000 CameraAccess[22497:70021] [CameraAccess] Failed to configure Wearables SDK: WearablesError(rawValue: 0)
+MWDATCore/Wearables.swift:242: Fatal error: Call `configure()` before attempting to access Wearables!
+2026-05-18 21:51:52.027243+0000 CameraAccess[22497:70021] MWDATCore/Wearables.swift:242: Fatal error: Call `configure()` before attempting to access Wearables!

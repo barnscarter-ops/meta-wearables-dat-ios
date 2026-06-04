@@ -1,0 +1,446 @@
+{"app_name":"CameraAccess","timestamp":"2026-05-18 21:54:23.00 +0000","app_version":"1.0","slice_uuid":"210a5434-64d4-3904-a1ae-4912fb946cc3","build_version":"1","platform":7,"bundleID":"com.meta.wearables.external.CameraAccess","share_with_app_devs":0,"is_first_party":0,"bug_type":"309","os_version":"macOS 26.3 (25D125)","roots_installed":0,"name":"CameraAccess","incident_id":"CC0FF886-B769-4E6E-9D6D-097AD89D98D3"}
+{
+  "uptime" : 1100,
+  "procRole" : "Foreground",
+  "version" : 2,
+  "userID" : 501,
+  "deployVersion" : 210,
+  "modelCode" : "VirtualMac2,1",
+  "coalitionID" : 1678,
+  "osVersion" : {
+    "train" : "macOS 26.3",
+    "build" : "25D125",
+    "releaseType" : "User"
+  },
+  "captureTime" : "2026-05-18 21:51:53.0305 +0000",
+  "codeSigningMonitor" : 0,
+  "incident" : "CC0FF886-B769-4E6E-9D6D-097AD89D98D3",
+  "pid" : 22497,
+  "translated" : false,
+  "cpuType" : "ARM-64",
+  "procLaunch" : "2026-05-18 21:51:17.3748 +0000",
+  "procStartAbsTime" : 26609613922,
+  "procExitAbsTime" : 27441285947,
+  "procName" : "CameraAccess",
+  "procPath" : "\/Users\/USER\/Library\/Developer\/XCTestDevices\/CF282BA1-AE2D-4DEB-A5CE-2D8B03238C55\/data\/Containers\/Bundle\/Application\/DAC98838-2B59-4B82-8F70-E72CABF46037\/CameraAccess.app\/CameraAccess",
+  "bundleInfo" : {"CFBundleShortVersionString":"1.0","CFBundleVersion":"1","CFBundleIdentifier":"com.meta.wearables.external.CameraAccess"},
+  "storeInfo" : {"deviceIdentifierForVendor":"492C7492-0398-5A6D-9DE6-915F91D7F95F","thirdParty":true},
+  "parentProc" : "launchd_sim",
+  "parentPid" : 18832,
+  "coalitionName" : "com.apple.CoreSimulator.SimDevice.CF282BA1-AE2D-4DEB-A5CE-2D8B03238C55",
+  "crashReporterKey" : "B85F94D6-3622-675E-4E10-6649F5253CCA",
+  "appleIntelligenceStatus" : {"reasons":["deviceNotCapable"],"state":"unavailable"},
+  "developerMode" : 1,
+  "responsiblePid" : 8880,
+  "responsibleProc" : "SimulatorTrampoline",
+  "codeSigningID" : "CameraAccess",
+  "codeSigningTeamID" : "",
+  "codeSigningFlags" : 570556929,
+  "codeSigningValidationCategory" : 10,
+  "codeSigningTrustLevel" : 4294967295,
+  "codeSigningAuxiliaryInfo" : 0,
+  "instructionByteStream" : {"beforePC":"IAAg1IEF+LfpAwC54gMDquMDBKrkAwWq5QMGquYDB6rnAwiqlAIAlA==","atPC":"IAAg1IgSgFL\/EwC56AcA+UgAgFLoAwA5QBYA0AAQD5FDFgDQY8AZkQ=="},
+  "bootSessionUUID" : "1B53953B-D61A-4B65-85B0-9167B9D13ED1",
+  "sip" : "disabled",
+  "exception" : {"codes":"0x0000000000000001, 0x00000001981ca210","rawCodes":[1,6846980624],"type":"EXC_BREAKPOINT","signal":"SIGTRAP"},
+  "termination" : {"flags":0,"code":5,"namespace":"SIGNAL","indicator":"Trace\/BPT trap: 5","byProc":"exc handler","byPid":22497},
+  "os_fault" : {"process":"CameraAccess"},
+  "extMods" : {"caller":{"thread_create":0,"thread_set_state":0,"task_for_pid":0},"system":{"thread_create":0,"thread_set_state":0,"task_for_pid":5},"targeted":{"thread_create":0,"thread_set_state":0,"task_for_pid":0},"warnings":0},
+  "faultingThread" : 0,
+  "threads" : [{"triggered":true,"id":70021,"threadState":{"x":[{"value":9223372041226433120},{"value":259},{"value":259},{"value":16},{"value":4345110080},{"value":6170069856},{"value":33},{"value":112},{"value":4298841888,"symbolLocation":224,"symbol":"_main_thread"},{"value":4345109968},{"value":4345004128},{"value":6621},{"value":6},{"value":4345004112},{"value":78},{"value":4457472},{"value":4299802500,"symbolLocation":0,"symbol":"os_unfair_lock_unlock"},{"value":18446744072367376383},{"value":0},{"value":6170070992},{"value":4353910144},{"value":1},{"value":1152921500312563530},{"value":1},{"value":0},{"value":6170072016},{"value":0},{"value":0},{"value":0}],"flavor":"ARM_THREAD_STATE64","lr":{"value":6846980624},"cpsr":{"value":1610616832},"fp":{"value":6170070272},"sp":{"value":6170070144},"esr":{"value":4060086273,"description":"(Breakpoint) brk 1"},"pc":{"value":6846980624,"matchesCrashFrame":1},"far":{"value":0}},"queue":"com.apple.main-thread","frames":[{"imageOffset":1053200,"symbol":"_assertionFailure(_:_:file:line:flags:)","symbolLocation":152,"imageIndex":30},{"imageOffset":126608,"symbol":"static Wearables.shared.getter","symbolLocation":220,"imageIndex":6},{"imageOffset":9796,"sourceLine":57,"sourceFile":"CameraAccessApp.swift","symbol":"CameraAccessApp.init()","imageIndex":5,"symbolLocation":1092},{"imageOffset":19772,"sourceFile":"\/<compiler-generated>","symbol":"protocol witness for App.init() in conformance CameraAccessApp","symbolLocation":12,"imageIndex":5},{"imageOffset":5557540,"symbol":"static App.main()","symbolLocation":132,"imageIndex":31},{"imageOffset":19624,"sourceFile":"\/<compiler-generated>","symbol":"static CameraAccessApp.$main()","symbolLocation":40,"imageIndex":5},{"imageOffset":19792,"sourceFile":"CameraAccessApp.swift","symbol":"__debug_main_executable_dylib_entry_point","symbolLocation":12,"imageIndex":5},{"imageOffset":4296913076,"imageIndex":32},{"imageOffset":36180,"symbol":"start","symbolLocation":7184,"imageIndex":0}]},{"id":71773,"frames":[],"threadState":{"x":[{"value":6170636288},{"value":4099},{"value":6170099712},{"value":0},{"value":409604},{"value":18446744073709551615},{"value":0},{"value":0},{"value":0},{"value":0},{"value":0},{"value":0},{"value":0},{"value":0},{"value":0},{"value":0},{"value":0},{"value":0},{"value":0},{"value":0},{"value":0},{"value":0},{"value":0},{"value":0},{"value":0},{"value":0},{"value":0},{"value":0},{"value":0}],"flavor":"ARM_THREAD_STATE64","lr":{"value":0},"cpsr":{"value":4096},"fp":{"value":0},"sp":{"value":6170636288},"esr":{"value":1442840704,"description":"(Syscall)"},"pc":{"value":4299397508},"far":{"value":0}}},{"id":71775,"frames":[],"threadState":{"x":[{"value":6171209728},{"value":0},{"value":6170673152},{"value":0},{"value":278532},{"value":18446744073709551615},{"value":0},{"value":0},{"value":0},{"value":0},{"value":0},{"value":0},{"value":0},{"value":0},{"value":0},{"value":0},{"value":0},{"value":0},{"value":0},{"value":0},{"value":0},{"value":0},{"value":0},{"value":0},{"value":0},{"value":0},{"value":0},{"value":0},{"value":0}],"flavor":"ARM_THREAD_STATE64","lr":{"value":0},"cpsr":{"value":4096},"fp":{"value":0},"sp":{"value":6171209728},"esr":{"value":0},"pc":{"value":4299397508},"far":{"value":0}}}],
+  "usedImages" : [
+  {
+    "source" : "P",
+    "arch" : "arm64e",
+    "base" : 4298129408,
+    "size" : 655360,
+    "uuid" : "bc4db5f4-1c64-3706-8006-73b78c3e1f1a",
+    "path" : "\/usr\/lib\/dyld",
+    "name" : "dyld"
+  },
+  {
+    "source" : "P",
+    "arch" : "arm64",
+    "base" : 4296802304,
+    "CFBundleShortVersionString" : "1.0",
+    "CFBundleIdentifier" : "com.meta.wearables.external.CameraAccess",
+    "size" : 16384,
+    "uuid" : "210a5434-64d4-3904-a1ae-4912fb946cc3",
+    "path" : "\/Users\/USER\/Library\/Developer\/XCTestDevices\/CF282BA1-AE2D-4DEB-A5CE-2D8B03238C55\/data\/Containers\/Bundle\/Application\/DAC98838-2B59-4B82-8F70-E72CABF46037\/CameraAccess.app\/CameraAccess",
+    "name" : "CameraAccess",
+    "CFBundleVersion" : "1"
+  },
+  {
+    "source" : "P",
+    "arch" : "arm64",
+    "base" : 4300668928,
+    "size" : 638976,
+    "uuid" : "57de808b-491b-32e4-80e3-8ed52750d307",
+    "path" : "\/Volumes\/VOLUME\/*\/libRPAC.dylib",
+    "name" : "libRPAC.dylib"
+  },
+  {
+    "source" : "P",
+    "arch" : "arm64",
+    "base" : 4297801728,
+    "size" : 16384,
+    "uuid" : "713592d8-903d-3fc5-86e5-05acee288fc3",
+    "path" : "\/Applications\/Xcode_26.2.app\/Contents\/Developer\/Platforms\/iPhoneSimulator.platform\/Developer\/usr\/lib\/libXCTestBundleInject.dylib",
+    "name" : "libXCTestBundleInject.dylib"
+  },
+  {
+    "source" : "P",
+    "arch" : "arm64",
+    "base" : 4307714048,
+    "size" : 278528,
+    "uuid" : "39c9f585-5d4f-3aff-80d2-ae5862bd2d3d",
+    "path" : "\/Volumes\/VOLUME\/*\/libMainThreadChecker.dylib",
+    "name" : "libMainThreadChecker.dylib"
+  },
+  {
+    "source" : "P",
+    "arch" : "arm64",
+    "base" : 4311465984,
+    "size" : 655360,
+    "uuid" : "05015e44-67e9-3ca0-b5ab-8e2ebada2724",
+    "path" : "\/Users\/USER\/Library\/Developer\/XCTestDevices\/CF282BA1-AE2D-4DEB-A5CE-2D8B03238C55\/data\/Containers\/Bundle\/Application\/DAC98838-2B59-4B82-8F70-E72CABF46037\/CameraAccess.app\/CameraAccess.debug.dylib",
+    "name" : "CameraAccess.debug.dylib"
+  },
+  {
+    "source" : "P",
+    "arch" : "arm64",
+    "base" : 4365615104,
+    "CFBundleShortVersionString" : "0.7.0",
+    "CFBundleIdentifier" : "com.facebook.MWDATCore",
+    "size" : 7356416,
+    "uuid" : "0815044c-144e-3839-8c84-bcfc978e51b0",
+    "path" : "\/Users\/USER\/Library\/Developer\/Xcode\/DerivedData\/CameraAccess-ebxvgoacpetbnlejuzuknjjmlvdq\/Build\/Products\/Debug-iphonesimulator\/MWDATCore.framework\/MWDATCore",
+    "name" : "MWDATCore",
+    "CFBundleVersion" : "970963458"
+  },
+  {
+    "source" : "P",
+    "arch" : "arm64",
+    "base" : 4331126784,
+    "CFBundleShortVersionString" : "0.7.0",
+    "CFBundleIdentifier" : "com.facebook.MWDATCamera",
+    "size" : 2326528,
+    "uuid" : "10f16d1f-f154-388c-96e5-b3bf3e72c68b",
+    "path" : "\/Users\/USER\/Library\/Developer\/Xcode\/DerivedData\/CameraAccess-ebxvgoacpetbnlejuzuknjjmlvdq\/Build\/Products\/Debug-iphonesimulator\/MWDATCamera.framework\/MWDATCamera",
+    "name" : "MWDATCamera",
+    "CFBundleVersion" : "970963446"
+  },
+  {
+    "source" : "P",
+    "arch" : "arm64",
+    "base" : 4322770944,
+    "CFBundleShortVersionString" : "0.7.0",
+    "CFBundleIdentifier" : "com.facebook.MWDATMockDevice",
+    "size" : 851968,
+    "uuid" : "d1d0f769-93d2-3c08-b7b8-d07539c15d9e",
+    "path" : "\/Users\/USER\/Library\/Developer\/Xcode\/DerivedData\/CameraAccess-ebxvgoacpetbnlejuzuknjjmlvdq\/Build\/Products\/Debug-iphonesimulator\/MWDATMockDevice.framework\/MWDATMockDevice",
+    "name" : "MWDATMockDevice",
+    "CFBundleVersion" : "970963474"
+  },
+  {
+    "source" : "P",
+    "arch" : "arm64",
+    "base" : 4297883648,
+    "CFBundleShortVersionString" : "1.0",
+    "CFBundleIdentifier" : "com.apple.DeviceCheck",
+    "size" : 65536,
+    "uuid" : "4ddd8a5a-8d0d-37de-803f-a624858ce354",
+    "path" : "\/Volumes\/VOLUME\/*\/DeviceCheck.framework\/DeviceCheck",
+    "name" : "DeviceCheck",
+    "CFBundleVersion" : "1"
+  },
+  {
+    "source" : "P",
+    "arch" : "arm64",
+    "base" : 4297752576,
+    "size" : 16384,
+    "uuid" : "c5e26b3f-e8c1-33dd-a56c-ee08fbee5131",
+    "path" : "\/Volumes\/VOLUME\/*\/libswiftUIKit.dylib",
+    "name" : "libswiftUIKit.dylib"
+  },
+  {
+    "source" : "P",
+    "arch" : "arm64",
+    "base" : 4299800576,
+    "size" : 32768,
+    "uuid" : "9463fc06-cc7c-38e8-ad3c-1b9f2617df53",
+    "path" : "\/usr\/lib\/system\/libsystem_platform.dylib",
+    "name" : "libsystem_platform.dylib"
+  },
+  {
+    "source" : "P",
+    "arch" : "arm64",
+    "base" : 4299931648,
+    "size" : 245760,
+    "uuid" : "1a15cc38-efcc-34ea-a261-cfd370f4b557",
+    "path" : "\/usr\/lib\/system\/libsystem_kernel.dylib",
+    "name" : "libsystem_kernel.dylib"
+  },
+  {
+    "source" : "P",
+    "arch" : "arm64",
+    "base" : 4299390976,
+    "size" : 65536,
+    "uuid" : "b1095734-2a4d-3e8c-839e-b10ae9598d61",
+    "path" : "\/usr\/lib\/system\/libsystem_pthread.dylib",
+    "name" : "libsystem_pthread.dylib"
+  },
+  {
+    "source" : "P",
+    "arch" : "arm64",
+    "base" : 4299685888,
+    "CFBundleShortVersionString" : "16.0",
+    "CFBundleIdentifier" : "com.apple.dt.XCTest",
+    "size" : 32768,
+    "uuid" : "cfb4a518-f856-3fab-9807-efec1737a784",
+    "path" : "\/Applications\/Xcode_26.2.app\/Contents\/Developer\/Platforms\/iPhoneSimulator.platform\/Developer\/Library\/Frameworks\/XCTest.framework\/XCTest",
+    "name" : "XCTest",
+    "CFBundleVersion" : "24507"
+  },
+  {
+    "source" : "P",
+    "arch" : "arm64",
+    "base" : 4309368832,
+    "CFBundleShortVersionString" : "16.0",
+    "CFBundleIdentifier" : "com.apple.dt.XCTestCore",
+    "size" : 950272,
+    "uuid" : "6d7943b7-0097-372a-acfb-90f505d51dff",
+    "path" : "\/Applications\/Xcode_26.2.app\/Contents\/Developer\/Platforms\/iPhoneSimulator.platform\/Developer\/Library\/PrivateFrameworks\/XCTestCore.framework\/XCTestCore",
+    "name" : "XCTestCore",
+    "CFBundleVersion" : "24507"
+  },
+  {
+    "source" : "P",
+    "arch" : "arm64",
+    "base" : 4317495296,
+    "CFBundleShortVersionString" : "16.0",
+    "CFBundleIdentifier" : "com.apple.dt.XCUIAutomation",
+    "size" : 950272,
+    "uuid" : "ad6d0036-2def-3ce6-b0af-b515af5848eb",
+    "path" : "\/Applications\/Xcode_26.2.app\/Contents\/Developer\/Platforms\/iPhoneSimulator.platform\/Developer\/Library\/Frameworks\/XCUIAutomation.framework\/XCUIAutomation",
+    "name" : "XCUIAutomation",
+    "CFBundleVersion" : "24507"
+  },
+  {
+    "source" : "P",
+    "arch" : "arm64",
+    "base" : 4315365376,
+    "CFBundleShortVersionString" : "16.0",
+    "CFBundleIdentifier" : "com.apple.dt.XCTAutomationSupport",
+    "size" : 376832,
+    "uuid" : "06f9acce-506f-3dc0-a49a-91e8e2e02252",
+    "path" : "\/Applications\/Xcode_26.2.app\/Contents\/Developer\/Platforms\/iPhoneSimulator.platform\/Developer\/Library\/PrivateFrameworks\/XCTAutomationSupport.framework\/XCTAutomationSupport",
+    "name" : "XCTAutomationSupport",
+    "CFBundleVersion" : "24507"
+  },
+  {
+    "source" : "P",
+    "arch" : "arm64",
+    "base" : 4314775552,
+    "CFBundleShortVersionString" : "0",
+    "CFBundleIdentifier" : "com.apple.metricmeasurement",
+    "size" : 180224,
+    "uuid" : "868de806-5668-300f-8f32-142aa5edd97d",
+    "path" : "\/Volumes\/VOLUME\/*\/MetricMeasurement.framework\/MetricMeasurement",
+    "name" : "MetricMeasurement",
+    "CFBundleVersion" : "1"
+  },
+  {
+    "source" : "P",
+    "arch" : "arm64",
+    "base" : 4311351296,
+    "CFBundleShortVersionString" : "16.0",
+    "CFBundleIdentifier" : "com.apple.dt.XCTestSupport",
+    "size" : 32768,
+    "uuid" : "822338ee-669c-34d4-bb6a-180adc1d836a",
+    "path" : "\/Applications\/Xcode_26.2.app\/Contents\/Developer\/Platforms\/iPhoneSimulator.platform\/Developer\/Library\/PrivateFrameworks\/XCTestSupport.framework\/XCTestSupport",
+    "name" : "XCTestSupport",
+    "CFBundleVersion" : "24507"
+  },
+  {
+    "source" : "P",
+    "arch" : "arm64",
+    "base" : 4316119040,
+    "CFBundleShortVersionString" : "16.0",
+    "CFBundleIdentifier" : "com.apple.dt.instruments.DTXConnectionServices",
+    "size" : 163840,
+    "uuid" : "5f7bb3ee-c013-333c-b64e-14c40ceb3666",
+    "path" : "\/Volumes\/VOLUME\/*\/DTXConnectionServices.framework\/DTXConnectionServices",
+    "name" : "DTXConnectionServices",
+    "CFBundleVersion" : "64575.73.1"
+  },
+  {
+    "source" : "P",
+    "arch" : "arm64",
+    "base" : 4311138304,
+    "CFBundleShortVersionString" : "1.0",
+    "CFBundleIdentifier" : "com.apple.dt.AutomationMode",
+    "size" : 32768,
+    "uuid" : "12124edd-faf5-3852-bff9-b84edb6b0635",
+    "path" : "\/Volumes\/VOLUME\/*\/AutomationMode.framework\/AutomationMode",
+    "name" : "AutomationMode",
+    "CFBundleVersion" : "1"
+  },
+  {
+    "source" : "P",
+    "arch" : "arm64",
+    "base" : 4313858048,
+    "CFBundleShortVersionString" : "1.0",
+    "CFBundleIdentifier" : "com.apple.accessibility.AccessibilityAudit",
+    "size" : 245760,
+    "uuid" : "a1cf2055-f10f-30e2-ba92-2cb59b43569f",
+    "path" : "\/Volumes\/VOLUME\/*\/AccessibilityAudit.framework\/AccessibilityAudit",
+    "name" : "AccessibilityAudit",
+    "CFBundleVersion" : "187.40"
+  },
+  {
+    "source" : "P",
+    "arch" : "arm64",
+    "base" : 4317118464,
+    "CFBundleShortVersionString" : "1.0",
+    "CFBundleIdentifier" : "com.apple.accessibility.AccessibilityPlatformTranslation",
+    "size" : 147456,
+    "uuid" : "8ba1f821-fb26-35eb-9369-1fd478804920",
+    "path" : "\/Volumes\/VOLUME\/*\/AccessibilityPlatformTranslation.framework\/AccessibilityPlatformTranslation",
+    "name" : "AccessibilityPlatformTranslation",
+    "CFBundleVersion" : "545.15"
+  },
+  {
+    "source" : "P",
+    "arch" : "arm64",
+    "base" : 4320903168,
+    "CFBundleShortVersionString" : "1.0",
+    "CFBundleIdentifier" : "com.apple.UIUnderstanding",
+    "size" : 458752,
+    "uuid" : "289639fc-2290-3f9b-9300-d3f30505392c",
+    "path" : "\/Volumes\/VOLUME\/*\/UIUnderstanding.framework\/UIUnderstanding",
+    "name" : "UIUnderstanding",
+    "CFBundleVersion" : "1"
+  },
+  {
+    "source" : "P",
+    "arch" : "arm64",
+    "base" : 4297654272,
+    "CFBundleShortVersionString" : "1.174.8",
+    "CFBundleIdentifier" : "com.apple.performance.SignpostNotification",
+    "size" : 16384,
+    "uuid" : "da2ac32a-f922-3cdf-b148-6265740db42f",
+    "path" : "\/Volumes\/VOLUME\/*\/SignpostNotification.framework\/SignpostNotification",
+    "name" : "SignpostNotification",
+    "CFBundleVersion" : "174.8"
+  },
+  {
+    "source" : "P",
+    "arch" : "arm64",
+    "base" : 4316741632,
+    "CFBundleShortVersionString" : "1.0",
+    "CFBundleIdentifier" : "com.meta.wearables.external.CameraAccessTests",
+    "size" : 81920,
+    "uuid" : "7a1a204c-a2fa-3299-8b46-f611093478e5",
+    "path" : "\/Users\/USER\/Library\/Developer\/XCTestDevices\/CF282BA1-AE2D-4DEB-A5CE-2D8B03238C55\/data\/Containers\/Bundle\/Application\/DAC98838-2B59-4B82-8F70-E72CABF46037\/CameraAccess.app\/PlugIns\/CameraAccessTests.xctest\/CameraAccessTests",
+    "name" : "CameraAccessTests",
+    "CFBundleVersion" : "1"
+  },
+  {
+    "source" : "P",
+    "arch" : "arm64",
+    "base" : 4319313920,
+    "size" : 393216,
+    "uuid" : "a232dbfd-41ef-3406-bed5-944c39d85b85",
+    "path" : "\/Applications\/Xcode_26.2.app\/Contents\/Developer\/Platforms\/iPhoneSimulator.platform\/Developer\/usr\/lib\/libXCTestSwiftSupport.dylib",
+    "name" : "libXCTestSwiftSupport.dylib"
+  },
+  {
+    "source" : "P",
+    "arch" : "arm64",
+    "base" : 4327440384,
+    "CFBundleShortVersionString" : "1.0",
+    "CFBundleIdentifier" : "com.apple.dt.swift-testing",
+    "size" : 1409024,
+    "uuid" : "bd9f36db-e32d-3be3-aa5f-f814f92b50a1",
+    "path" : "\/Applications\/Xcode_26.2.app\/Contents\/Developer\/Platforms\/iPhoneSimulator.platform\/Developer\/Library\/Frameworks\/Testing.framework\/Testing",
+    "name" : "Testing",
+    "CFBundleVersion" : "1501"
+  },
+  {
+    "source" : "P",
+    "arch" : "arm64",
+    "base" : 4316430336,
+    "CFBundleShortVersionString" : "16.0",
+    "CFBundleIdentifier" : "com.apple.dt.PreviewsServices",
+    "size" : 65536,
+    "uuid" : "ff56334c-e263-3acc-8b4b-38c23ea519b6",
+    "path" : "\/Volumes\/VOLUME\/*\/PreviewsServices.framework\/PreviewsServices",
+    "name" : "PreviewsServices",
+    "CFBundleVersion" : "23.40.29"
+  },
+  {
+    "source" : "P",
+    "arch" : "arm64",
+    "base" : 6845927424,
+    "size" : 4982496,
+    "uuid" : "bdcc3744-659d-3242-a7df-7fe649493f97",
+    "path" : "\/Volumes\/VOLUME\/*\/libswiftCore.dylib",
+    "name" : "libswiftCore.dylib"
+  },
+  {
+    "source" : "P",
+    "arch" : "arm64",
+    "base" : 7824146432,
+    "CFBundleShortVersionString" : "7.4.27.1.101",
+    "CFBundleIdentifier" : "com.apple.SwiftUI",
+    "size" : 18511264,
+    "uuid" : "c25cb71e-a536-3b44-b7ae-f12b03900444",
+    "path" : "\/Volumes\/VOLUME\/*\/SwiftUI.framework\/SwiftUI",
+    "name" : "SwiftUI",
+    "CFBundleVersion" : "7.4.27.1.101"
+  },
+  {
+    "size" : 0,
+    "source" : "A",
+    "base" : 0,
+    "uuid" : "00000000-0000-0000-0000-000000000000"
+  }
+],
+  "sharedCache" : {
+  "base" : 6442450944,
+  "size" : 3382345728,
+  "uuid" : "967d8d27-5316-3f13-8e1b-4c2e520ebefb"
+},
+  "vmSummary" : "ReadOnly portion of Libraries: Total=1.5G resident=0K(0%) swapped_out_or_unallocated=1.5G(100%)\nWritable regions: Total=35.3M written=1381K(4%) resident=1381K(4%) swapped_out=0K(0%) unallocated=34.0M(96%)\n\n                                VIRTUAL   REGION \nREGION TYPE                        SIZE    COUNT (non-coalesced) \n===========                     =======  ======= \nActivity Tracing                   256K        1 \nKernel Alloc Once                   32K        1 \nMALLOC                            16.7M        8 \nMALLOC guard page                 3840K        4 \nSTACK GUARD                       56.0M        3 \nStack                             9264K        3 \nVM_ALLOCATE                        128K        1 \n__DATA                            45.1M      660 \n__DATA_CONST                      85.4M      669 \n__DATA_DIRTY                       139K       13 \n__FONT_DATA                        2352        1 \n__LINKEDIT                       743.3M       31 \n__LLVM_COV                          48K        2 \n__OBJC_RO                         55.6M        1 \n__OBJC_RW                         2334K        1 \n__TEXT                           815.7M      682 \n__TPRO_CONST                       148K        2 \ndyld private memory                3.0G       11 \nmapped file                        688K        7 \npage table in kernel              1381K        1 \n===========                     =======  ======= \nTOTAL                              4.8G     2102 \n",
+  "legacyInfo" : {
+  "threadTriggered" : {
+    "queue" : "com.apple.main-thread"
+  }
+},
+  "logWritingSignature" : "1b19fb71e8e87bfc9be398f96025929740994e82",
+  "bug_type" : "309",
+  "roots_installed" : 0,
+  "trmStatus" : 2105344,
+  "trialInfo" : {
+  "rollouts" : [
+    {
+      "rolloutId" : "5ffde50ce2aacd000d47a95f",
+      "factorPackIds" : [
+
+      ],
+      "deploymentId" : 240000533
+    },
+    {
+      "rolloutId" : "64b21a7351cbb02ce3442e4e",
+      "factorPackIds" : [
+        "6647f0f7b6a75d3dc32993e7"
+      ],
+      "deploymentId" : 240000042
+    }
+  ],
+  "experiments" : [
+
+  ]
+}
+}

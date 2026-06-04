@@ -1,0 +1,56 @@
+== Known SDKs ==
+    appletvos26.2
+    iphoneos26.2
+    watchos26.2
+    xros26.2
+
+
+== Preferred Build Map ==
+(None)
+
+
+== User Overrides ==
+(None)
+
+
+== Evaluation Results ==
+appletvos26.2:
+    SDK Version: 26.2
+    SDK Build: 23K50
+    SDK Directory: /Applications/Xcode_26.2.app/Contents/Developer/Platforms/AppleTVOS.platform/Developer/SDKs/AppleTVOS26.2.sdk
+    Platform: com.apple.platform.appletvos
+    Chosen Runtime: tvOS 26.2 (26.2 - 23K51) - com.apple.CoreSimulator.SimRuntime.tvOS-26-2
+        User Override: (null)
+        Preferred: (null)
+        Default: 23K50
+
+iphoneos26.2:
+    SDK Version: 26.2
+    SDK Build: 23C53
+    SDK Directory: /Applications/Xcode_26.2.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS26.2.sdk
+    Platform: com.apple.platform.iphoneos
+    Chosen Runtime: iOS 26.2 (26.2 - 23C54) - com.apple.CoreSimulator.SimRuntime.iOS-26-2
+        User Override: (null)
+        Preferred: (null)
+        Default: 23C53
+
+watchos26.2:
+    SDK Version: 26.2
+    SDK Build: 23S303
+    SDK Directory: /Applications/Xcode_26.2.app/Contents/Developer/Platforms/WatchOS.platform/Developer/SDKs/WatchOS26.2.sdk
+    Platform: com.apple.platform.watchos
+    Chosen Runtime: watchOS 26.2 (26.2 - 23S303) - com.apple.CoreSimulator.SimRuntime.watchOS-26-2
+        User Override: (null)
+        Preferred: (null)
+        Default: watchOS 26.2 (26.2 - 23S303) - com.apple.CoreSimulator.SimRuntime.watchOS-26-2
+
+xros26.2:
+    SDK Version: 26.2
+    SDK Build: 23N301
+    SDK Directory: /Applications/Xcode_26.2.app/Contents/Developer/Platforms/XROS.platform/Developer/SDKs/XROS26.2.sdk
+    Platform: com.apple.platform.xros
+    Chosen Runtime: visionOS 26.2 (26.2 - 23N301) - com.apple.CoreSimulator.SimRuntime.xrOS-26-2
+        User Override: (null)
+        Preferred: (null)
+        Default: visionOS 26.2 (26.2 - 23N301) - com.apple.CoreSimulator.SimRuntime.xrOS-26-2
+

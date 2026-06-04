@@ -1,0 +1,447 @@
+
+==== data.0~-TVmK-lGprB84Owk-nu8pZ7bZ36GxQpPqzKuxemhPiyxxdtny1c1rdVRpA2Xl3Vv0jwge3Ah0rAy4k4HyrFJHg==.bin len 4654
+-- Timed out
+enGL
+        SimStreamProcessorSpecificationEmulationHint = SimStreamProcessorSpecificationEmulationHint_SerialProcessing
+    Renderer private name: Apple Software Renderer
+    Renderer version: 4.1 APPLE-23.0.2
+    Denylisted: No
+    Memory regions:
+        (Timed out trying to list memory regions)
+
+Port:
+    UUID: 51459D18-3519-44BB-8F40-C9495D9F394A
+    Class: StreamProcessor
+    Port Identifier: com.apple.SimStreamProcessor.default
+    Power state: On
+    Stream processor device
+    Specification:
+        SimStreamProcessorSpecificationPerformanceHint = SimStreamProcessorSpecificationPerformanceHint_MaximizePerformance
+        SimStreamProcessorSpecificationRendererHint = SimStreamProcessorSpecificationRendererHint_Metal
+        SimStreamProcesso
+
+==== data.0~-uzQwzGGLSkyeHSrS-jZT-Hdf4EmcKmmYHRdwpNVX-h-QrhtGsEGk789T_cR4U5UWOCL2WiMG_RrUshm-j0Htg==.bin len 229
+-- CameraAccessUITests
+[{"name":"Session-CameraAccessUITests-2026-05-18_214830-LECCPS.log","type":1},{"name":"StandardOutputAndStandardError-com.meta.wearables.external.CameraAccess.txt","type":1},{"name":"StandardOutputAndStandardError.txt","type":1}]
+
+==== data.0~0F_cAb21RuAK6AGjCC3baMxcJ1rhmuvV8ff9EyVFhZlBCtfmjj2DaHEruvglxXsRBnUvBqvSwzd04fRB13BtCw==.bin len 11809
+-- crashed
+:Early unexpected exit, operation never finished bootstrapping - no restart will be attempted]][S23:SortedKeyValueArrayPairK3:key[S6:StringK2:_vV17:NSUnderlyingError]K5:value[S6:StringK2:_vV219:Error Domain=XCTHTestOperationCoordinatorErrorDomain Code=5 "Test crashed with signal trap before establishing connection." UserInfo={NSLocalizedDescription=Test crashed with signal trap before establishing connection.}]]]]]K17:isTopLevelFailure[T[K2:_nV4:Bool]K2:_vV4:true]K9:issueType[S6:StringK2:_vV6:System]K10:lineNumber[S3:IntK2:_vV1:1]K7:message[S6:StringK2:_vV175:Early unexpected exit, operation never finished bootstrapping - no restart will be attempted. (Underlying Error: Test crashed with signal trap before establishing connection.)]K9:timestamp[T[K2:
+-- testLaunchWithoutDeviceShowsHomeScreen
+ummary]]]]]K10:testStatus[S6:StringK2:_vV7:Failure]][S18:ActionTestMetadataK22:activitySummariesCount[S3:IntK2:_vV1:4]K8:duration[S6:DoubleK2:_vV16:108.514976978302]K21:failureSummariesCount[S3:IntK2:_vV1:1]K10:identifier[S6:StringK2:_vV60:CameraAccessUITests/testLaunchWithoutDeviceShowsHomeScreen()]K13:identifierURL[S6:StringK2:_vV114:test://com.apple.xcode/CameraAccess/CameraAccessUITests/CameraAccessUITests/testLaunchWithoutDeviceShowsHomeScreen]K4:name[S6:StringK2:_vV40:testLaunchWithoutDeviceShowsHomeScreen()]K10:summaryRef[S9:ReferenceK2:id[S6:StringK2:_vV90:0~zuAftMkwHJgs0WkfmfYs31ng1Ev8Wm0kgFwSQthuUfhsgAIcTBg6JqjLx79ugoeFzNMuSuErVmVW3foal0VpjA==]K10:targetType[S14:TypeDefinitionK4:name[S6:StringK2:_vV17:ActionTestSummary]K9:supertype[S14:Type
+-- testPhotoCaptureAndDismiss
+mary]]]]]K10:testStatus[S6:StringK2:_vV7:Failure]][S18:ActionTestMetadataK22:activitySummariesCount[S3:IntK2:_vV1:4]K8:duration[S6:DoubleK2:_vV18:110.28964102268219]K21:failureSummariesCount[S3:IntK2:_vV1:1]K10:identifier[S6:StringK2:_vV48:CameraAccessUITests/testPhotoCaptureAndDismiss()]K13:identifierURL[S6:StringK2:_vV102:test://com.apple.xcode/CameraAccess/CameraAccessUITests/CameraAccessUITests/testPhotoCaptureAndDismiss]K4:name[S6:StringK2:_vV28:testPhotoCaptureAndDismiss()]K10:summaryRef[S9:ReferenceK2:id[S6:StringK2:_vV90:0~SBK71MhhZyzykJAc4hVg5VxSZjEYz6s8TfUu8VBFhDFXkzlYBNvBf-PPl-S7B5_tF0hBfrzRNPHFICo1WuiMGQ==]K10:targetType[S14:TypeDefinitionK4:name[S6:StringK2:_vV17:ActionTestSummary]K9:supertype[S14:TypeDefinitionK4:name[S6:StringK2:_vV35:
+-- Error Domain
+6:StringK2:_vV22:NSLocalizedDescription]K5:value[S6:StringK2:_vV92:Early unexpected exit, operation never finished bootstrapping - no restart will be attempted]][S23:SortedKeyValueArrayPairK3:key[S6:StringK2:_vV17:NSUnderlyingError]K5:value[S6:StringK2:_vV219:Error Domain=XCTHTestOperationCoordinatorErrorDomain Code=5 "Test crashed with signal trap before establishing connection." UserInfo={NSLocalizedDescription=Test crashed with signal trap before establishing connection.}]]]]]K17:isTopLevelFailure[T[K2:_nV4:Bool]K2:_vV4:true]K9:issueType[S6:StringK2:_vV6:System]K10:lineNumber[S3:IntK2:_vV1:1]K7:message[S6:StringK2:_vV175:Early unexpected exit, operation never finished bootstrapping - no restart will be attempted. (Underlying Error: Test crashed wi
+-- CameraAccessUITests
+r]K4:name[S6:StringK2:_vV41:CameraAccess (22497) encountered an error]K10:testStatus[S6:StringK2:_vV7:Failure]]]]]][S21:ActionTestableSummaryK24:diagnosticsDirectoryName[S6:StringK2:_vV0:]K13:identifierURL[S6:StringK2:_vV55:test://com.apple.xcode/CameraAccess/CameraAccessUITests]K4:name[S6:StringK2:_vV19:CameraAccessUITests]K19:projectRelativePath[S6:StringK2:_vV22:CameraAccess.xcodeproj]K10:targetName[S6:StringK2:_vV19:CameraAccessUITests]K8:testKind[S6:StringK2:_vV2:UI]K12:testLanguage[S6:StringK2:_vV0:]K10:testRegion[S6:StringK2:_vV0:]K5:tests[S5:Array[S22:ActionTestSummaryGroupK8:duration[T[K2:_nV6:Double]K2:_vV17:883.7551741600037]K10:identifier[S6:StringK2:_vV19:CameraAccessUITests]K13:identifierURL[S6:StringK2:_vV75:test://com.apple.xcode/Came
+
+==== data.0~2_axrdudmTunimyLyBVsCIz2felCcZw5Ow78XOJ_qu-iZzfHfbZGoRpXr4ybcERo2501v90D-votR_w-TTarjg==.bin len 10376
+-- XCTAssert
+6:StringK2:_vV131:/Users/runner/work/meta-wearables-dat-ios/meta-wearables-dat-ios/samples/CameraAccess/CameraAccessUITests/CameraAccessUITests.swift]K9:issueType[S6:StringK2:_vV17:Assertion Failure]K10:lineNumber[S3:IntK2:_vV2:35]K7:message[S6:StringK2:_vV52:XCTAssertTrue failed - Test server should be running]K17:sourceCodeContext[T[K2:_nV17:SourceCodeContext]K9:callStack[S5:Array[T[K2:_nV15:SourceCodeFrame]K13:addressString[S6:StringK2:_vV10:4395088332]][S15:SourceCodeFrameK13:addressString[S6:StringK2:_vV10:4394546495]][S15:SourceCodeFrameK13:addressString[S6:StringK2:_vV10:4394545963]][S15:SourceCodeFrameK13:addressString[S6:StringK2:_vV10:4394547479]][S15:SourceCodeFrameK13:addressString[S6:StringK2:_vV10:4398359643]][S15:SourceCodeFrameK13:add
+-- CameraAccessUITests
+8433-AAB7E9EE90BA]]]K8:duration[T[K2:_nV6:Double]K2:_vV18:109.80512404441833]K16:failureSummaries[S5:Array[T[K2:_nV24:ActionTestFailureSummary]K8:fileName[S6:StringK2:_vV131:/Users/runner/work/meta-wearables-dat-ios/meta-wearables-dat-ios/samples/CameraAccess/CameraAccessUITests/CameraAccessUITests.swift]K9:issueType[S6:StringK2:_vV17:Assertion Failure]K10:lineNumber[S3:IntK2:_vV2:35]K7:message[S6:StringK2:_vV52:XCTAssertTrue failed - Test server should be running]K17:sourceCodeContext[T[K2:_nV17:SourceCodeContext]K9:callStack[S5:Array[T[K2:_nV15:SourceCodeFrame]K13:addressString[S6:StringK2:_vV10:4395088332]][S15:SourceCodeFrameK13:addressString[S6:StringK2:_vV10:4394546495]][S15:SourceCodeFrameK13:addressString[S6:StringK2:_vV10:4394545963]][S15:So
+
+==== data.0~2oFRgfANdvHY0EJ2hPzc_S1G0gWz2qAbDXFHpWuFMDejY-B33CUHGdTcJVNzi4wFJuVu5yIOXM6Yd4A72pPFcg==.bin len 9932
+-- XCTAssert
+180:file:///Users/runner/work/meta-wearables-dat-ios/meta-wearables-dat-ios/samples/CameraAccess/CameraAccessUITests/CameraAccessUITests.swift#EndingLineNumber=34&StartingLineNumber=34]]K9:issueType[S6:StringK2:_vV13:Uncategorized]K7:message[S6:StringK2:_vV52:XCTAssertTrue failed - Test server should be running]K12:testCaseName[S6:StringK2:_vV58:CameraAccessUITests.testDeviceStateReflectsPairedDevices()]][S23:TestFailureIssueSummaryK35:documentLocationInCreatingWorkspace[S16:DocumentLocationK16:concreteTypeName[S6:StringK2:_vV23:DVTTextDocumentLocation]K3:url[S6:StringK2:_vV180:file:///Users/runner/work/meta-wearables-dat-ios/meta-wearables-dat-ios/samples/CameraAccess/CameraAccessUITests/CameraAccessUITests.swift#EndingLineNumber=34&StartingLineNumb
+-- crashed
+T[K2:_nV12:IssueSummary]K9:issueType[S6:StringK2:_vV13:Uncategorized]K7:message[S6:StringK2:_vV219:CameraAccess (22497) encountered an error (Early unexpected exit, operation never finished bootstrapping - no restart will be attempted. (Underlying Error: Test crashed with signal trap before establishing connection.))]]]K20:testFailureSummaries[S5:Array[T[K2:_nV23:TestFailureIssueSummaryK2:_s[K2:_nV12:IssueSummary]]K35:documentLocationInCreatingWorkspace[T[K2:_nV16:DocumentLocation]K16:concreteTypeName[S6:StringK2:_vV23:DVTTextDocumentLocation]K3:url[S6:StringK2:_vV180:file:///Users/runner/work/meta-wearables-dat-ios/meta-wearables-dat-ios/samples/CameraAccess/CameraAccessUITests/CameraAccessUITests.swift#EndingLineNumber=34&StartingLineNumber=34]]K9:
+-- testLaunchWithoutDeviceShowsHomeScreen
+sUITests/CameraAccessUITests.swift#EndingLineNumber=34&StartingLineNumber=34]]K9:issueType[S6:StringK2:_vV13:Uncategorized]K7:message[S6:StringK2:_vV52:XCTAssertTrue failed - Test server should be running]K12:testCaseName[S6:StringK2:_vV60:CameraAccessUITests.testLaunchWithoutDeviceShowsHomeScreen()]][S23:TestFailureIssueSummaryK35:documentLocationInCreatingWorkspace[S16:DocumentLocationK16:concreteTypeName[S6:StringK2:_vV23:DVTTextDocumentLocation]K3:url[S6:StringK2:_vV180:file:///Users/runner/work/meta-wearables-dat-ios/meta-wearables-dat-ios/samples/CameraAccess/CameraAccessUITests/CameraAccessUITests.swift#EndingLineNumber=34&StartingLineNumber=34]]K9:issueType[S6:StringK2:_vV13:Uncategorized]K7:message[S6:StringK2:_vV52:XCTAssertTrue failed - Te
+-- testPhotoCaptureAndDismiss
+sUITests/CameraAccessUITests.swift#EndingLineNumber=34&StartingLineNumber=34]]K9:issueType[S6:StringK2:_vV13:Uncategorized]K7:message[S6:StringK2:_vV52:XCTAssertTrue failed - Test server should be running]K12:testCaseName[S6:StringK2:_vV48:CameraAccessUITests.testPhotoCaptureAndDismiss()]][S23:TestFailureIssueSummaryK35:documentLocationInCreatingWorkspace[S16:DocumentLocationK16:concreteTypeName[S6:StringK2:_vV23:DVTTextDocumentLocation]K3:url[S6:StringK2:_vV180:file:///Users/runner/work/meta-wearables-dat-ios/meta-wearables-dat-ios/samples/CameraAccess/CameraAccessUITests/CameraAccessUITests.swift#EndingLineNumber=34&StartingLineNumber=34]]K9:issueType[S6:StringK2:_vV13:Uncategorized]K7:message[S6:StringK2:_vV52:XCTAssertTrue failed - Test server sh
+-- CameraAccessUITests
+eSummary]]K35:documentLocationInCreatingWorkspace[T[K2:_nV16:DocumentLocation]K16:concreteTypeName[S6:StringK2:_vV23:DVTTextDocumentLocation]K3:url[S6:StringK2:_vV180:file:///Users/runner/work/meta-wearables-dat-ios/meta-wearables-dat-ios/samples/CameraAccess/CameraAccessUITests/CameraAccessUITests.swift#EndingLineNumber=34&StartingLineNumber=34]]K9:issueType[S6:StringK2:_vV13:Uncategorized]K7:message[S6:StringK2:_vV52:XCTAssertTrue failed - Test server should be running]K12:testCaseName[S6:StringK2:_vV58:CameraAccessUITests.testDeviceStateReflectsPairedDevices()]][S23:TestFailureIssueSummaryK35:documentLocationInCreatingWorkspace[S16:DocumentLocationK16:concreteTypeName[S6:StringK2:_vV23:DVTTextDocumentLocation]K3:url[S6:StringK2:_vV180:file:///User
+
+==== data.0~4Dv0vW_FJ8g1bWah49YYuF9zgrRHi-YaP1pd9wMRkftd8bn65UAPnrx2kT-b3MHxKGAiDfZuMRbL4dmw5DB5JA==.bin len 10044
+-- XCTAssert
+6:StringK2:_vV131:/Users/runner/work/meta-wearables-dat-ios/meta-wearables-dat-ios/samples/CameraAccess/CameraAccessUITests/CameraAccessUITests.swift]K9:issueType[S6:StringK2:_vV17:Assertion Failure]K10:lineNumber[S3:IntK2:_vV2:35]K7:message[S6:StringK2:_vV52:XCTAssertTrue failed - Test server should be running]K17:sourceCodeContext[T[K2:_nV17:SourceCodeContext]K9:callStack[S5:Array[T[K2:_nV15:SourceCodeFrame]K13:addressString[S6:StringK2:_vV10:4395088332]][S15:SourceCodeFrameK13:addressString[S6:StringK2:_vV10:4394546495]][S15:SourceCodeFrameK13:addressString[S6:StringK2:_vV10:4394545963]][S15:SourceCodeFrameK13:addressString[S6:StringK2:_vV10:4394547479]][S15:SourceCodeFrameK13:addressString[S6:StringK2:_vV10:4398359643]][S15:SourceCodeFrameK13:add
+-- CameraAccessUITests
+8C99-10A72B2E1640]]]K8:duration[T[K2:_nV6:Double]K2:_vV18:180.54429006576538]K16:failureSummaries[S5:Array[T[K2:_nV24:ActionTestFailureSummary]K8:fileName[S6:StringK2:_vV131:/Users/runner/work/meta-wearables-dat-ios/meta-wearables-dat-ios/samples/CameraAccess/CameraAccessUITests/CameraAccessUITests.swift]K9:issueType[S6:StringK2:_vV17:Assertion Failure]K10:lineNumber[S3:IntK2:_vV2:35]K7:message[S6:StringK2:_vV52:XCTAssertTrue failed - Test server should be running]K17:sourceCodeContext[T[K2:_nV17:SourceCodeContext]K9:callStack[S5:Array[T[K2:_nV15:SourceCodeFrame]K13:addressString[S6:StringK2:_vV10:4395088332]][S15:SourceCodeFrameK13:addressString[S6:StringK2:_vV10:4394546495]][S15:SourceCodeFrameK13:addressString[S6:StringK2:_vV10:4394545963]][S15:So
+
+==== data.0~4ScdkTOGzC-hcA6RlohRXaWB0H58oYNzmZ_lbFTtZqsOs9tl8tNf6ZHuz8NJAMa6F3sMm0knMHF9GjD1uyWp7w==.bin len 514
+-- CameraAccessUITests
+[{"name":"CameraAccessTests-2AAB0BD3-2D5A-4444-B8C7-2C01F8DE5042-Configuration-Test Scheme Action-Iteration-1","type":2},{"name":"CameraAccessUITests-BFB27AA4-C117-4434-A138-6FEF44394354-Configuration-Test Scheme Action-Iteration-1","type":2},{"name":"Clone 1 of iPhone 17 Pro_CF282BA1-AE2D-4DEB-A5CE-2D8B03238C55","type":2},{"name":"Clone 2 of iPhone 17 Pro_4DFCD12B-B772-4BE7-8F73-61661B57A866","type":2},{"name":"My Mac_92d69f15b5ff774af403058e9e31bd34d44594ef","type":2},{"name":"simctl_diagnostics","type":2}]
+
+==== data.0~7CTGtvdw9beQpxzmU8qmtv4NsYNLJrqvlOeHPbGj69Gff4wJMMbqBHLPVWojZPMcKpT0rY1QhGhE_IeNS6al7Q==.bin len 1985098
+-- XCTAssert
+ealth, _kCFStreamErrorDomainKey=1}
+/Users/runner/work/meta-wearables-dat-ios/meta-wearables-dat-ios/samples/CameraAccess/CameraAccessUITests/CameraAccessUITests.swift:35: error: -[CameraAccessUITests.CameraAccessUITests testDeviceStateReflectsPairedDevices] : XCTAssertTrue failed - Test server should be running
+    t =   156.85s Tear Down
+    t =   160.49s Checking for crash reports corresponding to unexpected termination of com.meta.wearables.external.CameraAccess
+Test Case '-[CameraAccessUITests.CameraAccessUITests testDeviceStateReflectsPairedDevices]' failed (180.544 seconds).
+Test Case '-[CameraAccessUITests.CameraAccessUITests testDoffMakesDeviceInactiveAndDonReactivates]' started.
+    t =     0.01s Start Test at 2026-05-18 21:57:25.256
+    t =
+-- HomeScreenView
+ection.Coverage]K6:result[S6:StringK2:_vV9:succeeded]K9:startTime[S4:DateK2:_vV28:2026-05-18T22:09:47.195+0000]K5:title[S6:StringK2:_vV141:Processing file /Users/runner/work/meta-wearables-dat-ios/meta-wearables-dat-ios/samples/CameraAccess/CameraAccess/Views/HomeScreenView.swift]][S26:ActivityLogUnitTestSectionK10:domainType[S6:StringK2:_vV44:com.apple.dt.IDE.UnitTestLogSection.Coverage]K6:result[S6:StringK2:_vV9:succeeded]K9:startTime[S4:DateK2:_vV28:2026-05-18T22:09:47.209+0000]K5:title[S6:StringK2:_vV154:Processing file /Users/runner/work/meta-wearables-dat-ios/meta-wearables-dat-ios/samples/CameraAccess/CameraAccess/ViewModels/StreamSessionViewModel.swift]][S26:ActivityLogUnitTestSectionK10:domainType[S6:StringK2:_vV44:com.apple.dt.IDE.UnitTestL
+-- crashed
+[S6:StringK2:_vV42:com.apple.dt.IDE.UnitTestLogSection.Worker]K13:emittedOutput[S6:StringK2:_vV219:CameraAccess (22497) encountered an error (Early unexpected exit, operation never finished bootstrapping - no restart will be attempted. (Underlying Error: Test crashed with signal trap before establishing connection.))]K8:messages[S5:Array[S18:ActivityLogMessageK10:shortTitle[S6:StringK2:_vV219:CameraAccess (22497) encountered an error (Early unexpected exit, operation never finished bootstrapping - no restart will be attempted. (Underlying Error: Test crashed with signal trap before establishing connection.))]K5:title[S6:StringK2:_vV219:CameraAccess (22497) encountered an error (Early unexpected exit, operation never finished bootstrapping - no restar
+-- testLaunchWithoutDeviceShowsHomeScreen
+eports corresponding to unexpected termination of com.meta.wearables.external.CameraAccess
+Test Case '-[CameraAccessUITests.CameraAccessUITests testFoldDuringStreamingStopsStream]' failed (113.668 seconds).
+Test Case '-[CameraAccessUITests.CameraAccessUITests testLaunchWithoutDeviceShowsHomeScreen]' started.
+    t =     0.00s Start Test at 2026-05-18 22:01:15.070
+    t =     0.26s Set Up
+    t =     0.26s     Open com.meta.wearables.external.CameraAccess
+    t =     0.26s         Launch com.meta.wearables.external.CameraAccess
+    t =     5.59s             Setting up automation session
+    t =    65.67s             Wait for com.meta.wearables.external.CameraAccess to idle
+2026-05-18 22:02:32.045170+0000 CameraAccessUITests-Runner[25957:103162] [conne
+-- testPhotoCaptureAndDismiss
+ts corresponding to unexpected termination of com.meta.wearables.external.CameraAccess
+Test Case '-[CameraAccessUITests.CameraAccessUITests testLaunchWithoutDeviceShowsHomeScreen]' failed (108.515 seconds).
+Test Case '-[CameraAccessUITests.CameraAccessUITests testPhotoCaptureAndDismiss]' started.
+    t =     0.01s Start Test at 2026-05-18 22:03:03.591
+    t =     0.18s Set Up
+    t =     0.19s     Open com.meta.wearables.external.CameraAccess
+    t =     0.19s         Launch com.meta.wearables.external.CameraAccess
+    t =     8.32s             Setting up automation session
+    t =    68.38s             Wait for com.meta.wearables.external.CameraAccess to idle
+2026-05-18 22:04:23.265030+0000 CameraAccessUITests-Runner[25957:103168] [connection] nw_so
+-- Error Domain
+ctivityLogSection]]K10:domainType[S6:StringK2:_vV44:com.apple.dt.IDE.UnitTestLogSection.Coverage]K8:messages[S5:Array[S18:ActivityLogMessageK10:shortTitle[S6:StringK2:_vV514:Unable to load coverage tools for toolchain 'com.apple.dt.toolchain.Metal.32023.864': Error Domain=XCTHLLVMCoverageToolsErrorDomain Code=2 "libLTO.dylib is not present in the toolchain at path /var/run/com.apple.security.cryptexd/mnt/com.apple.MobileAsset.MetalToolchain-v17.3.7003.10.d0agOD/Metal.xctoolchain" UserInfo={NSLocalizedDescription=libLTO.dylib is not present in the toolchain at path /var/run/com.apple.security.cryptexd/mnt/com.apple.MobileAsset.MetalToolchain-v17.3.7003.10.d0agOD/Metal.xctoolchain}]K5:title[S6:StringK2:_vV514:Unable to load coverage tools for toolchain
+-- CameraAccessUITests
+A866
+NSApplicationQuitWithoutSuddenTermination=YES
+XCTestSessionIdentifier=35327E4A-D65E-4D9C-860F-C02A64799C53
+RUN_DESTINATION_DEVICE_NAME=Clone 2 of iPhone 17 Pro
+LLVM_PROFILE_FILE=/var/folders/dy/3g4vbvsx7lx51x77m3_b20cc0000gn/T/com.meta.wearables.external.CameraAccessUITests.xctrunner/02A48450-3953-4F0A-A3BC-64A479D3EFC6-12776-00000005B16FDC0B/1A51E4E4-4A23-4A4C-A778-289988AD8A91-%p%c.profraw
+__XCODE_BUILT_PRODUCTS_DIR_PATHS=/Users/runner/Library/Developer/Xcode/DerivedData/CameraAccess-ebxvgoacpetbnlejuzuknjjmlvdq/Build/Products/Debug-iphonesimulator
+__XPC_DYLD_LIBRARY_PATH=/Users/runner/Library/Developer/Xcode/DerivedData/CameraAccess-ebxvgoacpetbnlejuzuknjjmlvdq/Build/Products/Debug-iphonesimulator
+XCTestBundleInjectPath=/usr/lib/libRPAC.dylib
+
+==== data.0~B2FsA0o3rv6ZHH5CIy4l1h6Iy0JNozDQh9A-S6hQ3ZgtLkaJxeICYGZ0emmDt4EGC1swnAO9gDQdINXM3MdELw==.bin len 45075
+-- HomeScreenView
+eraAccess/CameraAccess/Views/Components/StatusText.swift  U     WO                                      &               StatusText.init(isActive:activeText:inactiveText:activeColor:inactiveColor:) StatusText.body.getter     J K       L         Q " !      _  HomeScreenView.swift_ }/Users/runner/work/meta-wearables-dat-ios/meta-wearables-dat-ios/samples/CameraAccess/CameraAccess/Views/HomeScreenView.swift  U     WO   	       4       4               2       2               -       -                   "                       6                       B                       R                       S                   	   ]   	           HomeScreenView.body.getter closure #1 in HomeScreenView.body.getter closure #1 in closure #1 in HomeScreenView.body.get
+-- testLaunchWithoutDeviceShowsHomeScreen
+ameraAccessUITests.waitForStartStreamingDisabled(timeout:) CameraAccessUITests.startStreaming(timeout:) implicit closure #1 in CameraAccessUITests.startStreaming(timeout:) implicit closure #2 in CameraAccessUITests.startStreaming(timeout:) CameraAccessUITests.testLaunchWithoutDeviceShowsHomeScreen() implicit closure #1 in CameraAccessUITests.testLaunchWithoutDeviceShowsHomeScreen() implicit closure #2 in CameraAccessUITests.testLaunchWithoutDeviceShowsHomeScreen() CameraAccessUITests.testRegisterAndPairTransitionsToStreamScreen() CameraAccessUITests.testDeviceStateReflectsPairedDevices() implicit closure #1 in CameraAccessUITests.testDeviceStateReflectsPairedDevices() implicit closure #2 in CameraAccessUITests.testDeviceStateReflectsPairedDevices() i
+-- testPhotoCaptureAndDismiss
+estStartAndStopStreaming() implicit closure #2 in CameraAccessUITests.testStartAndStopStreaming() implicit closure #3 in CameraAccessUITests.testStartAndStopStreaming() implicit closure #4 in CameraAccessUITests.testStartAndStopStreaming() CameraAccessUITests.testPhotoCaptureAndDismiss() implicit closure #1 in CameraAccessUITests.testPhotoCaptureAndDismiss() implicit closure #2 in CameraAccessUITests.testPhotoCaptureAndDismiss() implicit closure #3 in CameraAccessUITests.testPhotoCaptureAndDismiss() implicit closure #4 in CameraAccessUITests.testPhotoCaptureAndDismiss() implicit closure #5 in CameraAccessUITests.testPhotoCaptureAndDismiss() implicit closure #6 in CameraAccessUITests.testPhotoCaptureAndDismiss() implicit closure #7 in CameraAccessUITe
+-- CameraAccessUITests
+ in closure #1 in observeUntil(timeout:file:line:condition:) implicit closure #1 in closure #1 in observeUntil(timeout:file:line:condition:) closure #3 in closure #1 in observeUntil(timeout:file:line:condition:)      "  # $     % y z { | } ~ h u   t v s  _  CameraAccessUITests.xctest_  E66CC00C2F3E05D900B07379:primary_  /Users/runner/Library/Developer/Xcode/DerivedData/CameraAccess-ebxvgoacpetbnlejuzuknjjmlvdq/Build/Products/Debug-iphonesimulator/CameraAccessUITests-Runner.app/PlugIns/CameraAccessUITests.xctest/CameraAccessUITests        H    w g   J K       z       ~ Q z y x  _  CameraAccessUITests.swift_  /Users/runner/work/meta-wearables-dat-ios/meta-wearables-dat-ios/samples/CameraAccess/CameraAccessUITests/CameraAccessUITests.swift  U     WO 
+
+==== data.0~baAXVpYK3j2k3-8jmFaYrk1WyR3o8KYT5kdGJgm6cjKEz8Gz8o4F8ggHs0615zBOocB_77HCtqzfjbFOTcKuJw==.bin len 631393
+-- XCTAssert
+ealth, _kCFStreamErrorDomainKey=1}
+/Users/runner/work/meta-wearables-dat-ios/meta-wearables-dat-ios/samples/CameraAccess/CameraAccessUITests/CameraAccessUITests.swift:35: error: -[CameraAccessUITests.CameraAccessUITests testDeviceStateReflectsPairedDevices] : XCTAssertTrue failed - Test server should be running
+    t =   156.85s Tear Down
+    t =   160.49s Checking for crash reports corresponding to unexpected termination of com.meta.wearables.external.CameraAccess
+Test Case '-[CameraAccessUITests.CameraAccessUITests testDeviceStateReflectsPairedDevices]' failed (180.544 seconds).
+Test Case '-[CameraAccessUITests.CameraAccessUITests testDoffMakesDeviceInactiveAndDonReactivates]' started.
+    t =     0.01s Start Test at 2026-05-18 21:57:25.256
+    t =
+-- crashed
+ Launch com.meta.wearables.external.CameraAccess
+    t =     8.42s             Setting up automation session
+<unknown>:0: error: -[CameraAccessUITests.CameraAccessUITests testRegisterAndPairTransitionsToStreamScreen] : com.meta.wearables.external.CameraAccess crashed in <external symbol>
+    t =    35.54s Tear Down
+Test Case '-[CameraAccessUITests.CameraAccessUITests testRegisterAndPairTransitionsToStreamScreen]' failed (36.180 seconds).
+Test Case '-[CameraAccessUITests.CameraAccessUITests testStartAndStopStreaming]' started.
+    t =     0.00s Start Test at 2026-05-18 22:07:18.678
+    t =     0.42s Set Up
+    t =     0.44s                 Open com.meta.wearables.external.CameraAccess
+    t =     0.45s                     Launch com.meta.wearables.ext
+-- testLaunchWithoutDeviceShowsHomeScreen
+eports corresponding to unexpected termination of com.meta.wearables.external.CameraAccess
+Test Case '-[CameraAccessUITests.CameraAccessUITests testFoldDuringStreamingStopsStream]' failed (113.668 seconds).
+Test Case '-[CameraAccessUITests.CameraAccessUITests testLaunchWithoutDeviceShowsHomeScreen]' started.
+    t =     0.00s Start Test at 2026-05-18 22:01:15.070
+    t =     0.26s Set Up
+    t =     0.26s     Open com.meta.wearables.external.CameraAccess
+    t =     0.26s         Launch com.meta.wearables.external.CameraAccess
+    t =     5.59s             Setting up automation session
+    t =    65.67s             Wait for com.meta.wearables.external.CameraAccess to idle
+2026-05-18 22:02:32.045170+0000 CameraAccessUITests-Runner[25957:103162] [conne
+-- testPhotoCaptureAndDismiss
+ts corresponding to unexpected termination of com.meta.wearables.external.CameraAccess
+Test Case '-[CameraAccessUITests.CameraAccessUITests testLaunchWithoutDeviceShowsHomeScreen]' failed (108.515 seconds).
+Test Case '-[CameraAccessUITests.CameraAccessUITests testPhotoCaptureAndDismiss]' started.
+    t =     0.01s Start Test at 2026-05-18 22:03:03.591
+    t =     0.18s Set Up
+    t =     0.19s     Open com.meta.wearables.external.CameraAccess
+    t =     0.19s         Launch com.meta.wearables.external.CameraAccess
+    t =     8.32s             Setting up automation session
+    t =    68.38s             Wait for com.meta.wearables.external.CameraAccess to idle
+2026-05-18 22:04:23.265030+0000 CameraAccessUITests-Runner[25957:103168] [connection] nw_so
+-- Error Domain
+ask <1C55B2BE-6108-4329-BE7C-A8006841C01C>.<1> HTTP load failed, 0/0 bytes (error code: -1004 [1:49])
+2026-05-18 21:56:57.840968+0000 CameraAccessUITests-Runner[25957:97412] [Default] Task <1C55B2BE-6108-4329-BE7C-A8006841C01C>.<1> finished with error [-1004] Error Domain=NSURLErrorDomain Code=-1004 "Could not connect to the server." UserInfo={_kCFStreamErrorCodeKey=49, NSUnderlyingError=0x1187264c0 {Error Domain=kCFErrorDomainCFNetwork Code=-1004 "(null)" UserInfo={_NSURLErrorNWPathKey=satisfied (Path is satisfied), interface: lo0, _kCFStreamErrorCodeKey=49, _kCFStreamErrorDomainKey=1}}, _NSURLErrorFailingURLSessionTaskErrorKey=LocalDataTask <1C55B2BE-6108-4329-BE7C-A8006841C01C>.<1>, _NSURLErrorRelatedURLSessionTaskErrorKey=(
+    "LocalDataTask <1C
+-- CameraAccessUITests
+2026-05-18 21:53:59.798741+0000 CameraAccessUITests-Runner[25957:79511] [Default] Running tests...
+objc[25957]: Class UIAccessibilityLoaderWebShared is implemented in both /Library/Developer/CoreSimulator/Volumes/iOS_23E254a/Library/Developer/CoreSimulator/Profiles/Runtimes/iOS 26.4.simruntime/Contents/Resources/RuntimeRoot/System/Library/AccessibilityBundles/WebCore.axbundle/WebCore (0x10a47c310) and /Library/Developer/CoreSimulator/Volumes/iOS_23E254a/Library/Developer/CoreSimulator/Profiles/Runtimes/iOS 26.4.simruntime/Cont
+
+==== data.0~DwNzQruW3TiFGnYAP6QPZkkPJPRw6L6oOxCxnWduOEu4I-x_9LZpEnBVfaR9b8B1hjZ0gwzlXnXycbCeTVnk6A==.bin len 2472
+-- CameraAccessUITests
+tifiers from worker <XCTHTestRunner: 0x773e12940, PID: 25957, device: Clone 2 of iPhone 17 Pro (4DFCD12B-B772-4BE7-8F73-61661B57A866)>: <XCTTestIdentifier container ["__SwiftTestingParallelizationPlaceholderIdentifier"]>, <XCTTestIdentifier container, class ["CameraAccessUITests"]>
+2026-05-18 21:54:24 +0000: Executing tests <XCTTestIdentifier container ["__SwiftTestingParallelizationPlaceholderIdentifier"]>, <XCTTestIdentifier container, class ["CameraAccessUITests"]>; skipping tests 
+2026-05-18 21:54:24 +0000: Dispatching tests <XCTTestIdentifier container ["__SwiftTestingParallelizationPlaceholderIdentifier"]> to worker: <XCTHTestRunner: 0x773e12940, PID: 25957, device: Clone 2 of iPhone 17 Pro (4DFCD12B-B772-4BE7-8F73-61661B57A866)>
+2026-05-18 21:
+
+==== data.0~EasxL9ac--yrBkKrlBBewNnFDuY48NSSQ2-aXKxLa-x7eDhHO6YkFnVr0RLS_Z2h_mOfOVmvjZF_GDiLmfFLCg==.bin len 3769
+-- HomeScreenView
+Components/StatusText.swift| /Users/runner/work/meta-wearables-dat-ios/meta-wearables-dat-ios/samples/CameraAccess/CameraAccess/Views/DebugMenuView.swift} /Users/runner/work/meta-wearables-dat-ios/meta-wearables-dat-ios/samples/CameraAccess/CameraAccess/Views/HomeScreenView.swiftz /Users/runner/work/meta-wearables-dat-ios/meta-wearables-dat-ios/samples/CameraAccess/CameraAccess/Views/MainAppView.swift  /Users/runner/work/meta-wearables-dat-ios/meta-wearables-dat-ios/samples/CameraAccess/CameraAccess/Views/MockDeviceKit/MockDeviceCardView.swift  /Users/runner/work/meta-wearables-dat-ios/meta-wearables-dat-ios/samples/CameraAccess/CameraAccess/Views/MockDeviceKit/MockDeviceKitButton.swift  /Users/runner/work/meta-wearables-dat-ios/meta-wearables-dat-io
+-- CameraAccessUITests
+aAccess/CameraAccess/Views/StreamView.swift  /Users/runner/work/meta-wearables-dat-ios/meta-wearables-dat-ios/samples/CameraAccess/CameraAccessTests/CameraAccessTests.swift  /Users/runner/work/meta-wearables-dat-ios/meta-wearables-dat-ios/samples/CameraAccess/CameraAccessUITests/CameraAccessUITests.swift
+
+==== data.0~g0r2uvnISCc-qFMAio9Vwa0BmqmQ22bWkekL_uBTv0ABzSmrLIINahTmNj94St2C8expanyqu04XBg_bajuc4g==.bin len 5105
+-- Error Domain
+n with token 3
+21:47:29.761 xcodebuild[12776:52874] Calling -[SimDevice getenv:error:] for TESTMANAGERD_SIM_SOCK
+21:47:29.771 xcodebuild[12776:52874] Sim Clone 1 of iPhone 17 Pro is booted but getenv returned nil for test connection socket path; getenv error: Error Domain=NSPOSIXErrorDomain Code=2 "No such file or directory".
+ Will retry in 1s (1 attempts so far).
+21:47:30.847 xcodebuild[12776:54755] Calling -[SimDevice getenv:error:] for TESTMANAGERD_SIM_SOCK
+21:47:31.013 xcodebuild[12776:54755] Sim Clone 1 of iPhone 17 Pro has testmanagerd socket at /private/var/tmp/com.apple.launchd.zrYddfFgNi/com.apple.testmanagerd.unix-domain.socket
+21:47:31.013 xcodebuild[12776:54755] Validating test connection socket path (/private/var/tmp/com.apple.launchd.zr
+-- SpringBoard
+orts delayed attachment transfers" = 1;
+}: (null)
+21:48:30.437 xcodebuild[12776:59062] Requesting crash report collection for process names: assertiond, DTServiceHub, xctest, runningboardd, FrontBoard, debugserver, backboardd, CameraAccess, CameraAccessTests, SpringBoard, testmanagerd
+21:48:30.575 xcodebuild[12776:59062] Got reply to crash report collection request (error: (null))
+Got crash report <XCTHarness.XCTHDiagnosticReportBackedByJSONCrashLog: 0x104dce640> from file CameraAccess-2026-05-18-215423.ips with shouldProcess=true
+Got crash report <XCTHarness.XCTHDiagnosticReportBackedByJSONCrashLog: 0x775ba0000> from file CameraAccess-2026-05-18-215610.ips with shouldProcess=true
+Got crash report <XCTHarness.XCTHDiagnosticReportBackedByJSONCrashLog:
+
+==== data.0~gJ74ez1e2ptQYD0j-AZd0AsTC8BXhpOCdL8shzUTEOG4nX2OIPahnYHVIT_lK8nix-1w5epP51pop1Yni_TCwQ==.bin len 5398
+-- crashed
+T[K2:_nV6:Double]K2:_vV17:36.17972505092621]K16:failureSummaries[S5:Array[T[K2:_nV24:ActionTestFailureSummary]K9:issueType[S6:StringK2:_vV17:Assertion Failure]K10:lineNumber[S3:IntK2:_vV1:1]K7:message[S6:StringK2:_vV69:com.meta.wearables.external.CameraAccess crashed in <external symbol>]K17:sourceCodeContext[T[K2:_nV17:SourceCodeContext]K9:callStack[S5:Array[T[K2:_nV15:SourceCodeFrame]K13:addressString[S6:StringK2:_vV10:4395088472]][S15:SourceCodeFrameK13:addressString[S6:StringK2:_vV10:4395067395]][S15:SourceCodeFrameK13:addressString[S6:StringK2:_vV10:4391161127]][S15:SourceCodeFrameK13:addressString[S6:StringK2:_vV10:4391117567]][S15:SourceCodeFrameK13:addressString[S6:StringK2:_vV10:4391128107]][S15:SourceCodeFrameK13:addressString[S6:StringK2:_
+-- CameraAccessUITests
+ing[S6:StringK2:_vV10:4380076939]][S15:SourceCodeFrameK13:addressString[S6:StringK2:_vV10:4380072331]]]]K9:timestamp[S4:DateK2:_vV28:2026-05-18T22:07:14.322+0000]K4:uuid[S6:StringK2:_vV36:11DFB841-7B75-479E-A836-C013299B892E]]]K10:identifier[S6:StringK2:_vV66:CameraAccessUITests/testRegisterAndPairTransitionsToStreamScreen()]K13:identifierURL[S6:StringK2:_vV120:test://com.apple.xcode/CameraAccess/CameraAccessUITests/CameraAccessUITests/testRegisterAndPairTransitionsToStreamScreen]K4:name[S6:StringK2:_vV46:testRegisterAndPairTransitionsToStreamScreen()]K10:testStatus[S6:StringK2:_vV7:Failure]]
+
+==== data.0~GL4vr2pLU7_xzFRl0hFgZUgJ1ql-n1R3z-HQLypoRR6snuVuB6v-h9_1DD3djlR_YUhSOIljBsPSY-IQsGL7Nw==.bin len 935
+-- crashed
+ing - no restart will be attempted" UserInfo={NSLocalizedDescription=Early unexpected exit, operation never finished bootstrapping - no restart will be attempted, NSUnderlyingError=0x775b5d440 {Error Domain=XCTHTestOperationCoordinatorErrorDomain Code=5 "Test crashed with signal trap before establishing connection." UserInfo={NSLocalizedDescription=Test crashed with signal trap before establishing connection.}}}
+2026-05-18 21:52:15 +0000: Finished executing tests (cancelled: No)
+
+-- Error Domain
+3e12300, PID: 0, device: Clone 1 of iPhone 17 Pro (CF282BA1-AE2D-4DEB-A5CE-2D8B03238C55)>
+2026-05-18 21:52:15 +0000: Worker <XCTHTestRunner: 0x773e12300, PID: 22497, device: Clone 1 of iPhone 17 Pro (CF282BA1-AE2D-4DEB-A5CE-2D8B03238C55)> finished with error: Error Domain=XCTHTestRunnerErrorDomain Code=1 "Early unexpected exit, operation never finished bootstrapping - no restart will be attempted" UserInfo={NSLocalizedDescription=Early unexpected exit, operation never finished bootstrapping - no restart will be attempted, NSUnderlyingError=0x775b5d440 {Error Domain=XCTHTestOperationCoordinatorErrorDomain Code=5 "Test crashed with signal trap before establishing connection." UserInfo={NSLocalizedDescription=Test crashed with signal trap before establi
+
+==== data.0~GUCC1122bpgxQzQl1EjtTWVhTavB6bW3nDCCN3JB0KH6aATvVhxtZMiajpKtzV7L-iB7NyGs2lhrUyKgpecU8A==.bin len 14926
+-- crashed
+ fired
+21:52:15.210 xcodebuild[12776:59065] XCTHTestOperationStateMachine: Transitioning from state PendingFinalization to Finalized
+21:52:15.270 xcodebuild[12776:40986] Test operation failure: Error Domain=XCTHTestOperationCoordinatorErrorDomain Code=5 "Test crashed with signal trap before establishing connection." UserInfo={NSLocalizedDescription=Test crashed with signal trap before establishing connection.}
+21:52:15.271 xcodebuild[12776:40986] _finishWithError:Error Domain=XCTHTestOperationCoordinatorErrorDomain Code=5 "Test crashed with signal trap before establishing connection." UserInfo={NSLocalizedDescription=Test crashed with signal trap before establishing connection.}
+21:52:15.271 xcodebuild[12776:40986] Current state: testRunnerLaunchSess
+-- Error Domain
+ild[12776:59065] XCTHTestOperationStateMachine: Finalization timer fired
+21:52:15.210 xcodebuild[12776:59065] XCTHTestOperationStateMachine: Transitioning from state PendingFinalization to Finalized
+21:52:15.270 xcodebuild[12776:40986] Test operation failure: Error Domain=XCTHTestOperationCoordinatorErrorDomain Code=5 "Test crashed with signal trap before establishing connection." UserInfo={NSLocalizedDescription=Test crashed with signal trap before establishing connection.}
+21:52:15.271 xcodebuild[12776:40986] _finishWithError:Error Domain=XCTHTestOperationCoordinatorErrorDomain Code=5 "Test crashed with signal trap before establishing connection." UserInfo={NSLocalizedDescription=Test crashed with signal trap before establishing connection.}
+21:52:
+-- SpringBoard
+:30.373 xcodebuild[12776:40986] Setting up test runner session
+21:48:30.374 xcodebuild[12776:40986] Registering/updating daemon-based crash report observer for process names (
+    xctest,
+    debugserver,
+    FrontBoard,
+    assertiond,
+    runningboardd,
+    SpringBoard,
+    testmanagerd,
+    backboardd,
+    DTServiceHub,
+    CameraAccess,
+    CameraAccessTests
+)
+21:48:30.572 xcodebuild[12776:59059] Sim Clone 1 of iPhone 17 Pro: Unregistering for sim device notification with token 5
+21:48:30.572 xcodebuild[12776:59059] Calling -[SimDevice getenv:error:] for TESTMANAGERD_SIM_SOCK
+21:48:30.621 xcodebuild[12776:59059] Sim Clone 1 of iPhone 17 Pro has testmanagerd socket at /private/var/tmp/com.apple.launchd.zrYddfFgNi/com.apple.testmanagerd.unix-domain
+
+==== data.0~MFJj_JjmL0jUzowUbjGVDjY7L28h1fziXM-D6d52owQbiydVbS-FrAxmby91GGVKe_r5peKA2oYG7nq8ddKU6w==.bin len 10067
+-- XCTAssert
+6:StringK2:_vV131:/Users/runner/work/meta-wearables-dat-ios/meta-wearables-dat-ios/samples/CameraAccess/CameraAccessUITests/CameraAccessUITests.swift]K9:issueType[S6:StringK2:_vV17:Assertion Failure]K10:lineNumber[S3:IntK2:_vV2:35]K7:message[S6:StringK2:_vV52:XCTAssertTrue failed - Test server should be running]K17:sourceCodeContext[T[K2:_nV17:SourceCodeContext]K9:callStack[S5:Array[T[K2:_nV15:SourceCodeFrame]K13:addressString[S6:StringK2:_vV10:4395088332]][S15:SourceCodeFrameK13:addressString[S6:StringK2:_vV10:4394546495]][S15:SourceCodeFrameK13:addressString[S6:StringK2:_vV10:4394545963]][S15:SourceCodeFrameK13:addressString[S6:StringK2:_vV10:4394547479]][S15:SourceCodeFrameK13:addressString[S6:StringK2:_vV10:4398359643]][S15:SourceCodeFrameK13:add
+-- CameraAccessUITests
+BF6C-5E0A041C6D68]]]K8:duration[T[K2:_nV6:Double]K2:_vV18:116.14118707180023]K16:failureSummaries[S5:Array[T[K2:_nV24:ActionTestFailureSummary]K8:fileName[S6:StringK2:_vV131:/Users/runner/work/meta-wearables-dat-ios/meta-wearables-dat-ios/samples/CameraAccess/CameraAccessUITests/CameraAccessUITests.swift]K9:issueType[S6:StringK2:_vV17:Assertion Failure]K10:lineNumber[S3:IntK2:_vV2:35]K7:message[S6:StringK2:_vV52:XCTAssertTrue failed - Test server should be running]K17:sourceCodeContext[T[K2:_nV17:SourceCodeContext]K9:callStack[S5:Array[T[K2:_nV15:SourceCodeFrame]K13:addressString[S6:StringK2:_vV10:4395088332]][S15:SourceCodeFrameK13:addressString[S6:StringK2:_vV10:4394546495]][S15:SourceCodeFrameK13:addressString[S6:StringK2:_vV10:4394545963]][S15:So
+
+==== data.0~MtX9hTNaQyUPG-BvcsVYCIZ9rAJoFqopDGtxXWbVhjHx2wVj4DxGuyageO95Y68CpVOhh3nx5ZHNDEDQBBmNwg==.bin len 10036
+-- XCTAssert
+6:StringK2:_vV131:/Users/runner/work/meta-wearables-dat-ios/meta-wearables-dat-ios/samples/CameraAccess/CameraAccessUITests/CameraAccessUITests.swift]K9:issueType[S6:StringK2:_vV17:Assertion Failure]K10:lineNumber[S3:IntK2:_vV2:35]K7:message[S6:StringK2:_vV52:XCTAssertTrue failed - Test server should be running]K17:sourceCodeContext[T[K2:_nV17:SourceCodeContext]K9:callStack[S5:Array[T[K2:_nV15:SourceCodeFrame]K13:addressString[S6:StringK2:_vV10:4395088332]][S15:SourceCodeFrameK13:addressString[S6:StringK2:_vV10:4394546495]][S15:SourceCodeFrameK13:addressString[S6:StringK2:_vV10:4394545963]][S15:SourceCodeFrameK13:addressString[S6:StringK2:_vV10:4394547479]][S15:SourceCodeFrameK13:addressString[S6:StringK2:_vV10:4398359643]][S15:SourceCodeFrameK13:add
+-- CameraAccessUITests
+-B4BC-827F1907D4B8]]]K8:duration[T[K2:_nV6:Double]K2:_vV17:113.6681079864502]K16:failureSummaries[S5:Array[T[K2:_nV24:ActionTestFailureSummary]K8:fileName[S6:StringK2:_vV131:/Users/runner/work/meta-wearables-dat-ios/meta-wearables-dat-ios/samples/CameraAccess/CameraAccessUITests/CameraAccessUITests.swift]K9:issueType[S6:StringK2:_vV17:Assertion Failure]K10:lineNumber[S3:IntK2:_vV2:35]K7:message[S6:StringK2:_vV52:XCTAssertTrue failed - Test server should be running]K17:sourceCodeContext[T[K2:_nV17:SourceCodeContext]K9:callStack[S5:Array[T[K2:_nV15:SourceCodeFrame]K13:addressString[S6:StringK2:_vV10:4395088332]][S15:SourceCodeFrameK13:addressString[S6:StringK2:_vV10:4394546495]][S15:SourceCodeFrameK13:addressString[S6:StringK2:_vV10:4394545963]][S15:So
+
+==== data.0~nyAI7PXA-il5EKKnPTILlVA-BKzlh8meE5CnDWUuo_tX324FZeSz_ucjYaAhNH4F53WXBpZUpboDGnwOd6YUXg==.bin len 428407
+-- HomeScreenView
+]K10:identifier[S6:StringK2:_vV53:com.apple.dt.ActivityLogSectionAttachment.TaskMetrics]K12:majorVersion[S5:UInt8K2:_vV1:1]K12:minorVersion[S5:UInt8K2:_vV1:0]]]K14:commandDetails[S6:StringK2:_vV1362:SwiftCompile normal arm64 Compiling\ CameraAccessApp.swift,\ HomeScreenView.swift,\ DebugMenuViewModel.swift,\ DeviceSessionManager.swift,\ RegistrationView.swift,\ MediaPickerView.swift,\ StatusText.swift,\ MockDeviceKitViewModel.swift /Users/runner/work/meta-wearables-dat-ios/meta-wearables-dat-ios/samples/CameraAccess/CameraAccess/CameraAccessApp.swift /Users/runner/work/meta-wearables-dat-ios/meta-wearables-dat-ios/samples/CameraAccess/CameraAccess/Views/HomeScreenView.swift /Users/runner/work/meta-wearables-dat-ios/meta-wearables-dat-ios/samples/Came
+-- CameraAccessUITests
+encyGraph]K10:domainType[S6:StringK2:_vV32:com.apple.dt.IDE.BuildLogSection]K8:duration[S6:DoubleK2:_vV18:0.0612490177154541]K13:emittedOutput[S6:StringK2:_vV1087:note: Building targets in dependency order
+note: Target dependency graph (7 targets)
+    Target 'CameraAccessUITests' in project 'CameraAccess'
+            Explicit dependency on target 'CameraAccess' in project 'CameraAccess'
+            Explicit dependency on target 'MWDATMockDeviceTestClient' in project 'MetaWearablesDAT'
+    Target 'MWDATMockDeviceTestClient' in project 'MetaWearablesDAT' (no dependencies)
+    Target 'CameraAccessTests' in project 'CameraAccess'
+            Explicit dependency on target 'CameraAccess' in project 'CameraAccess'
+    Target 'CameraAccess' in project 'Camer
+
+==== data.0~O-J5sOlGaTZfQ9X4IZOktngS3HaoNPYb7Er4Glpi9INyGEzrrJ7zh68AAeBb5PbV0P4EcYXlR5dX4rRcHixrGA==.bin len 21805249
+-- Error Domain
+Applications/Xcode_26.2.app/Contents/Developer.
+May 18 21:43:06 sjc22-bm212-b9866fc8-a7fc-4cbc-80e9-bb7636943381-FA5786D2D82E CoreSimulatorService[8195] <Error>: Failed to get a device identity for simulator device A6D3EC07-8356-4742-A382-A63AC9D3D7AC, error: Error Domain=com.apple.MobileActivation.ErrorDomain Code=-25 "Client is not supported." UserInfo={NSLocalizedDescription=Client is not supported., NSUnderlyingError=0x99d23b2a0 {Error Domain=com.apple.MobileActivation.ErrorDomain Code=-25 "com.apple.CoreSimulator.CoreSimulatorService is not allowed to use this API. File a radar with 'MobileActivation | all' for support." UserInfo={NSLocalizedDescription=com.apple.CoreSimulator.CoreSimulatorService is not allowed to use this API. File a radar wit
+
+==== data.0~RSLGK7q5tON0LJyzaxcFtjH2EEoVFkcYuQ27Iutef0gykJR9L2-MfYVpOaFc6IvvtVJXY8GyhQD76MYF1ulVzw==.bin len 10040
+-- XCTAssert
+6:StringK2:_vV131:/Users/runner/work/meta-wearables-dat-ios/meta-wearables-dat-ios/samples/CameraAccess/CameraAccessUITests/CameraAccessUITests.swift]K9:issueType[S6:StringK2:_vV17:Assertion Failure]K10:lineNumber[S3:IntK2:_vV2:35]K7:message[S6:StringK2:_vV52:XCTAssertTrue failed - Test server should be running]K17:sourceCodeContext[T[K2:_nV17:SourceCodeContext]K9:callStack[S5:Array[T[K2:_nV15:SourceCodeFrame]K13:addressString[S6:StringK2:_vV10:4395088332]][S15:SourceCodeFrameK13:addressString[S6:StringK2:_vV10:4394546495]][S15:SourceCodeFrameK13:addressString[S6:StringK2:_vV10:4394545963]][S15:SourceCodeFrameK13:addressString[S6:StringK2:_vV10:4394547479]][S15:SourceCodeFrameK13:addressString[S6:StringK2:_vV10:4398359643]][S15:SourceCodeFrameK13:add
+-- CameraAccessUITests
+A00C-CE0192B0ED46]]]K8:duration[T[K2:_nV6:Double]K2:_vV18:108.61212193965912]K16:failureSummaries[S5:Array[T[K2:_nV24:ActionTestFailureSummary]K8:fileName[S6:StringK2:_vV131:/Users/runner/work/meta-wearables-dat-ios/meta-wearables-dat-ios/samples/CameraAccess/CameraAccessUITests/CameraAccessUITests.swift]K9:issueType[S6:StringK2:_vV17:Assertion Failure]K10:lineNumber[S3:IntK2:_vV2:35]K7:message[S6:StringK2:_vV52:XCTAssertTrue failed - Test server should be running]K17:sourceCodeContext[T[K2:_nV17:SourceCodeContext]K9:callStack[S5:Array[T[K2:_nV15:SourceCodeFrame]K13:addressString[S6:StringK2:_vV10:4395088332]][S15:SourceCodeFrameK13:addressString[S6:StringK2:_vV10:4394546495]][S15:SourceCodeFrameK13:addressString[S6:StringK2:_vV10:4394545963]][S15:So
+
+==== data.0~SBK71MhhZyzykJAc4hVg5VxSZjEYz6s8TfUu8VBFhDFXkzlYBNvBf-PPl-S7B5_tF0hBfrzRNPHFICo1WuiMGQ==.bin len 10013
+-- XCTAssert
+6:StringK2:_vV131:/Users/runner/work/meta-wearables-dat-ios/meta-wearables-dat-ios/samples/CameraAccess/CameraAccessUITests/CameraAccessUITests.swift]K9:issueType[S6:StringK2:_vV17:Assertion Failure]K10:lineNumber[S3:IntK2:_vV2:35]K7:message[S6:StringK2:_vV52:XCTAssertTrue failed - Test server should be running]K17:sourceCodeContext[T[K2:_nV17:SourceCodeContext]K9:callStack[S5:Array[T[K2:_nV15:SourceCodeFrame]K13:addressString[S6:StringK2:_vV10:4395088332]][S15:SourceCodeFrameK13:addressString[S6:StringK2:_vV10:4394546495]][S15:SourceCodeFrameK13:addressString[S6:StringK2:_vV10:4394545963]][S15:SourceCodeFrameK13:addressString[S6:StringK2:_vV10:4394547479]][S15:SourceCodeFrameK13:addressString[S6:StringK2:_vV10:4398359643]][S15:SourceCodeFrameK13:add
+-- testPhotoCaptureAndDismiss
+ess/CameraAccessUITests/CameraAccessUITests.swift]K10:lineNumber[S3:IntK2:_vV2:35]]]K9:timestamp[S4:DateK2:_vV28:2026-05-18T22:04:33.379+0000]K4:uuid[S6:StringK2:_vV36:4FA38F24-F019-44B7-BC04-1BD58EB82013]]]K10:identifier[S6:StringK2:_vV48:CameraAccessUITests/testPhotoCaptureAndDismiss()]K13:identifierURL[S6:StringK2:_vV102:test://com.apple.xcode/CameraAccess/CameraAccessUITests/CameraAccessUITests/testPhotoCaptureAndDismiss]K4:name[S6:StringK2:_vV28:testPhotoCaptureAndDismiss()]K10:testStatus[S6:StringK2:_vV7:Failure]]
+-- CameraAccessUITests
+AD10-86CE34732081]]]K8:duration[T[K2:_nV6:Double]K2:_vV18:110.28964102268219]K16:failureSummaries[S5:Array[T[K2:_nV24:ActionTestFailureSummary]K8:fileName[S6:StringK2:_vV131:/Users/runner/work/meta-wearables-dat-ios/meta-wearables-dat-ios/samples/CameraAccess/CameraAccessUITests/CameraAccessUITests.swift]K9:issueType[S6:StringK2:_vV17:Assertion Failure]K10:lineNumber[S3:IntK2:_vV2:35]K7:message[S6:StringK2:_vV52:XCTAssertTrue failed - Test server should be running]K17:sourceCodeContext[T[K2:_nV17:SourceCodeContext]K9:callStack[S5:Array[T[K2:_nV15:SourceCodeFrame]K13:addressString[S6:StringK2:_vV10:4395088332]][S15:SourceCodeFrameK13:addressString[S6:StringK2:_vV10:4394546495]][S15:SourceCodeFrameK13:addressString[S6:StringK2:_vV10:4394545963]][S15:So
+
+==== data.0~U8HsayIc-jujQrLLxfTtJba-TpCmacce80FpcG2GE8kax3BCTkA_pvzd_mQ5m0JwB2pkmxygOPEVWAFpry6rPA==.bin len 190
+-- CameraAccessUITests
+[{"type":2,"name":"CameraAccessUITests-A4E6C70F-2369-4710-8763-86A0DED529E2"},{"type":2,"name":"CameraAccessUITests-E1D9A804-3442-4A0D-A49C-2CF9DBDAF50F"},{"type":1,"name":"scheduling.log"}]
+
+==== data.0~upZk6aCT_zVWR3qzhILk_WdlwpnBDCSAxYXlF5Xd_GmEGnBpAgHsXw3v6qpRiYICjc5XCGsyUp-NcFrEPm9FNg==.bin len 1766106
+-- XCTAssert
+nternal) testCase:didRecordIssue:]
+/Users/runner/work/meta-wearables-dat-ios/meta-wearables-dat-ios/samples/CameraAccess/CameraAccessUITests/CameraAccessUITests.swift:35: error: -[CameraAccessUITests.CameraAccessUITests testDeviceStateReflectsPairedDevices] : XCTAssertTrue failed - Test server should be running
+    t =   156.85s Tear Down
+21:57:02.480 xcodebuild[12776:40986] Nothing to delete
+21:57:03.517 xcodebuild[12776:40986] _XCT_testWithIdentifier:<XCTTestIdentifier leaf, method, swift ["CameraAccessUITests", "testDeviceStateReflectsPairedDevices"]> didRecordIssue:Assertion Failure at CameraAccessUITests.swift:35: XCTAssertTrue failed - Test server should be running
+21:57:04.237 xcodebuild[12776:40986] Nothing to delete
+21:56:58.696 CameraAccess
+-- Timed out
+sts-Runner[25957:83120] Handling kAXPidStatusChangedNotification
+21:56:26.468 CameraAccessUITests-Runner[25957:79511] Failed to get automation session for com.meta.wearables.external.CameraAccess:0. Error: Error Domain=com.apple.dt.XCTest.XCTFuture Code=1000 "Timed out while requesting automation session for com.meta.wearables.external.CameraAccess (pid:29514)." UserInfo={NSLocalizedDescription=Timed out while requesting automation session for com.meta.wearables.external.CameraAccess (pid:29514).}
+21:56:26.564 CameraAccessUITests-Runner[25957:83120] Got kAXPidStatusChangedNotification for pid 19562: active
+21:56:26.605 CameraAccessUITests-Runner[25957:79511] -[XCTRuntimeIssueDetectionManager runtimeIssueDetectionEnabled] runtimeIssueDetectionEnabled 
+-- crashed
+6] Got status 0 from operation for token 1
+21:54:35.289 CameraAccessUITests-Runner[25957:79511] <XCTWaiter: 0x10b8fb660> entering wait loop for 60.00s with expectations: `requesting launch progress`
+21:54:35.290 CameraAccessUITests-Runner[25957:83118] Process crashed with pid:22497 path:/Users/USER/Library/Developer/XCTestDevices/CF282BA1-AE2D-4DEB-A5CE-2D8B03238C55/data/Containers/Bundle/Application/DAC98838-2B59-4B82-8F70-E72CABF46037/CameraAccess.app/CameraAccess bundleID:com.meta.wearables.external.CameraAccess summary:<external symbol>
+21:54:35.290 CameraAccessUITests-Runner[25957:83118] Ignoring crash for com.meta.wearables.external.CameraAccess:22497 because we are not currently tracking it
+21:54:35.291 CameraAccessUITests-Runner[25957:83118] 
+-- testLaunchWithoutDeviceShowsHomeScreen
+rnal.CameraAccess (20.0206s)
+22:01:15.089 xcodebuild[12776:40986] Nothing to delete
+22:01:15.062 CameraAccessUITests-Runner[25957:79511] -[XCTRunnerIDESession(_XCTestObservationInternal) testCaseDidFinish:]
+Test Case '-[CameraAccessUITests.CameraAccessUITests testLaunchWithoutDeviceShowsHomeScreen]' started.
+22:01:15.089 xcodebuild[12776:40986] Nothing to delete
+    t =     0.00s Start Test at 2026-05-18 22:01:15.070
+22:01:15.090 xcodebuild[12776:40986] Nothing to delete
+22:01:15.100 xcodebuild[12776:40986] _XCT_testCaseWithIdentifier:<XCTTestIdentifier leaf, method, swift ["CameraAccessUITests", "testFoldDuringStreamingStopsStream"]> didFinishWithStatus:failed duration:113.6681079864502
+22:01:15.100 xcodebuild[12776:40986] Test case (<XCTTestIdentif
+-- testPhotoCaptureAndDismiss
+ner[25957:79511] -[XCTRunnerIDESession(_XCTestObservationInternal) testCaseDidFinish:]
+Test Case '-[CameraAccessUITests.CameraAccessUITests testLaunchWithoutDeviceShowsHomeScreen]' failed (108.515 seconds).
+Test Case '-[CameraAccessUITests.CameraAccessUITests testPhotoCaptureAndDismiss]' started.
+    t =     0.01s Start Test at 2026-05-18 22:03:03.591
+    t =     0.18s Set Up
+    t =     0.19s     Open com.meta.wearables.external.CameraAccess
+    t =     0.19s         Launch com.meta.wearables.external.CameraAccess
+22:03:03.889 xcodebuild[12776:40986] _XCT_testCaseWithIdentifier:<XCTTestIdentifier leaf, method, swift ["CameraAccessUITests", "testLaunchWithoutDeviceShowsHomeScreen"]> didFinishWithStatus:failed duration:108.514976978302
+22:03:03.923 xc
+-- Error Domain
+ot currently tracking it
+21:56:26.472 CameraAccessUITests-Runner[25957:83120] Handling kAXPidStatusChangedNotification
+21:56:26.468 CameraAccessUITests-Runner[25957:79511] Failed to get automation session for com.meta.wearables.external.CameraAccess:0. Error: Error Domain=com.apple.dt.XCTest.XCTFuture Code=1000 "Timed out while requesting automation session for com.meta.wearables.external.CameraAccess (pid:29514)." UserInfo={NSLocalizedDescription=Timed out while requesting automation session for com.meta.wearables.external.CameraAccess (pid:29514).}
+21:56:26.564 CameraAccessUITests-Runner[25957:83120] Got kAXPidStatusChangedNotification for pid 19562: active
+21:56:26.605 CameraAccessUITests-Runner[25957:79511] -[XCTRuntimeIssueDetectionManager runti
+-- SpringBoard
+ session with identifier: 35327E4A-D65E-4D9C-860F-C02A64799C53
+21:48:34.990 xcodebuild[12776:40986] Registering/updating daemon-based crash report observer for process names (
+    xctest,
+    debugserver,
+    FrontBoard,
+    assertiond,
+    runningboardd,
+    SpringBoard,
+    testmanagerd,
+    backboardd,
+    DTServiceHub,
+    CameraAccess,
+    "CameraAccessUITests-Runner",
+    CameraAccessUITests
+)
+21:48:34.990 xcodebuild[12776:40986] Test runner session acquired connection.
+21:49:16.692 xcodebuild[12776:59062] Got reply to session initiation request with identifier 35327E4A-D65E-4D9C-860F-C02A64799C53 (error: (null))
+21:49:17.271 xcodebuild[12776:40986] Finished requesting crash reports. Continuing with testing.
+21:49:29.695 xcodebuild[12776:40986]
+-- CameraAccessUITests
+Xcode version: 26.2 (17C52)
+21:48:30.331 xcodebuild[12776:40986] Beginning test session CameraAccessUITests-35327E4A-D65E-4D9C-860F-C02A64799C53 at 2026-05-18 21:48:30.310 on target <DVTiPhoneSimulator: 0x774129900> {
+		SimDevice: Clone 2 of iPhone 17 Pro (4DFCD12B-B772-4BE7-8F73-61661B57A866, iOS 26.4, Shutdown)
+} (26.4.1 (23E254a))
+21:48:30.333 xcodebuild[12776:40986] 	/Applications/Xcode_26.2.app/Contents/Developer/usr/bin/xcodebuild
+test
+-project
+samples/CameraAccess/CameraAccess.xcodeproj
+-scheme
+CameraAccess
+-configuration
+Debug
+-destination
+platform=iOS Simulator,id=A6D3EC07
+
+==== data.0~vas3YFmsYtKwWT9YdJH3FoEv2HFMx-r8gggBueZVkZ8ChzOPAn1u3wbdVzKn--6aR2OhDZM3YaMaC2chTjHYfQ==.bin len 11236
+-- SpringBoard
+[simInternalMinDevelopment.arm64] WARNING: Dylib located at '/System/Library/PrivateFrameworks/SpringBoard.framework/SpringBoard' not placed in shared cache because: cache overflow
+[simInternalMinDevelopment.arm64] WARNING: Dylib located at '/System/Library/PrivateFrameworks/MLIR_ML.framework/MLIR_ML' not placed in shared cache because: cache overflow
+[simInternalMinDevelopment.arm64] WARNING: Dylib located at '/System/Library/PrivateFrameworks/HomeKitDaemonLegacy.framework/HomeKitDaemonLegacy' not placed in shared cache because: cache overflow
+[simInternalMinDevelopment.arm64] WARNING: D
+
+==== data.0~vZY_OlUWC7Ia3uDpTL_Opz5HboUSKbQgCnq8_PVkYQHNjISAQ3AgNPB1mw8vcJ_YyoqCexwHBCmgDmanovI5Yw==.bin len 12020
+-- SpringBoard
+[simInternalMinDevelopment.arm64] WARNING: Dylib located at '/System/Library/PrivateFrameworks/SpringBoard.framework/SpringBoard' not placed in shared cache because: cache overflow
+[simInternalMinDevelopment.arm64] WARNING: Dylib located at '/System/Library/PrivateFrameworks/MLIR_ML.framework/MLIR_ML' not placed in shared cache because: cache overflow
+[simInternalMinDevelopment.arm64] WARNING: Dylib located at '/System/Library/PrivateFrameworks/HomeKitDaemonLegacy.framework/HomeKitDaemonLegacy' not placed in shared cache because: cache overflow
+[simInternalMinDevelopment.arm64] WARNING: D
+
+==== data.0~xf3PV83KMyTUZiXuLmHV2W0Rh5S52YoHr8Xv9E1wxzU54XBkzItsNonjEqOUMjCFzbDT1bhgxRXtE_LK6A7a3A==.bin len 317178
+-- SpringBoard
+pment.arm64] WARNING: Dylib located at '/System/Library/Frameworks/MediaToolbox.framework/Support/libSTS-N.dylib' not placed in shared cache because: cache overflow
+[simInternalMinDevelopment.arm64] WARNING: Dylib located at '/System/Library/PrivateFrameworks/SpringBoardIntents.framework/SpringBoardIntents' not placed in shared cache because: cache overflow
+[simInternalMinDevelopment.arm64] WARNING: Dylib located at '/System/Library/PrivateFrameworks/CoreIDCredBuilder.framework/CoreIDCredBuilder' not placed in shared cache because: cache overflow
+[simInternalMinDevelopment.arm64] WARNING: Dylib located at '/System/Library/AccessibilityBundles/GameCenterUIFramework.axbundle/GameCenterUIFramework' not placed in shared cache because: cache overflow
+[sim
+
+==== data.0~yB8xPfj781lH63mqa7-mkHWijb8wBWlNrxvMB_SIQN8AZafCc8e8mQtSFVeyYRjQ51jfqSKDtaLEIWPhWZ_o4Q==.bin len 4971
+-- SpringBoard
+= 1;
+    "request log archive capability" = 1;
+    "supports delayed attachment transfers" = 1;
+}: (null)
+21:49:16.860 xcodebuild[12776:59058] Requesting crash report collection for process names: CameraAccess, assertiond, xctest, runningboardd, testmanagerd, SpringBoard, backboardd, DTServiceHub, CameraAccessUITests-Runner, CameraAccessUITests, debugserver, FrontBoard
+21:49:17.025 xcodebuild[12776:59058] Got reply to crash report collection request (error: (null))
+21:54:03.257 xcodebuild[12776:81744] Requesting authorization for pid 25957
+21:54:03.836 xcodebuild[12776:79577] Got reply to authorization request for pid 25957 (result:error): 1: (null)
+Got crash report <XCTHarness.XCTHDiagnosticReportBackedByJSONCrashLog: 0x104daecc0> from file CameraAc
+-- CameraAccessUITests
+y" = 1;
+    "supports delayed attachment transfers" = 1;
+}: (null)
+21:49:16.860 xcodebuild[12776:59058] Requesting crash report collection for process names: CameraAccess, assertiond, xctest, runningboardd, testmanagerd, SpringBoard, backboardd, DTServiceHub, CameraAccessUITests-Runner, CameraAccessUITests, debugserver, FrontBoard
+21:49:17.025 xcodebuild[12776:59058] Got reply to crash report collection request (error: (null))
+21:54:03.257 xcodebuild[12776:81744] Requesting authorization for pid 25957
+21:54:03.836 xcodebuild[12776:79577] Got reply to authorization request for pid 25957 (result:error): 1: (null)
+Got crash report <XCTHarness.XCTHDiagnosticReportBackedByJSONCrashLog: 0x104daecc0> from file CameraAccess-2026-05-18-215423.ips with shouldP
+
+==== data.0~YTpwQ9Jy4ZL7YOo_xNdM_VzuEBxUjUxdhDRC-hWUPhA6-bi4JmUc6HzL_xSWk0XqZfX1fvr0q2KQ1btpUZX1TA==.bin len 36991
+-- Error Domain
+2026-04-27 06:21:07.368Z   Error    Unable to check Mobile Asset Image directory: Error Domain=NSCocoaErrorDomain Code=260 "The file    com_apple_MobileAsset_appleTVOSSimulatorRuntime    couldn   t be opened because there is no such file." UserInfo={NSURL=file:///System/Library/AssetsV2/com_apple_MobileAsset_appleTVOSSimulatorRuntime/, NSFilePath=/System/Library/AssetsV2/com_apple_MobileAsset_appleTVOSSimulatorRuntime, NSUnderlyingError=0x87f024240 {Error Domain=NSPOSIXErrorDomain Code=2 "No such file or directory"}}
+2026-04-27 06:21:07.368Z   Error    Unable to check Mobile 
+
+==== data.0~yu8VXE1zYZgwQ8YZqYqhYAZoR5AvjZNUVm2Hl3ep0EkBRXhBz5FxkU21XBUJyruILuORzBJIBJWWz5HD-TbPZA==.bin len 318226
+-- SpringBoard
+rnalMinDevelopment.arm64] WARNING: Dylib located at '/System/Library/PrivateFrameworks/MLIR_ML.framework/MLIR_ML' not placed in shared cache because: cache overflow
+[simInternalMinDevelopment.arm64] WARNING: Dylib located at '/System/Library/PrivateFrameworks/SpringBoard.framework/SpringBoard' not placed in shared cache because: cache overflow
+[simInternalMinDevelopment.arm64] WARNING: Dylib located at '/System/Library/PrivateFrameworks/HomeKitDaemonLegacy.framework/HomeKitDaemonLegacy' not placed in shared cache because: cache overflow
+[simInternalMinDevelopment.arm64] WARNING: Dylib located at '/System/Library/PrivateFrameworks/MusicUI.framework/MusicUI' not placed in shared cache because: cache overflow
+[simInternalMinDevelopment.arm64] WARNING: D
+
+==== data.0~zuAftMkwHJgs0WkfmfYs31ng1Ev8Wm0kgFwSQthuUfhsgAIcTBg6JqjLx79ugoeFzNMuSuErVmVW3foal0VpjA==.bin len 10047
+-- XCTAssert
+6:StringK2:_vV131:/Users/runner/work/meta-wearables-dat-ios/meta-wearables-dat-ios/samples/CameraAccess/CameraAccessUITests/CameraAccessUITests.swift]K9:issueType[S6:StringK2:_vV17:Assertion Failure]K10:lineNumber[S3:IntK2:_vV2:35]K7:message[S6:StringK2:_vV52:XCTAssertTrue failed - Test server should be running]K17:sourceCodeContext[T[K2:_nV17:SourceCodeContext]K9:callStack[S5:Array[T[K2:_nV15:SourceCodeFrame]K13:addressString[S6:StringK2:_vV10:4395088332]][S15:SourceCodeFrameK13:addressString[S6:StringK2:_vV10:4394546495]][S15:SourceCodeFrameK13:addressString[S6:StringK2:_vV10:4394545963]][S15:SourceCodeFrameK13:addressString[S6:StringK2:_vV10:4394547479]][S15:SourceCodeFrameK13:addressString[S6:StringK2:_vV10:4398359643]][S15:SourceCodeFrameK13:add
+-- testLaunchWithoutDeviceShowsHomeScreen
+ess/CameraAccessUITests/CameraAccessUITests.swift]K10:lineNumber[S3:IntK2:_vV2:35]]]K9:timestamp[S4:DateK2:_vV28:2026-05-18T22:02:42.096+0000]K4:uuid[S6:StringK2:_vV36:3F58CB8F-1697-4BC1-8C9C-16F5F546E516]]]K10:identifier[S6:StringK2:_vV60:CameraAccessUITests/testLaunchWithoutDeviceShowsHomeScreen()]K13:identifierURL[S6:StringK2:_vV114:test://com.apple.xcode/CameraAccess/CameraAccessUITests/CameraAccessUITests/testLaunchWithoutDeviceShowsHomeScreen]K4:name[S6:StringK2:_vV40:testLaunchWithoutDeviceShowsHomeScreen()]K10:testStatus[S6:StringK2:_vV7:Failure]]
+-- CameraAccessUITests
+D-8837-8EE6D26E2FFB]]]K8:duration[T[K2:_nV6:Double]K2:_vV16:108.514976978302]K16:failureSummaries[S5:Array[T[K2:_nV24:ActionTestFailureSummary]K8:fileName[S6:StringK2:_vV131:/Users/runner/work/meta-wearables-dat-ios/meta-wearables-dat-ios/samples/CameraAccess/CameraAccessUITests/CameraAccessUITests.swift]K9:issueType[S6:StringK2:_vV17:Assertion Failure]K10:lineNumber[S3:IntK2:_vV2:35]K7:message[S6:StringK2:_vV52:XCTAssertTrue failed - Test server should be running]K17:sourceCodeContext[T[K2:_nV17:SourceCodeContext]K9:callStack[S5:Array[T[K2:_nV15:SourceCodeFrame]K13:addressString[S6:StringK2:_vV10:4395088332]][S15:SourceCodeFrameK13:addressString[S6:StringK2:_vV10:4394546495]][S15:SourceCodeFrameK13:addressString[S6:StringK2:_vV10:4394545963]][S15:So

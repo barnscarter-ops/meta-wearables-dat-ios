@@ -1,0 +1,65 @@
+﻿2026-05-18T23:12:40.0761990Z ##[debug]Evaluating condition for step: 'Post Check out repository'
+2026-05-18T23:12:40.0763830Z ##[debug]Evaluating: always()
+2026-05-18T23:12:40.0764200Z ##[debug]Evaluating always:
+2026-05-18T23:12:40.0764620Z ##[debug]=> true
+2026-05-18T23:12:40.0765150Z ##[debug]Result: true
+2026-05-18T23:12:40.0765910Z ##[debug]Starting: Post Check out repository
+2026-05-18T23:12:40.0813190Z ##[debug]Loading inputs
+2026-05-18T23:12:40.0815190Z ##[debug]Evaluating: github.repository
+2026-05-18T23:12:40.0815640Z ##[debug]Evaluating Index:
+2026-05-18T23:12:40.0815900Z ##[debug]..Evaluating github:
+2026-05-18T23:12:40.0816240Z ##[debug]..=> Object
+2026-05-18T23:12:40.0816500Z ##[debug]..Evaluating String:
+2026-05-18T23:12:40.0816750Z ##[debug]..=> 'repository'
+2026-05-18T23:12:40.0817030Z ##[debug]=> 'barnscarter-ops/meta-wearables-dat-ios'
+2026-05-18T23:12:40.0817350Z ##[debug]Result: 'barnscarter-ops/meta-wearables-dat-ios'
+2026-05-18T23:12:40.0819280Z ##[debug]Evaluating: github.token
+2026-05-18T23:12:40.0819520Z ##[debug]Evaluating Index:
+2026-05-18T23:12:40.0819830Z ##[debug]..Evaluating github:
+2026-05-18T23:12:40.0820020Z ##[debug]..=> Object
+2026-05-18T23:12:40.0820230Z ##[debug]..Evaluating String:
+2026-05-18T23:12:40.0820500Z ##[debug]..=> 'token'
+2026-05-18T23:12:40.0820970Z ##[debug]=> '***'
+2026-05-18T23:12:40.0821380Z ##[debug]Result: '***'
+2026-05-18T23:12:40.0840180Z ##[debug]Loading env
+2026-05-18T23:12:40.0844360Z Post job cleanup.
+2026-05-18T23:12:40.2225950Z ##[debug]Getting git version
+2026-05-18T23:12:40.2235690Z [command]/opt/homebrew/bin/git version
+2026-05-18T23:12:40.3102620Z git version 2.54.0
+2026-05-18T23:12:40.3116430Z ##[debug]0
+2026-05-18T23:12:40.3116860Z ##[debug]git version 2.54.0
+2026-05-18T23:12:40.3117570Z ##[debug]
+2026-05-18T23:12:40.3117900Z ##[debug]Set git useragent to: git/2.54.0 (github-actions-checkout)
+2026-05-18T23:12:40.3118910Z ::add-mask::***
+2026-05-18T23:12:40.3125140Z Copying '/Users/runner/.gitconfig' to '/Users/runner/work/_temp/bb18c3d2-3b2e-41f6-bd54-d4378e99a60b/.gitconfig'
+2026-05-18T23:12:40.3134980Z Temporarily overriding HOME='/Users/runner/work/_temp/bb18c3d2-3b2e-41f6-bd54-d4378e99a60b' before making global git config changes
+2026-05-18T23:12:40.3135620Z Adding repository directory to the temporary git global config as a safe directory
+2026-05-18T23:12:40.3144800Z [command]/opt/homebrew/bin/git config --global --add safe.directory /Users/runner/work/meta-wearables-dat-ios/meta-wearables-dat-ios
+2026-05-18T23:12:40.3267840Z ##[debug]0
+2026-05-18T23:12:40.3268210Z ##[debug]
+2026-05-18T23:12:40.3274140Z [command]/opt/homebrew/bin/git config --local --name-only --get-regexp core\.sshCommand
+2026-05-18T23:12:40.3345300Z ##[debug]1
+2026-05-18T23:12:40.3346890Z ##[debug]
+2026-05-18T23:12:40.3349640Z [command]/opt/homebrew/bin/git submodule foreach --recursive sh -c "git config --local --name-only --get-regexp 'core\.sshCommand' && git config --local --unset-all 'core.sshCommand' || :"
+2026-05-18T23:12:40.4449290Z ##[debug]0
+2026-05-18T23:12:40.4449750Z ##[debug]
+2026-05-18T23:12:40.4455150Z [command]/opt/homebrew/bin/git config --local --name-only --get-regexp http\.https\:\/\/github\.com\/\.extraheader
+2026-05-18T23:12:40.4517460Z http.https://github.com/.extraheader
+2026-05-18T23:12:40.4521740Z ##[debug]0
+2026-05-18T23:12:40.4522570Z ##[debug]http.https://github.com/.extraheader
+2026-05-18T23:12:40.4522810Z ##[debug]
+2026-05-18T23:12:40.4527450Z [command]/opt/homebrew/bin/git config --local --unset-all http.https://github.com/.extraheader
+2026-05-18T23:12:40.4597950Z ##[debug]0
+2026-05-18T23:12:40.4598340Z ##[debug]
+2026-05-18T23:12:40.4602700Z [command]/opt/homebrew/bin/git submodule foreach --recursive sh -c "git config --local --name-only --get-regexp 'http\.https\:\/\/github\.com\/\.extraheader' && git config --local --unset-all 'http.https://github.com/.extraheader' || :"
+2026-05-18T23:12:40.5501640Z ##[debug]0
+2026-05-18T23:12:40.5502000Z ##[debug]
+2026-05-18T23:12:40.5509590Z [command]/opt/homebrew/bin/git config --local --name-only --get-regexp ^includeIf\.gitdir:
+2026-05-18T23:12:40.5582880Z ##[debug]1
+2026-05-18T23:12:40.5583210Z ##[debug]
+2026-05-18T23:12:40.5588100Z [command]/opt/homebrew/bin/git submodule foreach --recursive git config --local --show-origin --name-only --get-regexp remote.origin.url
+2026-05-18T23:12:40.6501800Z ##[debug]0
+2026-05-18T23:12:40.6559880Z ##[debug]
+2026-05-18T23:12:40.6560640Z ##[debug]Unsetting HOME override
+2026-05-18T23:12:40.6561980Z ##[debug]Node Action run completed with exit code 0
+2026-05-18T23:12:40.6565370Z ##[debug]Finishing: Post Check out repository
