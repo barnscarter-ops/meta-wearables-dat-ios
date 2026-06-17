@@ -127,6 +127,11 @@ final class StreamSessionViewModel {
     showPhotoCaptureError = false
   }
 
+  func dismissPhotoPreview() {
+    showPhotoPreview = false
+    capturedPhoto = nil
+  }
+
   func askAI() async {
     guard !isAnalyzing, let frame = currentVideoFrame else { return }
 

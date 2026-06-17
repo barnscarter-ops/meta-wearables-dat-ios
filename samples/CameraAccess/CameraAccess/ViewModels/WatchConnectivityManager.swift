@@ -1,6 +1,5 @@
 import Foundation
 import WatchConnectivity
-import UIKit
 
 @MainActor
 final class WatchConnectivityManager: NSObject, WCSessionDelegate {
@@ -17,19 +16,23 @@ final class WatchConnectivityManager: NSObject, WCSessionDelegate {
         }
     }
 
+    // Sends live mode state back to the Watch. Call after toggling isLiveModeEnabled.
     func sendLiveModeStatus(isEnabled: Bool) {
-        if WCSession.default.isReachable {
-            WCSession.default.sendMessage(["liveModeEnabled": isEnabled], replyHandler: nil, errorHandler: nil)
-        }
+        guard WCSession.default.isReachable else { return }
+        WCSession.default.sendMessage(
+            ["liveModeEnabled": isEnabled],
+            replyHandler: nil,
+            errorHandler: { error in
+                print("⚠️ WatchConnectivityManager: failed to send live mode status: \(error.localizedDescription)")
+            }
+        )
     }
 
     // MARK: - WCSessionDelegate
 
-    func session(_ session: WCSession, activationDidCompleteWith activationState: WCSessionActivationState, error: Error?) {
-        // Handle activation completion
-    }
+    func session(_ session: WCSession, activationDidCompleteWith activationState: WCSessionActivationState, error: Error?) {}
 
-    func session(_ session: WCSession, didReceiveMessage message: [String : Any]) {
+    func session(_ session: WCSession, didReceiveMessage message: [String: Any]) {
         if let action = message["action"] as? String, action == "toggle_live_mode" {
             Task { @MainActor in
                 onLiveModeToggled?()
