@@ -43,6 +43,10 @@
 		FEEE00092F95000500000001 /* ChatGPTStreamingService.swift in Sources */ = {isa = PBXBuildFile; fileRef = FEEE00082F95000500000001 /* ChatGPTStreamingService.swift */; };
 		FEEE000B2F95000600000001 /* VoiceChatManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = FEEE000A2F95000600000001 /* VoiceChatManager.swift */; };
 		FEEE000D2F95000700000001 /* GrizzlyCaptureManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = FEEE000C2F95000700000001 /* GrizzlyCaptureManager.swift */; };
+		FEEE00112F95000800000001 /* CameraAccess Watch App.app in Embed Watch Content */ = {isa = PBXBuildFile; fileRef = FEEE00102F95000800000001 /* CameraAccess Watch App.app */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
+		FEEE00132F95000900000001 /* WatchApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = FEEE00122F95000900000001 /* WatchApp.swift */; };
+		FEEE00152F95000A00000001 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FEEE00142F95000A00000001 /* ContentView.swift */; };
+		FEEE00172F95000B00000001 /* WatchConnectivityManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = FEEE00162F95000B00000001 /* WatchConnectivityManager.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -60,6 +64,13 @@
 			remoteGlobalIDString = 8A8A8A8A8A8A8A8A8A8A8A8A;
 			remoteInfo = CameraAccess;
 		};
+		FEEE00202F95001200000001 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = CCCCCCCCCCCCCCCCCCCCCC /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = FEEE001B2F95000E00000001;
+			remoteInfo = "CameraAccess Watch App";
+		};
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -71,6 +82,17 @@
 			files = (
 			);
 			name = "Embed Frameworks";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		FEEE001F2F95001100000001 /* Embed Watch Content */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "$(CONTENTS_FOLDER_PATH)/Watch";
+			dstSubfolderSpec = 16;
+			files = (
+				FEEE00112F95000800000001 /* CameraAccess Watch App.app in Embed Watch Content */,
+			);
+			name = "Embed Watch Content";
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXCopyFilesBuildPhase section */
@@ -113,6 +135,10 @@
 		FEEE00082F95000500000001 /* ChatGPTStreamingService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatGPTStreamingService.swift; sourceTree = "<group>"; };
 		FEEE000A2F95000600000001 /* VoiceChatManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VoiceChatManager.swift; sourceTree = "<group>"; };
 		FEEE000C2F95000700000001 /* GrizzlyCaptureManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GrizzlyCaptureManager.swift; sourceTree = "<group>"; };
+		FEEE00102F95000800000001 /* CameraAccess Watch App.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "CameraAccess Watch App.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		FEEE00122F95000900000001 /* WatchApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WatchApp.swift; sourceTree = "<group>"; };
+		FEEE00142F95000A00000001 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
+		FEEE00162F95000B00000001 /* WatchConnectivityManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WatchConnectivityManager.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFileSystemSynchronizedRootGroup section */
@@ -139,6 +165,13 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		FEEE00192F95000C00000001 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
@@ -146,6 +179,7 @@
 			isa = PBXGroup;
 			children = (
 				8FD96B7D2E6F0A9800F56AB1 /* CameraAccess */,
+				FEEE00222F95001300000001 /* CameraAccess Watch App */,
 				E66CC00E2F3E05D900B07379 /* CameraAccessUITests */,
 				8F2A14F12DDBCEB900D4E5F2 /* Frameworks */,
 				7A7A7A7A7A7A7A7A7A7A7A7A /* Products */,
@@ -157,6 +191,7 @@
 			isa = PBXGroup;
 			children = (
 				3A3A3A3A3A3A3A3A3A3A3A3A /* CameraAccess.app */,
+				FEEE00102F95000800000001 /* CameraAccess Watch App.app */,
 				E699CC952E8150670052C240 /* CameraAccessTests.xctest */,
 				E66CC00D2F3E05D900B07379 /* CameraAccessUITests.xctest */,
 			);
@@ -259,6 +294,16 @@
 			path = MockDeviceKit;
 			sourceTree = "<group>";
 		};
+		FEEE00222F95001300000001 /* CameraAccess Watch App */ = {
+			isa = PBXGroup;
+			children = (
+				FEEE00122F95000900000001 /* WatchApp.swift */,
+				FEEE00142F95000A00000001 /* ContentView.swift */,
+				FEEE00162F95000B00000001 /* WatchConnectivityManager.swift */,
+			);
+			path = "CameraAccess Watch App/CameraAccess Watch App";
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -270,10 +315,12 @@
 				4A4A4A4A4A4A4A4A4A4A4A4A /* Frameworks */,
 				BBBBBBBBBBBBBBBBBBBBBB /* Resources */,
 				8FD96B932E6F0C6E00F56AB1 /* Embed Frameworks */,
+				FEEE001F2F95001100000001 /* Embed Watch Content */,
 			);
 			buildRules = (
 			);
 			dependencies = (
+				FEEE00212F95001200000001 /* PBXTargetDependency */,
 			);
 			name = CameraAccess;
 			productName = CameraAccess;
@@ -326,6 +373,23 @@
 			productReference = E699CC952E8150670052C240 /* CameraAccessTests.xctest */;
 			productType = "com.apple.product-type.bundle.unit-test";
 		};
+		FEEE001B2F95000E00000001 /* CameraAccess Watch App */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = FEEE001E2F95001000000001 /* Build configuration list for PBXNativeTarget "CameraAccess Watch App" */;
+			buildPhases = (
+				FEEE00182F95000C00000001 /* Sources */,
+				FEEE00192F95000C00000001 /* Frameworks */,
+				FEEE001A2F95000D00000001 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = "CameraAccess Watch App";
+			productName = "CameraAccess Watch App";
+			productReference = FEEE00102F95000800000001 /* CameraAccess Watch App.app */;
+			productType = "com.apple.product-type.application";
+		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
@@ -346,6 +410,9 @@
 						CreatedOnToolsVersion = 26.0;
 						TestTargetID = 8A8A8A8A8A8A8A8A8A8A8A8A;
 					};
+					FEEE001B2F95000E00000001 = {
+						CreatedOnToolsVersion = 26.0;
+					};
 				};
 			};
 			buildConfigurationList = DDDDDDDDDDDDDDDDDDDDDD /* Build configuration list for PBXProject "CameraAccess" */;
@@ -365,6 +432,7 @@
 			projectRoot = "";
 			targets = (
 				8A8A8A8A8A8A8A8A8A8A8A8A /* CameraAccess */,
+				FEEE001B2F95000E00000001 /* CameraAccess Watch App */,
 				E699CC942E8150670052C240 /* CameraAccessTests */,
 				E66CC00C2F3E05D900B07379 /* CameraAccessUITests */,
 			);
@@ -390,6 +458,13 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 		E699CC932E8150670052C240 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		FEEE001A2F95000D00000001 /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -449,6 +524,16 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		FEEE00182F95000C00000001 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				FEEE00132F95000900000001 /* WatchApp.swift in Sources */,
+				FEEE00152F95000A00000001 /* ContentView.swift in Sources */,
+				FEEE00172F95000B00000001 /* WatchConnectivityManager.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
@@ -461,6 +546,11 @@
 			isa = PBXTargetDependency;
 			target = 8A8A8A8A8A8A8A8A8A8A8A8A /* CameraAccess */;
 			targetProxy = E699CC992E8150670052C240 /* PBXContainerItemProxy */;
+		};
+		FEEE00212F95001200000001 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = FEEE001B2F95000E00000001 /* CameraAccess Watch App */;
+			targetProxy = FEEE00202F95001200000001 /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
 
@@ -752,6 +842,50 @@
 			};
 			name = Release;
 		};
+		FEEE001C2F95000F00000001 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_GENERATE_SWIFT_ASSET_SYMBOL_EXTENSIONS = YES;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = V9WTTPBFK9;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
+				INFOPLIST_KEY_WKCompanionAppBundleIdentifier = "com.meta.wearables.external.CameraAccess";
+				LD_RUNPATH_SEARCH_PATHS = "@executable_path/Frameworks";
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = "com.meta.wearables.external.CameraAccess.watchkitapp";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = watchos;
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = 4;
+				WATCHOS_DEPLOYMENT_TARGET = 7.0;
+			};
+			name = Debug;
+		};
+		FEEE001D2F95000F00000001 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_GENERATE_SWIFT_ASSET_SYMBOL_EXTENSIONS = YES;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = V9WTTPBFK9;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
+				INFOPLIST_KEY_WKCompanionAppBundleIdentifier = "com.meta.wearables.external.CameraAccess";
+				LD_RUNPATH_SEARCH_PATHS = "@executable_path/Frameworks";
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = "com.meta.wearables.external.CameraAccess.watchkitapp";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = watchos;
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = 4;
+				WATCHOS_DEPLOYMENT_TARGET = 7.0;
+			};
+			name = Release;
+		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
@@ -787,6 +921,15 @@
 			buildConfigurations = (
 				E699CC9B2E8150670052C240 /* Debug */,
 				E699CC9C2E8150670052C240 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		FEEE001E2F95001000000001 /* Build configuration list for PBXNativeTarget "CameraAccess Watch App" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				FEEE001C2F95000F00000001 /* Debug */,
+				FEEE001D2F95000F00000001 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
