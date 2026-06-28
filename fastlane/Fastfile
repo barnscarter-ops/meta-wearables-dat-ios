@@ -35,15 +35,6 @@ platform :ios do
       key_content: ENV["ASC_KEY_CONTENT"]
     )
 
-    # Register Watch App bundle ID in developer portal (idempotent)
-    # produce doesn't accept api_key: directly; it inherits the globally set key
-    produce(
-      team_id: "R9DLFUKL26",
-      app_identifier: "com.carter.camerai.watchkitapp",
-      app_name: "CameraAccess Watch",
-      skip_itc: true
-    )
-
     sigh(api_key: api_key, app_identifier: "com.carter.camerai")
     sigh(api_key: api_key, app_identifier: "com.carter.camerai.watchkitapp")
 
