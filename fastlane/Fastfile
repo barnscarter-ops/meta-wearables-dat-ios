@@ -25,11 +25,12 @@ platform :ios do
       key_content: ENV["ASC_KEY_CONTENT"]
     )
 
-    # Create/download Distribution cert into ci_keychain
+    # Create Distribution cert (force: revoke oldest if at limit)
     cert(
       api_key: api_key,
       keychain_path: keychain_path,
-      keychain_password: keychain_pass
+      keychain_password: keychain_pass,
+      force: true
     )
 
     # Download and install Distribution provisioning profiles
