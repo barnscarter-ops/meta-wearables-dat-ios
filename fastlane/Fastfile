@@ -1,3 +1,5 @@
+require 'base64'
+
 default_platform(:ios)
 
 platform :ios do
@@ -5,10 +7,7 @@ platform :ios do
   lane :deploy do
     keychain_name = "ci_keychain"
     keychain_pass = "ci_temp_pass"
-    keychain_path = File.expand_path("~/Library/Keychains/#{keychain_name}-db")
 
-    # Create a fresh unlocked keychain so cert can import without
-    # "User interaction is not allowed" (the login keychain is locked in CI)
     create_keychain(
       name: keychain_name,
       password: keychain_pass,
@@ -19,30 +18,32 @@ platform :ios do
       add_to_search_list: true
     )
 
+    # Import Distribution cert from secret instead of using cert action
+    # (avoids Apple's 2-cert-per-team limit and portal auth on every run)
+    p12_path = "/tmp/dist_cert.p12"
+    File.write(p12_path, Base64.decode64(ENV["DIST_CERT_P12_BASE64"]))
+    import_certificate(
+      certificate_path: p12_path,
+      certificate_password: ENV["DIST_CERT_P12_PASSWORD"],
+      keychain_name: keychain_name,
+      keychain_password: keychain_pass
+    )
+
     api_key = app_store_connect_api_key(
       key_id: ENV["ASC_KEY_ID"],
       issuer_id: ENV["ASC_ISSUER_ID"],
       key_content: ENV["ASC_KEY_CONTENT"]
     )
 
-    # Create Distribution cert (force: revoke oldest if at limit)
-    cert(
-      api_key: api_key,
-      keychain_path: keychain_path,
-      keychain_password: keychain_pass,
-      force: true
-    )
-
-    # Download and install Distribution provisioning profiles
-    sigh(api_key: api_key, app_identifier: "com.carter.camerai")
-
-    # Register Watch App bundle ID in developer portal (not as a separate App Store app)
+    # Register Watch App bundle ID in developer portal (idempotent)
     produce(
       api_key: api_key,
       app_identifier: "com.carter.camerai.watchkitapp",
       app_name: "CameraAccess Watch",
       skip_itc: true
     )
+
+    sigh(api_key: api_key, app_identifier: "com.carter.camerai")
     sigh(api_key: api_key, app_identifier: "com.carter.camerai.watchkitapp")
 
     gym(
@@ -51,7 +52,9 @@ platform :ios do
       configuration: "Release",
       destination: "generic/platform=iOS",
       export_method: "app-store",
-      output_directory: "./build"
+      output_directory: "./build",
+      codesigning_identity: "Apple Distribution: Carter Barns (R9DLFUKL26)",
+      xcargs: "DEVELOPMENT_TEAM=R9DLFUKL26"
     )
 
     pilot(
