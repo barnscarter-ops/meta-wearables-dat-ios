@@ -43,7 +43,8 @@ platform :ios do
     sigh(api_key: api_key, app_identifier: "com.carter.camerai.watchkitapp", output_path: profile_dir)
     watch_profile_path = Actions.lane_context[SharedValues::SIGH_PROFILE_PATH]
 
-    project_path = "samples/CameraAccess/CameraAccess.xcodeproj"
+    repo_root = File.expand_path("..", __dir__)
+    project_path = "#{repo_root}/samples/CameraAccess/CameraAccess.xcodeproj"
 
     update_project_provisioning(
       xcodeproj: project_path,
