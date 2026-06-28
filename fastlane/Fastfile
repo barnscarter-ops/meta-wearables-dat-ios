@@ -48,7 +48,6 @@ platform :ios do
       destination: "generic/platform=iOS",
       export_method: "app-store",
       output_directory: "./build",
-      codesigning_identity: "Apple Distribution: Carter Barns (R9DLFUKL26)",
       xcargs: "DEVELOPMENT_TEAM=R9DLFUKL26"
     )
 
