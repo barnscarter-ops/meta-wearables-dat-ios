@@ -34,22 +34,45 @@ platform :ios do
       key_content: ENV["ASC_KEY_CONTENT"]
     )
 
-    # Ensure profiles dir exists, then install AppStore Distribution profiles
-    FileUtils.mkdir_p(File.expand_path("~/Library/MobileDevice/Provisioning Profiles"))
-    sigh(api_key: api_key, app_identifier: "com.carter.camerai")
-    sigh(api_key: api_key, app_identifier: "com.carter.camerai.watchkitapp")
+    # Download AppStore profiles to the system directory so xcodebuild can find them.
+    # PROVISIONING_PROFILE_SPECIFIER[sdk=...] conditional syntax does NOT work in xcargs
+    # (xcodebuild splits on first '=' so the bracket becomes part of the key name).
+    # Instead: set profiles per-target in the project file via update_project_provisioning.
+    profile_dir = File.expand_path("~/Library/MobileDevice/Provisioning Profiles")
+    FileUtils.mkdir_p(profile_dir)
 
-    # Xcode 26 requires the archive to be signed with a Distribution cert upfront;
-    # it no longer re-signs from Development during export. Use manual signing
-    # with per-SDK profile specifiers so iOS and watchOS targets get distinct profiles.
+    sigh(api_key: api_key, app_identifier: "com.carter.camerai", output_path: profile_dir)
+    ios_profile_path = Actions.lane_context[SharedValues::SIGH_PROFILE_PATH]
+
+    sigh(api_key: api_key, app_identifier: "com.carter.camerai.watchkitapp", output_path: profile_dir)
+    watch_profile_path = Actions.lane_context[SharedValues::SIGH_PROFILE_PATH]
+
+    project_path = "samples/CameraAccess/CameraAccess.xcodeproj"
+
+    update_project_provisioning(
+      xcodeproj: project_path,
+      profile: ios_profile_path,
+      target_filter: "CameraAccess",
+      build_configuration: "Release"
+    )
+
+    update_project_provisioning(
+      xcodeproj: project_path,
+      profile: watch_profile_path,
+      target_filter: "CameraAccess Watch App",
+      build_configuration: "Release"
+    )
+
+    # Xcode 26: archive must be signed with Distribution cert upfront.
+    # Per-target PROVISIONING_PROFILE (UUID) is already set by update_project_provisioning above.
     gym(
       scheme: "CameraAccess",
-      project: "samples/CameraAccess/CameraAccess.xcodeproj",
+      project: project_path,
       configuration: "Release",
       destination: "generic/platform=iOS",
       export_method: "app-store",
       output_directory: "./build",
-      xcargs: %q(CODE_SIGN_STYLE=Manual DEVELOPMENT_TEAM=R9DLFUKL26 CODE_SIGN_IDENTITY="Apple Distribution: Carter Barns (R9DLFUKL26)" "PROVISIONING_PROFILE_SPECIFIER[sdk=iphoneos*]=com.carter.camerai AppStore" "PROVISIONING_PROFILE_SPECIFIER[sdk=watchos*]=com.carter.camerai.watchkitapp AppStore"),
+      xcargs: 'CODE_SIGN_STYLE=Manual DEVELOPMENT_TEAM=R9DLFUKL26 CODE_SIGN_IDENTITY="Apple Distribution: Carter Barns (R9DLFUKL26)"',
       export_options: {
         method: "app-store",
         signingStyle: "manual",
