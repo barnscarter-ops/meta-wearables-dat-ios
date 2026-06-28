@@ -87,8 +87,6 @@ struct PhotoPreviewView: View {
   }
 
   private var actionPanel: some View {
-    @Bindable var analysisViewModel = analysisViewModel
-
     return VStack(alignment: .leading, spacing: 12) {
       Text(analysisViewModel.serviceName)
         .font(.headline)
