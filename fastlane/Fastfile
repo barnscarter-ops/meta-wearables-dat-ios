@@ -18,8 +18,7 @@ platform :ios do
       add_to_search_list: true
     )
 
-    # Import Distribution cert from secret instead of using cert action
-    # (avoids Apple's 2-cert-per-team limit and portal auth on every run)
+    # Import Distribution cert so xcodebuild can sign for export
     p12_path = "/tmp/dist_cert.p12"
     File.write(p12_path, Base64.decode64(ENV["DIST_CERT_P12_BASE64"]))
     import_certificate(
@@ -35,11 +34,9 @@ platform :ios do
       key_content: ENV["ASC_KEY_CONTENT"]
     )
 
-    # Ensure the system provisioning profiles dir exists (absent on fresh MacInCloud)
-    FileUtils.mkdir_p(File.expand_path("~/Library/MobileDevice/Provisioning Profiles"))
-
-    sigh(api_key: api_key, app_identifier: "com.carter.camerai")
-    sigh(api_key: api_key, app_identifier: "com.carter.camerai.watchkitapp")
+    # Write API key to disk; xcodebuild needs a file path, not an env var
+    key_path = "/tmp/AuthKey_#{ENV['ASC_KEY_ID']}.p8"
+    File.write(key_path, ENV["ASC_KEY_CONTENT"])
 
     gym(
       scheme: "CameraAccess",
@@ -48,7 +45,7 @@ platform :ios do
       destination: "generic/platform=iOS",
       export_method: "app-store",
       output_directory: "./build",
-      xcargs: "DEVELOPMENT_TEAM=R9DLFUKL26"
+      xcargs: "DEVELOPMENT_TEAM=R9DLFUKL26 -allowProvisioningUpdates -authenticationKeyPath #{key_path} -authenticationKeyID #{ENV['ASC_KEY_ID']} -authenticationKeyIssuerID #{ENV['ASC_ISSUER_ID']}"
     )
 
     pilot(
