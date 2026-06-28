@@ -107,6 +107,8 @@ platform :ios do
 
     pilot(
       api_key: api_key,
+      app_identifier: "com.carter.camerai",
+      ipa: "./build/CameraAccess.ipa",
       skip_waiting_for_build_processing: true
     )
   end
