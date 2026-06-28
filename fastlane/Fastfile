@@ -16,7 +16,7 @@ platform :ios do
       destination: "generic/platform=iOS",
       export_method: "app-store",
       output_directory: "./build",
-      xcargs: "CODE_SIGN_STYLE=Automatic DEVELOPMENT_TEAM=R9DLFUKL26"
+      xcargs: "CODE_SIGN_STYLE=Automatic DEVELOPMENT_TEAM=AC922H2743"
     )
 
     pilot(

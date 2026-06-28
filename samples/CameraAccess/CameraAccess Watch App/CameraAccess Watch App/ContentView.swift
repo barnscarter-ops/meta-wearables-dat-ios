@@ -10,7 +10,6 @@ struct ContentView: View {
                 .scaledToFit()
                 .frame(width: 40, height: 40)
                 .foregroundColor(isLiveModeEnabled ? .green : .gray)
-                .symbolEffect(.pulse.infinite, options: .playbackSpeed(2))
                 .opacity(isLiveModeEnabled ? 1 : 0.5)
 
             Text(isLiveModeEnabled ? "GPT LIVE" : "GPT IDLE")

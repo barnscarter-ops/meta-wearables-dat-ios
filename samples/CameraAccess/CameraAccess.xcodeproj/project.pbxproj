@@ -41,8 +41,6 @@
 		FEEE00052F95000300000001 /* PhotoAnalysisViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = FEEE00042F95000300000001 /* PhotoAnalysisViewModel.swift */; };
 		FEEE00072F95000400000001 /* WatchConnectivityManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = FEEE00062F95000400000001 /* WatchConnectivityManager.swift */; };
 		FEEE00092F95000500000001 /* ChatGPTStreamingService.swift in Sources */ = {isa = PBXBuildFile; fileRef = FEEE00082F95000500000001 /* ChatGPTStreamingService.swift */; };
-		FEEE000B2F95000600000001 /* VoiceChatManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = FEEE000A2F95000600000001 /* VoiceChatManager.swift */; };
-		FEEE000D2F95000700000001 /* GrizzlyCaptureManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = FEEE000C2F95000700000001 /* GrizzlyCaptureManager.swift */; };
 		FEEE00112F95000800000001 /* CameraAccess Watch App.app in Embed Watch Content */ = {isa = PBXBuildFile; fileRef = FEEE00102F95000800000001 /* CameraAccess Watch App.app */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
 		FEEE00132F95000900000001 /* WatchApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = FEEE00122F95000900000001 /* WatchApp.swift */; };
 		FEEE00152F95000A00000001 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FEEE00142F95000A00000001 /* ContentView.swift */; };
@@ -133,8 +131,6 @@
 		FEEE00042F95000300000001 /* PhotoAnalysisViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoAnalysisViewModel.swift; sourceTree = "<group>"; };
 		FEEE00062F95000400000001 /* WatchConnectivityManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WatchConnectivityManager.swift; sourceTree = "<group>"; };
 		FEEE00082F95000500000001 /* ChatGPTStreamingService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatGPTStreamingService.swift; sourceTree = "<group>"; };
-		FEEE000A2F95000600000001 /* VoiceChatManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VoiceChatManager.swift; sourceTree = "<group>"; };
-		FEEE000C2F95000700000001 /* GrizzlyCaptureManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GrizzlyCaptureManager.swift; sourceTree = "<group>"; };
 		FEEE00102F95000800000001 /* CameraAccess Watch App.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "CameraAccess Watch App.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		FEEE00122F95000900000001 /* WatchApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WatchApp.swift; sourceTree = "<group>"; };
 		FEEE00142F95000A00000001 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -215,8 +211,6 @@
 				FEEE00042F95000300000001 /* PhotoAnalysisViewModel.swift */,
 				FEEE00062F95000400000001 /* WatchConnectivityManager.swift */,
 				FEEE00082F95000500000001 /* ChatGPTStreamingService.swift */,
-				FEEE000A2F95000600000001 /* VoiceChatManager.swift */,
-				FEEE000C2F95000700000001 /* GrizzlyCaptureManager.swift */,
 				8FD96B6F2E6F0A9800F56AB1 /* StreamSessionViewModel.swift */,
 				8F8F00772E8ACB4500A4BDAF /* WearablesViewModel.swift */,
 			);
@@ -499,8 +493,6 @@
 				FEEE00052F95000300000001 /* PhotoAnalysisViewModel.swift in Sources */,
 				FEEE00072F95000400000001 /* WatchConnectivityManager.swift in Sources */,
 				FEEE00092F95000500000001 /* ChatGPTStreamingService.swift in Sources */,
-				FEEE000B2F95000600000001 /* VoiceChatManager.swift in Sources */,
-				FEEE000D2F95000700000001 /* GrizzlyCaptureManager.swift in Sources */,
 				E66D30242E7DA71900470B48 /* MockDeviceKitButton.swift in Sources */,
 				8F8F00782E8ACB4600A4BDAF /* WearablesViewModel.swift in Sources */,
 				E6A188482EB918740097D0E1 /* StreamView.swift in Sources */,
@@ -562,12 +554,10 @@
 				ASSETCATALOG_COMPILER_GENERATE_SWIFT_ASSET_SYMBOL_EXTENSIONS = YES;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_ENTITLEMENTS = CameraAccess/CameraAccess.entitlements;
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
-				CODE_SIGN_STYLE = Manual;
+				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "";
-				DEVELOPMENT_TEAM = "";
-				"DEVELOPMENT_TEAM[sdk=iphoneos*]" = V9WTTPBFK9;
+				DEVELOPMENT_TEAM = AC922H2743;
 				ENABLE_PREVIEWS = YES;
 				FRAMEWORK_SEARCH_PATHS = "";
 				INFOPLIST_FILE = CameraAccess/Info.plist;
@@ -577,10 +567,9 @@
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = com.meta.wearables.external.CameraAccess;
+				PRODUCT_BUNDLE_IDENTIFIER = com.carter.camerai;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
-				"PROVISIONING_PROFILE_SPECIFIER[sdk=iphoneos*]" = "Facebook Generic";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
@@ -593,12 +582,10 @@
 				ASSETCATALOG_COMPILER_GENERATE_SWIFT_ASSET_SYMBOL_EXTENSIONS = YES;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_ENTITLEMENTS = CameraAccess/CameraAccess.entitlements;
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
-				CODE_SIGN_STYLE = Manual;
+				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "";
-				DEVELOPMENT_TEAM = "";
-				"DEVELOPMENT_TEAM[sdk=iphoneos*]" = V9WTTPBFK9;
+				DEVELOPMENT_TEAM = AC922H2743;
 				ENABLE_PREVIEWS = YES;
 				INFOPLIST_FILE = CameraAccess/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
@@ -607,10 +594,9 @@
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = com.meta.wearables.external.CameraAccess;
+				PRODUCT_BUNDLE_IDENTIFIER = com.carter.camerai;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
-				"PROVISIONING_PROFILE_SPECIFIER[sdk=iphoneos*]" = "Facebook Generic";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
@@ -629,7 +615,7 @@
 				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
 				LOCALIZATION_PREFERS_STRING_CATALOGS = YES;
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = com.meta.wearables.external.CameraAccessUITests;
+				PRODUCT_BUNDLE_IDENTIFIER = com.carter.camerai.uitests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				STRING_CATALOG_GENERATE_SYMBOLS = NO;
 				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "DEBUG $(inherited)";
@@ -655,7 +641,7 @@
 				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
 				LOCALIZATION_PREFERS_STRING_CATALOGS = YES;
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = com.meta.wearables.external.CameraAccessUITests;
+				PRODUCT_BUNDLE_IDENTIFIER = com.carter.camerai.uitests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				STRING_CATALOG_GENERATE_SYMBOLS = NO;
 				SWIFT_APPROACHABLE_CONCURRENCY = YES;
@@ -673,7 +659,7 @@
 				ASSETCATALOG_COMPILER_GENERATE_SWIFT_ASSET_SYMBOL_EXTENSIONS = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
-				CODE_SIGN_STYLE = Manual;
+				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				ENABLE_USER_SCRIPT_SANDBOXING = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu17;
@@ -681,7 +667,7 @@
 				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
 				LOCALIZATION_PREFERS_STRING_CATALOGS = YES;
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = com.meta.wearables.external.CameraAccessTests;
+				PRODUCT_BUNDLE_IDENTIFIER = com.carter.camerai.tests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				STRING_CATALOG_GENERATE_SYMBOLS = NO;
 				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
@@ -702,7 +688,7 @@
 				ASSETCATALOG_COMPILER_GENERATE_SWIFT_ASSET_SYMBOL_EXTENSIONS = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
-				CODE_SIGN_STYLE = Manual;
+				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				ENABLE_USER_SCRIPT_SANDBOXING = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu17;
@@ -710,7 +696,7 @@
 				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
 				LOCALIZATION_PREFERS_STRING_CATALOGS = YES;
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = com.meta.wearables.external.CameraAccessTests;
+				PRODUCT_BUNDLE_IDENTIFIER = com.carter.camerai.tests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				STRING_CATALOG_GENERATE_SYMBOLS = NO;
 				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
@@ -848,13 +834,13 @@
 				ASSETCATALOG_COMPILER_GENERATE_SWIFT_ASSET_SYMBOL_EXTENSIONS = YES;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = V9WTTPBFK9;
+				DEVELOPMENT_TEAM = AC922H2743;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
-				INFOPLIST_KEY_WKCompanionAppBundleIdentifier = "com.meta.wearables.external.CameraAccess";
+				INFOPLIST_KEY_WKCompanionAppBundleIdentifier = com.carter.camerai;
 				LD_RUNPATH_SEARCH_PATHS = "@executable_path/Frameworks";
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = "com.meta.wearables.external.CameraAccess.watchkitapp";
+				PRODUCT_BUNDLE_IDENTIFIER = com.carter.camerai.watchkitapp;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SDKROOT = watchos;
 				SWIFT_EMIT_LOC_STRINGS = YES;
@@ -870,13 +856,13 @@
 				ASSETCATALOG_COMPILER_GENERATE_SWIFT_ASSET_SYMBOL_EXTENSIONS = YES;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = V9WTTPBFK9;
+				DEVELOPMENT_TEAM = AC922H2743;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
-				INFOPLIST_KEY_WKCompanionAppBundleIdentifier = "com.meta.wearables.external.CameraAccess";
+				INFOPLIST_KEY_WKCompanionAppBundleIdentifier = com.carter.camerai;
 				LD_RUNPATH_SEARCH_PATHS = "@executable_path/Frameworks";
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = "com.meta.wearables.external.CameraAccess.watchkitapp";
+				PRODUCT_BUNDLE_IDENTIFIER = com.carter.camerai.watchkitapp;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SDKROOT = watchos;
 				SWIFT_EMIT_LOC_STRINGS = YES;

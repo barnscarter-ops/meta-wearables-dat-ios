@@ -74,6 +74,10 @@
 	</array>
 	<key>NSPhotoLibraryAddUsageDescription</key>
 	<string>This app needs access to save photos captured from your glasses.</string>
+	<key>LSApplicationQueriesSchemes</key>
+	<array>
+		<string>fb-viewapp</string>
+	</array>
 	<key>NSCameraUsageDescription</key>
 	<string>This app needs camera access to stream from your glasses and phone.</string>
 	<key>NSMicrophoneUsageDescription</key>

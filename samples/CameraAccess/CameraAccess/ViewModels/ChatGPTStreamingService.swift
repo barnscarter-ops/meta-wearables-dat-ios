@@ -19,10 +19,19 @@ final class ChatGPTStreamingService {
     }
 
     private func loadAPIKey() {
-        guard let path = Bundle.main.path(forResource: "Secrets", ofType: "plist"),
-              let dict = NSDictionary(contentsOfFile: path),
-              let key = dict["OPENAI_API_KEY"] as? String,
-              key != "PASTE_YOUR_KEY_HERE" else {
+        let environmentKey = ProcessInfo.processInfo.environment["OPENAI_API_KEY"]
+        let bundledKey: String?
+        if let path = Bundle.main.path(forResource: "Secrets", ofType: "plist"),
+           let dict = NSDictionary(contentsOfFile: path) {
+            bundledKey = dict["OPENAI_API_KEY"] as? String
+        } else {
+            bundledKey = nil
+        }
+
+        guard let key = (environmentKey ?? bundledKey)?.trimmingCharacters(in: .whitespacesAndNewlines),
+              !key.isEmpty,
+              key != "PASTE_YOUR_KEY_HERE",
+              key != "PASTE_YOUR_OPENAI_KEY_HERE" else {
             print("⚠️ ChatGPTStreamingService: API Key not found or not set in Secrets.plist")
             return
         }
