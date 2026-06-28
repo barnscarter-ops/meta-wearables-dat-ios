@@ -34,10 +34,6 @@ platform :ios do
       key_content: ENV["ASC_KEY_CONTENT"]
     )
 
-    # Download AppStore profiles to the system directory so xcodebuild can find them.
-    # PROVISIONING_PROFILE_SPECIFIER[sdk=...] conditional syntax does NOT work in xcargs
-    # (xcodebuild splits on first '=' so the bracket becomes part of the key name).
-    # Instead: set profiles per-target in the project file via update_project_provisioning.
     profile_dir = File.expand_path("~/Library/MobileDevice/Provisioning Profiles")
     FileUtils.mkdir_p(profile_dir)
 
@@ -63,16 +59,39 @@ platform :ios do
       build_configuration: "Release"
     )
 
-    # Xcode 26: archive must be signed with Distribution cert upfront.
-    # Per-target PROVISIONING_PROFILE (UUID) is already set by update_project_provisioning above.
+    # Archive manually so we can patch the Info.plist before export.
+    # Xcode 26 xcodebuild CLI omits ApplicationProperties from the archive Info.plist;
+    # without it, IDEDistributionMethodManager rejects every distribution method
+    # (including app-store) and the -exportArchive step fails with "Unknown Distribution Error".
+    archive_path = "/tmp/CameraAccess.xcarchive"
+    sh(
+      "xcodebuild -scheme CameraAccess -project '#{project_path}' " \
+      "-configuration Release -destination 'generic/platform=iOS' " \
+      "-archivePath '#{archive_path}' CODE_SIGN_STYLE=Manual " \
+      "DEVELOPMENT_TEAM=R9DLFUKL26 " \
+      "\"CODE_SIGN_IDENTITY=Apple Distribution: Carter Barns (R9DLFUKL26)\" archive"
+    )
+
+    # Inject ApplicationProperties so exportArchive can identify the archive platform.
+    app_plist = "#{archive_path}/Products/Applications/CameraAccess.app/Info.plist"
+    bundle_id    = sh("/usr/libexec/PlistBuddy -c 'Print :CFBundleIdentifier' '#{app_plist}'", log: false).strip
+    short_ver    = sh("/usr/libexec/PlistBuddy -c 'Print :CFBundleShortVersionString' '#{app_plist}'", log: false).strip
+    bundle_ver   = sh("/usr/libexec/PlistBuddy -c 'Print :CFBundleVersion' '#{app_plist}'", log: false).strip
+    info_plist   = "#{archive_path}/Info.plist"
+    pb = "/usr/libexec/PlistBuddy"
+    sh("#{pb} -c 'Add :ApplicationProperties dict' '#{info_plist}'")
+    sh("#{pb} -c 'Add :ApplicationProperties:ApplicationPath string Applications/CameraAccess.app' '#{info_plist}'")
+    sh("#{pb} -c 'Add :ApplicationProperties:CFBundleIdentifier string #{bundle_id}' '#{info_plist}'")
+    sh("#{pb} -c 'Add :ApplicationProperties:CFBundleShortVersionString string #{short_ver}' '#{info_plist}'")
+    sh("#{pb} -c 'Add :ApplicationProperties:CFBundleVersion string #{bundle_ver}' '#{info_plist}'")
+    sh("#{pb} -c 'Add :ApplicationProperties:SigningIdentity string Apple Distribution: Carter Barns (R9DLFUKL26)' '#{info_plist}'")
+    sh("#{pb} -c 'Add :ApplicationProperties:Team string R9DLFUKL26' '#{info_plist}'")
+
     gym(
-      scheme: "CameraAccess",
-      project: project_path,
-      configuration: "Release",
-      destination: "generic/platform=iOS",
+      skip_archive: true,
+      archive_path: archive_path,
       export_method: "app-store",
       output_directory: "./build",
-      xcargs: 'CODE_SIGN_STYLE=Manual DEVELOPMENT_TEAM=R9DLFUKL26 CODE_SIGN_IDENTITY="Apple Distribution: Carter Barns (R9DLFUKL26)"',
       export_options: {
         method: "app-store",
         signingStyle: "manual",
