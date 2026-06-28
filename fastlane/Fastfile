@@ -18,7 +18,7 @@ platform :ios do
       add_to_search_list: true
     )
 
-    # Import Distribution cert so xcodebuild can sign for export
+    # Import Distribution cert so xcodebuild can sign the archive
     p12_path = "/tmp/dist_cert.p12"
     File.write(p12_path, Base64.decode64(ENV["DIST_CERT_P12_BASE64"]))
     import_certificate(
@@ -34,10 +34,14 @@ platform :ios do
       key_content: ENV["ASC_KEY_CONTENT"]
     )
 
-    # Write API key to disk; xcodebuild needs a file path, not an env var
-    key_path = "/tmp/AuthKey_#{ENV['ASC_KEY_ID']}.p8"
-    File.write(key_path, ENV["ASC_KEY_CONTENT"])
+    # Ensure profiles dir exists, then install AppStore Distribution profiles
+    FileUtils.mkdir_p(File.expand_path("~/Library/MobileDevice/Provisioning Profiles"))
+    sigh(api_key: api_key, app_identifier: "com.carter.camerai")
+    sigh(api_key: api_key, app_identifier: "com.carter.camerai.watchkitapp")
 
+    # Xcode 26 requires the archive to be signed with a Distribution cert upfront;
+    # it no longer re-signs from Development during export. Use manual signing
+    # with per-SDK profile specifiers so iOS and watchOS targets get distinct profiles.
     gym(
       scheme: "CameraAccess",
       project: "samples/CameraAccess/CameraAccess.xcodeproj",
@@ -45,7 +49,15 @@ platform :ios do
       destination: "generic/platform=iOS",
       export_method: "app-store",
       output_directory: "./build",
-      xcargs: "DEVELOPMENT_TEAM=R9DLFUKL26 -allowProvisioningUpdates -authenticationKeyPath #{key_path} -authenticationKeyID #{ENV['ASC_KEY_ID']} -authenticationKeyIssuerID #{ENV['ASC_ISSUER_ID']}"
+      xcargs: %q(CODE_SIGN_STYLE=Manual DEVELOPMENT_TEAM=R9DLFUKL26 CODE_SIGN_IDENTITY="Apple Distribution: Carter Barns (R9DLFUKL26)" "PROVISIONING_PROFILE_SPECIFIER[sdk=iphoneos*]=com.carter.camerai AppStore" "PROVISIONING_PROFILE_SPECIFIER[sdk=watchos*]=com.carter.camerai.watchkitapp AppStore"),
+      export_options: {
+        method: "app-store",
+        signingStyle: "manual",
+        provisioningProfiles: {
+          "com.carter.camerai" => "com.carter.camerai AppStore",
+          "com.carter.camerai.watchkitapp" => "com.carter.camerai.watchkitapp AppStore"
+        }
+      }
     )
 
     pilot(
