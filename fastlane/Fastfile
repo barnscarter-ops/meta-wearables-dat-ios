@@ -35,6 +35,14 @@ platform :ios do
 
     # Download and install Distribution provisioning profiles
     sigh(api_key: api_key, app_identifier: "com.carter.camerai")
+
+    # Register Watch App bundle ID in developer portal (not as a separate App Store app)
+    produce(
+      api_key: api_key,
+      app_identifier: "com.carter.camerai.watchkitapp",
+      app_name: "CameraAccess Watch",
+      skip_itc: true
+    )
     sigh(api_key: api_key, app_identifier: "com.carter.camerai.watchkitapp")
 
     gym(
