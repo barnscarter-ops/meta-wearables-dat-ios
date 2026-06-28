@@ -35,6 +35,9 @@ platform :ios do
       key_content: ENV["ASC_KEY_CONTENT"]
     )
 
+    # Ensure the system provisioning profiles dir exists (absent on fresh MacInCloud)
+    FileUtils.mkdir_p(File.expand_path("~/Library/MobileDevice/Provisioning Profiles"))
+
     sigh(api_key: api_key, app_identifier: "com.carter.camerai")
     sigh(api_key: api_key, app_identifier: "com.carter.camerai.watchkitapp")
 
