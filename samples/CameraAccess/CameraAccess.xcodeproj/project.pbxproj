@@ -45,6 +45,7 @@
 		FEEE00132F95000900000001 /* WatchApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = FEEE00122F95000900000001 /* WatchApp.swift */; };
 		FEEE00152F95000A00000001 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FEEE00142F95000A00000001 /* ContentView.swift */; };
 		FEEE00172F95000B00000001 /* WatchConnectivityManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = FEEE00162F95000B00000001 /* WatchConnectivityManager.swift */; };
+		FEEE00302F95002000000001 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = FEEE00312F95002100000001 /* Assets.xcassets */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -135,6 +136,7 @@
 		FEEE00122F95000900000001 /* WatchApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WatchApp.swift; sourceTree = "<group>"; };
 		FEEE00142F95000A00000001 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		FEEE00162F95000B00000001 /* WatchConnectivityManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WatchConnectivityManager.swift; sourceTree = "<group>"; };
+		FEEE00312F95002100000001 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFileSystemSynchronizedRootGroup section */
@@ -294,6 +296,7 @@
 				FEEE00122F95000900000001 /* WatchApp.swift */,
 				FEEE00142F95000A00000001 /* ContentView.swift */,
 				FEEE00162F95000B00000001 /* WatchConnectivityManager.swift */,
+				FEEE00312F95002100000001 /* Assets.xcassets */,
 			);
 			path = "CameraAccess Watch App/CameraAccess Watch App";
 			sourceTree = "<group>";
@@ -462,6 +465,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				FEEE00302F95002000000001 /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -841,6 +845,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "@executable_path/Frameworks";
 				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = com.carter.camerai.watchkitapp;
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SDKROOT = watchos;
 				SKIP_INSTALL = YES;
@@ -864,6 +869,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "@executable_path/Frameworks";
 				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = com.carter.camerai.watchkitapp;
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SDKROOT = watchos;
 				SKIP_INSTALL = YES;
