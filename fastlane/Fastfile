@@ -1,0 +1,33 @@
+default_platform(:ios)
+
+platform :ios do
+  desc "Build, archive, and upload to TestFlight"
+  lane :deploy do
+    api_key = app_store_connect_api_key(
+      key_id: ENV["ASC_KEY_ID"],
+      issuer_id: ENV["ASC_ISSUER_ID"],
+      key_filepath: ENV["ASC_API_KEY_PATH"]
+    )
+
+    cert(api_key: api_key)
+
+    sigh(
+      api_key: api_key,
+      app_identifier: "com.carter.camerai"
+    )
+
+    gym(
+      scheme: "CameraAccess",
+      project: "samples/CameraAccess/CameraAccess.xcodeproj",
+      configuration: "Release",
+      destination: "generic/platform=iOS",
+      export_method: "app-store",
+      output_directory: "./build"
+    )
+
+    pilot(
+      api_key: api_key,
+      skip_waiting_for_build_processing: true
+    )
+  end
+end
