@@ -3,11 +3,15 @@ default_platform(:ios)
 platform :ios do
   desc "Build, archive, and upload to TestFlight"
   lane :deploy do
-    # Create a fresh keychain so cert/sigh can import certs without
+    keychain_name = "ci_keychain"
+    keychain_pass = "ci_temp_pass"
+    keychain_path = File.expand_path("~/Library/Keychains/#{keychain_name}-db")
+
+    # Create a fresh unlocked keychain so cert can import without
     # "User interaction is not allowed" (the login keychain is locked in CI)
     create_keychain(
-      name: "ci_keychain",
-      password: "ci_temp_pass",
+      name: keychain_name,
+      password: keychain_pass,
       default_keychain: true,
       unlock: true,
       timeout: 3600,
@@ -24,8 +28,8 @@ platform :ios do
     # Create/download Distribution cert into ci_keychain
     cert(
       api_key: api_key,
-      keychain_name: "ci_keychain",
-      keychain_password: "ci_temp_pass"
+      keychain_path: keychain_path,
+      keychain_password: keychain_pass
     )
 
     # Download and install Distribution provisioning profiles
