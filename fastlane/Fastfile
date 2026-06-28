@@ -105,12 +105,18 @@ platform :ios do
       }
     )
 
-    pilot(
-      api_key: api_key,
-      app_identifier: "com.carter.camerai",
-      app_platform: "ios",
-      ipa: "./build/CameraAccess.ipa",
-      skip_waiting_for_build_processing: true
+    # Upload via altool directly. fastlane's pilot (2.236.1) does not forward the
+    # platform to altool, and altool cannot infer it from an IPA that embeds a
+    # watchOS companion -> "Cannot determine the platform; please specify --platform".
+    # Calling altool with an explicit --type ios sidesteps the inference entirely.
+    key_dir = File.expand_path("~/.appstoreconnect/private_keys")
+    FileUtils.mkdir_p(key_dir)
+    File.write("#{key_dir}/AuthKey_#{ENV['ASC_KEY_ID']}.p8", ENV["ASC_KEY_CONTENT"])
+
+    ipa_path = "#{repo_root}/build/CameraAccess.ipa"
+    sh(
+      "xcrun altool --upload-app -f '#{ipa_path}' --type ios " \
+      "--apiKey #{ENV['ASC_KEY_ID']} --apiIssuer #{ENV['ASC_ISSUER_ID']}"
     )
   end
 end
