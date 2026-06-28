@@ -9,6 +9,11 @@ platform :ios do
       key_content: ENV["ASC_KEY_CONTENT"]
     )
 
+    # xcodebuild needs the .p8 key on disk for -authenticationKeyPath
+    key_path = "/tmp/AuthKey_#{ENV['ASC_KEY_ID']}.p8"
+    File.write(key_path, ENV["ASC_KEY_CONTENT"])
+    auth_flags = "-allowProvisioningUpdates -authenticationKeyPath #{key_path} -authenticationKeyID #{ENV['ASC_KEY_ID']} -authenticationKeyIssuerID #{ENV['ASC_ISSUER_ID']}"
+
     gym(
       scheme: "CameraAccess",
       project: "samples/CameraAccess/CameraAccess.xcodeproj",
@@ -16,7 +21,8 @@ platform :ios do
       destination: "generic/platform=iOS",
       export_method: "app-store",
       output_directory: "./build",
-      xcargs: "CODE_SIGN_STYLE=Automatic DEVELOPMENT_TEAM=AC922H2743 -allowProvisioningUpdates"
+      xcargs: "CODE_SIGN_STYLE=Automatic DEVELOPMENT_TEAM=AC922H2743 #{auth_flags}",
+      export_xcargs: auth_flags
     )
 
     pilot(
