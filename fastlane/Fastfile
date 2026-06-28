@@ -3,16 +3,34 @@ default_platform(:ios)
 platform :ios do
   desc "Build, archive, and upload to TestFlight"
   lane :deploy do
+    # Create a fresh keychain so cert/sigh can import certs without
+    # "User interaction is not allowed" (the login keychain is locked in CI)
+    create_keychain(
+      name: "ci_keychain",
+      password: "ci_temp_pass",
+      default_keychain: true,
+      unlock: true,
+      timeout: 3600,
+      lock_when_sleeps: false,
+      add_to_search_list: true
+    )
+
     api_key = app_store_connect_api_key(
       key_id: ENV["ASC_KEY_ID"],
       issuer_id: ENV["ASC_ISSUER_ID"],
       key_content: ENV["ASC_KEY_CONTENT"]
     )
 
-    # xcodebuild needs the .p8 key on disk for -authenticationKeyPath
-    key_path = "/tmp/AuthKey_#{ENV['ASC_KEY_ID']}.p8"
-    File.write(key_path, ENV["ASC_KEY_CONTENT"])
-    auth_flags = "-allowProvisioningUpdates -authenticationKeyPath #{key_path} -authenticationKeyID #{ENV['ASC_KEY_ID']} -authenticationKeyIssuerID #{ENV['ASC_ISSUER_ID']}"
+    # Create/download Distribution cert into ci_keychain
+    cert(
+      api_key: api_key,
+      keychain_name: "ci_keychain",
+      keychain_password: "ci_temp_pass"
+    )
+
+    # Download and install Distribution provisioning profiles
+    sigh(api_key: api_key, app_identifier: "com.carter.camerai")
+    sigh(api_key: api_key, app_identifier: "com.carter.camerai.watchkitapp")
 
     gym(
       scheme: "CameraAccess",
@@ -20,9 +38,7 @@ platform :ios do
       configuration: "Release",
       destination: "generic/platform=iOS",
       export_method: "app-store",
-      output_directory: "./build",
-      xcargs: "CODE_SIGN_STYLE=Automatic DEVELOPMENT_TEAM=AC922H2743 #{auth_flags}",
-      export_xcargs: auth_flags
+      output_directory: "./build"
     )
 
     pilot(
