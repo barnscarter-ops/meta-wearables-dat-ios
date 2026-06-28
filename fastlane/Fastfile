@@ -89,6 +89,7 @@ platform :ios do
     sh("#{pb} -c 'Add :ApplicationProperties:Team string R9DLFUKL26' '#{info_plist}'")
 
     gym(
+      project: project_path,
       skip_archive: true,
       archive_path: archive_path,
       export_method: "app-store",
