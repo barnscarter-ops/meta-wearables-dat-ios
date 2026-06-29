@@ -37,7 +37,9 @@ final class GeminiImageService {
         apiKey = key
     }
 
-    static func loadKey() -> String {
+    // nonisolated: reads only ProcessInfo/Bundle (no actor state), so it can be
+    // called from nonisolated contexts like PhotoAnalysisServiceFactory.defaultAPIKey.
+    nonisolated static func loadKey() -> String {
         if let env = ProcessInfo.processInfo.environment["GEMINI_API_KEY"], !env.isEmpty {
             return env
         }

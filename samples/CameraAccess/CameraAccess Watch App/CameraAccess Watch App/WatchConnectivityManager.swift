@@ -38,10 +38,13 @@ final class WatchConnectivityManager: NSObject, ObservableObject, WCSessionDeleg
     }
 
     // MARK: - WCSessionDelegate
+    // nonisolated: WCSessionDelegate requirements are nonisolated; a @MainActor class
+    // can't satisfy them otherwise under Swift 6. Bodies that touch main-actor state
+    // hop via Task { @MainActor in }.
 
-    func session(_ session: WCSession, activationDidCompleteWith activationState: WCSessionActivationState, error: Error?) {}
+    nonisolated func session(_ session: WCSession, activationDidCompleteWith activationState: WCSessionActivationState, error: Error?) {}
 
-    func session(_ session: WCSession, didReceiveMessage message: [String: Any]) {
+    nonisolated func session(_ session: WCSession, didReceiveMessage message: [String: Any]) {
         Task { @MainActor in
             if let text = message["ai_response"] as? String {
                 lastAIResponse = text

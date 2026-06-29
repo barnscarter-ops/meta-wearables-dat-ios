@@ -41,10 +41,13 @@ final class WatchConnectivityManager: NSObject, WCSessionDelegate {
     }
 
     // MARK: - WCSessionDelegate
+    // nonisolated: WCSessionDelegate requirements are nonisolated; a @MainActor class
+    // can't satisfy them otherwise under Swift 6. Bodies that touch main-actor state
+    // hop via Task { @MainActor in }.
 
-    func session(_ session: WCSession, activationDidCompleteWith activationState: WCSessionActivationState, error: Error?) {}
+    nonisolated func session(_ session: WCSession, activationDidCompleteWith activationState: WCSessionActivationState, error: Error?) {}
 
-    func session(_ session: WCSession, didReceiveMessage message: [String: Any]) {
+    nonisolated func session(_ session: WCSession, didReceiveMessage message: [String: Any]) {
         guard let action = message["action"] as? String else { return }
         Task { @MainActor in
             switch action {
@@ -56,7 +59,7 @@ final class WatchConnectivityManager: NSObject, WCSessionDelegate {
     }
 
     #if os(iOS)
-    func sessionDidBecomeInactive(_ session: WCSession) {}
-    func sessionDidDeactivate(_ session: WCSession) {}
+    nonisolated func sessionDidBecomeInactive(_ session: WCSession) {}
+    nonisolated func sessionDidDeactivate(_ session: WCSession) {}
     #endif
 }
