@@ -1,0 +1,12 @@
+{
+  "appName": "Camera AI",
+  "scheme": "CameraAccess",
+  "projectPath": "samples/CameraAccess/CameraAccess.xcodeproj",
+  "secrets": [
+    {
+      "env": "OPENAI_API_KEY",
+      "dest": "samples/CameraAccess/CameraAccess/Secrets.plist",
+      "key": "OPENAI_API_KEY"
+    }
+  ]
+}
