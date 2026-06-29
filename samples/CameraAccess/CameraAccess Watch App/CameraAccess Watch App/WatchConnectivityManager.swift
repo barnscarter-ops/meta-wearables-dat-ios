@@ -6,6 +6,7 @@ final class WatchConnectivityManager: NSObject, WCSessionDelegate {
     static let shared = WatchConnectivityManager()
 
     @Published var isLiveModeEnabled: Bool = false
+    @Published var lastAIResponse: String = ""
 
     private override init() {
         super.init()
@@ -37,7 +38,13 @@ final class WatchConnectivityManager: NSObject, WCSessionDelegate {
 
     // MARK: - WCSessionDelegate
 
-    func session(_ session: WCSession, activationDidCompleteWith activationState: WCSessionActivationState, error: Error?) {
-        // Handle activation completion
+    func session(_ session: WCSession, activationDidCompleteWith activationState: WCSessionActivationState, error: Error?) {}
+
+    func session(_ session: WCSession, didReceiveMessage message: [String: Any]) {
+        Task { @MainActor in
+            if let text = message["ai_response"] as? String {
+                lastAIResponse = text
+            }
+        }
     }
 }

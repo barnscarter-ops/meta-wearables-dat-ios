@@ -17,6 +17,17 @@ final class WatchConnectivityManager: NSObject, WCSessionDelegate {
         }
     }
 
+    func sendAIResponse(_ text: String) {
+        guard WCSession.default.isReachable else { return }
+        WCSession.default.sendMessage(
+            ["ai_response": text],
+            replyHandler: nil,
+            errorHandler: { error in
+                print("⚠️ WatchConnectivityManager: failed to send AI response: \(error.localizedDescription)")
+            }
+        )
+    }
+
     // Sends live mode state back to the Watch. Call after toggling isLiveModeEnabled.
     func sendLiveModeStatus(isEnabled: Bool) {
         guard WCSession.default.isReachable else { return }

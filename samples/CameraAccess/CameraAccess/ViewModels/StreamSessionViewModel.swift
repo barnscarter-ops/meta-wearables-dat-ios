@@ -155,6 +155,7 @@ final class StreamSessionViewModel {
         prompt: "You are a helpful, real-time AI assistant seeing a live stream from Meta Ray-Ban glasses. Your goal is to be the user's 'eyes' and 'brain'. Describe the scene concisely, identify key objects, and answer questions naturally. If you see something interesting or dangerous, point it out immediately. Keep responses brief and conversational."
       )
       aiResponse = response
+      WatchConnectivityManager.shared.sendAIResponse(response)
     } catch {
       aiResponse = "Error: \(error.localizedDescription)"
     }
@@ -242,6 +243,7 @@ final class StreamSessionViewModel {
         prompt: "You are a helpful AI assistant the user can talk to through their Meta Ray-Ban glasses. Answer their question about what you see clearly and concisely. Your response will be read aloud, so speak naturally — no markdown, no bullet points."
       )
       aiResponse = text
+      WatchConnectivityManager.shared.sendAIResponse(text)
       playAudioData(audioData)
     } catch {
       aiResponse = "Error: \(error.localizedDescription)"
