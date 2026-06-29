@@ -1,8 +1,9 @@
+import Combine
 import Foundation
 import WatchConnectivity
 
 @MainActor
-final class WatchConnectivityManager: NSObject, WCSessionDelegate {
+final class WatchConnectivityManager: NSObject, ObservableObject, WCSessionDelegate {
     static let shared = WatchConnectivityManager()
 
     @Published var isLiveModeEnabled: Bool = false
