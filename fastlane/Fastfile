@@ -29,11 +29,20 @@ platform :ios do
     sh("security unlock-keychain -p #{keychain_pass} #{kc}")
     # Prepend our keychain to the user search list (keeping existing entries) so
     # codesign can find the Distribution identity.
-    existing = sh("security list-keychains -d user", log: false).split("\n").map { |l| l.strip.delete('"') }.reject(&:empty?)
-    sh("security list-keychains -d user -s #{kc} #{existing.shelljoin}")
-    # Make ours the default keychain. This runner has no default configured, so
-    # find-identity (used by sigh) dies with "A default keychain could not be found".
-    sh("security default-keychain -d user -s #{kc}")
+    # Use the BARE `-s` form, NOT `-d user -s`. `-d user` writes only the persistent
+    # user preference, which the system reads at the NEXT session start. The runner's
+    # job runs in a cron-spawned session whose LIVE search list therefore never picks
+    # up our keychain, so find-identity (used by sigh) finds zero identities and signing
+    # fails. Bare `-s` updates the live session list immediately. Keep the session's
+    # existing keychains (login/System) so the Apple WWDR chain stays reachable; drop
+    # any stale ci_keychain so reruns don't accumulate duplicates.
+    existing = sh("security list-keychains", log: false)
+               .split("\n").map { |l| l.strip.delete('"') }
+               .reject(&:empty?).reject { |k| k.include?("ci_keychain") }
+    sh("security list-keychains -s #{kc} #{existing.shelljoin}")
+    # Make ours the default keychain too (also bare `-s` for the live session) so
+    # find-identity has a default to fall back on.
+    sh("security default-keychain -s #{kc}")
 
     # Import Distribution cert so xcodebuild can sign the archive.
     p12_path = "/tmp/dist_cert.p12"
@@ -49,9 +58,9 @@ platform :ios do
     # set-key-partition-list ourselves. Without it codesign blocks on a UI prompt for
     # keychain access, which hangs forever in the headless runner.
     sh("security set-key-partition-list -S apple-tool:,apple:,codesign: -s -k #{keychain_pass} #{kc}")
-    # Diagnostic: confirm the imported Distribution identity is visible & valid. If this
-    # lists nothing, the chain (Apple WWDR intermediate) is missing from the search list.
-    sh("security find-identity -v -p codesigning #{kc} || true")
+    # Diagnostic: confirm the identity is visible via the LIVE search list (no keychain
+    # arg, exactly as sigh queries it). If this lists it, sigh will too.
+    sh("security find-identity -v -p codesigning || true")
 
     api_key = app_store_connect_api_key(
       key_id: ENV["ASC_KEY_ID"],
