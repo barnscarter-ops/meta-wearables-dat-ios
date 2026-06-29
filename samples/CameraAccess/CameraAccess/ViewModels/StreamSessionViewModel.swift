@@ -204,7 +204,7 @@ final class StreamSessionViewModel {
     ]
 
     do {
-      try AVAudioSession.sharedInstance().setCategory(.playAndRecord, mode: .default, options: .defaultToSpeaker)
+      try AVAudioSession.sharedInstance().setCategory(.playAndRecord, mode: .default, options: [.allowBluetoothA2DP])
       try AVAudioSession.sharedInstance().setActive(true)
       audioRecorder = try AVAudioRecorder(url: url, settings: settings)
       audioRecorder?.record(forDuration: 8)
@@ -255,7 +255,7 @@ final class StreamSessionViewModel {
 
   private func playAudioData(_ data: Data) {
     do {
-      try AVAudioSession.sharedInstance().setCategory(.playAndRecord, mode: .default, options: .defaultToSpeaker)
+      try AVAudioSession.sharedInstance().setCategory(.playAndRecord, mode: .default, options: [.allowBluetoothA2DP])
       audioPlayer = try AVAudioPlayer(data: data)
       audioPlayer?.play()
     } catch {
