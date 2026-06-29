@@ -2,32 +2,58 @@ import SwiftUI
 
 struct ContentView: View {
     @State private var isLiveModeEnabled = false
+    @State private var isRecording = false
+    @ObservedObject private var connectivity = WatchConnectivityManager.shared
 
     var body: some View {
-        VStack(spacing: 20) {
-            Image(systemName: "eye.fill")
-                .resizable()
-                .scaledToFit()
-                .frame(width: 40, height: 40)
-                .foregroundColor(isLiveModeEnabled ? .green : .gray)
-                .opacity(isLiveModeEnabled ? 1 : 0.5)
+        ScrollView {
+            VStack(spacing: 12) {
+                // Status icon + label
+                HStack(spacing: 8) {
+                    Image(systemName: isRecording ? "mic.fill" : "eye.fill")
+                        .foregroundColor(isRecording ? .red : (isLiveModeEnabled ? .green : .gray))
+                        .symbolEffect(.pulse, isActive: isRecording)
 
-            Text(isLiveModeEnabled ? "GPT LIVE" : "GPT IDLE")
-                .font(.system(size: 16, weight: .bold, design: .rounded))
-                .foregroundColor(isLiveModeEnabled ? .green : .white)
+                    Text(isRecording ? "Listening..." : (isLiveModeEnabled ? "Live ON" : "Ready"))
+                        .font(.system(size: 13, weight: .semibold, design: .rounded))
+                        .foregroundColor(isRecording ? .red : (isLiveModeEnabled ? .green : .white))
+                }
 
-            Button(action: {
-                isLiveModeEnabled.toggle()
-                WatchConnectivityManager.shared.toggleLiveMode()
-            }) {
-                Text(isLiveModeEnabled ? "Stop Analysis" : "Start Live Chat")
-                    .fontWeight(.semibold)
+                // Primary: voice query trigger
+                Button(action: {
+                    isRecording.toggle()
+                    WatchConnectivityManager.shared.triggerVoiceQuery()
+                }) {
+                    Label(isRecording ? "Stop" : "Ask AI", systemImage: isRecording ? "stop.fill" : "mic.fill")
+                        .fontWeight(.semibold)
+                }
+                .buttonStyle(.borderedProminent)
+                .tint(isRecording ? .red : .blue)
+
+                // Secondary: live auto-analysis toggle
+                Button(action: {
+                    isLiveModeEnabled.toggle()
+                    WatchConnectivityManager.shared.toggleLiveMode()
+                }) {
+                    Text(isLiveModeEnabled ? "Live: Stop" : "Live: Start")
+                        .font(.system(size: 12))
+                }
+                .buttonStyle(.bordered)
+                .tint(isLiveModeEnabled ? .orange : .gray)
+
+                // AI response — shown after each query
+                if !connectivity.lastAIResponse.isEmpty {
+                    Divider()
+
+                    Text(connectivity.lastAIResponse)
+                        .font(.system(size: 13))
+                        .foregroundColor(.white)
+                        .frame(maxWidth: .infinity, alignment: .leading)
+                        .fixedSize(horizontal: false, vertical: true)
+                }
             }
-            .buttonStyle(.borderedProminent)
-            .tint(isLiveModeEnabled ? .red : .blue)
-            .cornerRadius(12)
+            .padding()
         }
-        .padding()
     }
 }
 

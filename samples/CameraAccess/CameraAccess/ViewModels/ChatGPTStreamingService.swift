@@ -1,11 +1,24 @@
 import Foundation
 import UIKit
 
-enum ChatGPTError: Error {
+enum ChatGPTError: LocalizedError {
     case invalidAPIKey
     case networkError(Error)
     case apiError(String)
     case decodingError
+
+    var errorDescription: String? {
+        switch self {
+        case .invalidAPIKey:
+            return "No valid OpenAI API key found. Add your key to Secrets.plist under OPENAI_API_KEY."
+        case .networkError(let underlying):
+            return "Network error: \(underlying.localizedDescription)"
+        case .apiError(let message):
+            return message
+        case .decodingError:
+            return "Failed to parse the OpenAI response."
+        }
+    }
 }
 
 @MainActor
@@ -72,10 +85,19 @@ final class ChatGPTStreamingService {
 
         request.httpBody = try JSONSerialization.data(withJSONObject: body)
 
-        let (data, response) = try await URLSession.shared.data(for: request)
+        let data: Data
+        let response: URLResponse
+        do {
+            (data, response) = try await URLSession.shared.data(for: request)
+        } catch {
+            throw ChatGPTError.networkError(error)
+        }
 
         guard let httpResponse = response as? HTTPURLResponse, httpResponse.statusCode == 200 else {
-            let errorMsg = String(data: data, encoding: .utf8) ?? "Unknown API error"
+            // Try to extract the human-readable message from OpenAI's error JSON.
+            let errorMsg = (try? JSONDecoder().decode(OpenAIErrorEnvelope.self, from: data))?.error.message
+                ?? String(data: data, encoding: .utf8)
+                ?? "Unknown API error"
             throw ChatGPTError.apiError(errorMsg)
         }
 
@@ -83,21 +105,21 @@ final class ChatGPTStreamingService {
         return decoded.choices.first?.message.content ?? "No response from AI"
     }
 
-    /// Sends a frame, an audio file, and a prompt to GPT-4o.
-    /// Returns the AI's response as text and audio data.
+    /// Records the user's voice question, analyzes the current glasses frame with Gemini,
+    /// and returns the AI's response as text and TTS audio (OpenAI).
     func analyzeVoiceAndFrame(image: UIImage, audioURL: URL, prompt: String) async throws -> (text: String, audio: Data) {
-        guard let key = apiKey else {
+        guard apiKey != nil else {
             throw ChatGPTError.invalidAPIKey
         }
 
-        // 1. Transcribe Audio using Whisper
+        // 1. Transcribe the user's question via OpenAI Whisper
         let transcription = try await transcribeAudio(url: audioURL)
 
-        // 2. Get Response from GPT-4o
-        let fullPrompt = "\(prompt)\n\nUser said: \(transcription)"
-        let textResponse = try await analyzeFrame(image: image, prompt: fullPrompt)
+        // 2. Analyze the glasses frame + question with Gemini
+        let fullPrompt = "\(prompt)\n\nUser asked: \(transcription)"
+        let textResponse = try await GeminiImageService.shared.analyzeFrame(image: image, prompt: fullPrompt)
 
-        // 3. Convert Response to Speech using OpenAI TTS
+        // 3. Speak the response via OpenAI TTS
         let audioData = try await synthesizeSpeech(text: textResponse)
 
         return (textResponse, audioData)
@@ -144,6 +166,13 @@ final class ChatGPTStreamingService {
         let (data, _) = try await URLSession.shared.data(for: request)
         return data
     }
+}
+
+struct OpenAIErrorEnvelope: Decodable {
+    struct OpenAIError: Decodable {
+        let message: String
+    }
+    let error: OpenAIError
 }
 
 struct TranscriptionResponse: Codable {

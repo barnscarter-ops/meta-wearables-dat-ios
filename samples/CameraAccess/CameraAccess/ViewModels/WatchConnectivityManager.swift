@@ -6,6 +6,7 @@ final class WatchConnectivityManager: NSObject, WCSessionDelegate {
     static let shared = WatchConnectivityManager()
 
     var onLiveModeToggled: (() -> Void)?
+    var onVoiceQueryTriggered: (() -> Void)?
 
     private override init() {
         super.init()
@@ -14,6 +15,17 @@ final class WatchConnectivityManager: NSObject, WCSessionDelegate {
             session.delegate = self
             session.activate()
         }
+    }
+
+    func sendAIResponse(_ text: String) {
+        guard WCSession.default.isReachable else { return }
+        WCSession.default.sendMessage(
+            ["ai_response": text],
+            replyHandler: nil,
+            errorHandler: { error in
+                print("⚠️ WatchConnectivityManager: failed to send AI response: \(error.localizedDescription)")
+            }
+        )
     }
 
     // Sends live mode state back to the Watch. Call after toggling isLiveModeEnabled.
@@ -33,9 +45,12 @@ final class WatchConnectivityManager: NSObject, WCSessionDelegate {
     func session(_ session: WCSession, activationDidCompleteWith activationState: WCSessionActivationState, error: Error?) {}
 
     func session(_ session: WCSession, didReceiveMessage message: [String: Any]) {
-        if let action = message["action"] as? String, action == "toggle_live_mode" {
-            Task { @MainActor in
-                onLiveModeToggled?()
+        guard let action = message["action"] as? String else { return }
+        Task { @MainActor in
+            switch action {
+            case "toggle_live_mode": onLiveModeToggled?()
+            case "voice_query":     onVoiceQueryTriggered?()
+            default: break
             }
         }
     }

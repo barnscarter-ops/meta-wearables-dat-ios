@@ -7,6 +7,11 @@
       "env": "OPENAI_API_KEY",
       "dest": "samples/CameraAccess/CameraAccess/Secrets.plist",
       "key": "OPENAI_API_KEY"
+    },
+    {
+      "env": "GEMINI_API_KEY",
+      "dest": "samples/CameraAccess/CameraAccess/Secrets.plist",
+      "key": "GEMINI_API_KEY"
     }
   ]
 }
