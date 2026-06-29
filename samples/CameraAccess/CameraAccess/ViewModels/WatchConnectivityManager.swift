@@ -28,6 +28,23 @@ final class WatchConnectivityManager: NSObject, WCSessionDelegate {
         )
     }
 
+    // Tells the Watch the glasses are now listening (so it can buzz + show "Listening…").
+    func sendListeningState() { sendState("listening") }
+
+    // Tells the Watch the question was captured and the AI is now working.
+    func sendThinkingState() { sendState("thinking") }
+
+    private func sendState(_ state: String) {
+        guard WCSession.default.isReachable else { return }
+        WCSession.default.sendMessage(
+            ["state": state],
+            replyHandler: nil,
+            errorHandler: { error in
+                print("⚠️ WatchConnectivityManager: failed to send state \(state): \(error.localizedDescription)")
+            }
+        )
+    }
+
     // Sends live mode state back to the Watch. Call after toggling isLiveModeEnabled.
     func sendLiveModeStatus(isEnabled: Bool) {
         guard WCSession.default.isReachable else { return }

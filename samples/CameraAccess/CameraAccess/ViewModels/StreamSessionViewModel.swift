@@ -7,6 +7,7 @@
  */
 
 import AVFoundation
+import AudioToolbox
 import MWDATCamera
 import MWDATCore
 import Observation
@@ -60,7 +61,6 @@ final class StreamSessionViewModel {
   private var audioRecorder: AVAudioRecorder?
   private var audioPlayer: AVAudioPlayer?
   private var recordingURL: URL?
-  private var voiceQueryFrame: UIImage?
 
   // MARK: - Init
 
@@ -171,21 +171,41 @@ final class StreamSessionViewModel {
   }
 
   // MARK: - Voice Query
+  //
+  // Flow (matches what the user asked for):
+  //   tap "Ask AI" → INSTANTLY show "Listening…", beep, buzz the Watch
+  //   → user speaks → auto-stops ~1.5s after they go quiet (12s hard cap)
+  //   → beep, capture the frame NOW (what they're looking at when they finish)
+  //   → "Thinking…" → transcribe + analyze + speak the reply back.
+
+  // Silence-detection tuning. ponytail: thresholds are dead-reckoned for the
+  // glasses/phone mic; calibrate against a real recording if speech gets clipped
+  // (raise silenceThresholdDB) or it hangs on after you stop (lower it).
+  private static let silenceThresholdDB: Float = -35.0
+  private static let requiredSilence: TimeInterval = 1.5
+  private static let maxRecordSeconds: TimeInterval = 12.0
+  private static let meterPollSeconds: TimeInterval = 0.1
+
+  /// Pure decision used by the metering loop: stop once the user has spoken and
+  /// then gone quiet for `requiredSilence`, or once the hard cap is hit. Extracted
+  /// so the timing logic is testable without an `AVAudioRecorder`.
+  static func shouldStopRecording(
+    elapsed: TimeInterval,
+    silence: TimeInterval,
+    heardSpeech: Bool
+  ) -> Bool {
+    (heardSpeech && silence >= requiredSilence) || elapsed >= maxRecordSeconds
+  }
 
   func triggerVoiceQuery() async {
     if isRecording {
-      await finishVoiceQuery()
+      await finishVoiceQuery()   // manual "Stop" tap ends it early
     } else if !isAnalyzing {
       await startVoiceRecording()
     }
   }
 
   private func startVoiceRecording() async {
-    guard let frame = currentVideoFrame else {
-      showError("No video frame yet — make sure streaming is active.")
-      return
-    }
-
     let granted = await withCheckedContinuation { continuation in
       AVAudioSession.sharedInstance().requestRecordPermission { continuation.resume(returning: $0) }
     }
@@ -206,20 +226,55 @@ final class StreamSessionViewModel {
     do {
       try AVAudioSession.sharedInstance().setCategory(.playAndRecord, mode: .default, options: [.allowBluetoothA2DP])
       try AVAudioSession.sharedInstance().setActive(true)
-      audioRecorder = try AVAudioRecorder(url: url, settings: settings)
-      audioRecorder?.record(forDuration: 8)
+      let recorder = try AVAudioRecorder(url: url, settings: settings)
+      recorder.isMeteringEnabled = true   // needed for silence auto-stop
+      recorder.record()
+      audioRecorder = recorder
       recordingURL = url
-      voiceQueryFrame = frame
       isRecording = true
     } catch {
       showError("Could not start recording: \(error.localizedDescription)")
       return
     }
 
-    // Auto-finish when the 8-second recording window closes
-    Task {
-      try? await Task.sleep(nanoseconds: 8_100_000_000)
-      if isRecording { await finishVoiceQuery() }
+    // Immediate feedback the moment recording starts — this is the fix for
+    // "10 seconds before Listening shows up": the label used to appear AFTER the
+    // recording window, not at the start.
+    aiResponse = "Listening…"
+    AudioServicesPlaySystemSound(1113)                       // "begin record" chime
+    WatchConnectivityManager.shared.sendListeningState()     // buzz + label on the Watch
+
+    monitorForSilence()
+  }
+
+  /// Polls the recorder's audio level and auto-stops ~1.5s after the user goes
+  /// quiet (only once speech was actually detected), with a hard 12s cap.
+  private func monitorForSilence() {
+    Task { @MainActor in
+      var elapsed: TimeInterval = 0
+      var silence: TimeInterval = 0
+      var heardSpeech = false
+
+      while isRecording, let recorder = audioRecorder {
+        try? await Task.sleep(nanoseconds: UInt64(Self.meterPollSeconds * 1_000_000_000))
+        guard isRecording else { return }
+
+        recorder.updateMeters()
+        let power = recorder.averagePower(forChannel: 0)
+        elapsed += Self.meterPollSeconds
+
+        if power > Self.silenceThresholdDB {
+          heardSpeech = true
+          silence = 0
+        } else if heardSpeech {
+          silence += Self.meterPollSeconds
+        }
+
+        if Self.shouldStopRecording(elapsed: elapsed, silence: silence, heardSpeech: heardSpeech) {
+          await finishVoiceQuery()
+          return
+        }
+      }
     }
   }
 
@@ -229,12 +284,22 @@ final class StreamSessionViewModel {
     audioRecorder = nil
     isRecording = false
 
-    guard let url = recordingURL, let frame = voiceQueryFrame else { return }
+    AudioServicesPlaySystemSound(1114)   // "end record" chime
+
+    guard let url = recordingURL else { return }
     recordingURL = nil
-    voiceQueryFrame = nil
+
+    // Capture the frame NOW — after the question — so the AI sees what the user is
+    // looking at when they finish asking, not what they saw when they tapped.
+    guard let frame = currentVideoFrame else {
+      showError("No video frame available — make sure streaming is active.")
+      try? FileManager.default.removeItem(at: url)
+      return
+    }
 
     isAnalyzing = true
-    aiResponse = "Listening..."
+    aiResponse = "Thinking…"
+    WatchConnectivityManager.shared.sendThinkingState()
 
     do {
       let (text, audioData) = try await ChatGPTStreamingService.shared.analyzeVoiceAndFrame(
@@ -247,6 +312,7 @@ final class StreamSessionViewModel {
       playAudioData(audioData)
     } catch {
       aiResponse = "Error: \(error.localizedDescription)"
+      WatchConnectivityManager.shared.sendAIResponse(aiResponse)
     }
 
     isAnalyzing = false
@@ -254,8 +320,17 @@ final class StreamSessionViewModel {
   }
 
   private func playAudioData(_ data: Data) {
+    print("🔊 TTS reply: \(data.count) bytes")
+    guard !data.isEmpty else {
+      print("⚠️ StreamSessionViewModel: TTS returned no audio")
+      return
+    }
     do {
-      try AVAudioSession.sharedInstance().setCategory(.playAndRecord, mode: .default, options: [.allowBluetoothA2DP])
+      // .playback (NOT .playAndRecord) so Bluetooth uses the full-quality A2DP
+      // profile. .playAndRecord forces the low-bandwidth HFP profile, which was
+      // cutting the spoken reply off after a few words on the glasses.
+      try AVAudioSession.sharedInstance().setCategory(.playback, mode: .spokenAudio, options: [.allowBluetoothA2DP])
+      try AVAudioSession.sharedInstance().setActive(true)
       audioPlayer = try AVAudioPlayer(data: data)
       audioPlayer?.play()
     } catch {
@@ -277,6 +352,10 @@ final class StreamSessionViewModel {
   // MARK: - Private
 
   private func startSession() async {
+    // Pre-warm microphone permission so the first "Ask AI" tap doesn't stall on the
+    // permission prompt the very first time. Fire-and-forget; result is read later.
+    AVAudioSession.sharedInstance().requestRecordPermission { _ in }
+
     let deviceSession: DeviceSession
     do {
       deviceSession = try await sessionManager.getSession()

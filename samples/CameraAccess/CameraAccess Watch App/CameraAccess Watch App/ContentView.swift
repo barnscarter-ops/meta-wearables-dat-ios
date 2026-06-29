@@ -2,33 +2,56 @@ import SwiftUI
 
 struct ContentView: View {
     @State private var isLiveModeEnabled = false
-    @State private var isRecording = false
     @ObservedObject private var connectivity = WatchConnectivityManager.shared
+
+    // The listening/thinking window is controlled by the phone (auto-stops on
+    // silence), so the Watch reflects the phone's reported state instead of a
+    // local toggle that would drift out of sync.
+    private var isListening: Bool { connectivity.glassesState == .listening }
+    private var isThinking: Bool { connectivity.glassesState == .thinking }
+    private var isBusy: Bool { isListening || isThinking }
+
+    private var statusIcon: String {
+        if isListening { return "mic.fill" }
+        if isThinking { return "ellipsis.circle.fill" }
+        return "eye.fill"
+    }
+    private var statusColor: Color {
+        if isListening { return .red }
+        if isThinking { return .yellow }
+        return isLiveModeEnabled ? .green : .white
+    }
+    private var statusText: String {
+        if isListening { return "Listening…" }
+        if isThinking { return "Thinking…" }
+        return isLiveModeEnabled ? "Live ON" : "Ready"
+    }
 
     var body: some View {
         ScrollView {
             VStack(spacing: 12) {
-                // Status icon + label
+                // Status icon + label — driven by the phone's reported state
                 HStack(spacing: 8) {
-                    Image(systemName: isRecording ? "mic.fill" : "eye.fill")
-                        .foregroundColor(isRecording ? .red : (isLiveModeEnabled ? .green : .gray))
-                        .symbolEffect(.pulse, isActive: isRecording)
+                    Image(systemName: statusIcon)
+                        .foregroundColor(statusColor)
+                        .symbolEffect(.pulse, isActive: isBusy)
 
-                    Text(isRecording ? "Listening..." : (isLiveModeEnabled ? "Live ON" : "Ready"))
+                    Text(statusText)
                         .font(.system(size: 13, weight: .semibold, design: .rounded))
-                        .foregroundColor(isRecording ? .red : (isLiveModeEnabled ? .green : .white))
+                        .foregroundColor(statusColor)
                 }
 
-                // Primary: voice query trigger
+                // Primary: voice query trigger. Disabled while a query is in
+                // flight so a stray tap can't cancel mid-listen.
                 Button(action: {
-                    isRecording.toggle()
                     WatchConnectivityManager.shared.triggerVoiceQuery()
                 }) {
-                    Label(isRecording ? "Stop" : "Ask AI", systemImage: isRecording ? "stop.fill" : "mic.fill")
+                    Label("Ask AI", systemImage: "mic.fill")
                         .fontWeight(.semibold)
                 }
                 .buttonStyle(.borderedProminent)
-                .tint(isRecording ? .red : .blue)
+                .tint(.blue)
+                .disabled(isBusy)
 
                 // Secondary: live auto-analysis toggle
                 Button(action: {

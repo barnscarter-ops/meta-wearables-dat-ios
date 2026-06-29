@@ -36,6 +36,27 @@ final class StreamSessionViewModelUnitTests: XCTestCase {
     XCTAssertNil(viewModel.capturedPhoto)
     XCTAssertFalse(viewModel.showPhotoPreview)
   }
+
+  // Voice-query auto-stop-on-silence timing logic.
+  func testShouldStopRecordingOnSilenceAfterSpeech() {
+    // Spoke, then quiet for 1.5s → stop.
+    XCTAssertTrue(StreamSessionViewModel.shouldStopRecording(elapsed: 4.0, silence: 1.5, heardSpeech: true))
+  }
+
+  func testShouldNotStopWhileStillSpeaking() {
+    // Speech detected but only 0.5s of silence so far → keep recording.
+    XCTAssertFalse(StreamSessionViewModel.shouldStopRecording(elapsed: 4.0, silence: 0.5, heardSpeech: true))
+  }
+
+  func testShouldNotStopOnLeadingSilence() {
+    // Quiet for a while but the user hasn't started talking yet → keep waiting.
+    XCTAssertFalse(StreamSessionViewModel.shouldStopRecording(elapsed: 3.0, silence: 3.0, heardSpeech: false))
+  }
+
+  func testShouldStopAtHardCapEvenWithoutSpeech() {
+    // Nobody spoke, but we've hit the 12s cap → stop anyway.
+    XCTAssertTrue(StreamSessionViewModel.shouldStopRecording(elapsed: 12.0, silence: 0.0, heardSpeech: false))
+  }
 }
 
 private final class FakeListenerToken: AnyListenerToken, @unchecked Sendable {

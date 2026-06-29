@@ -1,6 +1,11 @@
 import Combine
 import Foundation
 import WatchConnectivity
+import WatchKit
+
+enum GlassesState: Equatable {
+    case idle, listening, thinking
+}
 
 @MainActor
 final class WatchConnectivityManager: NSObject, ObservableObject, WCSessionDelegate {
@@ -8,6 +13,7 @@ final class WatchConnectivityManager: NSObject, ObservableObject, WCSessionDeleg
 
     @Published var isLiveModeEnabled: Bool = false
     @Published var lastAIResponse: String = ""
+    @Published var glassesState: GlassesState = .idle
 
     private override init() {
         super.init()
@@ -46,8 +52,22 @@ final class WatchConnectivityManager: NSObject, ObservableObject, WCSessionDeleg
 
     nonisolated func session(_ session: WCSession, didReceiveMessage message: [String: Any]) {
         Task { @MainActor in
+            if let state = message["state"] as? String {
+                switch state {
+                case "listening":
+                    glassesState = .listening
+                    WKInterfaceDevice.current().play(.start)   // buzz: "ask your question now"
+                case "thinking":
+                    glassesState = .thinking
+                    WKInterfaceDevice.current().play(.click)   // tap: "got it, working"
+                default:
+                    glassesState = .idle
+                }
+            }
             if let text = message["ai_response"] as? String {
                 lastAIResponse = text
+                glassesState = .idle                           // reply arrived — back to ready
+                WKInterfaceDevice.current().play(.notification)
             }
         }
     }
