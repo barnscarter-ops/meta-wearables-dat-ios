@@ -39,6 +39,16 @@ jobs:
       - name: Check out repository
         uses: actions/checkout@v4
 
+      - name: Create placeholder Secrets.plist
+        run: |
+          set -euo pipefail
+          # Secrets.plist is a required build input but gitignored (it holds API keys).
+          # CI has no real keys; copy the checked-in example. loadKey() rejects the
+          # PASTE_YOUR_*_HERE placeholders and falls back to sample analysis, so the
+          # build and tests run without live keys.
+          cp samples/CameraAccess/CameraAccess/Secrets.plist.example \
+             samples/CameraAccess/CameraAccess/Secrets.plist
+
       - name: Show Xcode and simulator environment
         run: |
           set -euo pipefail
