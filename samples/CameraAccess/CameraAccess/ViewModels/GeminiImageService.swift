@@ -79,7 +79,7 @@ struct GeminiPhotoAnalysisService: PhotoAnalysisService {
 
 // Low-level Gemini vision caller shared by both paths above.
 struct GeminiVisionCaller {
-    private let endpoint = URL(string: "https://generativelanguage.googleapis.com/v1beta/models/gemini-2.0-flash:generateContent")!
+    private let endpoint = URL(string: "https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5-flash:generateContent")!
     private let apiKey: String
 
     init(apiKey: String) {
