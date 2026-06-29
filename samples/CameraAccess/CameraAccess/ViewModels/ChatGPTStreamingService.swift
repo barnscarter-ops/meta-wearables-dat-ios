@@ -1,11 +1,24 @@
 import Foundation
 import UIKit
 
-enum ChatGPTError: Error {
+enum ChatGPTError: LocalizedError {
     case invalidAPIKey
     case networkError(Error)
     case apiError(String)
     case decodingError
+
+    var errorDescription: String? {
+        switch self {
+        case .invalidAPIKey:
+            return "No valid OpenAI API key found. Add your key to Secrets.plist under OPENAI_API_KEY."
+        case .networkError(let underlying):
+            return "Network error: \(underlying.localizedDescription)"
+        case .apiError(let message):
+            return message
+        case .decodingError:
+            return "Failed to parse the OpenAI response."
+        }
+    }
 }
 
 @MainActor
@@ -72,10 +85,19 @@ final class ChatGPTStreamingService {
 
         request.httpBody = try JSONSerialization.data(withJSONObject: body)
 
-        let (data, response) = try await URLSession.shared.data(for: request)
+        let data: Data
+        let response: URLResponse
+        do {
+            (data, response) = try await URLSession.shared.data(for: request)
+        } catch {
+            throw ChatGPTError.networkError(error)
+        }
 
         guard let httpResponse = response as? HTTPURLResponse, httpResponse.statusCode == 200 else {
-            let errorMsg = String(data: data, encoding: .utf8) ?? "Unknown API error"
+            // Try to extract the human-readable message from OpenAI's error JSON.
+            let errorMsg = (try? JSONDecoder().decode(OpenAIErrorEnvelope.self, from: data))?.error.message
+                ?? String(data: data, encoding: .utf8)
+                ?? "Unknown API error"
             throw ChatGPTError.apiError(errorMsg)
         }
 
@@ -144,6 +166,13 @@ final class ChatGPTStreamingService {
         let (data, _) = try await URLSession.shared.data(for: request)
         return data
     }
+}
+
+struct OpenAIErrorEnvelope: Decodable {
+    struct OpenAIError: Decodable {
+        let message: String
+    }
+    let error: OpenAIError
 }
 
 struct TranscriptionResponse: Codable {
