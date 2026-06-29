@@ -2,6 +2,18 @@
 
 This guide outlines the exact steps to get the CameraAccess app from a Cloud Mac instance onto your physical iPhone using TestFlight.
 
+> **Note:** Phases 2–3 below (manual Xcode archive + Organizer upload) are superseded by the automated `/deploy` engine, which clones `main`, injects secrets, signs, archives, and uploads to TestFlight over SSH. The manual steps are kept for reference / fallback only.
+
+## ✅ Keeping builds green (so `/deploy` is clean every time)
+
+`/deploy` builds a release **archive** of `main`; if `main` doesn't compile, the deploy fails. The **CameraAccess iOS Simulator** GitHub Actions workflow compiles + unit-tests on every push to `main`, so build breakage is caught at push time *before* you deploy. If that workflow is red, fix it before pressing `/deploy`.
+
+Three things have broken the build before — avoid reintroducing them:
+
+1. **Swift 6 main-actor isolation.** A `@MainActor` class that conforms to a delegate protocol (e.g. `WCSessionDelegate`) must mark those delegate methods `nonisolated` — the protocol requirements are nonisolated and a main-actor method can't satisfy them under Swift 6. Likewise, a `static` helper that only reads `ProcessInfo`/`Bundle` (e.g. `GeminiImageService.loadKey()`) should be `nonisolated` so nonisolated code can call it. Bodies that touch main-actor state hop via `Task { @MainActor in … }`.
+2. **`Secrets.plist` is gitignored but is a required build input.** It holds API keys, so it's never committed. The deploy engine injects the real keys from `~/deploy-secrets/<bundle-id>.env`; CI copies `Secrets.plist.example` (placeholder values that `loadKey()` rejects, falling back to sample analysis). Never commit real keys.
+3. **AI model names get retired.** Keep model strings current. Gemini uses `gemini-2.5-flash` (`gemini-2.0-flash` now returns HTTP 404). OpenAI uses `gpt-4o` / `gpt-4.1-mini`.
+
 ## 🛠 Phase 1: Account Setup
 - [ ] **Apple Developer Program**: Enroll at [developer.apple.com](https://developer.apple.com/). (Required for TestFlight).
 - [ ] **Cloud Mac Instance**: Set up your MacinCloud or AWS Mac instance.
