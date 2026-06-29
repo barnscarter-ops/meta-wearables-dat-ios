@@ -1,4 +1,5 @@
 require 'base64'
+require 'shellwords'
 
 default_platform(:ios)
 
@@ -8,31 +9,33 @@ platform :ios do
     keychain_name = "ci_keychain"
     keychain_pass = "ci_temp_pass"
 
-    # The self-hosted runner persists state between deploys. A keychain left behind by
-    # a previous (or crashed) run makes create_keychain skip creation and then fail on
-    # a follow-up `security` command, so always tear down any stale one and start clean.
-    keychain_db    = File.expand_path("~/Library/Keychains/#{keychain_name}-db")
-    keychain_plain = File.expand_path("~/Library/Keychains/#{keychain_name}")
-    delete_keychain(name: keychain_name) if File.exist?(keychain_db) || File.exist?(keychain_plain)
+    # Set up the signing keychain with explicit `security` commands instead of
+    # fastlane's create_keychain action. create_keychain runs every security call with
+    # log:false, so when one fails in the runner's context it reports only an opaque
+    # "Shell command exited with exit status 1" with no stderr — undebuggable. These
+    # explicit calls surface the actual command output in the CI log. The setup is also
+    # idempotent (delete first), since the self-hosted runner persists state between runs.
+    sh("security delete-keychain #{keychain_name} 2>/dev/null || true")
+    sh("security create-keychain -p #{keychain_pass} #{keychain_name}")
+    # 6h timeout, no -l/-u so the keychain never auto-locks mid-build.
+    sh("security set-keychain-settings -t 21600 #{keychain_name}")
+    sh("security unlock-keychain -p #{keychain_pass} #{keychain_name}")
+    # Prepend our keychain to the user search list (keeping existing entries) so
+    # codesign can find the Distribution identity.
+    existing = sh("security list-keychains -d user", log: false).split("\n").map { |l| l.strip.delete('"') }.reject(&:empty?)
+    sh("security list-keychains -d user -s #{keychain_name} #{existing.shelljoin}")
 
-    create_keychain(
-      name: keychain_name,
-      password: keychain_pass,
-      default_keychain: true,
-      unlock: true,
-      timeout: 3600,
-      lock_when_sleeps: false,
-      add_to_search_list: true
-    )
-
-    # Import Distribution cert so xcodebuild can sign the archive
+    # Import Distribution cert so xcodebuild can sign the archive. set_partition_list
+    # runs `security set-key-partition-list` so codesign can use the private key
+    # non-interactively (no UI prompt) in the headless runner.
     p12_path = "/tmp/dist_cert.p12"
     File.write(p12_path, Base64.decode64(ENV["DIST_CERT_P12_BASE64"]))
     import_certificate(
       certificate_path: p12_path,
       certificate_password: ENV["DIST_CERT_P12_PASSWORD"],
       keychain_name: keychain_name,
-      keychain_password: keychain_pass
+      keychain_password: keychain_pass,
+      set_partition_list: true
     )
 
     api_key = app_store_connect_api_key(
