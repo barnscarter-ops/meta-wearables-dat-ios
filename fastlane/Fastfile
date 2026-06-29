@@ -8,6 +8,13 @@ platform :ios do
     keychain_name = "ci_keychain"
     keychain_pass = "ci_temp_pass"
 
+    # The self-hosted runner persists state between deploys. A keychain left behind by
+    # a previous (or crashed) run makes create_keychain skip creation and then fail on
+    # a follow-up `security` command, so always tear down any stale one and start clean.
+    keychain_db    = File.expand_path("~/Library/Keychains/#{keychain_name}-db")
+    keychain_plain = File.expand_path("~/Library/Keychains/#{keychain_name}")
+    delete_keychain(name: keychain_name) if File.exist?(keychain_db) || File.exist?(keychain_plain)
+
     create_keychain(
       name: keychain_name,
       password: keychain_pass,
