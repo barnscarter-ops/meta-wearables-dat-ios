@@ -95,7 +95,7 @@ struct PhotoPreviewView: View {
         .foregroundStyle(.white)
 
       if analysisViewModel.supportsAPIKey {
-        SecureField("OpenAI API key (optional for demo)", text: $analysisViewModel.apiKey)
+        SecureField("Gemini API key (optional for demo)", text: $analysisViewModel.apiKey)
           .textInputAutocapitalization(.never)
           .autocorrectionDisabled()
           .font(.system(size: 14))

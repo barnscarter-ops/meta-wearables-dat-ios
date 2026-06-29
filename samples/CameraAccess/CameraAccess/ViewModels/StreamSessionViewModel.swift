@@ -139,7 +139,7 @@ final class StreamSessionViewModel {
     aiResponse = "Thinking..."
 
     do {
-      let response = try await ChatGPTStreamingService.shared.analyzeFrame(
+      let response = try await GeminiImageService.shared.analyzeFrame(
         image: frame,
         prompt: "You are a helpful, real-time AI assistant seeing a live stream from Meta Ray-Ban glasses. Your goal is to be the user's 'eyes' and 'brain'. Describe the scene concisely, identify key objects, and answer questions naturally. If you see something interesting or dangerous, point it out immediately. Keep responses brief and conversational."
       )
