@@ -15,7 +15,8 @@ jobs:
         # and xcodebuild resolve ~ into the root-owned /Library (unwritable) and fail.
         # Resolve the real home from the directory service (independent of the broken
         # $HOME) and export it to every subsequent step via $GITHUB_ENV.
-        run: echo "HOME=$(dscl . -read /Users/"$(id -un)" NFSHomeDirectory | sed 's/.*: //')" >> "$GITHUB_ENV"
+        run: |
+          echo "HOME=$(dscl . -read /Users/"$(id -un)" NFSHomeDirectory | sed 's/.*: //')" >> "$GITHUB_ENV"
 
       - uses: actions/checkout@v4
 
