@@ -40,9 +40,10 @@ platform :ios do
                .split("\n").map { |l| l.strip.delete('"') }
                .reject(&:empty?).reject { |k| k.include?("ci_keychain") }
     sh("security list-keychains -s #{kc} #{existing.shelljoin}")
-    # Make ours the default keychain too (also bare `-s` for the live session) so
-    # find-identity has a default to fall back on.
-    sh("security default-keychain -s #{kc}")
+    # NOTE: deliberately do NOT call `security default-keychain`. find-identity (and
+    # codesign) resolve identities via the search list above, not the default keychain.
+    # Bare `default-keychain -s` errors with "SecKeychainSetDefault: Write permissions"
+    # in the cron session, and `-d user -s` would only affect a future session anyway.
 
     # Import Distribution cert so xcodebuild can sign the archive.
     p12_path = "/tmp/dist_cert.p12"
