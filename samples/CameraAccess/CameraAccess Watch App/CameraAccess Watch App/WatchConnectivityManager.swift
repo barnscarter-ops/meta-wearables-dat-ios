@@ -18,16 +18,20 @@ final class WatchConnectivityManager: NSObject, WCSessionDelegate {
 
     func toggleLiveMode() {
         isLiveModeEnabled.toggle()
+        sendAction("toggle_live_mode")
+    }
 
-        if WCSession.default.isReachable {
-            // Send the specific action the iOS app is listening for
-            WCSession.default.sendMessage(["action": "toggle_live_mode"], replyHandler: { response in
-                print("iOS app acknowledged live mode toggle: \(response)")
-            }, errorHandler: { error in
-                print("Error sending live mode toggle: \(error.localizedDescription)")
-            })
-        } else {
-            print("iOS app not reachable")
+    func triggerVoiceQuery() {
+        sendAction("voice_query")
+    }
+
+    private func sendAction(_ action: String) {
+        guard WCSession.default.isReachable else {
+            print("⚠️ WatchConnectivityManager: iOS app not reachable")
+            return
+        }
+        WCSession.default.sendMessage(["action": action], replyHandler: nil) { error in
+            print("⚠️ WatchConnectivityManager: failed to send \(action): \(error.localizedDescription)")
         }
     }
 

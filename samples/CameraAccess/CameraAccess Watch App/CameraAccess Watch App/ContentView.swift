@@ -2,30 +2,42 @@ import SwiftUI
 
 struct ContentView: View {
     @State private var isLiveModeEnabled = false
+    @State private var isRecording = false
 
     var body: some View {
-        VStack(spacing: 20) {
-            Image(systemName: "eye.fill")
+        VStack(spacing: 16) {
+            Image(systemName: isRecording ? "mic.fill" : "eye.fill")
                 .resizable()
                 .scaledToFit()
-                .frame(width: 40, height: 40)
-                .foregroundColor(isLiveModeEnabled ? .green : .gray)
-                .opacity(isLiveModeEnabled ? 1 : 0.5)
+                .frame(width: 36, height: 36)
+                .foregroundColor(isRecording ? .red : (isLiveModeEnabled ? .green : .gray))
+                .symbolEffect(.pulse, isActive: isRecording)
 
-            Text(isLiveModeEnabled ? "GPT LIVE" : "GPT IDLE")
-                .font(.system(size: 16, weight: .bold, design: .rounded))
-                .foregroundColor(isLiveModeEnabled ? .green : .white)
+            Text(isRecording ? "Listening..." : (isLiveModeEnabled ? "Live ON" : "Ready"))
+                .font(.system(size: 14, weight: .semibold, design: .rounded))
+                .foregroundColor(isRecording ? .red : (isLiveModeEnabled ? .green : .white))
 
+            // Primary: voice query trigger
+            Button(action: {
+                isRecording.toggle()
+                WatchConnectivityManager.shared.triggerVoiceQuery()
+            }) {
+                Label(isRecording ? "Stop" : "Ask AI", systemImage: isRecording ? "stop.fill" : "mic.fill")
+                    .fontWeight(.semibold)
+            }
+            .buttonStyle(.borderedProminent)
+            .tint(isRecording ? .red : .blue)
+
+            // Secondary: live auto-analysis toggle
             Button(action: {
                 isLiveModeEnabled.toggle()
                 WatchConnectivityManager.shared.toggleLiveMode()
             }) {
-                Text(isLiveModeEnabled ? "Stop Analysis" : "Start Live Chat")
-                    .fontWeight(.semibold)
+                Text(isLiveModeEnabled ? "Live: Stop" : "Live: Start")
+                    .font(.system(size: 12))
             }
-            .buttonStyle(.borderedProminent)
-            .tint(isLiveModeEnabled ? .red : .blue)
-            .cornerRadius(12)
+            .buttonStyle(.bordered)
+            .tint(isLiveModeEnabled ? .orange : .gray)
         }
         .padding()
     }

@@ -101,14 +101,15 @@ struct ControlsView: View {
       }
 
       CustomButton(
-        title: viewModel.isAnalyzing ? "Thinking..." : "Ask AI",
-        style: .primary,
-        isDisabled: viewModel.isAnalyzing
+        title: viewModel.isRecording ? "Stop" : (viewModel.isAnalyzing ? "Thinking..." : "Ask AI"),
+        style: viewModel.isRecording ? .destructive : .primary,
+        isDisabled: viewModel.isAnalyzing && !viewModel.isRecording
       ) {
         Task {
-          await viewModel.askAI()
+          await viewModel.triggerVoiceQuery()
         }
       }
+      .accessibilityIdentifier("ask_ai_button")
 
       CustomButton(
         title: viewModel.isLiveModeEnabled ? "Live: ON" : "Live: OFF",
