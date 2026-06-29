@@ -15,6 +15,7 @@
 		8FD96B882E6F0A9800F56AB1 /* StreamSessionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8FD96B752E6F0A9800F56AB1 /* StreamSessionView.swift */; };
 		8FD96B8A2E6F0A9800F56AB1 /* PhotoPreviewView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8FD96B742E6F0A9800F56AB1 /* PhotoPreviewView.swift */; };
 		8FD96B8D2E6F0A9800F56AB1 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 8FD96B772E6F0A9800F56AB1 /* Assets.xcassets */; };
+		FEEE00412F95003100000001 /* Secrets.plist in Resources */ = {isa = PBXBuildFile; fileRef = FEEE00402F95003000000001 /* Secrets.plist */; };
 		8FD96B952E6F0F7D00F56AB1 /* MWDATCore in Frameworks */ = {isa = PBXBuildFile; productRef = 8FD96B942E6F0F7D00F56AB1 /* MWDATCore */; };
 		8FD96B952E6F0F7D00F56AB2 /* MWDATCamera in Frameworks */ = {isa = PBXBuildFile; productRef = 8FD96B942E6F0F7D00F56AB2 /* MWDATCamera */; };
 		8FD96B952E6F0F7D00F56AB3 /* MWDATMockDevice in Frameworks */ = {isa = PBXBuildFile; productRef = 8FD96B942E6F0F7D00F56AB3 /* MWDATMockDevice */; };
@@ -108,6 +109,7 @@
 		8FD96B782E6F0A9800F56AB1 /* CameraAccess.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = CameraAccess.entitlements; sourceTree = "<group>"; };
 		8FD96B792E6F0A9800F56AB1 /* CameraAccessApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CameraAccessApp.swift; sourceTree = "<group>"; };
 		8FD96B7B2E6F0A9800F56AB1 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		FEEE00402F95003000000001 /* Secrets.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Secrets.plist; sourceTree = "<group>"; };
 		8FFD5FF22E8422580035E446 /* CircleButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CircleButton.swift; sourceTree = "<group>"; };
 		8FFD5FF32E8422580035E446 /* CustomButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomButton.swift; sourceTree = "<group>"; };
 		8FFD60292E8433E20035E446 /* MockDeviceKitViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockDeviceKitViewModel.swift; sourceTree = "<group>"; };
@@ -246,6 +248,7 @@
 				8FD96B782E6F0A9800F56AB1 /* CameraAccess.entitlements */,
 				8FD96B792E6F0A9800F56AB1 /* CameraAccessApp.swift */,
 				8FD96B7B2E6F0A9800F56AB1 /* Info.plist */,
+				FEEE00402F95003000000001 /* Secrets.plist */,
 			);
 			path = CameraAccess;
 			sourceTree = "<group>";
@@ -444,6 +447,7 @@
 				E66CC01B2F3E1A9300B07379 /* plant.png in Resources */,
 				E66CC01C2F3E1A9300B07379 /* plant.mp4 in Resources */,
 				8FD96B8D2E6F0A9800F56AB1 /* Assets.xcassets in Resources */,
+				FEEE00412F95003100000001 /* Secrets.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

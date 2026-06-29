@@ -72,6 +72,37 @@ platform :ios do
     )
     build_number = latest + 1
 
+    # Bundle the OpenAI API key into the app. Secrets.plist is gitignored and is the
+    # ONLY on-device source of the key (process env vars don't exist in an installed
+    # TestFlight build), and the project now requires it as a build resource. So CI
+    # materializes it from the OPENAI_API_KEY secret before archiving.
+    openai_key = ENV["OPENAI_API_KEY"].to_s.strip
+    if openai_key.empty?
+      UI.user_error!("OPENAI_API_KEY is not set — the build would ship without a working API key.")
+    end
+    # A dead/rotated key looks identical to a live one until used, so authenticate it
+    # against OpenAI now and fail the deploy loudly instead of shipping a build that
+    # 401s on every AI call. Key is read from $OPENAI_API_KEY so it stays out of argv/logs.
+    auth_code = sh(
+      %(curl -s -o /dev/null -w '%{http_code}' https://api.openai.com/v1/models -H "Authorization: Bearer $OPENAI_API_KEY"),
+      log: false
+    ).strip
+    unless auth_code == "200"
+      UI.user_error!("OPENAI_API_KEY failed to authenticate with OpenAI (HTTP #{auth_code}) — aborting before build.")
+    end
+    secrets_plist = "#{repo_root}/samples/CameraAccess/CameraAccess/Secrets.plist"
+    # OpenAI keys are [A-Za-z0-9_-] only, so no XML escaping is needed here.
+    File.write(secrets_plist, <<~PLIST)
+      <?xml version="1.0" encoding="UTF-8"?>
+      <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+      <plist version="1.0">
+      <dict>
+          <key>OPENAI_API_KEY</key>
+          <string>#{openai_key}</string>
+      </dict>
+      </plist>
+    PLIST
+
     # Archive manually with the Distribution identity so the export step is signed
     # for the App Store. With SKIP_INSTALL=YES on the Watch target the archive has a
     # single product, so xcodebuild writes ApplicationProperties correctly on its own.

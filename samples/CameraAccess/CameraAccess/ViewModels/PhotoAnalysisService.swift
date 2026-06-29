@@ -18,7 +18,18 @@ protocol PhotoAnalysisService {
 
 enum PhotoAnalysisServiceFactory {
   static var defaultAPIKey: String {
-    ProcessInfo.processInfo.environment["OPENAI_API_KEY"] ?? ""
+    // Env var works for Xcode/simulator runs; the bundled Secrets.plist is the only
+    // source in an installed TestFlight build (CI writes it from a secret at build time).
+    if let envKey = ProcessInfo.processInfo.environment["OPENAI_API_KEY"], !envKey.isEmpty {
+      return envKey
+    }
+    if let path = Bundle.main.path(forResource: "Secrets", ofType: "plist"),
+       let dict = NSDictionary(contentsOfFile: path),
+       let bundledKey = dict["OPENAI_API_KEY"] as? String,
+       bundledKey != "PASTE_YOUR_OPENAI_KEY_HERE" {
+      return bundledKey
+    }
+    return ""
   }
 
   static func makeDefault() -> any PhotoAnalysisService {
