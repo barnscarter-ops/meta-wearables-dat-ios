@@ -16,6 +16,15 @@
 - Ruby unit tests and all integration steps **run on the Mac over SSH** (Ruby/fastlane/Xcode live there). The inner loop syncs source to the Mac with `scp` (fast, no commit noise), and commits happen at the end of each task.
 - An SSH host alias `macdeploy` is configured in Task 0 so every remote command is short. Credentials come from the existing `C:\Users\carte\.claude\macincloud.env`.
 - "Run on Mac" steps are literally `ssh macdeploy '<cmd>'` from the PC's Bash tool.
+- **CRITICAL — login shell required:** the working Ruby (3.4.4 via Homebrew at `/opt/homebrew/opt/ruby/bin`) and `bundle` are only on PATH in a **login** shell. A non-login `ssh macdeploy 'ruby ...'` gets system Ruby 2.6.10 and fails. Therefore **every remote command that runs ruby/bundle/fastlane/deploy.sh must be wrapped**: `ssh macdeploy 'bash -lc "<cmd>"'`. Mind the nested quoting (single-quote the outer, double-quote the `bash -lc` body). `fastlane` is not global — always `bundle exec fastlane`.
+
+### Known environment (verified during prep, 2026-06-28)
+- SSH works: `user943340@TX185.macincloud.com`, key `C:\Users\carte\.ssh\macincloud_key`.
+- `gh` authed as `barnscarter-ops`.
+- Login-shell Ruby 3.4.4, bundler 2.6.5. System (non-login) Ruby is 2.6.10 — avoid.
+- Already on the Mac (reuse for Task 7): `~/secrets/AuthKey_S63KVZ3ZTY.p8`, `~/dist_cert.p12` (the distribution cert), and the `Apple Distribution: Carter Barns (R9DLFUKL26)` identity in the keychain.
+- ASC_KEY_ID `S63KVZ3ZTY`, ASC_ISSUER_ID `1e046f6d-dcf8-4a24-aa9b-658a62ec972a`, team `R9DLFUKL26`.
+- **Still needed from the user for Task 7:** the `.p12` password and the OpenAI API key value. Everything else is present.
 
 **Secrets discipline (non-negotiable, per global rules):** no secret *values* ever enter the engine repo or git. Only secret *names/paths* appear in `ios-deploy.json`. All values live in `~/deploy-secrets/` on the Mac, `chmod 600`.
 
