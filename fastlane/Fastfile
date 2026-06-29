@@ -32,9 +32,7 @@ platform :ios do
     existing = sh("security list-keychains -d user", log: false).split("\n").map { |l| l.strip.delete('"') }.reject(&:empty?)
     sh("security list-keychains -d user -s #{kc} #{existing.shelljoin}")
 
-    # Import Distribution cert so xcodebuild can sign the archive. set_partition_list
-    # runs `security set-key-partition-list` so codesign can use the private key
-    # non-interactively (no UI prompt) in the headless runner.
+    # Import Distribution cert so xcodebuild can sign the archive.
     p12_path = "/tmp/dist_cert.p12"
     File.write(p12_path, Base64.decode64(ENV["DIST_CERT_P12_BASE64"]))
     import_certificate(
@@ -42,9 +40,12 @@ platform :ios do
       certificate_password: ENV["DIST_CERT_P12_PASSWORD"],
       keychain_name: keychain_name,
       keychain_path: keychain_path,
-      keychain_password: keychain_pass,
-      set_partition_list: true
+      keychain_password: keychain_pass
     )
+    # fastlane 2.236.1's import_certificate has no set_partition_list option, so run
+    # set-key-partition-list ourselves. Without it codesign blocks on a UI prompt for
+    # keychain access, which hangs forever in the headless runner.
+    sh("security set-key-partition-list -S apple-tool:,apple:,codesign: -s -k #{keychain_pass} #{kc}")
 
     api_key = app_store_connect_api_key(
       key_id: ENV["ASC_KEY_ID"],
