@@ -1,5 +1,6 @@
 require 'base64'
 require 'shellwords'
+require 'etc'
 
 default_platform(:ios)
 
@@ -8,22 +9,28 @@ platform :ios do
   lane :deploy do
     keychain_name = "ci_keychain"
     keychain_pass = "ci_temp_pass"
+    # Resolve the keychain to an ABSOLUTE path from the password database rather than a
+    # bare name. `security` resolves a bare name via $HOME, and the runner's job process
+    # launches with HOME="/", so a bare name resolves to /Library/Keychains (root-owned,
+    # unwritable) and create-keychain dies with "UNIX[Permission denied]" (exit 173).
+    # Etc.getpwuid.dir reads the real home from the directory service, ignoring $HOME.
+    keychain_path = File.join(Etc.getpwuid.dir, "Library", "Keychains", keychain_name)
 
     # Set up the signing keychain with explicit `security` commands instead of
-    # fastlane's create_keychain action. create_keychain runs every security call with
-    # log:false, so when one fails in the runner's context it reports only an opaque
-    # "Shell command exited with exit status 1" with no stderr — undebuggable. These
-    # explicit calls surface the actual command output in the CI log. The setup is also
-    # idempotent (delete first), since the self-hosted runner persists state between runs.
-    sh("security delete-keychain #{keychain_name} 2>/dev/null || true")
-    sh("security create-keychain -p #{keychain_pass} #{keychain_name}")
+    # fastlane's create_keychain action, which runs every call with log:false and so
+    # reports failures as an opaque "exit status 1" with no stderr. These surface the
+    # real command output, and are idempotent (delete first) since the self-hosted
+    # runner persists state between runs.
+    kc = keychain_path.shellescape
+    sh("security delete-keychain #{kc} 2>/dev/null || true")
+    sh("security create-keychain -p #{keychain_pass} #{kc}")
     # 6h timeout, no -l/-u so the keychain never auto-locks mid-build.
-    sh("security set-keychain-settings -t 21600 #{keychain_name}")
-    sh("security unlock-keychain -p #{keychain_pass} #{keychain_name}")
+    sh("security set-keychain-settings -t 21600 #{kc}")
+    sh("security unlock-keychain -p #{keychain_pass} #{kc}")
     # Prepend our keychain to the user search list (keeping existing entries) so
     # codesign can find the Distribution identity.
     existing = sh("security list-keychains -d user", log: false).split("\n").map { |l| l.strip.delete('"') }.reject(&:empty?)
-    sh("security list-keychains -d user -s #{keychain_name} #{existing.shelljoin}")
+    sh("security list-keychains -d user -s #{kc} #{existing.shelljoin}")
 
     # Import Distribution cert so xcodebuild can sign the archive. set_partition_list
     # runs `security set-key-partition-list` so codesign can use the private key
@@ -34,6 +41,7 @@ platform :ios do
       certificate_path: p12_path,
       certificate_password: ENV["DIST_CERT_P12_PASSWORD"],
       keychain_name: keychain_name,
+      keychain_path: keychain_path,
       keychain_password: keychain_pass,
       set_partition_list: true
     )
